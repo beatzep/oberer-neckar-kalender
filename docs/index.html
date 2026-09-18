@@ -3,340 +3,411 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>HSG Oberer Neckar - Herren Spielplan</title>
-<meta name="description" content="Spielplan, Tabelle und naechstes Spiel der Herren-Bezirksoberliga-Mannschaft der HSG Oberer Neckar.">
+<title>HSG Oberer Neckar – Herren</title>
+<meta name="description" content="Spielplan, Tabelle und nächstes Spiel der Herren-Bezirksoberliga-Mannschaft der HSG Oberer Neckar.">
 <style>
+:root {
+  --akzent: #2f8f74; --akzent-tief: #226b57; --akzent-schwach: rgba(47,143,116,.12);
+  --tinte: #14140f; --tinte-weich: #4a4a42; --leise: #7a776d;
+  --linie: #dedbd3; --linie-zart: #ebe9e3;
+  --grund: #ffffff; --schwarz: #14140f; --auf-schwarz: #f7f5f0;
+  --sieg: #2f7d4f; --niederlage: #a4443a;
+}
+@media (prefers-color-scheme: dark) {
   :root {
-    --blau: #1c3f6e;
-    --hell: #f4f6f9;
-    --rand: #dfe4ea;
-    --text: #202730;
+    --akzent: #4fbfa0; --akzent-tief: #2f8f74; --akzent-schwach: rgba(79,191,160,.14);
+    --tinte: #f2efe8; --tinte-weich: #b8b4a9; --leise: #8c877c;
+    --linie: #33312b; --linie-zart: #24221e;
+    --grund: #0d0d0b; --schwarz: #000000; --auf-schwarz: #f2efe8;
+    --sieg: #5cbf85; --niederlage: #e08076;
   }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0; padding: 0 1rem 3rem;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    color: var(--text); background: #fff;
-  }
-  .kopf {
-    background: var(--blau); color: #fff; margin: 0 -1rem 1.5rem; padding: 1.5rem 1rem;
-  }
-  .kopf h1 { margin: 0 0 0.25rem; font-size: 1.4rem; }
-  .kopf p { margin: 0; opacity: 0.85; font-size: 0.95rem; }
-  main { max-width: 720px; margin: 0 auto; }
-  section { margin-bottom: 2rem; }
-  h2 { font-size: 1.1rem; border-bottom: 2px solid var(--rand); padding-bottom: 0.4rem; }
-  .naechstes {
-    background: var(--hell); border: 1px solid var(--rand); border-radius: 10px;
-    padding: 1rem 1.2rem;
-  }
-  .naechstes .wer { font-weight: 600; font-size: 1.15rem; margin: 0 0 0.3rem; }
-  .naechstes .wann { margin: 0; color: #4a5568; }
-  .naechstes .halle { margin: 0.3rem 0 0; color: #4a5568; font-size: 0.9rem; }
-  table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
-  th, td { text-align: left; padding: 0.45rem 0.5rem; border-bottom: 1px solid var(--rand); }
-  th { color: #4a5568; font-weight: 600; font-size: 0.85rem; }
-  tr.eigene { background: #eaf1fb; font-weight: 600; }
-  td.marke { color: #4a5568; }
-  .abo {
-    display: inline-block; margin-top: 0.6rem; padding: 0.5rem 0.9rem;
-    background: var(--blau); color: #fff; text-decoration: none; border-radius: 6px; font-size: 0.9rem;
-  }
-  footer { max-width: 720px; margin: 2rem auto 0; color: #718096; font-size: 0.85rem; }
+}
+*, *::before, *::after { box-sizing: border-box; border-radius: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--grund); color: var(--tinte);
+  font: 400 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, sans-serif;
+  font-variant-numeric: tabular-nums; -webkit-font-smoothing: antialiased;
+}
+.huelle { max-width: 720px; margin: 0 auto; padding: 0 22px; }
+a { color: inherit; }
+
+.kopf { background: var(--schwarz); color: var(--auf-schwarz);
+         border-bottom: 2px solid var(--akzent); }
+.kopf .huelle { padding: 26px 22px 30px; }
+.zeile1 { font-size: .82rem; font-weight: 600; letter-spacing: .04em; color: var(--akzent); }
+.kopf h1 { margin: 6px 0 0; font-size: clamp(2rem, 10vw, 2.9rem); font-weight: 300;
+            line-height: 1.06; letter-spacing: -.015em; }
+.kopf .liga { margin: 12px 0 0; font-size: .92rem; color: rgba(247,245,240,.62); }
+
+.teil { padding: 34px 0 0; }
+.rubrik { border-top: 1px solid var(--linie); padding-top: 14px; margin-bottom: 22px;
+           font-size: .95rem; font-weight: 600; color: var(--leise); }
+
+.marker { font-size: .82rem; font-weight: 600; color: var(--akzent-tief);
+           letter-spacing: .04em; margin: 0 0 10px; }
+.paarung { font-size: clamp(1.4rem, 6.5vw, 1.9rem); font-weight: 400; line-height: 1.2;
+            letter-spacing: -.01em; margin: 0 0 20px; overflow-wrap: anywhere; }
+.paarung .gegen { color: var(--leise); font-weight: 300; }
+.fakten { margin: 0; }
+.fakten dt { float: left; width: 78px; color: var(--leise); font-size: .95rem;
+              clear: left; padding: 11px 0; border-top: 1px solid var(--linie-zart); }
+.fakten dd { margin: 0 0 0 96px; font-size: .95rem; padding: 11px 0;
+              border-top: 1px solid var(--linie-zart); }
+.hinweistext { color: var(--tinte-weich); font-size: .95rem; }
+
+.knopf {
+  display: inline-block; margin-top: 22px; text-align: center; text-decoration: none;
+  font: inherit; font-size: .95rem; font-weight: 600; padding: 14px 22px;
+  border: 1px solid var(--akzent); background: var(--akzent); color: #0d0d0b;
+}
+.knopf:hover { background: var(--akzent-tief); border-color: var(--akzent-tief); color: #fff; }
+
+table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+th, td { text-align: left; padding: 10px 8px; border-top: 1px solid var(--linie-zart); }
+thead th { border-top: none; border-bottom: 1px solid var(--linie);
+            color: var(--leise); font-size: .78rem; font-weight: 600;
+            letter-spacing: .04em; text-transform: uppercase; padding-bottom: 8px; }
+td.rechts, th.rechts { text-align: right; }
+.rechts { text-align: right; }
+.stark { font-weight: 700; }
+tr.eigene td { font-weight: 600; color: var(--akzent-tief); }
+td.platz { color: var(--leise); width: 2em; }
+
+.monat { font-size: .8rem; font-weight: 600; letter-spacing: .06em;
+          text-transform: uppercase; color: var(--leise); padding: 26px 0 8px; }
+.monat:first-of-type { padding-top: 4px; }
+.spiel { display: grid; grid-template-columns: 62px 1fr auto; gap: 0 14px;
+          align-items: start; padding: 14px 0; border-top: 1px solid var(--linie); }
+.spiel .datum { font-size: .86rem; font-weight: 600; line-height: 1.3; }
+.spiel .datum span { display: block; font-weight: 400; color: var(--leise); }
+.spiel .gegner { font-size: 1rem; font-weight: 500; line-height: 1.3; overflow-wrap: anywhere; }
+.spiel .halle { font-size: .86rem; color: var(--leise); margin-top: 3px; }
+.spiel .stand { font-size: .92rem; font-weight: 700; white-space: nowrap; }
+.spiel .stand.S { color: var(--sieg); }
+.spiel .stand.N { color: var(--niederlage); }
+.spiel .stand.U { color: var(--leise); }
+.spiel.vorbei { opacity: .55; }
+.spiel.vorbei .gegner { font-weight: 400; }
+
+.fuss { padding: 30px 0 40px; border-top: 1px solid var(--linie); margin-top: 30px;
+         font-size: .86rem; color: var(--leise); }
+.fuss p { margin: 0 0 10px; }
 </style>
 </head>
 <body>
 <div class="kopf">
-  <h1>HSG Oberer Neckar &ndash; Herren</h1>
-  <p>Männer Bezirksoberliga, Stuttgart-Rems-Murr</p>
+  <div class="huelle">
+    <p class="zeile1">HSG Oberer Neckar</p>
+    <h1>Herren</h1>
+    <p class="liga">Männer Bezirksoberliga &middot; Stuttgart-Rems-Murr</p>
+  </div>
 </div>
-<main>
-  <section>
-    <h2>N&auml;chstes Spiel</h2>
-    <div class="naechstes">
-      
-    <p class="wer">HSG Oberer Neckar vs. SG Schorndorf</p>
-    <p class="wann">Sa 19.09.26, 18:00 Uhr &middot; Heimspiel</p>
-    <p class="halle">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</p>
-    
-    </div>
-    <a class="abo" href="oberer-neckar.ics">Kalender abonnieren (.ics)</a>
-  </section>
+<div class="huelle">
 
-  <section>
-    <h2>Tabelle</h2>
+  <div class="teil">
+    
+    <p class="marker">Nächstes Spiel</p>
+    <p class="paarung">HSG Oberer Neckar <span class="gegen">–</span> SG Schorndorf</p>
+    <dl class="fakten"><dt>Datum</dt><dd>Sa 19.09.26</dd><dt>Anwurf</dt><dd>18:00 Uhr</dd><dt>Ort</dt><dd>Heimspiel</dd><dt>Halle</dt><dd>Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</dd></dl>
+    <a class="knopf" href="oberer-neckar.ics">Kalender abonnieren</a>
+  </div>
+
+  <div class="teil">
+    <p class="rubrik">Tabelle</p>
     <table>
       <thead>
-        <tr><th>Platz</th><th>Mannschaft</th><th>Sp.</th><th>S:U:N</th><th>Tore</th><th>Punkte</th></tr>
+        <tr><th></th><th>Mannschaft</th><th class="rechts">Sp.</th><th class="rechts">S:U:N</th><th class="rechts">Tore</th><th class="rechts">Punkte</th></tr>
       </thead>
       <tbody>
         <tr>
-          <td>1</td>
+          <td class="platz">1</td>
           <td>TV Oeffingen 1897 2</td>
-          <td>0</td>
-          <td>0:0:0</td>
-          <td>0:0</td>
-          <td>0:0</td>
+          <td class="rechts">0</td>
+          <td class="rechts">0:0:0</td>
+          <td class="rechts">0:0</td>
+          <td class="rechts stark">0:0</td>
         </tr>
         <tr>
-          <td></td>
+          <td class="platz">&nbsp;</td>
           <td>HSG Bargau/Bettringen 2</td>
-          <td>0</td>
-          <td>0:0:0</td>
-          <td>0:0</td>
-          <td>0:0</td>
+          <td class="rechts">0</td>
+          <td class="rechts">0:0:0</td>
+          <td class="rechts">0:0</td>
+          <td class="rechts stark">0:0</td>
         </tr>
         <tr>
-          <td></td>
+          <td class="platz">&nbsp;</td>
           <td>TSV Schmiden 1902 3</td>
-          <td>0</td>
-          <td>0:0:0</td>
-          <td>0:0</td>
-          <td>0:0</td>
+          <td class="rechts">0</td>
+          <td class="rechts">0:0:0</td>
+          <td class="rechts">0:0</td>
+          <td class="rechts stark">0:0</td>
         </tr>
         <tr>
-          <td></td>
+          <td class="platz">&nbsp;</td>
           <td>1. Heubacher Handballverein</td>
-          <td>0</td>
-          <td>0:0:0</td>
-          <td>0:0</td>
-          <td>0:0</td>
+          <td class="rechts">0</td>
+          <td class="rechts">0:0:0</td>
+          <td class="rechts">0:0</td>
+          <td class="rechts stark">0:0</td>
         </tr>
         <tr class="eigene">
-          <td></td>
+          <td class="platz">&nbsp;</td>
           <td>HSG Oberer Neckar</td>
-          <td>0</td>
-          <td>0:0:0</td>
-          <td>0:0</td>
-          <td>0:0</td>
+          <td class="rechts">0</td>
+          <td class="rechts">0:0:0</td>
+          <td class="rechts">0:0</td>
+          <td class="rechts stark">0:0</td>
         </tr>
         <tr>
-          <td></td>
+          <td class="platz">&nbsp;</td>
           <td>SG Schorndorf 1846</td>
-          <td>0</td>
-          <td>0:0:0</td>
-          <td>0:0</td>
-          <td>0:0</td>
+          <td class="rechts">0</td>
+          <td class="rechts">0:0:0</td>
+          <td class="rechts">0:0</td>
+          <td class="rechts stark">0:0</td>
         </tr>
         <tr>
-          <td></td>
+          <td class="platz">&nbsp;</td>
           <td>TV Obertürkheim</td>
-          <td>0</td>
-          <td>0:0:0</td>
-          <td>0:0</td>
-          <td>0:0</td>
+          <td class="rechts">0</td>
+          <td class="rechts">0:0:0</td>
+          <td class="rechts">0:0</td>
+          <td class="rechts stark">0:0</td>
         </tr>
         <tr>
-          <td></td>
+          <td class="platz">&nbsp;</td>
           <td>TSF Ditzingen 2</td>
-          <td>0</td>
-          <td>0:0:0</td>
-          <td>0:0</td>
-          <td>0:0</td>
+          <td class="rechts">0</td>
+          <td class="rechts">0:0:0</td>
+          <td class="rechts">0:0</td>
+          <td class="rechts stark">0:0</td>
         </tr>
         <tr>
-          <td></td>
+          <td class="platz">&nbsp;</td>
           <td>SF Schwaikheim 2</td>
-          <td>0</td>
-          <td>0:0:0</td>
-          <td>0:0</td>
-          <td>0:0</td>
+          <td class="rechts">0</td>
+          <td class="rechts">0:0:0</td>
+          <td class="rechts">0:0</td>
+          <td class="rechts stark">0:0</td>
         </tr>
         <tr>
-          <td></td>
+          <td class="platz">&nbsp;</td>
           <td>TSB Schwäbisch Gmünd 2</td>
-          <td>0</td>
-          <td>0:0:0</td>
-          <td>0:0</td>
-          <td>0:0</td>
+          <td class="rechts">0</td>
+          <td class="rechts">0:0:0</td>
+          <td class="rechts">0:0</td>
+          <td class="rechts stark">0:0</td>
         </tr>
         <tr>
-          <td></td>
+          <td class="platz">&nbsp;</td>
           <td>HandballTeam Heckengäu</td>
-          <td>0</td>
-          <td>0:0:0</td>
-          <td>0:0</td>
-          <td>0:0</td>
+          <td class="rechts">0</td>
+          <td class="rechts">0:0:0</td>
+          <td class="rechts">0:0</td>
+          <td class="rechts stark">0:0</td>
         </tr>
         <tr>
-          <td></td>
+          <td class="platz">&nbsp;</td>
           <td>SV Remshalden 2</td>
-          <td>0</td>
-          <td>0:0:0</td>
-          <td>0:0</td>
-          <td>0:0</td>
+          <td class="rechts">0</td>
+          <td class="rechts">0:0:0</td>
+          <td class="rechts">0:0</td>
+          <td class="rechts stark">0:0</td>
         </tr></tbody>
     </table>
-  </section>
+  </div>
 
-  <section>
-    <h2>Spielplan</h2>
-    <table>
-      <thead>
-        <tr><th>Datum</th><th>Zeit</th><th></th><th>Gegner</th><th>Ergebnis</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Sa 19.09.26</td>
-          <td>18:00</td>
-          <td class="marke">H</td>
-          <td>SG Schorndorf</td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td>So 27.09.26</td>
-          <td>18:00</td>
-          <td class="marke">A</td>
-          <td>HSG Barg/Bettr 2</td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td>Sa 03.10.26</td>
-          <td>18:00</td>
-          <td class="marke">H</td>
-          <td>TSF Ditzingen 2</td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td>Sa 17.10.26</td>
-          <td>20:00</td>
-          <td class="marke">H</td>
-          <td>TSV Schmiden 3</td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td>Sa 24.10.26</td>
-          <td>19:00</td>
-          <td class="marke">A</td>
-          <td>TV Obertürkh.</td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td>Sa 07.11.26</td>
-          <td>20:00</td>
-          <td class="marke">H</td>
-          <td>TV Oeffingen 2</td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td>Sa 21.11.26</td>
-          <td>20:00</td>
-          <td class="marke">H</td>
-          <td>SF Schwaikheim 2</td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td>Sa 28.11.26</td>
-          <td>18:30</td>
-          <td class="marke">A</td>
-          <td>HT Heckengäu</td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td>Sa 05.12.26</td>
-          <td>20:00</td>
-          <td class="marke">H</td>
-          <td>TSB Schw.Gmünd 2</td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td>Sa 12.12.26</td>
-          <td>17:00</td>
-          <td class="marke">A</td>
-          <td>SV Remshalden 2</td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td>Sa 19.12.26</td>
-          <td>19:00</td>
-          <td class="marke">A</td>
-          <td>SG Schorndorf</td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td>Sa 09.01.27</td>
-          <td>18:00</td>
-          <td class="marke">H</td>
-          <td>HT Heckengäu</td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td>Sa 23.01.27</td>
-          <td>20:00</td>
-          <td class="marke">H</td>
-          <td>HSG Barg/Bettr 2</td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td>So 31.01.27</td>
-          <td>13:30</td>
-          <td class="marke">A</td>
-          <td>1.Heubacher HV</td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td>Sa 13.02.27</td>
-          <td>18:00</td>
-          <td class="marke">A</td>
-          <td>TSF Ditzingen 2</td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td>Sa 20.02.27</td>
-          <td>20:00</td>
-          <td class="marke">H</td>
-          <td>1.Heubacher HV</td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td>Fr 26.02.27</td>
-          <td>20:30</td>
-          <td class="marke">A</td>
-          <td>TSV Schmiden 3</td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td>Sa 06.03.27</td>
-          <td>20:00</td>
-          <td class="marke">H</td>
-          <td>TV Obertürkh.</td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td>So 14.03.27</td>
-          <td>15:00</td>
-          <td class="marke">A</td>
-          <td>TV Oeffingen 2</td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td>Sa 10.04.27</td>
-          <td>15:00</td>
-          <td class="marke">A</td>
-          <td>SF Schwaikheim 2</td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td>Sa 17.04.27</td>
-          <td>18:00</td>
-          <td class="marke">H</td>
-          <td>SV Remshalden 2</td>
-          <td>-</td>
-        </tr>
-        <tr>
-          <td>So 25.04.27</td>
-          <td>17:00</td>
-          <td class="marke">A</td>
-          <td>TSB Schw.Gmünd 2</td>
-          <td>-</td>
-        </tr></tbody>
-    </table>
-  </section>
-</main>
-<footer>
-  <p>Daten von handball4all (Baden-W&uuml;rttembergischer Handball-Verband), Stand: Letzte Änderung: Mo, 03.08.2026, 17:31h.
-  Torverl&auml;ufe und Spielberichte f&uuml;hrt der Verband auf dieser Ebene nicht &ndash; deshalb stehen hier nur Termine und Endst&auml;nde.
-  Zuletzt geholt: 18.09.2026 10:57.</p>
-</footer>
+  <div class="teil">
+    <p class="rubrik">Spielplan</p>
+    <p class="monat">September 2026</p>
+        <div class="spiel">
+          <div class="datum">Sa 19.09.26<span>Heim</span></div>
+          <div>
+            <div class="gegner">SG Schorndorf</div>
+            <div class="halle">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</div>
+          </div>
+          <div class="rechts"><div class="stand">18:00 Uhr</div></div>
+        </div>
+        <div class="spiel">
+          <div class="datum">So 27.09.26<span>Auswärts</span></div>
+          <div>
+            <div class="gegner">HSG Barg/Bettr 2</div>
+            <div class="halle">Uhlandhalle, Wolf-Hirth-Straße 50, 73529 Schwäb.Gmünd-Bettringen</div>
+          </div>
+          <div class="rechts"><div class="stand">18:00 Uhr</div></div>
+        </div><p class="monat">Oktober 2026</p>
+        <div class="spiel">
+          <div class="datum">Sa 03.10.26<span>Heim</span></div>
+          <div>
+            <div class="gegner">TSF Ditzingen 2</div>
+            <div class="halle">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</div>
+          </div>
+          <div class="rechts"><div class="stand">18:00 Uhr</div></div>
+        </div>
+        <div class="spiel">
+          <div class="datum">Sa 17.10.26<span>Heim</span></div>
+          <div>
+            <div class="gegner">TSV Schmiden 3</div>
+            <div class="halle">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</div>
+          </div>
+          <div class="rechts"><div class="stand">20:00 Uhr</div></div>
+        </div>
+        <div class="spiel">
+          <div class="datum">Sa 24.10.26<span>Auswärts</span></div>
+          <div>
+            <div class="gegner">TV Obertürkh.</div>
+            <div class="halle">Ballsporthalle, Augsburger Straße 581, 70329 Stuttgart</div>
+          </div>
+          <div class="rechts"><div class="stand">19:00 Uhr</div></div>
+        </div><p class="monat">November 2026</p>
+        <div class="spiel">
+          <div class="datum">Sa 07.11.26<span>Heim</span></div>
+          <div>
+            <div class="gegner">TV Oeffingen 2</div>
+            <div class="halle">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</div>
+          </div>
+          <div class="rechts"><div class="stand">20:00 Uhr</div></div>
+        </div>
+        <div class="spiel">
+          <div class="datum">Sa 21.11.26<span>Heim</span></div>
+          <div>
+            <div class="gegner">SF Schwaikheim 2</div>
+            <div class="halle">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</div>
+          </div>
+          <div class="rechts"><div class="stand">20:00 Uhr</div></div>
+        </div>
+        <div class="spiel">
+          <div class="datum">Sa 28.11.26<span>Auswärts</span></div>
+          <div>
+            <div class="gegner">HT Heckengäu</div>
+            <div class="halle">Rankbachhalle, Rankbachstraße 49, 71272 Renningen</div>
+          </div>
+          <div class="rechts"><div class="stand">18:30 Uhr</div></div>
+        </div><p class="monat">Dezember 2026</p>
+        <div class="spiel">
+          <div class="datum">Sa 05.12.26<span>Heim</span></div>
+          <div>
+            <div class="gegner">TSB Schw.Gmünd 2</div>
+            <div class="halle">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</div>
+          </div>
+          <div class="rechts"><div class="stand">20:00 Uhr</div></div>
+        </div>
+        <div class="spiel">
+          <div class="datum">Sa 12.12.26<span>Auswärts</span></div>
+          <div>
+            <div class="gegner">SV Remshalden 2</div>
+            <div class="halle">Stegwiesenhalle, Stegwiesenweg 1, 73630 Remshalden-Geradstetten</div>
+          </div>
+          <div class="rechts"><div class="stand">17:00 Uhr</div></div>
+        </div>
+        <div class="spiel">
+          <div class="datum">Sa 19.12.26<span>Auswärts</span></div>
+          <div>
+            <div class="gegner">SG Schorndorf</div>
+            <div class="halle">Sporthalle Grauhalde, Rehhaldenweg 10, 73614 Schorndorf</div>
+          </div>
+          <div class="rechts"><div class="stand">19:00 Uhr</div></div>
+        </div><p class="monat">Januar 2027</p>
+        <div class="spiel">
+          <div class="datum">Sa 09.01.27<span>Heim</span></div>
+          <div>
+            <div class="gegner">HT Heckengäu</div>
+            <div class="halle">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</div>
+          </div>
+          <div class="rechts"><div class="stand">18:00 Uhr</div></div>
+        </div>
+        <div class="spiel">
+          <div class="datum">Sa 23.01.27<span>Heim</span></div>
+          <div>
+            <div class="gegner">HSG Barg/Bettr 2</div>
+            <div class="halle">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</div>
+          </div>
+          <div class="rechts"><div class="stand">20:00 Uhr</div></div>
+        </div>
+        <div class="spiel">
+          <div class="datum">So 31.01.27<span>Auswärts</span></div>
+          <div>
+            <div class="gegner">1.Heubacher HV</div>
+            <div class="halle">Sporthalle, Adlerstraße 55, 73540 Heubach</div>
+          </div>
+          <div class="rechts"><div class="stand">13:30 Uhr</div></div>
+        </div><p class="monat">Februar 2027</p>
+        <div class="spiel">
+          <div class="datum">Sa 13.02.27<span>Auswärts</span></div>
+          <div>
+            <div class="gegner">TSF Ditzingen 2</div>
+            <div class="halle">Sporthalle Glemsaue, Gröningerstraße, 71254 Ditzingen</div>
+          </div>
+          <div class="rechts"><div class="stand">18:00 Uhr</div></div>
+        </div>
+        <div class="spiel">
+          <div class="datum">Sa 20.02.27<span>Heim</span></div>
+          <div>
+            <div class="gegner">1.Heubacher HV</div>
+            <div class="halle">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</div>
+          </div>
+          <div class="rechts"><div class="stand">20:00 Uhr</div></div>
+        </div>
+        <div class="spiel">
+          <div class="datum">Fr 26.02.27<span>Auswärts</span></div>
+          <div>
+            <div class="gegner">TSV Schmiden 3</div>
+            <div class="halle">Sporthalle beim Schulzentrum, Remstaler Straße 38, 70736 Fellbach-Schmiden</div>
+          </div>
+          <div class="rechts"><div class="stand">20:30 Uhr</div></div>
+        </div><p class="monat">März 2027</p>
+        <div class="spiel">
+          <div class="datum">Sa 06.03.27<span>Heim</span></div>
+          <div>
+            <div class="gegner">TV Obertürkh.</div>
+            <div class="halle">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</div>
+          </div>
+          <div class="rechts"><div class="stand">20:00 Uhr</div></div>
+        </div>
+        <div class="spiel">
+          <div class="datum">So 14.03.27<span>Auswärts</span></div>
+          <div>
+            <div class="gegner">TV Oeffingen 2</div>
+            <div class="halle">Sporthalle, Albert-Eise Weg 3, 70736 Fellbach-Oeffingen</div>
+          </div>
+          <div class="rechts"><div class="stand">15:00 Uhr</div></div>
+        </div><p class="monat">April 2027</p>
+        <div class="spiel">
+          <div class="datum">Sa 10.04.27<span>Auswärts</span></div>
+          <div>
+            <div class="gegner">SF Schwaikheim 2</div>
+            <div class="halle">Fritz-Ulrich-Halle, Badstraße 24, 71409 Schwaikheim</div>
+          </div>
+          <div class="rechts"><div class="stand">15:00 Uhr</div></div>
+        </div>
+        <div class="spiel">
+          <div class="datum">Sa 17.04.27<span>Heim</span></div>
+          <div>
+            <div class="gegner">SV Remshalden 2</div>
+            <div class="halle">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</div>
+          </div>
+          <div class="rechts"><div class="stand">18:00 Uhr</div></div>
+        </div>
+        <div class="spiel">
+          <div class="datum">So 25.04.27<span>Auswärts</span></div>
+          <div>
+            <div class="gegner">TSB Schw.Gmünd 2</div>
+            <div class="halle">Große Sporthalle, Katharinenstraße 33, 73525 Schwäbisch Gmünd</div>
+          </div>
+          <div class="rechts"><div class="stand">17:00 Uhr</div></div>
+        </div>
+  </div>
+
+  <div class="fuss">
+    <p>Daten von handball4all (Baden-W&uuml;rttembergischer Handball-Verband), Stand: Letzte Änderung: Mo, 03.08.2026, 17:31h.</p>
+    <p>Torverl&auml;ufe und Spielberichte f&uuml;hrt der Verband auf dieser Liga-Ebene nicht &ndash;
+    deshalb stehen hier nur Termine, Hallen und Endst&auml;nde, keine Statistiken.</p>
+    <p>Zuletzt geholt: 18.09.2026 10:57.</p>
+  </div>
+
+</div>
 </body>
 </html>
