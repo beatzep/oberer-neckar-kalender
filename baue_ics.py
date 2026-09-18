@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
-"""Baut aus daten.json eine abonnierbare .ics fuer die Herren der HSG Oberer
-Neckar. Faltung und VTIMEZONE folgen RFC 5545, wie im MuRu-Projekt
-(handball-kalender/spielplan2ics.py) - dort ausfuehrlich getestet, hier
-uebernommen statt neu erfunden."""
+"""Baut aus daten.json eine .ics je Mannschaft. Faltung und VTIMEZONE folgen
+RFC 5545, wie im MuRu-Projekt (handball-kalender/spielplan2ics.py) - dort
+ausfuehrlich getestet, hier uebernommen statt neu erfunden."""
 
 import argparse
 import json
@@ -54,9 +53,9 @@ def utc(zeitpunkt: datetime) -> str:
     return zeitpunkt.astimezone(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
 
 
-def baue(daten: dict) -> str:
+def baue(verein: str, team: dict) -> str:
     jetzt = datetime.now(timezone.utc)
-    eigene = f"HSG Oberer Neckar {daten['mannschaft']}"
+    eigene = f"{verein} {team['name']}"
     zeilen = [
         "BEGIN:VCALENDAR",
         "VERSION:2.0",
@@ -71,13 +70,15 @@ def baue(daten: dict) -> str:
         *VTIMEZONE,
     ]
 
-    for spiel in daten["spiele"]:
-        heim = spiel["heim"] == "HSG Ob. Neckar"
-        gegner = spiel["gast"] if heim else spiel["heim"]
+    for spiel in team["spiele"]:
+        heim = spiel["heim"]
+        gegner = spiel["gegner"]
         marke = "\U0001F3E0 " if heim else "\U0001F697 "
 
-        if spiel["tore_heim"] is not None and spiel["tore_gast"] is not None:
-            trenner = f" {spiel['tore_heim']}:{spiel['tore_gast']} "
+        if spiel["tore_eigene"] is not None:
+            tore_heim, tore_gast = ((spiel["tore_eigene"], spiel["tore_gegner"]) if heim
+                                     else (spiel["tore_gegner"], spiel["tore_eigene"]))
+            trenner = f" {tore_heim}:{tore_gast} "
         else:
             trenner = " - "
         titel = (f"{marke}{eigene}{trenner}{gegner}" if heim
@@ -89,12 +90,11 @@ def baue(daten: dict) -> str:
             beschreibung.append(f"Anwurf: {beginn.strftime('%H:%M')} Uhr")
         else:
             beschreibung.append("Anwurf: noch nicht angesetzt")
-        if spiel["tore_heim"] is not None and spiel["tore_gast"] is not None:
-            eig, frd = ((spiel["tore_heim"], spiel["tore_gast"]) if heim
-                        else (spiel["tore_gast"], spiel["tore_heim"]))
+        if spiel["tore_eigene"] is not None:
+            eig, frd = spiel["tore_eigene"], spiel["tore_gegner"]
             ausgang = "Sieg" if eig > frd else "Niederlage" if eig < frd else "Unentschieden"
-            beschreibung.insert(0, f"Endstand: {spiel['tore_heim']}:{spiel['tore_gast']} ({ausgang})")
-        beschreibung.append(f"Liga: {daten['liga']}")
+            beschreibung.insert(0, f"Endstand: {eig}:{frd} ({ausgang})")
+        beschreibung.append(f"Liga: {team['liga']}")
         if spiel["schiedsrichter"]:
             beschreibung.append(f"Schiedsrichter: {spiel['schiedsrichter']}")
         beschreibung.append(f"Spielnummer: {spiel['nummer']}")
@@ -118,6 +118,7 @@ def baue(daten: dict) -> str:
             "STATUS:CONFIRMED",
             "TRANSP:OPAQUE",
             f"CATEGORIES:Handball,{'Heimspiel' if heim else 'Auswaertsspiel'}",
+            f"SEQUENCE:{spiel['sequence']}",
         ]
         if spiel["halle"]:
             zeilen.append(f"LOCATION:{escape(spiel['halle'])}")
@@ -139,12 +140,14 @@ def baue(daten: dict) -> str:
 def main() -> None:
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--daten", default="daten.json")
-    p.add_argument("--out", default="docs/oberer-neckar.ics")
+    p.add_argument("--out-verzeichnis", default="docs")
     cfg = p.parse_args()
 
     daten = json.loads(Path(cfg.daten).read_text(encoding="utf-8"))
-    Path(cfg.out).write_text(baue(daten), encoding="utf-8", newline="")
-    print(f"-> {cfg.out}")
+    for team in daten["teams"].values():
+        ziel = Path(cfg.out_verzeichnis) / team["datei"]
+        ziel.write_text(baue(daten["verein"], team), encoding="utf-8", newline="")
+        print(f"-> {ziel}")
 
 
 if __name__ == "__main__":

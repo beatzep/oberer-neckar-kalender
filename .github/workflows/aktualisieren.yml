@@ -27,8 +27,8 @@ jobs:
 
       - name: Daten holen und Seite bauen
         run: |
-          python3 hole_daten.py --out daten.json
-          python3 baue_ics.py --daten daten.json --out docs/oberer-neckar.ics
+          python3 hole_daten.py --teams teams.json --out daten.json
+          python3 baue_ics.py --daten daten.json --out-verzeichnis docs
           python3 baue_seite.py --daten daten.json --out docs/index.html
 
       - name: Aenderungen committen

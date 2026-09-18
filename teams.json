@@ -1,0 +1,36 @@
+{
+  "verein": "HSG Oberer Neckar",
+  "_hinweis": "handball4all nennt jedes Team zweimal, unterschiedlich: in den Spielpaarungen (gHomeTeam/gGuestTeam) abgekuerzt 'HSG Ob. Neckar', in der Tabelle (tabTeamname) ausgeschrieben 'HSG Oberer Neckar'. name_in_quelle ist fuer die Spiele, name_tabelle fuer die Tabellenzeile - beide noetig, sonst wird entweder Heim/Gast falsch erkannt oder die eigene Zeile in der Tabelle nicht gefunden.",
+  "teams": [
+    {
+      "schluessel": "herren1",
+      "name": "Herren",
+      "name_in_quelle": "HSG Ob. Neckar",
+      "name_tabelle": "HSG Oberer Neckar",
+      "og": 216,
+      "cl": 167291,
+      "ct": 1503051,
+      "datei": "herren1.ics"
+    },
+    {
+      "schluessel": "herren2",
+      "name": "Herren II",
+      "name_in_quelle": "HSG Ob. Neckar 2",
+      "name_tabelle": "HSG Oberer Neckar 2",
+      "og": 216,
+      "cl": 167321,
+      "ct": 1503326,
+      "datei": "herren2.ics"
+    },
+    {
+      "schluessel": "damen",
+      "name": "Damen",
+      "name_in_quelle": "HSG Ob. Neckar",
+      "name_tabelle": "HSG Oberer Neckar",
+      "og": 216,
+      "cl": 161241,
+      "ct": 1471551,
+      "datei": "damen.ics"
+    }
+  ]
+}

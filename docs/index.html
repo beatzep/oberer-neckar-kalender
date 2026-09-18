@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>HSG Oberer Neckar – Herren</title>
-<meta name="description" content="Spielplan, Tabelle und nächstes Spiel der Herren-Bezirksoberliga-Mannschaft der HSG Oberer Neckar.">
+<title>HSG Oberer Neckar – Spielplan</title>
+<meta name="description" content="Spielplan, Tabelle und nächstes Spiel der Herren-, Herren-II- und Damen-Mannschaft der HSG Oberer Neckar.">
 <meta name="theme-color" content="#0a2c73">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -72,8 +72,24 @@ button { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 .marke { display: flex; align-items: center; gap: 14px; }
 .marke img { width: 48px; height: 48px; display: block; }
 .zeile1 { font-size: .82rem; font-weight: 600; letter-spacing: .04em; color: var(--gold); margin: 0; }
-.kopf h1 { margin: 2px 0 0; font-size: clamp(1.8rem, 8vw, 2.6rem); font-weight: 300;
+.kopf h1 { margin: 2px 0 0; font-size: clamp(1.6rem, 7vw, 2.3rem); font-weight: 300;
             line-height: 1.06; letter-spacing: -.015em; }
+
+.wahl { margin: 22px 0 0; }
+.wahl label { display: block; font-size: .74rem; font-weight: 600; letter-spacing: .08em;
+               text-transform: uppercase; color: rgba(243,245,250,.5); margin-bottom: 8px; }
+.wahl select {
+  appearance: none; -webkit-appearance: none; width: 100%;
+  font: inherit; font-size: 1.05rem; font-weight: 600;
+  color: var(--auf-marine); background: transparent;
+  border: 1px solid rgba(243,245,250,.28); padding: 13px 44px 13px 14px;
+  background-image: linear-gradient(45deg, transparent 50%, var(--gold) 50%),
+                    linear-gradient(135deg, var(--gold) 50%, transparent 50%);
+  background-position: calc(100% - 21px) 22px, calc(100% - 15px) 22px;
+  background-size: 6px 6px, 6px 6px; background-repeat: no-repeat;
+}
+.wahl select:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.wahl select option { color: #14140f; background: #fff; }
 .kopf .liga { margin: 14px 0 0; font-size: .9rem; color: rgba(243,245,250,.65); }
 
 .teil { padding: 30px 0 0; }
@@ -82,9 +98,12 @@ button { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 
 .marker { font-size: .82rem; font-weight: 600; color: var(--gold-tief);
            letter-spacing: .04em; margin: 0 0 10px; }
-.paarung { font-size: clamp(1.35rem, 6vw, 1.8rem); font-weight: 400; line-height: 1.22;
-            letter-spacing: -.01em; margin: 0 0 18px; overflow-wrap: anywhere; }
+.paarung { font-size: clamp(1.3rem, 5.5vw, 1.7rem); font-weight: 400; line-height: 1.22;
+            letter-spacing: -.01em; margin: 0 0 6px; overflow-wrap: anywhere; }
 .paarung .gegen { color: var(--leise); font-weight: 300; }
+.countdown { font-size: 1.02rem; font-weight: 600; color: var(--tinte);
+              margin: 10px 0 18px; font-variant-numeric: tabular-nums; }
+.countdown .einheit { color: var(--leise); font-weight: 400; font-size: .9rem; }
 .fakten { margin: 0; }
 .fakten dt { float: left; width: 78px; color: var(--leise); font-size: .95rem;
               clear: left; padding: 11px 0; border-top: 1px solid var(--linie-zart); }
@@ -115,6 +134,18 @@ button { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 .schritte li::before { content: counter(schritt); position: absolute; left: 0; top: 8px;
                         font-size: .82rem; font-weight: 600; color: var(--gold-tief); }
 code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .88em; }
+
+/* ---------- Änderungen ---------- */
+.hinweis { border-left: 2px solid var(--gold); padding: 4px 0 4px 18px; margin: 0 0 26px; }
+.hinweis h3 { margin: 0 0 8px; font-size: .82rem; font-weight: 600;
+              letter-spacing: .04em; color: var(--gold-tief); }
+.hinweis p { font-size: .95rem; color: var(--tinte-weich); }
+.hinweis ul { margin: 0 0 14px; padding-left: 18px; font-size: .95rem; }
+.hinweis li { margin: 5px 0; }
+.hinweis button { font: inherit; font-size: .88rem; font-weight: 600;
+                  background: none; border: 1px solid var(--linie);
+                  color: var(--tinte); padding: 9px 16px; cursor: pointer; }
+.hinweis button:hover { border-color: var(--gold); background: var(--gold-schwach); }
 
 /* ---------- Reiter ---------- */
 .reiter { position: sticky; top: 0; z-index: 5; background: var(--grund);
@@ -159,9 +190,6 @@ td.platz { color: var(--leise); width: 2em; }
 .spiel.vorbei { opacity: .55; }
 .spiel.vorbei .gegner { font-weight: 400; }
 
-.statistiken p { font-size: .95rem; color: var(--tinte-weich); }
-.statistiken .hinweis { border-left: 2px solid var(--gold); padding: 2px 0 2px 18px; margin-top: 18px; }
-
 .fuss { padding: 30px 0 40px; border-top: 1px solid var(--linie); margin-top: 34px;
          font-size: .86rem; color: var(--leise); }
 .fuss p { margin: 0 0 10px; }
@@ -187,31 +215,39 @@ td.platz { color: var(--leise); width: 2em; }
       <img src="logo.png" alt="Wappen der HSG Oberer Neckar" width="48" height="48">
       <div>
         <p class="zeile1">HSG Oberer Neckar</p>
-        <h1>Herren</h1>
+        <h1>Spielplan</h1>
       </div>
     </div>
-    <p class="liga">Männer Bezirksoberliga &middot; Stuttgart-Rems-Murr</p>
+    <div class="wahl">
+      <label for="teamwahl">Mannschaft</label>
+      <select id="teamwahl"><option value="herren1">Herren</option><option value="herren2">Herren II</option><option value="damen">Damen</option></select>
+    </div>
+    <p class="liga" id="ligazeile"></p>
   </div>
 </div>
 <div class="huelle">
 
-  <div class="teil">
-    
-    <p class="marker">Nächstes Spiel</p>
-    <p class="paarung">HSG Oberer Neckar <span class="gegen">–</span> SG Schorndorf</p>
-    <dl class="fakten"><dt>Datum</dt><dd>Sa 19.09.26</dd><dt>Anwurf</dt><dd>18:00 Uhr</dd><dt>Ort</dt><dd>Heimspiel</dd><dt>Halle</dt><dd><a href="https://www.google.com/maps/search/?api=1&query=Flatow-Sporthalle%2C%20Gingener%20Stra%C3%9Fe%2021%2C%2070327%20Stuttgart-Wangen" target="_blank" rel="noopener">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</a></dd></dl>
-  </div>
-
   <nav class="reiter" role="tablist">
-    <button type="button" role="tab" aria-selected="true" aria-controls="feld-spiele" id="reiter-spiele">Spiele</button>
-    <button type="button" role="tab" aria-selected="false" aria-controls="feld-tabelle" id="reiter-tabelle">Tabelle</button>
-    <button type="button" role="tab" aria-selected="false" aria-controls="feld-statistiken" id="reiter-statistiken">Statistiken</button>
-    <button type="button" role="tab" aria-selected="false" aria-controls="feld-kalender" id="reiter-kalender">Kalender</button>
+    <button type="button" role="tab" aria-selected="true" data-panel="spiele" id="reiter-spiele">Spiele</button>
+    <button type="button" role="tab" aria-selected="false" data-panel="tabelle" id="reiter-tabelle">Tabelle</button>
+    <button type="button" role="tab" aria-selected="false" data-panel="statistiken" id="reiter-statistiken">Statistiken</button>
+    <button type="button" role="tab" aria-selected="false" data-panel="kalender" id="reiter-kalender">Kalender</button>
   </nav>
 
-  <div id="feld-spiele" role="tabpanel" aria-labelledby="reiter-spiele">
+  
+  <div class="mannschaft" data-team="herren1">
     <div class="teil">
-      <p class="monat">September 2026</p>
+      
+      
+    <p class="marker">Morgen &middot; Heimspiel</p>
+    <p class="paarung">HSG Oberer Neckar Herren <span class="gegen">–</span> SG Schorndorf</p>
+    <p class="countdown" data-countdown="2026-09-19T18:00:00"></p>
+    <dl class="fakten"><dt>Datum</dt><dd>Sa 19.09.26</dd><dt>Anwurf</dt><dd>18:00 Uhr</dd><dt>Ort</dt><dd>Heimspiel</dd><dt>Halle</dt><dd><a href="https://www.google.com/maps/search/?api=1&query=Flatow-Sporthalle%2C%20Gingener%20Stra%C3%9Fe%2021%2C%2070327%20Stuttgart-Wangen" target="_blank" rel="noopener">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</a></dd></dl>
+    </div>
+
+    <div id="feld-spiele-herren1" data-panel="spiele" role="tabpanel">
+      <div class="teil">
+        <p class="monat">September 2026</p>
         <div class="spiel">
           <div class="datum">Sa 19.09.26<span>Heim</span></div>
           <div>
@@ -388,16 +424,16 @@ td.platz { color: var(--leise); width: 2em; }
           </div>
           <div class="rechts"><div class="stand">17:00 Uhr</div></div>
         </div>
+      </div>
     </div>
-  </div>
 
-  <div id="feld-tabelle" role="tabpanel" aria-labelledby="reiter-tabelle" hidden>
-    <div class="teil">
-      <table>
-        <thead>
-          <tr><th></th><th>Mannschaft</th><th class="rechts">Sp.</th><th class="rechts">S:U:N</th><th class="rechts">Tore</th><th class="rechts">Punkte</th></tr>
-        </thead>
-        <tbody>
+    <div id="feld-tabelle-herren1" data-panel="tabelle" role="tabpanel" hidden>
+      <div class="teil">
+        <table>
+      <thead>
+        <tr><th></th><th>Mannschaft</th><th class="rechts">Sp.</th><th class="rechts">S:U:N</th><th class="rechts">Tore</th><th class="rechts">Punkte</th></tr>
+      </thead>
+      <tbody>
         <tr>
           <td class="platz">1</td>
           <td>TV Oeffingen 1897 2</td>
@@ -494,13 +530,14 @@ td.platz { color: var(--leise); width: 2em; }
           <td class="rechts">0:0</td>
           <td class="rechts stark">0:0</td>
         </tr></tbody>
-      </table>
+    </table>
+      </div>
     </div>
-  </div>
 
-  <div id="feld-statistiken" role="tabpanel" aria-labelledby="reiter-statistiken" hidden>
-    <div class="teil statistiken">
-      <p>Der Verband führt auf Ebene der Bezirksoberliga keine Spielberichte mit Torschützen,
+    <div id="feld-statistiken-herren1" data-panel="statistiken" role="tabpanel" hidden>
+      <div class="teil statistiken">
+        
+      <p>Der Verband führt in der Männer Bezirksoberliga keine Spielberichte mit Torschützen,
       Torverlauf oder Zeitstrafen &ndash; anders als in höheren Ligen (Landesliga, Oberliga,
       Regionalliga), wo handball4all das anbietet.</p>
       <div class="hinweis">
@@ -509,24 +546,24 @@ td.platz { color: var(--leise); width: 2em; }
         Mannschaft einmal in eine Liga mit Spielberichten aufsteigen, kommt dieser Reiter mit
         echten Inhalten.</p>
       </div>
+      </div>
     </div>
-  </div>
 
-  <div id="feld-kalender" role="tabpanel" aria-labelledby="reiter-kalender" hidden>
-    <div class="teil">
-      
+    <div id="feld-kalender-herren1" data-panel="kalender" role="tabpanel" hidden>
+      <div class="teil">
+        
     <div class="weg">
       <h3>iPhone, iPad und Mac</h3>
       <p>Antippen, „Abonnieren" bestätigen. Verlegungen und neue Ergebnisse ziehen
       sich danach automatisch nach, ohne dass du noch mal hier vorbeischauen musst.</p>
-      <a class="knopf" href="webcal://beatzep.github.io/oberer-neckar-kalender/oberer-neckar.ics">HSG Oberer Neckar abonnieren</a>
+      <a class="knopf" href="webcal://beatzep.github.io/oberer-neckar-kalender/herren1.ics">HSG Oberer Neckar Herren abonnieren</a>
       <p class="tipp"><b>Am Mac</b> fragt der Kalender vorher noch was: „Automatisch
       aktualisieren" auf <b>Jede Stunde</b> stellen, sonst kriegst du Verlegungen
       erst Tage später mit.</p>
       <p class="tipp"><b>Passiert nach dem Antippen nichts?</b> Dann hat der Browser
       die Erlaubnis dafür schon mal verweigert, meist ohne dass man es merkt - keine
       Fehlermeldung, die Seite bleibt einfach stehen. Dann so:</p>
-      <button class="knopf stumm" type="button" data-kopiere="https://beatzep.github.io/oberer-neckar-kalender/oberer-neckar.ics">Adresse kopieren</button>
+      <button class="knopf stumm" type="button" data-kopiere="https://beatzep.github.io/oberer-neckar-kalender/herren1.ics">Adresse kopieren</button>
       <ol class="schritte">
         <li>Kalender-App öffnen</li>
         <li>Menü <strong>Ablage → Neues Kalenderabo …</strong></li>
@@ -540,7 +577,7 @@ td.platz { color: var(--leise); width: 2em; }
       <h3>Android und Google Kalender</h3>
       <p>Bei Google geht das Abonnieren nur am Computer, nicht in der Handy-App.
       Einmal am Rechner einrichten, danach ist es auf dem Handy auch da.</p>
-      <button class="knopf stumm" type="button" data-kopiere="https://beatzep.github.io/oberer-neckar-kalender/oberer-neckar.ics">Adresse kopieren</button>
+      <button class="knopf stumm" type="button" data-kopiere="https://beatzep.github.io/oberer-neckar-kalender/herren1.ics">Adresse kopieren</button>
       <ol class="schritte">
         <li>Am Computer <code>calendar.google.com</code> öffnen</li>
         <li>Links bei „Weitere Kalender" auf <strong>+</strong> klicken</li>
@@ -554,30 +591,617 @@ td.platz { color: var(--leise); width: 2em; }
       in ihren Kalender übernehmen wollen. Der Knopf lädt die Datei in deinen
       Downloads-Ordner, sie öffnet sich nicht von selbst: danach im Downloads-Ordner
       doppelklicken, dann übernimmt die Kalender-App die Termine.</p>
-      <a class="knopf stumm" href="oberer-neckar.ics" download>Datei herunterladen</a>
+      <a class="knopf stumm" href="herren1.ics" download>Datei herunterladen</a>
     </div>
+      </div>
+    </div>
+  </div>
+  <div class="mannschaft" data-team="herren2" hidden>
+    <div class="teil">
+      
+      
+    <p class="marker">Morgen &middot; Heimspiel</p>
+    <p class="paarung">HSG Oberer Neckar Herren II <span class="gegen">–</span> SV Hohen-Neu 3</p>
+    <p class="countdown" data-countdown="2026-09-19T16:00:00"></p>
+    <dl class="fakten"><dt>Datum</dt><dd>Sa 19.09.26</dd><dt>Anwurf</dt><dd>16:00 Uhr</dd><dt>Ort</dt><dd>Heimspiel</dd><dt>Halle</dt><dd><a href="https://www.google.com/maps/search/?api=1&query=Flatow-Sporthalle%2C%20Gingener%20Stra%C3%9Fe%2021%2C%2070327%20Stuttgart-Wangen" target="_blank" rel="noopener">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</a></dd></dl>
+    </div>
+
+    <div id="feld-spiele-herren2" data-panel="spiele" role="tabpanel">
+      <div class="teil">
+        <p class="monat">September 2026</p>
+        <div class="spiel">
+          <div class="datum">Sa 19.09.26<span>Heim</span></div>
+          <div>
+            <div class="gegner">SV Hohen-Neu 3</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Flatow-Sporthalle%2C%20Gingener%20Stra%C3%9Fe%2021%2C%2070327%20Stuttgart-Wangen" target="_blank" rel="noopener">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</a></div>
+          </div>
+          <div class="rechts"><div class="stand">16:00 Uhr</div></div>
+        </div>
+        <div class="spiel">
+          <div class="datum">Sa 26.09.26<span>Auswärts</span></div>
+          <div>
+            <div class="gegner">HT Heckengäu 5</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Sporthalle%20B%C3%BChl%2C%20Robert-Bosch-Stra%C3%9Fe%2C%2071277%20Rutesheim" target="_blank" rel="noopener">Sporthalle Bühl, Robert-Bosch-Straße, 71277 Rutesheim</a></div>
+          </div>
+          <div class="rechts"><div class="stand">14:00 Uhr</div></div>
+        </div><p class="monat">Oktober 2026</p>
+        <div class="spiel">
+          <div class="datum">Sa 03.10.26<span>Heim</span></div>
+          <div>
+            <div class="gegner">TSF Welzheim 2</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Flatow-Sporthalle%2C%20Gingener%20Stra%C3%9Fe%2021%2C%2070327%20Stuttgart-Wangen" target="_blank" rel="noopener">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</a></div>
+          </div>
+          <div class="rechts"><div class="stand">16:00 Uhr</div></div>
+        </div>
+        <div class="spiel">
+          <div class="datum">Sa 10.10.26<span>Auswärts</span></div>
+          <div>
+            <div class="gegner">SV Remshalden 4</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Stegwiesenhalle%2C%20Stegwiesenweg%201%2C%2073630%20Remshalden-Geradstetten" target="_blank" rel="noopener">Stegwiesenhalle, Stegwiesenweg 1, 73630 Remshalden-Geradstetten</a></div>
+          </div>
+          <div class="rechts"><div class="stand">15:00 Uhr</div></div>
+        </div><p class="monat">November 2026</p>
+        <div class="spiel">
+          <div class="datum">Sa 07.11.26<span>Heim</span></div>
+          <div>
+            <div class="gegner">KSG Gerlingen</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Flatow-Sporthalle%2C%20Gingener%20Stra%C3%9Fe%2021%2C%2070327%20Stuttgart-Wangen" target="_blank" rel="noopener">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</a></div>
+          </div>
+          <div class="rechts"><div class="stand">16:00 Uhr</div></div>
+        </div>
+        <div class="spiel">
+          <div class="datum">So 15.11.26<span>Auswärts</span></div>
+          <div>
+            <div class="gegner">MTV Stuttgart 4</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Sporthalle%20West%20%28Hasenberg-Schule%29%2C%20Bebelstra%C3%9Fe%2028%2C%2070193%20Stuttgart-West" target="_blank" rel="noopener">Sporthalle West (Hasenberg-Schule), Bebelstraße 28, 70193 Stuttgart-West</a></div>
+          </div>
+          <div class="rechts"><div class="stand">13:30 Uhr</div></div>
+        </div>
+        <div class="spiel">
+          <div class="datum">Sa 21.11.26<span>Auswärts</span></div>
+          <div>
+            <div class="gegner">SV Hohen-Neu 3</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Sporthalle%20Neustadt%2C%20Ringstra%C3%9Fe%2026%2C%2071336%20Waiblingen-Neustadt" target="_blank" rel="noopener">Sporthalle Neustadt, Ringstraße 26, 71336 Waiblingen-Neustadt</a></div>
+          </div>
+          <div class="rechts"><div class="stand">13:00 Uhr</div></div>
+        </div><p class="monat">Januar 2027</p>
+        <div class="spiel">
+          <div class="datum">Sa 23.01.27<span>Heim</span></div>
+          <div>
+            <div class="gegner">HT Heckengäu 5</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Flatow-Sporthalle%2C%20Gingener%20Stra%C3%9Fe%2021%2C%2070327%20Stuttgart-Wangen" target="_blank" rel="noopener">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</a></div>
+          </div>
+          <div class="rechts"><div class="stand">18:00 Uhr</div></div>
+        </div>
+        <div class="spiel">
+          <div class="datum">Sa 30.01.27<span>Heim</span></div>
+          <div>
+            <div class="gegner">TSV Haubersb.</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Flatow-Sporthalle%2C%20Gingener%20Stra%C3%9Fe%2021%2C%2070327%20Stuttgart-Wangen" target="_blank" rel="noopener">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</a></div>
+          </div>
+          <div class="rechts"><div class="stand">20:00 Uhr</div></div>
+        </div><p class="monat">Februar 2027</p>
+        <div class="spiel">
+          <div class="datum">Sa 13.02.27<span>Auswärts</span></div>
+          <div>
+            <div class="gegner">TSF Welzheim 2</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Justinus-Kerner-Halle%2C%20Rienharzer%20Stra%C3%9Fe%2051%2C%2073642%20Welzheim" target="_blank" rel="noopener">Justinus-Kerner-Halle, Rienharzer Straße 51, 73642 Welzheim</a></div>
+          </div>
+          <div class="rechts"><div class="stand">15:30 Uhr</div></div>
+        </div>
+        <div class="spiel">
+          <div class="datum">Sa 20.02.27<span>Heim</span></div>
+          <div>
+            <div class="gegner">MTV Stuttgart 4</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Flatow-Sporthalle%2C%20Gingener%20Stra%C3%9Fe%2021%2C%2070327%20Stuttgart-Wangen" target="_blank" rel="noopener">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</a></div>
+          </div>
+          <div class="rechts"><div class="stand">18:00 Uhr</div></div>
+        </div><p class="monat">März 2027</p>
+        <div class="spiel">
+          <div class="datum">Sa 06.03.27<span>Heim</span></div>
+          <div>
+            <div class="gegner">SV Remshalden 4</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Flatow-Sporthalle%2C%20Gingener%20Stra%C3%9Fe%2021%2C%2070327%20Stuttgart-Wangen" target="_blank" rel="noopener">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</a></div>
+          </div>
+          <div class="rechts"><div class="stand">16:00 Uhr</div></div>
+        </div>
+        <div class="spiel">
+          <div class="datum">Sa 13.03.27<span>Auswärts</span></div>
+          <div>
+            <div class="gegner">TSV Haubersb.</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Lauswiesenhalle%2C%20Lauswiesen%206%2C%2073614%20Schorndorf" target="_blank" rel="noopener">Lauswiesenhalle, Lauswiesen 6, 73614 Schorndorf</a></div>
+          </div>
+          <div class="rechts"><div class="stand">19:00 Uhr</div></div>
+        </div>
+        <div class="spiel">
+          <div class="datum">So 21.03.27<span>Auswärts</span></div>
+          <div>
+            <div class="gegner">KSG Gerlingen</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Sporthalle%20Br%C3%BCckentor%2C%20Beim%20Br%C3%BCckentor%2C%2070839%20Gerlingen" target="_blank" rel="noopener">Sporthalle Brückentor, Beim Brückentor, 70839 Gerlingen</a></div>
+          </div>
+          <div class="rechts"><div class="stand">17:00 Uhr</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="feld-tabelle-herren2" data-panel="tabelle" role="tabpanel" hidden>
+      <div class="teil">
+        <table>
+      <thead>
+        <tr><th></th><th>Mannschaft</th><th class="rechts">Sp.</th><th class="rechts">S:U:N</th><th class="rechts">Tore</th><th class="rechts">Punkte</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="platz">1</td>
+          <td>TSV Haubersbronn</td>
+          <td class="rechts">0</td>
+          <td class="rechts">0:0:0</td>
+          <td class="rechts">0:0</td>
+          <td class="rechts stark">0:0</td>
+        </tr>
+        <tr>
+          <td class="platz">&nbsp;</td>
+          <td>KSG Gerlingen</td>
+          <td class="rechts">0</td>
+          <td class="rechts">0:0:0</td>
+          <td class="rechts">0:0</td>
+          <td class="rechts stark">0:0</td>
+        </tr>
+        <tr class="eigene">
+          <td class="platz">&nbsp;</td>
+          <td>HSG Oberer Neckar 2</td>
+          <td class="rechts">0</td>
+          <td class="rechts">0:0:0</td>
+          <td class="rechts">0:0</td>
+          <td class="rechts stark">0:0</td>
+        </tr>
+        <tr>
+          <td class="platz">&nbsp;</td>
+          <td>SV Hohenacker-Neustadt 3</td>
+          <td class="rechts">0</td>
+          <td class="rechts">0:0:0</td>
+          <td class="rechts">0:0</td>
+          <td class="rechts stark">0:0</td>
+        </tr>
+        <tr>
+          <td class="platz">&nbsp;</td>
+          <td>HandballTeam Heckengäu 5</td>
+          <td class="rechts">0</td>
+          <td class="rechts">0:0:0</td>
+          <td class="rechts">0:0</td>
+          <td class="rechts stark">0:0</td>
+        </tr>
+        <tr>
+          <td class="platz">&nbsp;</td>
+          <td>MTV Stuttgart 4</td>
+          <td class="rechts">0</td>
+          <td class="rechts">0:0:0</td>
+          <td class="rechts">0:0</td>
+          <td class="rechts stark">0:0</td>
+        </tr>
+        <tr>
+          <td class="platz">&nbsp;</td>
+          <td>TSF Welzheim 2</td>
+          <td class="rechts">0</td>
+          <td class="rechts">0:0:0</td>
+          <td class="rechts">0:0</td>
+          <td class="rechts stark">0:0</td>
+        </tr>
+        <tr>
+          <td class="platz">&nbsp;</td>
+          <td>SV Remshalden 4</td>
+          <td class="rechts">0</td>
+          <td class="rechts">0:0:0</td>
+          <td class="rechts">0:0</td>
+          <td class="rechts stark">0:0</td>
+        </tr></tbody>
+    </table>
+      </div>
+    </div>
+
+    <div id="feld-statistiken-herren2" data-panel="statistiken" role="tabpanel" hidden>
+      <div class="teil statistiken">
+        
+      <p>Der Verband führt in der Männer 3. Bezirksklasse keine Spielberichte mit Torschützen,
+      Torverlauf oder Zeitstrafen &ndash; anders als in höheren Ligen (Landesliga, Oberliga,
+      Regionalliga), wo handball4all das anbietet.</p>
+      <div class="hinweis">
+        <p>Das ist keine Lücke auf dieser Seite, sondern eine Grenze der Quelle: handball4all
+        markiert das selbst (<code>scoreShowDataPerGame: false</code> für diese Liga). Sollte die
+        Mannschaft einmal in eine Liga mit Spielberichten aufsteigen, kommt dieser Reiter mit
+        echten Inhalten.</p>
+      </div>
+      </div>
+    </div>
+
+    <div id="feld-kalender-herren2" data-panel="kalender" role="tabpanel" hidden>
+      <div class="teil">
+        
+    <div class="weg">
+      <h3>iPhone, iPad und Mac</h3>
+      <p>Antippen, „Abonnieren" bestätigen. Verlegungen und neue Ergebnisse ziehen
+      sich danach automatisch nach, ohne dass du noch mal hier vorbeischauen musst.</p>
+      <a class="knopf" href="webcal://beatzep.github.io/oberer-neckar-kalender/herren2.ics">HSG Oberer Neckar Herren II abonnieren</a>
+      <p class="tipp"><b>Am Mac</b> fragt der Kalender vorher noch was: „Automatisch
+      aktualisieren" auf <b>Jede Stunde</b> stellen, sonst kriegst du Verlegungen
+      erst Tage später mit.</p>
+      <p class="tipp"><b>Passiert nach dem Antippen nichts?</b> Dann hat der Browser
+      die Erlaubnis dafür schon mal verweigert, meist ohne dass man es merkt - keine
+      Fehlermeldung, die Seite bleibt einfach stehen. Dann so:</p>
+      <button class="knopf stumm" type="button" data-kopiere="https://beatzep.github.io/oberer-neckar-kalender/herren2.ics">Adresse kopieren</button>
+      <ol class="schritte">
+        <li>Kalender-App öffnen</li>
+        <li>Menü <strong>Ablage → Neues Kalenderabo …</strong></li>
+        <li>Adresse einfügen, „Abonnieren" bestätigen</li>
+      </ol>
+      <p class="tipp">Das geht immer, egal was der Browser gerade erlaubt oder nicht -
+      die App fragt selbst bei der Adresse nach, ohne den Umweg über den Link.</p>
+    </div>
+
+    <div class="weg">
+      <h3>Android und Google Kalender</h3>
+      <p>Bei Google geht das Abonnieren nur am Computer, nicht in der Handy-App.
+      Einmal am Rechner einrichten, danach ist es auf dem Handy auch da.</p>
+      <button class="knopf stumm" type="button" data-kopiere="https://beatzep.github.io/oberer-neckar-kalender/herren2.ics">Adresse kopieren</button>
+      <ol class="schritte">
+        <li>Am Computer <code>calendar.google.com</code> öffnen</li>
+        <li>Links bei „Weitere Kalender" auf <strong>+</strong> klicken</li>
+        <li>„Per URL" wählen, Adresse einfügen, hinzufügen</li>
+      </ol>
+    </div>
+
+    <div class="weg">
+      <h3>Einmalig importieren</h3>
+      <p>Ohne Abo, ohne spätere Aktualisierung - für alle, die nur diesen Stand
+      in ihren Kalender übernehmen wollen. Der Knopf lädt die Datei in deinen
+      Downloads-Ordner, sie öffnet sich nicht von selbst: danach im Downloads-Ordner
+      doppelklicken, dann übernimmt die Kalender-App die Termine.</p>
+      <a class="knopf stumm" href="herren2.ics" download>Datei herunterladen</a>
+    </div>
+      </div>
+    </div>
+  </div>
+  <div class="mannschaft" data-team="damen" hidden>
+    <div class="teil">
+      
+      
+    <p class="marker">Nächstes Spiel &middot; Heimspiel</p>
+    <p class="paarung">HSG Oberer Neckar Damen <span class="gegen">–</span> HCOB Opp/BK</p>
+    <p class="countdown" data-countdown="2026-10-04T15:00:00"></p>
+    <dl class="fakten"><dt>Datum</dt><dd>So 04.10.26</dd><dt>Anwurf</dt><dd>15:00 Uhr</dd><dt>Ort</dt><dd>Heimspiel</dd><dt>Halle</dt><dd><a href="https://www.google.com/maps/search/?api=1&query=Flatow-Sporthalle%2C%20Gingener%20Stra%C3%9Fe%2021%2C%2070327%20Stuttgart-Wangen" target="_blank" rel="noopener">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</a></dd></dl>
+    </div>
+
+    <div id="feld-spiele-damen" data-panel="spiele" role="tabpanel">
+      <div class="teil">
+        <p class="monat">Oktober 2026</p>
+        <div class="spiel">
+          <div class="datum">So 04.10.26<span>Heim</span></div>
+          <div>
+            <div class="gegner">HCOB Opp/BK</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Flatow-Sporthalle%2C%20Gingener%20Stra%C3%9Fe%2021%2C%2070327%20Stuttgart-Wangen" target="_blank" rel="noopener">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</a></div>
+          </div>
+          <div class="rechts"><div class="stand">15:00 Uhr</div></div>
+        </div>
+        <div class="spiel">
+          <div class="datum">Sa 31.10.26<span>Auswärts</span></div>
+          <div>
+            <div class="gegner">SV Leonb/Elt 2</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Sporthalle%20beim%20Sportzentrum%2C%20Steinstra%C3%9Fe%2018%2C%2071229%20Leonberg" target="_blank" rel="noopener">Sporthalle beim Sportzentrum, Steinstraße 18, 71229 Leonberg</a></div>
+          </div>
+          <div class="rechts"><div class="stand">17:30 Uhr</div></div>
+        </div><p class="monat">November 2026</p>
+        <div class="spiel">
+          <div class="datum">Sa 07.11.26<span>Heim</span></div>
+          <div>
+            <div class="gegner">MTV Stuttgart</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Flatow-Sporthalle%2C%20Gingener%20Stra%C3%9Fe%2021%2C%2070327%20Stuttgart-Wangen" target="_blank" rel="noopener">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</a></div>
+          </div>
+          <div class="rechts"><div class="stand">18:00 Uhr</div></div>
+        </div>
+        <div class="spiel">
+          <div class="datum">So 15.11.26<span>Auswärts</span></div>
+          <div>
+            <div class="gegner">TSV ALLOWA</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Sporthalle%2C%20Obere%20Schlo%C3%9Fstra%C3%9Fe%2072%2C%2073553%20Alfdorf" target="_blank" rel="noopener">Sporthalle, Obere Schloßstraße 72, 73553 Alfdorf</a></div>
+          </div>
+          <div class="rechts"><div class="stand">15:00 Uhr</div></div>
+        </div>
+        <div class="spiel">
+          <div class="datum">Sa 21.11.26<span>Heim</span></div>
+          <div>
+            <div class="gegner">SV Fellbach</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Flatow-Sporthalle%2C%20Gingener%20Stra%C3%9Fe%2021%2C%2070327%20Stuttgart-Wangen" target="_blank" rel="noopener">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</a></div>
+          </div>
+          <div class="rechts"><div class="stand">18:00 Uhr</div></div>
+        </div>
+        <div class="spiel">
+          <div class="datum">So 29.11.26<span>Auswärts</span></div>
+          <div>
+            <div class="gegner">SG Weissach</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Sporthalle%20beim%20Bildungszentrum%2C%20Aichholzhof%2C%2071554%20Weissach%20i.T-Unterweissach" target="_blank" rel="noopener">Sporthalle beim Bildungszentrum, Aichholzhof, 71554 Weissach i.T-Unterweissach</a></div>
+          </div>
+          <div class="rechts"><div class="stand">16:45 Uhr</div></div>
+        </div><p class="monat">Dezember 2026</p>
+        <div class="spiel">
+          <div class="datum">Sa 05.12.26<span>Heim</span></div>
+          <div>
+            <div class="gegner">SG Weinstadt 2</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Flatow-Sporthalle%2C%20Gingener%20Stra%C3%9Fe%2021%2C%2070327%20Stuttgart-Wangen" target="_blank" rel="noopener">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</a></div>
+          </div>
+          <div class="rechts"><div class="stand">18:00 Uhr</div></div>
+        </div>
+        <div class="spiel">
+          <div class="datum">Sa 12.12.26<span>Heim</span></div>
+          <div>
+            <div class="gegner">SF Schwaikheim 2</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Flatow-Sporthalle%2C%20Gingener%20Stra%C3%9Fe%2021%2C%2070327%20Stuttgart-Wangen" target="_blank" rel="noopener">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</a></div>
+          </div>
+          <div class="rechts"><div class="stand">18:00 Uhr</div></div>
+        </div>
+        <div class="spiel">
+          <div class="datum">Sa 19.12.26<span>Auswärts</span></div>
+          <div>
+            <div class="gegner">SF Schwaikheim 2</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Fritz-Ulrich-Halle%2C%20Badstra%C3%9Fe%2024%2C%2071409%20Schwaikheim" target="_blank" rel="noopener">Fritz-Ulrich-Halle, Badstraße 24, 71409 Schwaikheim</a></div>
+          </div>
+          <div class="rechts"><div class="stand">15:30 Uhr</div></div>
+        </div><p class="monat">Februar 2027</p>
+        <div class="spiel">
+          <div class="datum">So 14.02.27<span>Auswärts</span></div>
+          <div>
+            <div class="gegner">HCOB Opp/BK</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Gemeindehalle%2C%20Jahnstra%C3%9Fe%2C%2071570%20Oppenweiler" target="_blank" rel="noopener">Gemeindehalle, Jahnstraße, 71570 Oppenweiler</a></div>
+          </div>
+          <div class="rechts"><div class="stand">15:00 Uhr</div></div>
+        </div>
+        <div class="spiel">
+          <div class="datum">Sa 20.02.27<span>Auswärts</span></div>
+          <div>
+            <div class="gegner">SV Fellbach</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Zeppelinhalle%2C%20Thomas-Mann-Stra%C3%9Fe%2053%2C%2070734%20Fellbach" target="_blank" rel="noopener">Zeppelinhalle, Thomas-Mann-Straße 53, 70734 Fellbach</a></div>
+          </div>
+          <div class="rechts"><div class="stand">18:00 Uhr</div></div>
+        </div><p class="monat">März 2027</p>
+        <div class="spiel">
+          <div class="datum">Sa 06.03.27<span>Heim</span></div>
+          <div>
+            <div class="gegner">SG Weissach</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Flatow-Sporthalle%2C%20Gingener%20Stra%C3%9Fe%2021%2C%2070327%20Stuttgart-Wangen" target="_blank" rel="noopener">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</a></div>
+          </div>
+          <div class="rechts"><div class="stand">18:00 Uhr</div></div>
+        </div>
+        <div class="spiel">
+          <div class="datum">Sa 13.03.27<span>Heim</span></div>
+          <div>
+            <div class="gegner">SV Leonb/Elt 2</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Flatow-Sporthalle%2C%20Gingener%20Stra%C3%9Fe%2021%2C%2070327%20Stuttgart-Wangen" target="_blank" rel="noopener">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</a></div>
+          </div>
+          <div class="rechts"><div class="stand">19:15 Uhr</div></div>
+        </div>
+        <div class="spiel">
+          <div class="datum">Sa 20.03.27<span>Auswärts</span></div>
+          <div>
+            <div class="gegner">MTV Stuttgart</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Sporthalle%20West%20%28Hasenberg-Schule%29%2C%20Bebelstra%C3%9Fe%2028%2C%2070193%20Stuttgart-West" target="_blank" rel="noopener">Sporthalle West (Hasenberg-Schule), Bebelstraße 28, 70193 Stuttgart-West</a></div>
+          </div>
+          <div class="rechts"><div class="stand">18:00 Uhr</div></div>
+        </div><p class="monat">April 2027</p>
+        <div class="spiel">
+          <div class="datum">Sa 03.04.27<span>Heim</span></div>
+          <div>
+            <div class="gegner">TSV ALLOWA</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Flatow-Sporthalle%2C%20Gingener%20Stra%C3%9Fe%2021%2C%2070327%20Stuttgart-Wangen" target="_blank" rel="noopener">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</a></div>
+          </div>
+          <div class="rechts"><div class="stand">18:00 Uhr</div></div>
+        </div>
+        <div class="spiel">
+          <div class="datum">Sa 24.04.27<span>Auswärts</span></div>
+          <div>
+            <div class="gegner">SG Weinstadt 2</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Sporthalle%2C%20Im%20Obenhinaus%205%2C%2071384%20Weinstadt-Beutelsbach" target="_blank" rel="noopener">Sporthalle, Im Obenhinaus 5, 71384 Weinstadt-Beutelsbach</a></div>
+          </div>
+          <div class="rechts"><div class="stand">16:00 Uhr</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="feld-tabelle-damen" data-panel="tabelle" role="tabpanel" hidden>
+      <div class="teil">
+        <table>
+      <thead>
+        <tr><th></th><th>Mannschaft</th><th class="rechts">Sp.</th><th class="rechts">S:U:N</th><th class="rechts">Tore</th><th class="rechts">Punkte</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="platz">1</td>
+          <td>MTV Stuttgart</td>
+          <td class="rechts">0</td>
+          <td class="rechts">0:0:0</td>
+          <td class="rechts">0:0</td>
+          <td class="rechts stark">0:0</td>
+        </tr>
+        <tr>
+          <td class="platz">&nbsp;</td>
+          <td>SG Weinstadt 2</td>
+          <td class="rechts">0</td>
+          <td class="rechts">0:0:0</td>
+          <td class="rechts">0:0</td>
+          <td class="rechts stark">0:0</td>
+        </tr>
+        <tr>
+          <td class="platz">&nbsp;</td>
+          <td>SF Schwaikheim 2</td>
+          <td class="rechts">0</td>
+          <td class="rechts">0:0:0</td>
+          <td class="rechts">0:0</td>
+          <td class="rechts stark">0:0</td>
+        </tr>
+        <tr>
+          <td class="platz">&nbsp;</td>
+          <td>SV Leonberg/Eltingen 2</td>
+          <td class="rechts">0</td>
+          <td class="rechts">0:0:0</td>
+          <td class="rechts">0:0</td>
+          <td class="rechts stark">0:0</td>
+        </tr>
+        <tr>
+          <td class="platz">&nbsp;</td>
+          <td>TSV Alfdorf/Lorch/Waldhausen</td>
+          <td class="rechts">0</td>
+          <td class="rechts">0:0:0</td>
+          <td class="rechts">0:0</td>
+          <td class="rechts stark">0:0</td>
+        </tr>
+        <tr class="eigene">
+          <td class="platz">&nbsp;</td>
+          <td>HSG Oberer Neckar</td>
+          <td class="rechts">0</td>
+          <td class="rechts">0:0:0</td>
+          <td class="rechts">0:0</td>
+          <td class="rechts stark">0:0</td>
+        </tr>
+        <tr>
+          <td class="platz">&nbsp;</td>
+          <td>HC Oppenweiler/Backnang</td>
+          <td class="rechts">0</td>
+          <td class="rechts">0:0:0</td>
+          <td class="rechts">0:0</td>
+          <td class="rechts stark">0:0</td>
+        </tr>
+        <tr>
+          <td class="platz">&nbsp;</td>
+          <td>SV Fellbach</td>
+          <td class="rechts">0</td>
+          <td class="rechts">0:0:0</td>
+          <td class="rechts">0:0</td>
+          <td class="rechts stark">0:0</td>
+        </tr>
+        <tr>
+          <td class="platz">&nbsp;</td>
+          <td>SG Weissach im Tal</td>
+          <td class="rechts">0</td>
+          <td class="rechts">0:0:0</td>
+          <td class="rechts">0:0</td>
+          <td class="rechts stark">0:0</td>
+        </tr></tbody>
+    </table>
+      </div>
+    </div>
+
+    <div id="feld-statistiken-damen" data-panel="statistiken" role="tabpanel" hidden>
+      <div class="teil statistiken">
+        
+      <p>Der Verband führt in der Frauen-Landesliga Staffel 2 keine Spielberichte mit Torschützen,
+      Torverlauf oder Zeitstrafen &ndash; anders als in höheren Ligen (Landesliga, Oberliga,
+      Regionalliga), wo handball4all das anbietet.</p>
+      <div class="hinweis">
+        <p>Das ist keine Lücke auf dieser Seite, sondern eine Grenze der Quelle: handball4all
+        markiert das selbst (<code>scoreShowDataPerGame: false</code> für diese Liga). Sollte die
+        Mannschaft einmal in eine Liga mit Spielberichten aufsteigen, kommt dieser Reiter mit
+        echten Inhalten.</p>
+      </div>
+      </div>
+    </div>
+
+    <div id="feld-kalender-damen" data-panel="kalender" role="tabpanel" hidden>
+      <div class="teil">
+        
+    <div class="weg">
+      <h3>iPhone, iPad und Mac</h3>
+      <p>Antippen, „Abonnieren" bestätigen. Verlegungen und neue Ergebnisse ziehen
+      sich danach automatisch nach, ohne dass du noch mal hier vorbeischauen musst.</p>
+      <a class="knopf" href="webcal://beatzep.github.io/oberer-neckar-kalender/damen.ics">HSG Oberer Neckar Damen abonnieren</a>
+      <p class="tipp"><b>Am Mac</b> fragt der Kalender vorher noch was: „Automatisch
+      aktualisieren" auf <b>Jede Stunde</b> stellen, sonst kriegst du Verlegungen
+      erst Tage später mit.</p>
+      <p class="tipp"><b>Passiert nach dem Antippen nichts?</b> Dann hat der Browser
+      die Erlaubnis dafür schon mal verweigert, meist ohne dass man es merkt - keine
+      Fehlermeldung, die Seite bleibt einfach stehen. Dann so:</p>
+      <button class="knopf stumm" type="button" data-kopiere="https://beatzep.github.io/oberer-neckar-kalender/damen.ics">Adresse kopieren</button>
+      <ol class="schritte">
+        <li>Kalender-App öffnen</li>
+        <li>Menü <strong>Ablage → Neues Kalenderabo …</strong></li>
+        <li>Adresse einfügen, „Abonnieren" bestätigen</li>
+      </ol>
+      <p class="tipp">Das geht immer, egal was der Browser gerade erlaubt oder nicht -
+      die App fragt selbst bei der Adresse nach, ohne den Umweg über den Link.</p>
+    </div>
+
+    <div class="weg">
+      <h3>Android und Google Kalender</h3>
+      <p>Bei Google geht das Abonnieren nur am Computer, nicht in der Handy-App.
+      Einmal am Rechner einrichten, danach ist es auf dem Handy auch da.</p>
+      <button class="knopf stumm" type="button" data-kopiere="https://beatzep.github.io/oberer-neckar-kalender/damen.ics">Adresse kopieren</button>
+      <ol class="schritte">
+        <li>Am Computer <code>calendar.google.com</code> öffnen</li>
+        <li>Links bei „Weitere Kalender" auf <strong>+</strong> klicken</li>
+        <li>„Per URL" wählen, Adresse einfügen, hinzufügen</li>
+      </ol>
+    </div>
+
+    <div class="weg">
+      <h3>Einmalig importieren</h3>
+      <p>Ohne Abo, ohne spätere Aktualisierung - für alle, die nur diesen Stand
+      in ihren Kalender übernehmen wollen. Der Knopf lädt die Datei in deinen
+      Downloads-Ordner, sie öffnet sich nicht von selbst: danach im Downloads-Ordner
+      doppelklicken, dann übernimmt die Kalender-App die Termine.</p>
+      <a class="knopf stumm" href="damen.ics" download>Datei herunterladen</a>
+    </div>
+      </div>
     </div>
   </div>
 
   <div class="fuss">
     <p>Inoffizielle Seite eines Vereinsmitglieds, kein offizielles Angebot der HSG Oberer Neckar.</p>
-    <p>Daten von handball4all (Baden-W&uuml;rttembergischer Handball-Verband), Stand: Letzte Änderung: Mo, 03.08.2026, 17:31h.</p>
-    <p>Zuletzt geholt: 18.09.2026 11:37.</p>
+    <p>Daten von handball4all (Baden-W&uuml;rttembergischer Handball-Verband).</p>
+    <p>Zuletzt geholt: 18.09.2026 13:54.</p>
   </div>
 
 </div>
 <script>
+var LIGEN = {"herren1": {"liga": "Männer Bezirksoberliga", "bereich": "Stuttgart-Rems-Murr"}, "herren2": {"liga": "Männer 3. Bezirksklasse", "bereich": "Stuttgart-Rems-Murr"}, "damen": {"liga": "Frauen-Landesliga Staffel 2", "bereich": "Baden-Württembergischer Handball-Verband"}};
+
+(function () {
+  var wahl = document.getElementById('teamwahl');
+  var ligazeile = document.getElementById('ligazeile');
+  var SCHLUESSEL = 'oberer-neckar-team';
+
+  function zeige(schluessel) {
+    document.querySelectorAll('[data-team]').forEach(function (el) {
+      el.hidden = el.getAttribute('data-team') !== schluessel;
+    });
+    var info = LIGEN[schluessel];
+    if (info && ligazeile) ligazeile.textContent = info.liga + ' · ' + info.bereich;
+    try { localStorage.setItem(SCHLUESSEL, schluessel); } catch (e) {}
+  }
+
+  if (wahl) {
+    var gespeichert = '';
+    try { gespeichert = localStorage.getItem(SCHLUESSEL) || ''; } catch (e) {}
+    if (gespeichert && LIGEN[gespeichert]) wahl.value = gespeichert;
+    zeige(wahl.value);
+    wahl.addEventListener('change', function () { zeige(wahl.value); });
+  }
+})();
+
 (function () {
   var reiter = document.querySelectorAll('.reiter button');
   reiter.forEach(function (knopf) {
     knopf.addEventListener('click', function () {
+      var panel = knopf.getAttribute('data-panel');
       reiter.forEach(function (r) {
         r.setAttribute('aria-selected', r === knopf ? 'true' : 'false');
-        document.getElementById(r.getAttribute('aria-controls')).hidden = r !== knopf;
+      });
+      document.querySelectorAll('[data-panel="' + panel + '"][role="tabpanel"]').forEach(function (p) {
+        p.hidden = false;
+      });
+      document.querySelectorAll('[role="tabpanel"]:not([data-panel="' + panel + '"])').forEach(function (p) {
+        p.hidden = true;
       });
     });
   });
 })();
+
 (function () {
   var SCHLUESSEL = 'oberer-neckar-ansicht';
   var wurzel = document.documentElement;
@@ -619,6 +1243,7 @@ td.platz { color: var(--leise); width: 2em; }
     });
   }
 })();
+
 (function () {
   document.querySelectorAll('[data-kopiere]').forEach(function (k) {
     k.addEventListener('click', function () {
@@ -630,6 +1255,61 @@ td.platz { color: var(--leise); width: 2em; }
       });
     });
   });
+})();
+
+(function () {
+  document.querySelectorAll('[data-teile]').forEach(function (k) {
+    k.addEventListener('click', function () {
+      var text = k.getAttribute('data-teile');
+      if (navigator.share) {
+        navigator.share({ text: text }).catch(function () {});
+        return;
+      }
+      navigator.clipboard.writeText(text).then(function () {
+        var alt = k.textContent;
+        k.textContent = 'In Zwischenablage kopiert';
+        setTimeout(function () { k.textContent = alt; }, 1800);
+      });
+    });
+  });
+})();
+
+(function () {
+  var felder = [].slice.call(document.querySelectorAll('[data-countdown]'));
+  if (!felder.length) return;
+
+  function zweistellig(n) { return (n < 10 ? '0' : '') + n; }
+
+  function schreibe() {
+    var jetzt = Date.now();
+    felder.forEach(function (el) {
+      var ziel = new Date(el.getAttribute('data-countdown')).getTime();
+      if (isNaN(ziel)) return;
+      var rest = Math.floor((ziel - jetzt) / 1000);
+
+      if (rest <= 0) {
+        el.textContent = rest > -7200 ? 'Läuft gerade' : 'Angepfiffen';
+        return;
+      }
+      var tage = Math.floor(rest / 86400);
+      var std = Math.floor((rest % 86400) / 3600);
+      var min = Math.floor((rest % 3600) / 60);
+      var sek = rest % 60;
+
+      if (tage > 0) {
+        el.innerHTML = 'noch <span>' + tage + '</span> <span class="einheit">' +
+          (tage === 1 ? 'Tag' : 'Tage') + '</span> <span>' + std +
+          '</span> <span class="einheit">Std</span> <span>' + min +
+          '</span> <span class="einheit">Min</span>';
+      } else {
+        el.innerHTML = 'noch <span>' + zweistellig(std) + ':' + zweistellig(min) +
+          ':' + zweistellig(sek) + '</span> <span class="einheit">Std</span>';
+      }
+    });
+  }
+
+  schreibe();
+  setInterval(schreibe, 1000);
 })();
 </script>
 </body>
