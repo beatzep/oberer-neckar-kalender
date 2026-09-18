@@ -129,6 +129,7 @@ SEITE = """<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>HSG Oberer Neckar – Herren</title>
 <meta name="description" content="Spielplan, Tabelle und nächstes Spiel der Herren-Bezirksoberliga-Mannschaft der HSG Oberer Neckar.">
+<meta name="theme-color" content="#0a2c73">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
@@ -139,14 +140,24 @@ SEITE = """<!DOCTYPE html>
   --grund: #ffffff; --marine: #0a2c73; --auf-marine: #f3f5fa;
   --sieg: #2f7d4f; --niederlage: #a4443a;
 }}
+/* Dunkle Farben an zwei Stellen: nach Systemeinstellung (solange niemand
+   ausdruecklich hell gewaehlt hat) und bei ausdruecklicher Wahl. Wie im
+   MuRu-Projekt (seite_stil.py). */
 @media (prefers-color-scheme: dark) {{
-  :root {{
+  :root:not([data-ansicht="hell"]) {{
     --gold: #ffe14d; --gold-tief: #ffda06; --gold-schwach: rgba(255,225,77,.14);
     --tinte: #f2efe8; --tinte-weich: #b8b4a9; --leise: #8c877c;
     --linie: #2c3550; --linie-zart: #1c2440;
     --grund: #0b0e1c; --marine: #000000; --auf-marine: #f3f5fa;
     --sieg: #5cbf85; --niederlage: #e08076;
   }}
+}}
+:root[data-ansicht="dunkel"] {{
+  --gold: #ffe14d; --gold-tief: #ffda06; --gold-schwach: rgba(255,225,77,.14);
+  --tinte: #f2efe8; --tinte-weich: #b8b4a9; --leise: #8c877c;
+  --linie: #2c3550; --linie-zart: #1c2440;
+  --grund: #0b0e1c; --marine: #000000; --auf-marine: #f3f5fa;
+  --sieg: #5cbf85; --niederlage: #e08076;
 }}
 *, *::before, *::after {{ box-sizing: border-box; border-radius: 0; }}
 html {{ -webkit-text-size-adjust: 100%; }}
@@ -162,7 +173,26 @@ button {{ touch-action: manipulation; -webkit-tap-highlight-color: transparent; 
 
 .kopf {{ background: var(--marine); color: var(--auf-marine);
          border-bottom: 3px solid var(--gold); }}
-.kopf .huelle {{ padding: 22px 22px 26px; }}
+.kopf .huelle {{ padding: 22px 22px 26px; position: relative; }}
+#ansicht {{
+  position: absolute; top: 0; right: 22px;
+  width: 42px; height: 42px; padding: 0; cursor: pointer;
+  background: transparent; border: 1px solid rgba(243,245,250,.28);
+  color: rgba(243,245,250,.8); display: flex; align-items: center;
+  justify-content: center;
+}}
+#ansicht:hover {{ color: var(--gold); border-color: var(--gold); }}
+#ansicht:focus-visible {{ outline: 2px solid var(--gold); outline-offset: 2px; }}
+#ansicht svg {{ width: 20px; height: 20px; display: block; }}
+#ansicht .sonne {{ display: none; }}
+@media (prefers-color-scheme: dark) {{
+  :root:not([data-ansicht="hell"]) #ansicht .sonne {{ display: block; }}
+  :root:not([data-ansicht="hell"]) #ansicht .mond {{ display: none; }}
+}}
+:root[data-ansicht="dunkel"] #ansicht .sonne {{ display: block; }}
+:root[data-ansicht="dunkel"] #ansicht .mond {{ display: none; }}
+:root[data-ansicht="hell"] #ansicht .sonne {{ display: none; }}
+:root[data-ansicht="hell"] #ansicht .mond {{ display: block; }}
 .marke {{ display: flex; align-items: center; gap: 14px; }}
 .marke img {{ width: 48px; height: 48px; display: block; }}
 .zeile1 {{ font-size: .82rem; font-weight: 600; letter-spacing: .04em; color: var(--gold); margin: 0; }}
@@ -245,6 +275,19 @@ td.platz {{ color: var(--leise); width: 2em; }}
 <body>
 <div class="kopf">
   <div class="huelle">
+    <button id="ansicht" type="button" aria-label="Ansicht umschalten">
+      <svg class="mond" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"
+           aria-hidden="true">
+        <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/>
+      </svg>
+      <svg class="sonne" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+           stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"
+           aria-hidden="true">
+        <circle cx="12" cy="12" r="4.2"/>
+        <path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.2 5.2l1.4 1.4M17.4 17.4l1.4 1.4M18.8 5.2l-1.4 1.4M6.6 17.4l-1.4 1.4"/>
+      </svg>
+    </button>
     <div class="marke">
       <img src="logo.png" alt="Wappen der HSG Oberer Neckar" width="48" height="48">
       <div>
@@ -317,6 +360,47 @@ td.platz {{ color: var(--leise); width: 2em; }}
       }});
     }});
   }});
+}})();
+(function () {{
+  var SCHLUESSEL = 'oberer-neckar-ansicht';
+  var wurzel = document.documentElement;
+  var knopf = document.getElementById('ansicht');
+
+  function gespeichert() {{
+    try {{ return localStorage.getItem(SCHLUESSEL) || ''; }} catch (e) {{ return ''; }}
+  }}
+  function istDunkel() {{
+    var wahl = wurzel.getAttribute('data-ansicht');
+    if (wahl) return wahl === 'dunkel';
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  }}
+  function beschrifte() {{
+    if (!knopf) return;
+    knopf.setAttribute('aria-label',
+      istDunkel() ? 'Zu heller Ansicht wechseln' : 'Zu dunkler Ansicht wechseln');
+  }}
+
+  var wahl = gespeichert();
+  if (wahl === 'hell' || wahl === 'dunkel') wurzel.setAttribute('data-ansicht', wahl);
+  beschrifte();
+
+  if (knopf) {{
+    knopf.addEventListener('click', function () {{
+      var neu = istDunkel() ? 'hell' : 'dunkel';
+      wurzel.setAttribute('data-ansicht', neu);
+      try {{ localStorage.setItem(SCHLUESSEL, neu); }} catch (e) {{}}
+      var meta = document.querySelector('meta[name="theme-color"]');
+      if (meta) meta.setAttribute('content', neu === 'dunkel' ? '#000000' : '#0a2c73');
+      beschrifte();
+    }});
+  }}
+
+  var beobachter = window.matchMedia('(prefers-color-scheme: dark)');
+  if (beobachter.addEventListener) {{
+    beobachter.addEventListener('change', function () {{
+      if (!gespeichert()) beschrifte();
+    }});
+  }}
 }})();
 </script>
 </body>
