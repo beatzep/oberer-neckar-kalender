@@ -14,6 +14,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   bauen:
@@ -40,3 +41,31 @@ jobs:
           git add daten.json docs/
           git diff --staged --quiet || git commit -m "Automatische Aktualisierung"
           git push
+
+      # Kein stiller Fehler mehr: sobald keine Mannschaft mehr ein offenes
+      # Spiel hat, legt der Workflow ein Issue an - GitHub schickt dem
+      # Repo-Owner dafuer von sich aus eine Mail. Schliesst sich von selbst
+      # wieder, sobald teams.json auf die neue Saison zeigt und wieder
+      # Spiele da sind.
+      - name: Saisonende melden
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ABGESCHLOSSEN=$(python3 -c "import json; print(json.load(open('daten.json')).get('saison_abgeschlossen', False))")
+          SAISON=$(python3 -c "import json; print(json.load(open('daten.json'))['saison'])")
+          OFFEN=$(gh issue list --search "\"Saison zu Ende\" in:title" --state open --json number --jq '.[0].number // empty')
+
+          if [ "$ABGESCHLOSSEN" = "True" ]; then
+            if [ -z "$OFFEN" ]; then
+              gh issue create --title "Saison $SAISON zu Ende - IDs fuer die naechste Saison pflegen" \
+                --body "Alle drei Mannschaften haben ihr letztes Saisonspiel dieser Saison gespielt.
+
+Neue og/cl/ct-IDs fuer teams.json auf handball4all nachsehen (README, Abschnitt \"Die Quelle ist eine andere\": ueber \"Kalender abonnieren\" auf der handball4all-Seite, Rechtsklick auf den iCal-Link, URL kopieren) und \`saison\` in teams.json auf den neuen Wert setzen.
+
+hole_daten.py archiviert die alte Saison beim naechsten Lauf automatisch unter docs/archiv/ und schaltet sie im Saison-Dropdown auf der Seite frei. Dieses Issue schliesst sich von selbst, sobald wieder Spiele da sind."
+            fi
+          else
+            if [ -n "$OFFEN" ]; then
+              gh issue close "$OFFEN" --comment "Neue Spiele sind da - die IDs sind offenbar gepflegt."
+            fi
+          fi

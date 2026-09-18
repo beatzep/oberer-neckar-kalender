@@ -264,6 +264,58 @@ def baue_team_block(schluessel: str, verein: str, team: dict, basis_url: str, he
   </div>"""
 
 
+def baue_saisonwahl(aktuelle_saison: str, archiv_manifest: list[dict]) -> str:
+    """Nur sichtbar, sobald es ueberhaupt eine archivierte Saison gibt - vorher
+    saehe eine Auswahl mit einem einzigen Eintrag nur nach ungenutzter
+    Bedienung aus."""
+    if not archiv_manifest:
+        return ""
+    optionen = [f'<option value="aktuell">{aktuelle_saison} (aktuell)</option>']
+    for eintrag in sorted(archiv_manifest, key=lambda e: e["schluessel"], reverse=True):
+        optionen.append(f'<option value="{eintrag["schluessel"]}">{eintrag["label"]}</option>')
+    return f"""<div class="wahl saison">
+      <label for="saisonwahl">Saison</label>
+      <select id="saisonwahl">{''.join(optionen)}</select>
+    </div>"""
+
+
+def baue_saisonbanner(saison: str, saison_abgeschlossen: bool) -> str:
+    if not saison_abgeschlossen:
+        return ""
+    return f"""<div class="saisonbanner">
+      <p>Die Saison {saison} ist für alle drei Mannschaften beendet. Die neue Saison
+      erscheint hier, sobald der Verband die Termine veröffentlicht.</p>
+    </div>"""
+
+
+def baue_archiv_team(team: dict) -> str:
+    return f"""<div class="archivteam">
+      <h3>{team['name']}</h3>
+      {baue_tabelle(team)}
+      <div style="margin-top: 24px">{baue_spielplan(team)}</div>
+    </div>"""
+
+
+def baue_archivbloecke(archiv_manifest: list[dict], archiv_verzeichnis: Path) -> str:
+    """Vollstaendig vorgerendert beim Bauen, kein Nachladen im Browser noetig
+    - die paar Kilobyte je vergangener Saison fallen bei einem Vereinskalender
+    nicht ins Gewicht, dafuer bleiben Spielplan/Tabelle-Funktionen unveraendert
+    wiederverwendbar."""
+    bloecke = []
+    for eintrag in archiv_manifest:
+        pfad = archiv_verzeichnis / f"{eintrag['schluessel']}.json"
+        if not pfad.exists():
+            continue
+        archiv_daten = json.loads(pfad.read_text(encoding="utf-8"))
+        teams_html = "".join(baue_archiv_team(t) for t in archiv_daten["teams"].values())
+        bloecke.append(f"""
+  <div class="archiv" data-archivsaison="{eintrag['schluessel']}" hidden>
+    <p class="rubrik">Saison {eintrag['label']} &ndash; archiviert, keine weitere Aktualisierung</p>
+    {teams_html}
+  </div>""")
+    return "".join(bloecke)
+
+
 SEITE = """<!DOCTYPE html>
 <html lang="de">
 <head>
@@ -356,7 +408,16 @@ button {{ touch-action: manipulation; -webkit-tap-highlight-color: transparent; 
 }}
 .wahl select:focus-visible {{ outline: 2px solid var(--gold); outline-offset: 2px; }}
 .wahl select option {{ color: #14140f; background: #fff; }}
+.wahl.saison {{ margin: 0 0 16px; }}
 .kopf .liga {{ margin: 14px 0 0; font-size: .9rem; color: rgba(243,245,250,.65); }}
+
+.saisonbanner {{ border-left: 2px solid var(--gold); padding: 12px 0 12px 18px; margin: 26px 0 0; }}
+.saisonbanner p {{ margin: 0; font-size: .95rem; color: var(--tinte-weich); }}
+
+.archiv {{ padding: 30px 0 0; }}
+.archiv .archivteam {{ padding: 26px 0; border-top: 1px solid var(--linie); }}
+.archiv .archivteam:first-child {{ border-top: 0; }}
+.archiv .archivteam h3 {{ margin: 0 0 16px; font-size: 1.1rem; font-weight: 600; }}
 
 .teil {{ padding: 30px 0 0; }}
 .rubrik {{ border-top: 1px solid var(--linie); padding-top: 14px; margin-bottom: 22px;
@@ -484,15 +545,21 @@ td.platz {{ color: var(--leise); width: 2em; }}
         <h1>Spielplan</h1>
       </div>
     </div>
-    <div class="wahl">
-      <label for="teamwahl">Mannschaft</label>
-      <select id="teamwahl">{teamoptionen}</select>
+    {saisonwahl}
+    <div id="aktuelle-mannschaftswahl">
+      <div class="wahl">
+        <label for="teamwahl">Mannschaft</label>
+        <select id="teamwahl">{teamoptionen}</select>
+      </div>
+      <p class="liga" id="ligazeile"></p>
     </div>
-    <p class="liga" id="ligazeile"></p>
   </div>
 </div>
 <div class="huelle">
 
+  {saisonbanner}
+
+  <div id="inhalt-aktuell">
   <nav class="reiter" role="tablist">
     <button type="button" role="tab" aria-selected="true" data-panel="spiele" data-ziel="spiele" id="reiter-spiele">Spiele</button>
     <button type="button" role="tab" aria-selected="false" data-panel="tabelle" data-ziel="tabelle" id="reiter-tabelle">Tabelle</button>
@@ -501,6 +568,9 @@ td.platz {{ color: var(--leise); width: 2em; }}
   </nav>
 
   {mannschaften}
+  </div>
+
+  {archivbloecke}
 
   <div class="fuss">
     <p>Inoffizielle Seite eines Vereinsmitglieds, kein offizielles Angebot der HSG Oberer Neckar.</p>
@@ -533,6 +603,25 @@ var LIGEN = {ligen_json};
     zeige(wahl.value);
     wahl.addEventListener('change', function () {{ zeige(wahl.value); }});
   }}
+}})();
+
+(function () {{
+  var wahl = document.getElementById('saisonwahl');
+  if (!wahl) return;
+  var aktuell = document.getElementById('inhalt-aktuell');
+  var mannschaftswahl = document.getElementById('aktuelle-mannschaftswahl');
+
+  function zeige(schluessel) {{
+    var istAktuell = schluessel === 'aktuell';
+    aktuell.hidden = !istAktuell;
+    mannschaftswahl.hidden = !istAktuell;
+    document.querySelectorAll('[data-archivsaison]').forEach(function (el) {{
+      el.hidden = el.getAttribute('data-archivsaison') !== schluessel;
+    }});
+  }}
+
+  zeige(wahl.value);
+  wahl.addEventListener('change', function () {{ zeige(wahl.value); }});
 }})();
 
 (function () {{
@@ -731,6 +820,7 @@ def main() -> None:
     p.add_argument("--worker-url", default="",
                     help="Ohne Angabe wird nichts gezaehlt - die Zaehlung schaltet sich "
                          "im Browser selbst ab (seite_zaehlung.py-Aequivalent unten).")
+    p.add_argument("--archiv", default="docs/archiv")
     cfg = p.parse_args()
 
     daten = json.loads(Path(cfg.daten).read_text(encoding="utf-8"))
@@ -747,11 +837,19 @@ def main() -> None:
         {s: {"liga": t["liga"], "bereich": t["bereich"]} for s, t in daten["teams"].items()},
         ensure_ascii=False)
 
+    archiv_verzeichnis = Path(cfg.archiv)
+    manifest_pfad = archiv_verzeichnis / "manifest.json"
+    archiv_manifest = (json.loads(manifest_pfad.read_text(encoding="utf-8"))
+                        if manifest_pfad.exists() else [])
+
     seite = SEITE.format(
         teamoptionen=teamoptionen,
         mannschaften=mannschaften,
         ligen_json=ligen_json,
         worker_url=cfg.worker_url,
+        saisonwahl=baue_saisonwahl(daten.get("saison", ""), archiv_manifest),
+        saisonbanner=baue_saisonbanner(daten.get("saison", ""), daten.get("saison_abgeschlossen", False)),
+        archivbloecke=baue_archivbloecke(archiv_manifest, archiv_verzeichnis),
         geholt_am=datetime.fromisoformat(daten["geholt_am"]).strftime("%d.%m.%Y %H:%M"),
     )
     Path(cfg.out).write_text(seite, encoding="utf-8")

@@ -1,6 +1,8 @@
 {
   "verein": "HSG Oberer Neckar",
+  "saison": "26/27",
   "_hinweis": "handball4all nennt jedes Team zweimal, unterschiedlich: in den Spielpaarungen (gHomeTeam/gGuestTeam) abgekuerzt 'HSG Ob. Neckar', in der Tabelle (tabTeamname) ausgeschrieben 'HSG Oberer Neckar'. name_in_quelle ist fuer die Spiele, name_tabelle fuer die Tabellenzeile - beide noetig, sonst wird entweder Heim/Gast falsch erkannt oder die eigene Zeile in der Tabelle nicht gefunden.",
+  "_saisonwechsel": "Zur neuen Saison: og/cl/ct fuer jedes Team neu nachsehen (siehe README, Abschnitt 'Die Quelle ist eine andere') und 'saison' hier auf den neuen Wert setzen, z.B. '27/28'. hole_daten.py erkennt die Aenderung von selbst, archiviert die alte Saison unter docs/archiv/ und legt sie ins Saison-Dropdown auf der Seite - sonst nichts zu tun.",
   "teams": [
     {
       "schluessel": "herren1",

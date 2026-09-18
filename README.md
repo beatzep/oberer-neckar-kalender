@@ -23,7 +23,8 @@ Liga- und Team-IDs stehen in `teams.json`, eine Mannschaft pro Eintrag. Sie
 ändern sich nicht während der Saison, aber vermutlich von Saison zu Saison -
 dann auf der handball4all-Seite über "Kalender abonnieren" neu nachsehen
 (Rechtsklick auf den iCal-Link, URL kopieren, `cl`/`ct`/`og` rauslesen) und
-in `teams.json` eintragen.
+in `teams.json` eintragen. Kein Rätselraten nötig, wann das fällig ist: siehe
+"Saisonwechsel" weiter unten.
 
 **Falle, die schon zugeschnappt ist:** handball4all nennt jedes Team
 zweimal, unterschiedlich geschrieben. In den Spielpaarungen (`gHomeTeam`/
@@ -65,6 +66,34 @@ und heben die `SEQUENCE` des betroffenen Kalendereintrags an, damit
 abonnierte Kalender die Änderung auch wirklich übernehmen. Der Hinweis
 verschwindet von selbst wieder, sobald der nächste Lauf keine neuen
 Änderungen mehr findet.
+
+## Saisonwechsel
+
+Sobald keine der drei Mannschaften mehr ein ungespieltes Spiel hat, legt der
+Workflow automatisch ein GitHub-Issue in diesem Repo an ("Saison … zu Ende -
+IDs für die nächste Saison pflegen") - GitHub schickt dafür von selbst eine
+Mail an dich als Repo-Owner. Kein stiller Fehler mehr, kein Pop-up auf der
+öffentlichen Seite (das würde jeder Vereinskollege sehen, kann damit aber
+nichts anfangen). Auf der Seite selbst erscheint stattdessen eine ruhige,
+öffentliche Meldung ("Die Saison … ist für alle drei Mannschaften beendet…"),
+solange noch keine neue Saison eingetragen ist.
+
+So gehst du vor, wenn das Issue kommt:
+
+1. Neue `og`/`cl`/`ct`-IDs für jedes Team auf handball4all nachsehen (siehe
+   oben, "Die Quelle ist eine andere") und in `teams.json` eintragen.
+2. `saison` in `teams.json` auf den neuen Wert setzen, z. B. `"27/28"`.
+3. Fertig. `hole_daten.py` erkennt beim nächsten Lauf, dass sich `saison`
+   geändert hat, friert die alte Saison automatisch unter
+   `docs/archiv/<jjjj>.json` ein (z. B. `2627.json`) und trägt sie ins
+   Saison-Dropdown auf der Seite ein - ein zweites Dropdown über der
+   Mannschaftswahl, nur sichtbar, sobald es mindestens eine archivierte
+   Saison gibt. Das GitHub-Issue schließt sich beim selben Lauf von selbst,
+   weil wieder Spiele da sind.
+
+Archivierte Saisons zeigen Tabelle und Spielplan aller Mannschaften dieser
+Saison, ohne Kalender-Abo und ohne Countdown - die sind vorbei, dafür gibt's
+keinen Grund mehr.
 
 ## Logo
 

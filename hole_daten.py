@@ -130,6 +130,33 @@ def normalisiere_spiele(games: list[dict], name_in_quelle: str, alt: dict) -> tu
     return spiele, aenderungen
 
 
+def saison_schluessel(saison: str) -> str:
+    """'26/27' -> '2627' - fuer Dateinamen unter docs/archiv/."""
+    return "".join(z for z in saison if z.isalnum())
+
+
+def archiviere_falls_saisonwechsel(alte_daten: dict, neue_saison: str, archiv_verzeichnis: Path) -> None:
+    """Wird vor dem Ueberschreiben von daten.json aufgerufen. Findet eine
+    andere Saison als bisher, wird der alte Stand eingefroren, statt einfach
+    zu verschwinden - sonst waeren abgeschlossene Saisons nach dem naechsten
+    Lauf mit neuen teams.json-IDs unwiederbringlich weg."""
+    alte_saison = alte_daten.get("saison")
+    if not alte_saison or alte_saison == neue_saison:
+        return
+
+    archiv_verzeichnis.mkdir(parents=True, exist_ok=True)
+    schluessel = saison_schluessel(alte_saison)
+    ziel = archiv_verzeichnis / f"{schluessel}.json"
+    ziel.write_text(json.dumps(alte_daten, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+    manifest_pfad = archiv_verzeichnis / "manifest.json"
+    manifest = json.loads(manifest_pfad.read_text(encoding="utf-8")) if manifest_pfad.exists() else []
+    if not any(e["schluessel"] == schluessel for e in manifest):
+        manifest.append({"schluessel": schluessel, "label": alte_saison})
+    manifest_pfad.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(f"Saisonwechsel erkannt: {alte_saison} -> {neue_saison}, archiviert unter {ziel}")
+
+
 def normalisiere_tabelle(score: list[dict]) -> list[dict]:
     tabelle = []
     for s in score:
@@ -152,12 +179,21 @@ def main() -> None:
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--teams", default="teams.json")
     p.add_argument("--out", default="daten.json")
+    p.add_argument("--archiv", default="docs/archiv")
     cfg = p.parse_args()
 
     konfig = json.loads(Path(cfg.teams).read_text(encoding="utf-8"))
-    alt_gesamt = {}
+    saison = konfig["saison"]
+
+    alt_daten = {}
     if Path(cfg.out).exists():
-        alt_gesamt = json.loads(Path(cfg.out).read_text(encoding="utf-8")).get("teams", {})
+        alt_daten = json.loads(Path(cfg.out).read_text(encoding="utf-8"))
+    archiviere_falls_saisonwechsel(alt_daten, saison, Path(cfg.archiv))
+
+    # Nach einem Saisonwechsel gehoert der alte Stand nicht mehr in die
+    # Aenderungserkennung - andere Liga, andere Spielnummern, ein Vergleich
+    # waere Zufall statt Erkenntnis.
+    alt_gesamt = alt_daten.get("teams", {}) if alt_daten.get("saison") == saison else {}
 
     teams_neu = {}
     for team in konfig["teams"]:
@@ -191,14 +227,23 @@ def main() -> None:
         print(f"{team['name']}: {len(spiele)} Spiele"
               + (f", {len(aenderungen)} Aenderung(en)" if aenderungen else ""))
 
+    # Fuer den Hinweis auf der Seite und das GitHub-Issue bei Saisonende:
+    # kein Team hat noch ein ungespieltes Spiel (unabhaengig vom Datum -
+    # ein verschobenes, noch offenes Spiel zaehlt als nicht fertig).
+    saison_abgeschlossen = all(
+        all(s["tore_eigene"] is not None for s in t["spiele"])
+        for t in teams_neu.values())
+
     daten = {
         "verein": konfig["verein"],
+        "saison": saison,
+        "saison_abgeschlossen": saison_abgeschlossen,
         "geholt_am": datetime.now().isoformat(timespec="seconds"),
         "teams": teams_neu,
     }
     Path(cfg.out).write_text(
         json.dumps(daten, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"-> {cfg.out}")
+    print(f"-> {cfg.out}" + (" (Saison abgeschlossen)" if saison_abgeschlossen else ""))
 
 
 if __name__ == "__main__":

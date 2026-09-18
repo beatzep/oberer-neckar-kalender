@@ -90,7 +90,16 @@ button { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 }
 .wahl select:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 .wahl select option { color: #14140f; background: #fff; }
+.wahl.saison { margin: 0 0 16px; }
 .kopf .liga { margin: 14px 0 0; font-size: .9rem; color: rgba(243,245,250,.65); }
+
+.saisonbanner { border-left: 2px solid var(--gold); padding: 12px 0 12px 18px; margin: 26px 0 0; }
+.saisonbanner p { margin: 0; font-size: .95rem; color: var(--tinte-weich); }
+
+.archiv { padding: 30px 0 0; }
+.archiv .archivteam { padding: 26px 0; border-top: 1px solid var(--linie); }
+.archiv .archivteam:first-child { border-top: 0; }
+.archiv .archivteam h3 { margin: 0 0 16px; font-size: 1.1rem; font-weight: 600; }
 
 .teil { padding: 30px 0 0; }
 .rubrik { border-top: 1px solid var(--linie); padding-top: 14px; margin-bottom: 22px;
@@ -218,15 +227,21 @@ td.platz { color: var(--leise); width: 2em; }
         <h1>Spielplan</h1>
       </div>
     </div>
-    <div class="wahl">
-      <label for="teamwahl">Mannschaft</label>
-      <select id="teamwahl"><option value="herren1">Herren</option><option value="herren2">Herren II</option><option value="damen">Damen</option></select>
+    
+    <div id="aktuelle-mannschaftswahl">
+      <div class="wahl">
+        <label for="teamwahl">Mannschaft</label>
+        <select id="teamwahl"><option value="herren1">Herren</option><option value="herren2">Herren II</option><option value="damen">Damen</option></select>
+      </div>
+      <p class="liga" id="ligazeile"></p>
     </div>
-    <p class="liga" id="ligazeile"></p>
   </div>
 </div>
 <div class="huelle">
 
+  
+
+  <div id="inhalt-aktuell">
   <nav class="reiter" role="tablist">
     <button type="button" role="tab" aria-selected="true" data-panel="spiele" data-ziel="spiele" id="reiter-spiele">Spiele</button>
     <button type="button" role="tab" aria-selected="false" data-panel="tabelle" data-ziel="tabelle" id="reiter-tabelle">Tabelle</button>
@@ -1150,11 +1165,14 @@ td.platz { color: var(--leise); width: 2em; }
       </div>
     </div>
   </div>
+  </div>
+
+  
 
   <div class="fuss">
     <p>Inoffizielle Seite eines Vereinsmitglieds, kein offizielles Angebot der HSG Oberer Neckar.</p>
     <p>Daten von handball4all (Baden-W&uuml;rttembergischer Handball-Verband).</p>
-    <p>Zuletzt geholt: 18.09.2026 12:19.</p>
+    <p>Zuletzt geholt: 18.09.2026 15:14.</p>
   </div>
 
 </div>
@@ -1182,6 +1200,25 @@ var LIGEN = {"herren1": {"liga": "Männer Bezirksoberliga", "bereich": "Stuttgar
     zeige(wahl.value);
     wahl.addEventListener('change', function () { zeige(wahl.value); });
   }
+})();
+
+(function () {
+  var wahl = document.getElementById('saisonwahl');
+  if (!wahl) return;
+  var aktuell = document.getElementById('inhalt-aktuell');
+  var mannschaftswahl = document.getElementById('aktuelle-mannschaftswahl');
+
+  function zeige(schluessel) {
+    var istAktuell = schluessel === 'aktuell';
+    aktuell.hidden = !istAktuell;
+    mannschaftswahl.hidden = !istAktuell;
+    document.querySelectorAll('[data-archivsaison]').forEach(function (el) {
+      el.hidden = el.getAttribute('data-archivsaison') !== schluessel;
+    });
+  }
+
+  zeige(wahl.value);
+  wahl.addEventListener('change', function () { zeige(wahl.value); });
 })();
 
 (function () {

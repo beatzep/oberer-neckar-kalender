@@ -1,6 +1,8 @@
 {
   "verein": "HSG Oberer Neckar",
-  "geholt_am": "2026-09-18T12:19:23",
+  "saison": "26/27",
+  "saison_abgeschlossen": false,
+  "geholt_am": "2026-09-18T15:14:55",
   "teams": {
     "herren1": {
       "name": "Herren",
