@@ -9,4 +9,4 @@ workers_dev = true
 # README.md ("Zaehler einrichten").
 [[kv_namespaces]]
 binding = "ZAEHLER"
-id = "HIER_NACH_WRANGLER_KV_NAMESPACE_CREATE_EINTRAGEN"
+id = "874b6071ed1e4e0d9fccf575cd52cbc3"
