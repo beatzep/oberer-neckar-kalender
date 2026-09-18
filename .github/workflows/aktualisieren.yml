@@ -27,9 +27,11 @@ jobs:
 
       - name: Daten holen und Seite bauen
         run: |
+          W="https://oberer-neckar-zaehler.edis-herrmann.workers.dev"
           python3 hole_daten.py --teams teams.json --out daten.json
           python3 baue_ics.py --daten daten.json --out-verzeichnis docs
-          python3 baue_seite.py --daten daten.json --out docs/index.html
+          python3 baue_seite.py --daten daten.json --out docs/index.html --worker-url "$W"
+          python3 baue_admin.py --worker-url "$W" --out docs/admin.html
 
       - name: Aenderungen committen
         run: |

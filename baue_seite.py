@@ -461,7 +461,7 @@ td.platz {{ color: var(--leise); width: 2em; }}
 .fuss p {{ margin: 0 0 10px; }}
 </style>
 </head>
-<body>
+<body data-worker="{worker_url}">
 <div class="kopf">
   <div class="huelle">
     <button id="ansicht" type="button" aria-label="Ansicht umschalten">
@@ -494,10 +494,10 @@ td.platz {{ color: var(--leise); width: 2em; }}
 <div class="huelle">
 
   <nav class="reiter" role="tablist">
-    <button type="button" role="tab" aria-selected="true" data-panel="spiele" id="reiter-spiele">Spiele</button>
-    <button type="button" role="tab" aria-selected="false" data-panel="tabelle" id="reiter-tabelle">Tabelle</button>
-    <button type="button" role="tab" aria-selected="false" data-panel="statistiken" id="reiter-statistiken">Statistiken</button>
-    <button type="button" role="tab" aria-selected="false" data-panel="kalender" id="reiter-kalender">Kalender</button>
+    <button type="button" role="tab" aria-selected="true" data-panel="spiele" data-ziel="spiele" id="reiter-spiele">Spiele</button>
+    <button type="button" role="tab" aria-selected="false" data-panel="tabelle" data-ziel="tabelle" id="reiter-tabelle">Tabelle</button>
+    <button type="button" role="tab" aria-selected="false" data-panel="statistiken" data-ziel="statistiken" id="reiter-statistiken">Statistiken</button>
+    <button type="button" role="tab" aria-selected="false" data-panel="kalender" data-ziel="kalender" id="reiter-kalender">Kalender</button>
   </nav>
 
   {mannschaften}
@@ -662,6 +662,61 @@ var LIGEN = {ligen_json};
   schreibe();
   setInterval(schreibe, 1000);
 }})();
+
+(function () {{
+  var huelle = document.querySelector('[data-worker]');
+  var worker = huelle && huelle.getAttribute('data-worker');
+  if (!worker) return;
+
+  var offen = {{ ereignis: {{}}, mannschaft: {{}}, bereich: {{}} }};
+  var etwasOffen = false;
+
+  function merke(gruppe, name) {{
+    if (!name) return;
+    offen[gruppe][name] = (offen[gruppe][name] || 0) + 1;
+    etwasOffen = true;
+  }}
+
+  function sende(beimVerlassen) {{
+    if (!etwasOffen) return;
+    var last = JSON.stringify(offen);
+    offen = {{ ereignis: {{}}, mannschaft: {{}}, bereich: {{}} }};
+    etwasOffen = false;
+    // application/json wuerde eine OPTIONS-Vorfrage ausloesen, die beim
+    // Schliessen der Seite die einzige noch zugesagte Zustellung verbraucht
+    // - wie im MuRu-Projekt (seite_zaehlung.py) erst muehsam herausgefunden.
+    if (beimVerlassen && navigator.sendBeacon) {{
+      var zugestellt = navigator.sendBeacon(worker + '/zaehl',
+        new Blob([last], {{ type: 'text/plain' }}));
+      if (zugestellt) return;
+    }}
+    fetch(worker + '/zaehl', {{
+      method: 'POST', headers: {{ 'Content-Type': 'text/plain' }}, body: last,
+      keepalive: !!beimVerlassen
+    }}).catch(function () {{}});
+  }}
+
+  merke('ereignis', 'aufruf');
+  var wahl = document.getElementById('teamwahl');
+  if (wahl) merke('mannschaft', wahl.value);
+
+  document.addEventListener('click', function (e) {{
+    var ziel = e.target.closest('button, a');
+    if (!ziel) return;
+    if (ziel.hasAttribute('data-ziel')) merke('bereich', ziel.getAttribute('data-ziel'));
+    else if (ziel.classList.contains('knopf') && ziel.getAttribute('href'))
+      merke('ereignis', ziel.getAttribute('href').indexOf('webcal') === 0 ? 'abo' : 'datei');
+    else if (ziel.hasAttribute('data-kopiere')) merke('ereignis', 'kopiert');
+    else if (ziel.hasAttribute('data-teile')) merke('ereignis', 'teilen');
+  }}, true);
+
+  if (wahl) wahl.addEventListener('change', function () {{ merke('mannschaft', wahl.value); }});
+
+  window.addEventListener('pagehide', function () {{ sende(true); }});
+  document.addEventListener('visibilitychange', function () {{
+    if (document.visibilityState === 'hidden') sende(true);
+  }});
+}})();
 </script>
 </body>
 </html>
@@ -673,6 +728,9 @@ def main() -> None:
     p.add_argument("--daten", default="daten.json")
     p.add_argument("--out", default="docs/index.html")
     p.add_argument("--basis-url", default="https://beatzep.github.io/oberer-neckar-kalender")
+    p.add_argument("--worker-url", default="",
+                    help="Ohne Angabe wird nichts gezaehlt - die Zaehlung schaltet sich "
+                         "im Browser selbst ab (seite_zaehlung.py-Aequivalent unten).")
     cfg = p.parse_args()
 
     daten = json.loads(Path(cfg.daten).read_text(encoding="utf-8"))
@@ -693,6 +751,7 @@ def main() -> None:
         teamoptionen=teamoptionen,
         mannschaften=mannschaften,
         ligen_json=ligen_json,
+        worker_url=cfg.worker_url,
         geholt_am=datetime.fromisoformat(daten["geholt_am"]).strftime("%d.%m.%Y %H:%M"),
     )
     Path(cfg.out).write_text(seite, encoding="utf-8")

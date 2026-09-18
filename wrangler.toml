@@ -1,0 +1,12 @@
+name = "oberer-neckar-zaehler"
+main = "worker/index.js"
+compatibility_date = "2026-08-01"
+workers_dev = true
+
+# Eigener KV-Speicher, unabhaengig vom MuRu-Zaehler (muru-zaehler) - auch im
+# selben Cloudflare-Account vermischen sich die Zahlen nicht, weil hier ein
+# eigener Namespace gebunden ist. Die id wird beim Anlegen eingetragen, siehe
+# README.md ("Zaehler einrichten").
+[[kv_namespaces]]
+binding = "ZAEHLER"
+id = "HIER_NACH_WRANGLER_KV_NAMESPACE_CREATE_EINTRAGEN"
