@@ -98,6 +98,21 @@ button { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
   border: 1px solid var(--gold); background: var(--gold); color: #14140f;
 }
 .knopf:hover { background: var(--gold-tief); border-color: var(--gold-tief); }
+.knopf.stumm { background: transparent; color: var(--tinte); border-color: var(--tinte); }
+.knopf.stumm:hover { background: var(--gold-schwach); border-color: var(--gold); }
+
+.weg { padding: 26px 0; border-top: 1px solid var(--linie-zart); }
+.weg:first-child { padding-top: 0; border-top: 0; }
+.weg h3 { margin: 0 0 6px; font-size: 1.08rem; font-weight: 600; }
+.weg p { margin: 0 0 16px; font-size: .95rem; color: var(--tinte-weich); }
+.weg .tipp { margin: 12px 0 0; font-size: .86rem; color: var(--leise); }
+.schritte { margin: 16px 0 0; padding: 0; list-style: none; font-size: .92rem;
+             color: var(--tinte-weich); counter-reset: schritt; }
+.schritte li { counter-increment: schritt; position: relative;
+                padding: 8px 0 8px 34px; border-top: 1px solid var(--linie-zart); }
+.schritte li::before { content: counter(schritt); position: absolute; left: 0; top: 8px;
+                        font-size: .82rem; font-weight: 600; color: var(--gold-tief); }
+code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .88em; }
 
 /* ---------- Reiter ---------- */
 .reiter { position: sticky; top: 0; z-index: 5; background: var(--grund);
@@ -181,13 +196,13 @@ td.platz { color: var(--leise); width: 2em; }
     <p class="marker">Nächstes Spiel</p>
     <p class="paarung">HSG Oberer Neckar <span class="gegen">–</span> SG Schorndorf</p>
     <dl class="fakten"><dt>Datum</dt><dd>Sa 19.09.26</dd><dt>Anwurf</dt><dd>18:00 Uhr</dd><dt>Ort</dt><dd>Heimspiel</dd><dt>Halle</dt><dd>Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</dd></dl>
-    <a class="knopf" href="oberer-neckar.ics">Kalender abonnieren</a>
   </div>
 
   <nav class="reiter" role="tablist">
     <button type="button" role="tab" aria-selected="true" aria-controls="feld-spiele" id="reiter-spiele">Spiele</button>
     <button type="button" role="tab" aria-selected="false" aria-controls="feld-tabelle" id="reiter-tabelle">Tabelle</button>
     <button type="button" role="tab" aria-selected="false" aria-controls="feld-statistiken" id="reiter-statistiken">Statistiken</button>
+    <button type="button" role="tab" aria-selected="false" aria-controls="feld-kalender" id="reiter-kalender">Kalender</button>
   </nav>
 
   <div id="feld-spiele" role="tabpanel" aria-labelledby="reiter-spiele">
@@ -493,6 +508,40 @@ td.platz { color: var(--leise); width: 2em; }
     </div>
   </div>
 
+  <div id="feld-kalender" role="tabpanel" aria-labelledby="reiter-kalender" hidden>
+    <div class="teil">
+      
+    <div class="weg">
+      <h3>iPhone, iPad und Mac</h3>
+      <p>Antippen, „Abonnieren" bestätigen. Verlegungen und neue Ergebnisse ziehen
+      sich danach automatisch nach, ohne dass du noch mal hier vorbeischauen musst.</p>
+      <a class="knopf" href="webcal://beatzep.github.io/oberer-neckar-kalender/oberer-neckar.ics">HSG Oberer Neckar abonnieren</a>
+      <p class="tipp"><b>Am Mac</b> fragt der Kalender vorher noch was: „Automatisch
+      aktualisieren" auf <b>Jede Stunde</b> stellen, sonst kriegst du Verlegungen
+      erst Tage später mit.</p>
+    </div>
+
+    <div class="weg">
+      <h3>Android und Google Kalender</h3>
+      <p>Bei Google geht das Abonnieren nur am Computer, nicht in der Handy-App.
+      Einmal am Rechner einrichten, danach ist es auf dem Handy auch da.</p>
+      <button class="knopf stumm" type="button" data-kopiere="https://beatzep.github.io/oberer-neckar-kalender/oberer-neckar.ics">Adresse kopieren</button>
+      <ol class="schritte">
+        <li>Am Computer <code>calendar.google.com</code> öffnen</li>
+        <li>Links bei „Weitere Kalender" auf <strong>+</strong> klicken</li>
+        <li>„Per URL" wählen, Adresse einfügen, hinzufügen</li>
+      </ol>
+    </div>
+
+    <div class="weg">
+      <h3>Einmalig importieren</h3>
+      <p>Ohne Abo, ohne spätere Aktualisierung - für alle, die nur diesen Stand
+      in ihren Kalender übernehmen wollen.</p>
+      <a class="knopf stumm" href="oberer-neckar.ics" download>Datei herunterladen</a>
+    </div>
+    </div>
+  </div>
+
   <div class="fuss">
     <p>Inoffizielle Seite eines Vereinsmitglieds, kein offizielles Angebot der HSG Oberer Neckar.</p>
     <p>Daten von handball4all (Baden-W&uuml;rttembergischer Handball-Verband), Stand: Letzte Änderung: Mo, 03.08.2026, 17:31h.</p>
@@ -552,6 +601,18 @@ td.platz { color: var(--leise); width: 2em; }
       if (!gespeichert()) beschrifte();
     });
   }
+})();
+(function () {
+  document.querySelectorAll('[data-kopiere]').forEach(function (k) {
+    k.addEventListener('click', function () {
+      var text = k.getAttribute('data-kopiere');
+      navigator.clipboard.writeText(text).then(function () {
+        var alt = k.textContent;
+        k.textContent = 'Adresse kopiert';
+        setTimeout(function () { k.textContent = alt; }, 1800);
+      });
+    });
+  });
 })();
 </script>
 </body>

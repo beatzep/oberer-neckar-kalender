@@ -67,6 +67,46 @@ def baue_naechstes_spiel(spiel: dict | None) -> str:
     <dl class="fakten">{''.join(zeilen)}</dl>"""
 
 
+def baue_kalender_block(basis_url: str) -> str:
+    """Drei Wege in den Kalender, wie im MuRu-Projekt (baue_seite.py,
+    abo_block): Abo per webcal fuer Apple-Geraete, Abo per URL fuer Google
+    Kalender (das Android-Handy kann Abos nicht selbst anlegen), einmaliger
+    Download ohne Abo. Unsere .ics ist eine eigene, statische Datei auf
+    GitHub Pages - anders als der kaputte Kalender-Export auf handball4all
+    selbst haengt das an nichts, was bei denen ausfallen kann."""
+    ics_url = f"{basis_url.rstrip('/')}/oberer-neckar.ics"
+    webcal = ics_url.replace("https://", "webcal://").replace("http://", "webcal://")
+    return f"""
+    <div class="weg">
+      <h3>iPhone, iPad und Mac</h3>
+      <p>Antippen, „Abonnieren" bestätigen. Verlegungen und neue Ergebnisse ziehen
+      sich danach automatisch nach, ohne dass du noch mal hier vorbeischauen musst.</p>
+      <a class="knopf" href="{webcal}">HSG Oberer Neckar abonnieren</a>
+      <p class="tipp"><b>Am Mac</b> fragt der Kalender vorher noch was: „Automatisch
+      aktualisieren" auf <b>Jede Stunde</b> stellen, sonst kriegst du Verlegungen
+      erst Tage später mit.</p>
+    </div>
+
+    <div class="weg">
+      <h3>Android und Google Kalender</h3>
+      <p>Bei Google geht das Abonnieren nur am Computer, nicht in der Handy-App.
+      Einmal am Rechner einrichten, danach ist es auf dem Handy auch da.</p>
+      <button class="knopf stumm" type="button" data-kopiere="{ics_url}">Adresse kopieren</button>
+      <ol class="schritte">
+        <li>Am Computer <code>calendar.google.com</code> öffnen</li>
+        <li>Links bei „Weitere Kalender" auf <strong>+</strong> klicken</li>
+        <li>„Per URL" wählen, Adresse einfügen, hinzufügen</li>
+      </ol>
+    </div>
+
+    <div class="weg">
+      <h3>Einmalig importieren</h3>
+      <p>Ohne Abo, ohne spätere Aktualisierung - für alle, die nur diesen Stand
+      in ihren Kalender übernehmen wollen.</p>
+      <a class="knopf stumm" href="oberer-neckar.ics" download>Datei herunterladen</a>
+    </div>"""
+
+
 def baue_tabelle(tabelle: list[dict]) -> str:
     zeilen = []
     for row in tabelle:
@@ -222,6 +262,21 @@ button {{ touch-action: manipulation; -webkit-tap-highlight-color: transparent; 
   border: 1px solid var(--gold); background: var(--gold); color: #14140f;
 }}
 .knopf:hover {{ background: var(--gold-tief); border-color: var(--gold-tief); }}
+.knopf.stumm {{ background: transparent; color: var(--tinte); border-color: var(--tinte); }}
+.knopf.stumm:hover {{ background: var(--gold-schwach); border-color: var(--gold); }}
+
+.weg {{ padding: 26px 0; border-top: 1px solid var(--linie-zart); }}
+.weg:first-child {{ padding-top: 0; border-top: 0; }}
+.weg h3 {{ margin: 0 0 6px; font-size: 1.08rem; font-weight: 600; }}
+.weg p {{ margin: 0 0 16px; font-size: .95rem; color: var(--tinte-weich); }}
+.weg .tipp {{ margin: 12px 0 0; font-size: .86rem; color: var(--leise); }}
+.schritte {{ margin: 16px 0 0; padding: 0; list-style: none; font-size: .92rem;
+             color: var(--tinte-weich); counter-reset: schritt; }}
+.schritte li {{ counter-increment: schritt; position: relative;
+                padding: 8px 0 8px 34px; border-top: 1px solid var(--linie-zart); }}
+.schritte li::before {{ content: counter(schritt); position: absolute; left: 0; top: 8px;
+                        font-size: .82rem; font-weight: 600; color: var(--gold-tief); }}
+code {{ font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .88em; }}
 
 /* ---------- Reiter ---------- */
 .reiter {{ position: sticky; top: 0; z-index: 5; background: var(--grund);
@@ -302,13 +357,13 @@ td.platz {{ color: var(--leise); width: 2em; }}
 
   <div class="teil">
     {naechstes_spiel}
-    <a class="knopf" href="oberer-neckar.ics">Kalender abonnieren</a>
   </div>
 
   <nav class="reiter" role="tablist">
     <button type="button" role="tab" aria-selected="true" aria-controls="feld-spiele" id="reiter-spiele">Spiele</button>
     <button type="button" role="tab" aria-selected="false" aria-controls="feld-tabelle" id="reiter-tabelle">Tabelle</button>
     <button type="button" role="tab" aria-selected="false" aria-controls="feld-statistiken" id="reiter-statistiken">Statistiken</button>
+    <button type="button" role="tab" aria-selected="false" aria-controls="feld-kalender" id="reiter-kalender">Kalender</button>
   </nav>
 
   <div id="feld-spiele" role="tabpanel" aria-labelledby="reiter-spiele">
@@ -339,6 +394,12 @@ td.platz {{ color: var(--leise); width: 2em; }}
         Mannschaft einmal in eine Liga mit Spielberichten aufsteigen, kommt dieser Reiter mit
         echten Inhalten.</p>
       </div>
+    </div>
+  </div>
+
+  <div id="feld-kalender" role="tabpanel" aria-labelledby="reiter-kalender" hidden>
+    <div class="teil">
+      {kalender}
     </div>
   </div>
 
@@ -402,6 +463,18 @@ td.platz {{ color: var(--leise); width: 2em; }}
     }});
   }}
 }})();
+(function () {{
+  document.querySelectorAll('[data-kopiere]').forEach(function (k) {{
+    k.addEventListener('click', function () {{
+      var text = k.getAttribute('data-kopiere');
+      navigator.clipboard.writeText(text).then(function () {{
+        var alt = k.textContent;
+        k.textContent = 'Adresse kopiert';
+        setTimeout(function () {{ k.textContent = alt; }}, 1800);
+      }});
+    }});
+  }});
+}})();
 </script>
 </body>
 </html>
@@ -412,6 +485,7 @@ def main() -> None:
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--daten", default="daten.json")
     p.add_argument("--out", default="docs/index.html")
+    p.add_argument("--basis-url", default="https://beatzep.github.io/oberer-neckar-kalender")
     cfg = p.parse_args()
 
     daten = json.loads(Path(cfg.daten).read_text(encoding="utf-8"))
@@ -421,6 +495,7 @@ def main() -> None:
         naechstes_spiel=baue_naechstes_spiel(naechstes_spiel(daten["spiele"])),
         tabelle=baue_tabelle(daten["tabelle"]),
         spielplan=baue_spielplan(daten["spiele"]),
+        kalender=baue_kalender_block(cfg.basis_url),
         quelle_stand=daten["quelle_stand"],
         geholt_am=datetime.fromisoformat(daten["geholt_am"]).strftime("%d.%m.%Y %H:%M"),
     )
