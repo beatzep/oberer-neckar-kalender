@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Baut aus daten.json die statische Seite docs/index.html: naechstes Spiel,
-Tabelle, kompletter Spielplan. Kein Vergleich zu baue_seite.py im
-MuRu-Projekt beabsichtigt - hier reicht eine Mannschaft auf einer Seite.
-Die Formensprache (dunkler Kopf, scharfe Kanten, duenne Linien statt Karten,
-hell/dunkel automatisch) ist von dort uebernommen, nur die Akzentfarbe ist
-eine andere - sonst waeren beide Seiten auf den ersten Blick verwechselbar."""
+"""Baut aus daten.json die statische Seite docs/index.html: naechstes Spiel
+oben fest, darunter Reiter fuer Spielplan, Tabelle und Statistiken - wie im
+MuRu-Projekt, nur fuer eine einzelne Mannschaft. Formensprache ebenfalls von
+dort (dunkler Kopf, scharfe Kanten, duenne Linien statt Karten, automatisch
+hell/dunkel), Farben sind die echten Vereinsfarben der HSG Oberer Neckar
+(aus dem Logo auf hsg-oberer-neckar.de ausgelesen: Navy #0a2c73, Gold
+#ffda06) statt frei erfunden."""
 
 import argparse
 import json
@@ -40,10 +41,10 @@ def naechstes_spiel(spiele: list[dict]) -> dict | None:
 def baue_naechstes_spiel(spiel: dict | None) -> str:
     if spiel is None:
         return """
-        <p class="marker">Nächstes Spiel</p>
-        <p class="paarung">Keins angesetzt</p>
-        <p class="hinweistext">Entweder ist die Saison vorbei, oder handball4all hat für die
-        Mannschaft noch keine weiteren Termine veröffentlicht.</p>"""
+    <p class="marker">Nächstes Spiel</p>
+    <p class="paarung">Keins angesetzt</p>
+    <p class="hinweistext">Entweder ist die Saison vorbei, oder handball4all hat für die
+    Mannschaft noch keine weiteren Termine veröffentlicht.</p>"""
 
     heim = ist_heimspiel(spiel)
     eigener_anzeigename = "HSG Oberer Neckar"
@@ -84,7 +85,6 @@ def baue_tabelle(tabelle: list[dict]) -> str:
 
 
 def baue_spielplan(spiele: list[dict]) -> str:
-    heute = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
     zeilen = []
     letzter_monat = None
     for spiel in spiele:
@@ -129,20 +129,22 @@ SEITE = """<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>HSG Oberer Neckar – Herren</title>
 <meta name="description" content="Spielplan, Tabelle und nächstes Spiel der Herren-Bezirksoberliga-Mannschaft der HSG Oberer Neckar.">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
 :root {{
-  --akzent: #2f8f74; --akzent-tief: #226b57; --akzent-schwach: rgba(47,143,116,.12);
+  --gold: #ffda06; --gold-tief: #d6b400; --gold-schwach: rgba(255,218,6,.14);
   --tinte: #14140f; --tinte-weich: #4a4a42; --leise: #7a776d;
   --linie: #dedbd3; --linie-zart: #ebe9e3;
-  --grund: #ffffff; --schwarz: #14140f; --auf-schwarz: #f7f5f0;
+  --grund: #ffffff; --marine: #0a2c73; --auf-marine: #f3f5fa;
   --sieg: #2f7d4f; --niederlage: #a4443a;
 }}
 @media (prefers-color-scheme: dark) {{
   :root {{
-    --akzent: #4fbfa0; --akzent-tief: #2f8f74; --akzent-schwach: rgba(79,191,160,.14);
+    --gold: #ffe14d; --gold-tief: #ffda06; --gold-schwach: rgba(255,225,77,.14);
     --tinte: #f2efe8; --tinte-weich: #b8b4a9; --leise: #8c877c;
-    --linie: #33312b; --linie-zart: #24221e;
-    --grund: #0d0d0b; --schwarz: #000000; --auf-schwarz: #f2efe8;
+    --linie: #2c3550; --linie-zart: #1c2440;
+    --grund: #0b0e1c; --marine: #000000; --auf-marine: #f3f5fa;
     --sieg: #5cbf85; --niederlage: #e08076;
   }}
 }}
@@ -156,23 +158,26 @@ body {{
 }}
 .huelle {{ max-width: 720px; margin: 0 auto; padding: 0 22px; }}
 a {{ color: inherit; }}
+button {{ touch-action: manipulation; -webkit-tap-highlight-color: transparent; }}
 
-.kopf {{ background: var(--schwarz); color: var(--auf-schwarz);
-         border-bottom: 2px solid var(--akzent); }}
-.kopf .huelle {{ padding: 26px 22px 30px; }}
-.zeile1 {{ font-size: .82rem; font-weight: 600; letter-spacing: .04em; color: var(--akzent); }}
-.kopf h1 {{ margin: 6px 0 0; font-size: clamp(2rem, 10vw, 2.9rem); font-weight: 300;
+.kopf {{ background: var(--marine); color: var(--auf-marine);
+         border-bottom: 3px solid var(--gold); }}
+.kopf .huelle {{ padding: 22px 22px 26px; }}
+.marke {{ display: flex; align-items: center; gap: 14px; }}
+.marke img {{ width: 48px; height: 48px; display: block; }}
+.zeile1 {{ font-size: .82rem; font-weight: 600; letter-spacing: .04em; color: var(--gold); margin: 0; }}
+.kopf h1 {{ margin: 2px 0 0; font-size: clamp(1.8rem, 8vw, 2.6rem); font-weight: 300;
             line-height: 1.06; letter-spacing: -.015em; }}
-.kopf .liga {{ margin: 12px 0 0; font-size: .92rem; color: rgba(247,245,240,.62); }}
+.kopf .liga {{ margin: 14px 0 0; font-size: .9rem; color: rgba(243,245,250,.65); }}
 
-.teil {{ padding: 34px 0 0; }}
+.teil {{ padding: 30px 0 0; }}
 .rubrik {{ border-top: 1px solid var(--linie); padding-top: 14px; margin-bottom: 22px;
            font-size: .95rem; font-weight: 600; color: var(--leise); }}
 
-.marker {{ font-size: .82rem; font-weight: 600; color: var(--akzent-tief);
+.marker {{ font-size: .82rem; font-weight: 600; color: var(--gold-tief);
            letter-spacing: .04em; margin: 0 0 10px; }}
-.paarung {{ font-size: clamp(1.4rem, 6.5vw, 1.9rem); font-weight: 400; line-height: 1.2;
-            letter-spacing: -.01em; margin: 0 0 20px; overflow-wrap: anywhere; }}
+.paarung {{ font-size: clamp(1.35rem, 6vw, 1.8rem); font-weight: 400; line-height: 1.22;
+            letter-spacing: -.01em; margin: 0 0 18px; overflow-wrap: anywhere; }}
 .paarung .gegen {{ color: var(--leise); font-weight: 300; }}
 .fakten {{ margin: 0; }}
 .fakten dt {{ float: left; width: 78px; color: var(--leise); font-size: .95rem;
@@ -182,21 +187,35 @@ a {{ color: inherit; }}
 .hinweistext {{ color: var(--tinte-weich); font-size: .95rem; }}
 
 .knopf {{
-  display: inline-block; margin-top: 22px; text-align: center; text-decoration: none;
+  display: inline-block; margin-top: 20px; text-align: center; text-decoration: none;
   font: inherit; font-size: .95rem; font-weight: 600; padding: 14px 22px;
-  border: 1px solid var(--akzent); background: var(--akzent); color: #0d0d0b;
+  border: 1px solid var(--gold); background: var(--gold); color: #14140f;
 }}
-.knopf:hover {{ background: var(--akzent-tief); border-color: var(--akzent-tief); color: #fff; }}
+.knopf:hover {{ background: var(--gold-tief); border-color: var(--gold-tief); }}
+
+/* ---------- Reiter ---------- */
+.reiter {{ position: sticky; top: 0; z-index: 5; background: var(--grund);
+           border-bottom: 1px solid var(--linie); display: flex;
+           overflow-x: auto; scrollbar-width: none; margin-top: 34px; }}
+.reiter::-webkit-scrollbar {{ display: none; }}
+.reiter button {{
+  flex: 0 0 auto; font: inherit; font-size: .92rem; font-weight: 500;
+  background: none; border: 0; border-bottom: 2px solid transparent;
+  color: var(--leise); padding: 15px 18px 13px; margin-bottom: -1px;
+  white-space: nowrap; cursor: pointer;
+}}
+.reiter button:first-child {{ padding-left: 0; }}
+.reiter button[aria-selected="true"] {{ color: var(--tinte); border-bottom-color: var(--gold); }}
+[hidden] {{ display: none !important; }}
 
 table {{ width: 100%; border-collapse: collapse; font-size: .92rem; }}
 th, td {{ text-align: left; padding: 10px 8px; border-top: 1px solid var(--linie-zart); }}
 thead th {{ border-top: none; border-bottom: 1px solid var(--linie);
             color: var(--leise); font-size: .78rem; font-weight: 600;
             letter-spacing: .04em; text-transform: uppercase; padding-bottom: 8px; }}
-td.rechts, th.rechts {{ text-align: right; }}
 .rechts {{ text-align: right; }}
 .stark {{ font-weight: 700; }}
-tr.eigene td {{ font-weight: 600; color: var(--akzent-tief); }}
+tr.eigene td {{ font-weight: 600; color: var(--gold-tief); }}
 td.platz {{ color: var(--leise); width: 2em; }}
 
 .monat {{ font-size: .8rem; font-weight: 600; letter-spacing: .06em;
@@ -215,7 +234,10 @@ td.platz {{ color: var(--leise); width: 2em; }}
 .spiel.vorbei {{ opacity: .55; }}
 .spiel.vorbei .gegner {{ font-weight: 400; }}
 
-.fuss {{ padding: 30px 0 40px; border-top: 1px solid var(--linie); margin-top: 30px;
+.statistiken p {{ font-size: .95rem; color: var(--tinte-weich); }}
+.statistiken .hinweis {{ border-left: 2px solid var(--gold); padding: 2px 0 2px 18px; margin-top: 18px; }}
+
+.fuss {{ padding: 30px 0 40px; border-top: 1px solid var(--linie); margin-top: 34px;
          font-size: .86rem; color: var(--leise); }}
 .fuss p {{ margin: 0 0 10px; }}
 </style>
@@ -223,8 +245,13 @@ td.platz {{ color: var(--leise); width: 2em; }}
 <body>
 <div class="kopf">
   <div class="huelle">
-    <p class="zeile1">HSG Oberer Neckar</p>
-    <h1>Herren</h1>
+    <div class="marke">
+      <img src="logo.png" alt="Wappen der HSG Oberer Neckar" width="48" height="48">
+      <div>
+        <p class="zeile1">HSG Oberer Neckar</p>
+        <h1>Herren</h1>
+      </div>
+    </div>
     <p class="liga">{liga} &middot; {bereich}</p>
   </div>
 </div>
@@ -235,29 +262,63 @@ td.platz {{ color: var(--leise); width: 2em; }}
     <a class="knopf" href="oberer-neckar.ics">Kalender abonnieren</a>
   </div>
 
-  <div class="teil">
-    <p class="rubrik">Tabelle</p>
-    <table>
-      <thead>
-        <tr><th></th><th>Mannschaft</th><th class="rechts">Sp.</th><th class="rechts">S:U:N</th><th class="rechts">Tore</th><th class="rechts">Punkte</th></tr>
-      </thead>
-      <tbody>{tabelle}</tbody>
-    </table>
+  <nav class="reiter" role="tablist">
+    <button type="button" role="tab" aria-selected="true" aria-controls="feld-spiele" id="reiter-spiele">Spiele</button>
+    <button type="button" role="tab" aria-selected="false" aria-controls="feld-tabelle" id="reiter-tabelle">Tabelle</button>
+    <button type="button" role="tab" aria-selected="false" aria-controls="feld-statistiken" id="reiter-statistiken">Statistiken</button>
+  </nav>
+
+  <div id="feld-spiele" role="tabpanel" aria-labelledby="reiter-spiele">
+    <div class="teil">
+      {spielplan}
+    </div>
   </div>
 
-  <div class="teil">
-    <p class="rubrik">Spielplan</p>
-    {spielplan}
+  <div id="feld-tabelle" role="tabpanel" aria-labelledby="reiter-tabelle" hidden>
+    <div class="teil">
+      <table>
+        <thead>
+          <tr><th></th><th>Mannschaft</th><th class="rechts">Sp.</th><th class="rechts">S:U:N</th><th class="rechts">Tore</th><th class="rechts">Punkte</th></tr>
+        </thead>
+        <tbody>{tabelle}</tbody>
+      </table>
+    </div>
+  </div>
+
+  <div id="feld-statistiken" role="tabpanel" aria-labelledby="reiter-statistiken" hidden>
+    <div class="teil statistiken">
+      <p>Der Verband führt auf Ebene der Bezirksoberliga keine Spielberichte mit Torschützen,
+      Torverlauf oder Zeitstrafen &ndash; anders als in höheren Ligen (Landesliga, Oberliga,
+      Regionalliga), wo handball4all das anbietet.</p>
+      <div class="hinweis">
+        <p>Das ist keine Lücke auf dieser Seite, sondern eine Grenze der Quelle: handball4all
+        markiert das selbst (<code>scoreShowDataPerGame: false</code> für diese Liga). Sollte die
+        Mannschaft einmal in eine Liga mit Spielberichten aufsteigen, kommt dieser Reiter mit
+        echten Inhalten.</p>
+      </div>
+    </div>
   </div>
 
   <div class="fuss">
+    <p>Inoffizielle Seite eines Vereinsmitglieds, kein offizielles Angebot der HSG Oberer Neckar.</p>
     <p>Daten von handball4all (Baden-W&uuml;rttembergischer Handball-Verband), Stand: {quelle_stand}.</p>
-    <p>Torverl&auml;ufe und Spielberichte f&uuml;hrt der Verband auf dieser Liga-Ebene nicht &ndash;
-    deshalb stehen hier nur Termine, Hallen und Endst&auml;nde, keine Statistiken.</p>
     <p>Zuletzt geholt: {geholt_am}.</p>
   </div>
 
 </div>
+<script>
+(function () {{
+  var reiter = document.querySelectorAll('.reiter button');
+  reiter.forEach(function (knopf) {{
+    knopf.addEventListener('click', function () {{
+      reiter.forEach(function (r) {{
+        r.setAttribute('aria-selected', r === knopf ? 'true' : 'false');
+        document.getElementById(r.getAttribute('aria-controls')).hidden = r !== knopf;
+      }});
+    }});
+  }});
+}})();
+</script>
 </body>
 </html>
 """

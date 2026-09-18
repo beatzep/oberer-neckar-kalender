@@ -39,7 +39,18 @@ python3 baue_seite.py --daten daten.json --out docs/index.html
 `docs/` ist erzeugt, nicht von Hand bearbeiten - wie im MuRu-Projekt.
 
 Ein GitHub-Actions-Workflow (`.github/workflows/aktualisieren.yml`) baut
-alle drei Stunden neu und pusht die Änderungen.
+einmal täglich neu, an Wochenenden zusätzlich stündlich von 12 bis 22 Uhr
+UTC (Spieltage), und pusht die Änderungen. Übernommen aus dem MuRu-Projekt
+(`handball-kalender/.github/workflows/spielplan.yml`).
+
+## Logo
+
+`docs/logo.png`, `apple-touch-icon.png` und `favicon-32.png` sind das echte
+Vereinswappen von [hsg-oberer-neckar.de](https://www.hsg-oberer-neckar.de),
+heruntergeladen und in drei Größen skaliert. Die Farben (`--marine
+#0a2c73`, `--gold #ffda06` in `baue_seite.py`) sind aus dem Logo
+ausgelesen, nicht frei erfunden. Diese Seite ist kein offizielles
+Vereinsangebot - das steht auch im Seitenfuß.
 
 ## Prüfen
 
