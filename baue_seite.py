@@ -85,6 +85,17 @@ def baue_kalender_block(basis_url: str) -> str:
       <p class="tipp"><b>Am Mac</b> fragt der Kalender vorher noch was: „Automatisch
       aktualisieren" auf <b>Jede Stunde</b> stellen, sonst kriegst du Verlegungen
       erst Tage später mit.</p>
+      <p class="tipp"><b>Passiert nach dem Antippen nichts?</b> Dann hat der Browser
+      die Erlaubnis dafür schon mal verweigert, meist ohne dass man es merkt - keine
+      Fehlermeldung, die Seite bleibt einfach stehen. Dann so:</p>
+      <button class="knopf stumm" type="button" data-kopiere="{ics_url}">Adresse kopieren</button>
+      <ol class="schritte">
+        <li>Kalender-App öffnen</li>
+        <li>Menü <strong>Ablage → Neues Kalenderabo …</strong></li>
+        <li>Adresse einfügen, „Abonnieren" bestätigen</li>
+      </ol>
+      <p class="tipp">Das geht immer, egal was der Browser gerade erlaubt oder nicht -
+      die App fragt selbst bei der Adresse nach, ohne den Umweg über den Link.</p>
     </div>
 
     <div class="weg">
@@ -102,7 +113,9 @@ def baue_kalender_block(basis_url: str) -> str:
     <div class="weg">
       <h3>Einmalig importieren</h3>
       <p>Ohne Abo, ohne spätere Aktualisierung - für alle, die nur diesen Stand
-      in ihren Kalender übernehmen wollen.</p>
+      in ihren Kalender übernehmen wollen. Der Knopf lädt die Datei in deinen
+      Downloads-Ordner, sie öffnet sich nicht von selbst: danach im Downloads-Ordner
+      doppelklicken, dann übernimmt die Kalender-App die Termine.</p>
       <a class="knopf stumm" href="oberer-neckar.ics" download>Datei herunterladen</a>
     </div>"""
 
