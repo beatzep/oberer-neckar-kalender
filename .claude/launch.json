@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "vorschau",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8931", "--directory", "/Users/edisherrmann/Projects/oberer-neckar-kalender/docs"],
+      "port": 8931
+    }
+  ]
+}

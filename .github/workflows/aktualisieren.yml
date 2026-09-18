@@ -1,0 +1,36 @@
+name: Aktualisieren
+
+on:
+  schedule:
+    # Alle 3 Stunden - Tabelle und Ergebnisse aendern sich nicht schneller
+    - cron: "0 */3 * * *"
+  workflow_dispatch: {}
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  bauen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Daten holen und Seite bauen
+        run: |
+          python3 hole_daten.py --out daten.json
+          python3 baue_ics.py --daten daten.json --out docs/oberer-neckar.ics
+          python3 baue_seite.py --daten daten.json --out docs/index.html
+
+      - name: Aenderungen committen
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add daten.json docs/
+          git diff --staged --quiet || git commit -m "Automatische Aktualisierung"
+          git push
