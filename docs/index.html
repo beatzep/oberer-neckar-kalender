@@ -90,6 +90,8 @@ button { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
               clear: left; padding: 11px 0; border-top: 1px solid var(--linie-zart); }
 .fakten dd { margin: 0 0 0 96px; font-size: .95rem; padding: 11px 0;
               border-top: 1px solid var(--linie-zart); }
+.fakten a { color: inherit; text-decoration: none; box-shadow: inset 0 -1px 0 var(--gold); }
+.fakten a:hover { box-shadow: inset 0 -2px 0 var(--gold); }
 .hinweistext { color: var(--tinte-weich); font-size: .95rem; }
 
 .knopf {
@@ -148,6 +150,8 @@ td.platz { color: var(--leise); width: 2em; }
 .spiel .datum span { display: block; font-weight: 400; color: var(--leise); }
 .spiel .gegner { font-size: 1rem; font-weight: 500; line-height: 1.3; overflow-wrap: anywhere; }
 .spiel .halle { font-size: .86rem; color: var(--leise); margin-top: 3px; }
+.spiel .halle a { color: inherit; text-decoration: none; box-shadow: inset 0 -1px 0 var(--linie); }
+.spiel .halle a:hover { box-shadow: inset 0 -1px 0 var(--gold); }
 .spiel .stand { font-size: .92rem; font-weight: 700; white-space: nowrap; }
 .spiel .stand.S { color: var(--sieg); }
 .spiel .stand.N { color: var(--niederlage); }
@@ -195,7 +199,7 @@ td.platz { color: var(--leise); width: 2em; }
     
     <p class="marker">Nächstes Spiel</p>
     <p class="paarung">HSG Oberer Neckar <span class="gegen">–</span> SG Schorndorf</p>
-    <dl class="fakten"><dt>Datum</dt><dd>Sa 19.09.26</dd><dt>Anwurf</dt><dd>18:00 Uhr</dd><dt>Ort</dt><dd>Heimspiel</dd><dt>Halle</dt><dd>Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</dd></dl>
+    <dl class="fakten"><dt>Datum</dt><dd>Sa 19.09.26</dd><dt>Anwurf</dt><dd>18:00 Uhr</dd><dt>Ort</dt><dd>Heimspiel</dd><dt>Halle</dt><dd><a href="https://www.google.com/maps/search/?api=1&query=Flatow-Sporthalle%2C%20Gingener%20Stra%C3%9Fe%2021%2C%2070327%20Stuttgart-Wangen" target="_blank" rel="noopener">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</a></dd></dl>
   </div>
 
   <nav class="reiter" role="tablist">
@@ -212,7 +216,7 @@ td.platz { color: var(--leise); width: 2em; }
           <div class="datum">Sa 19.09.26<span>Heim</span></div>
           <div>
             <div class="gegner">SG Schorndorf</div>
-            <div class="halle">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Flatow-Sporthalle%2C%20Gingener%20Stra%C3%9Fe%2021%2C%2070327%20Stuttgart-Wangen" target="_blank" rel="noopener">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</a></div>
           </div>
           <div class="rechts"><div class="stand">18:00 Uhr</div></div>
         </div>
@@ -220,7 +224,7 @@ td.platz { color: var(--leise); width: 2em; }
           <div class="datum">So 27.09.26<span>Auswärts</span></div>
           <div>
             <div class="gegner">HSG Barg/Bettr 2</div>
-            <div class="halle">Uhlandhalle, Wolf-Hirth-Straße 50, 73529 Schwäb.Gmünd-Bettringen</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Uhlandhalle%2C%20Wolf-Hirth-Stra%C3%9Fe%2050%2C%2073529%20Schw%C3%A4b.Gm%C3%BCnd-Bettringen" target="_blank" rel="noopener">Uhlandhalle, Wolf-Hirth-Straße 50, 73529 Schwäb.Gmünd-Bettringen</a></div>
           </div>
           <div class="rechts"><div class="stand">18:00 Uhr</div></div>
         </div><p class="monat">Oktober 2026</p>
@@ -228,7 +232,7 @@ td.platz { color: var(--leise); width: 2em; }
           <div class="datum">Sa 03.10.26<span>Heim</span></div>
           <div>
             <div class="gegner">TSF Ditzingen 2</div>
-            <div class="halle">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Flatow-Sporthalle%2C%20Gingener%20Stra%C3%9Fe%2021%2C%2070327%20Stuttgart-Wangen" target="_blank" rel="noopener">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</a></div>
           </div>
           <div class="rechts"><div class="stand">18:00 Uhr</div></div>
         </div>
@@ -236,7 +240,7 @@ td.platz { color: var(--leise); width: 2em; }
           <div class="datum">Sa 17.10.26<span>Heim</span></div>
           <div>
             <div class="gegner">TSV Schmiden 3</div>
-            <div class="halle">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Flatow-Sporthalle%2C%20Gingener%20Stra%C3%9Fe%2021%2C%2070327%20Stuttgart-Wangen" target="_blank" rel="noopener">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</a></div>
           </div>
           <div class="rechts"><div class="stand">20:00 Uhr</div></div>
         </div>
@@ -244,7 +248,7 @@ td.platz { color: var(--leise); width: 2em; }
           <div class="datum">Sa 24.10.26<span>Auswärts</span></div>
           <div>
             <div class="gegner">TV Obertürkh.</div>
-            <div class="halle">Ballsporthalle, Augsburger Straße 581, 70329 Stuttgart</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Ballsporthalle%2C%20Augsburger%20Stra%C3%9Fe%20581%2C%2070329%20Stuttgart" target="_blank" rel="noopener">Ballsporthalle, Augsburger Straße 581, 70329 Stuttgart</a></div>
           </div>
           <div class="rechts"><div class="stand">19:00 Uhr</div></div>
         </div><p class="monat">November 2026</p>
@@ -252,7 +256,7 @@ td.platz { color: var(--leise); width: 2em; }
           <div class="datum">Sa 07.11.26<span>Heim</span></div>
           <div>
             <div class="gegner">TV Oeffingen 2</div>
-            <div class="halle">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Flatow-Sporthalle%2C%20Gingener%20Stra%C3%9Fe%2021%2C%2070327%20Stuttgart-Wangen" target="_blank" rel="noopener">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</a></div>
           </div>
           <div class="rechts"><div class="stand">20:00 Uhr</div></div>
         </div>
@@ -260,7 +264,7 @@ td.platz { color: var(--leise); width: 2em; }
           <div class="datum">Sa 21.11.26<span>Heim</span></div>
           <div>
             <div class="gegner">SF Schwaikheim 2</div>
-            <div class="halle">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Flatow-Sporthalle%2C%20Gingener%20Stra%C3%9Fe%2021%2C%2070327%20Stuttgart-Wangen" target="_blank" rel="noopener">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</a></div>
           </div>
           <div class="rechts"><div class="stand">20:00 Uhr</div></div>
         </div>
@@ -268,7 +272,7 @@ td.platz { color: var(--leise); width: 2em; }
           <div class="datum">Sa 28.11.26<span>Auswärts</span></div>
           <div>
             <div class="gegner">HT Heckengäu</div>
-            <div class="halle">Rankbachhalle, Rankbachstraße 49, 71272 Renningen</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Rankbachhalle%2C%20Rankbachstra%C3%9Fe%2049%2C%2071272%20Renningen" target="_blank" rel="noopener">Rankbachhalle, Rankbachstraße 49, 71272 Renningen</a></div>
           </div>
           <div class="rechts"><div class="stand">18:30 Uhr</div></div>
         </div><p class="monat">Dezember 2026</p>
@@ -276,7 +280,7 @@ td.platz { color: var(--leise); width: 2em; }
           <div class="datum">Sa 05.12.26<span>Heim</span></div>
           <div>
             <div class="gegner">TSB Schw.Gmünd 2</div>
-            <div class="halle">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Flatow-Sporthalle%2C%20Gingener%20Stra%C3%9Fe%2021%2C%2070327%20Stuttgart-Wangen" target="_blank" rel="noopener">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</a></div>
           </div>
           <div class="rechts"><div class="stand">20:00 Uhr</div></div>
         </div>
@@ -284,7 +288,7 @@ td.platz { color: var(--leise); width: 2em; }
           <div class="datum">Sa 12.12.26<span>Auswärts</span></div>
           <div>
             <div class="gegner">SV Remshalden 2</div>
-            <div class="halle">Stegwiesenhalle, Stegwiesenweg 1, 73630 Remshalden-Geradstetten</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Stegwiesenhalle%2C%20Stegwiesenweg%201%2C%2073630%20Remshalden-Geradstetten" target="_blank" rel="noopener">Stegwiesenhalle, Stegwiesenweg 1, 73630 Remshalden-Geradstetten</a></div>
           </div>
           <div class="rechts"><div class="stand">17:00 Uhr</div></div>
         </div>
@@ -292,7 +296,7 @@ td.platz { color: var(--leise); width: 2em; }
           <div class="datum">Sa 19.12.26<span>Auswärts</span></div>
           <div>
             <div class="gegner">SG Schorndorf</div>
-            <div class="halle">Sporthalle Grauhalde, Rehhaldenweg 10, 73614 Schorndorf</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Sporthalle%20Grauhalde%2C%20Rehhaldenweg%2010%2C%2073614%20Schorndorf" target="_blank" rel="noopener">Sporthalle Grauhalde, Rehhaldenweg 10, 73614 Schorndorf</a></div>
           </div>
           <div class="rechts"><div class="stand">19:00 Uhr</div></div>
         </div><p class="monat">Januar 2027</p>
@@ -300,7 +304,7 @@ td.platz { color: var(--leise); width: 2em; }
           <div class="datum">Sa 09.01.27<span>Heim</span></div>
           <div>
             <div class="gegner">HT Heckengäu</div>
-            <div class="halle">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Flatow-Sporthalle%2C%20Gingener%20Stra%C3%9Fe%2021%2C%2070327%20Stuttgart-Wangen" target="_blank" rel="noopener">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</a></div>
           </div>
           <div class="rechts"><div class="stand">18:00 Uhr</div></div>
         </div>
@@ -308,7 +312,7 @@ td.platz { color: var(--leise); width: 2em; }
           <div class="datum">Sa 23.01.27<span>Heim</span></div>
           <div>
             <div class="gegner">HSG Barg/Bettr 2</div>
-            <div class="halle">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Flatow-Sporthalle%2C%20Gingener%20Stra%C3%9Fe%2021%2C%2070327%20Stuttgart-Wangen" target="_blank" rel="noopener">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</a></div>
           </div>
           <div class="rechts"><div class="stand">20:00 Uhr</div></div>
         </div>
@@ -316,7 +320,7 @@ td.platz { color: var(--leise); width: 2em; }
           <div class="datum">So 31.01.27<span>Auswärts</span></div>
           <div>
             <div class="gegner">1.Heubacher HV</div>
-            <div class="halle">Sporthalle, Adlerstraße 55, 73540 Heubach</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Sporthalle%2C%20Adlerstra%C3%9Fe%2055%2C%2073540%20Heubach" target="_blank" rel="noopener">Sporthalle, Adlerstraße 55, 73540 Heubach</a></div>
           </div>
           <div class="rechts"><div class="stand">13:30 Uhr</div></div>
         </div><p class="monat">Februar 2027</p>
@@ -324,7 +328,7 @@ td.platz { color: var(--leise); width: 2em; }
           <div class="datum">Sa 13.02.27<span>Auswärts</span></div>
           <div>
             <div class="gegner">TSF Ditzingen 2</div>
-            <div class="halle">Sporthalle Glemsaue, Gröningerstraße, 71254 Ditzingen</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Sporthalle%20Glemsaue%2C%20Gr%C3%B6ningerstra%C3%9Fe%2C%2071254%20Ditzingen" target="_blank" rel="noopener">Sporthalle Glemsaue, Gröningerstraße, 71254 Ditzingen</a></div>
           </div>
           <div class="rechts"><div class="stand">18:00 Uhr</div></div>
         </div>
@@ -332,7 +336,7 @@ td.platz { color: var(--leise); width: 2em; }
           <div class="datum">Sa 20.02.27<span>Heim</span></div>
           <div>
             <div class="gegner">1.Heubacher HV</div>
-            <div class="halle">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Flatow-Sporthalle%2C%20Gingener%20Stra%C3%9Fe%2021%2C%2070327%20Stuttgart-Wangen" target="_blank" rel="noopener">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</a></div>
           </div>
           <div class="rechts"><div class="stand">20:00 Uhr</div></div>
         </div>
@@ -340,7 +344,7 @@ td.platz { color: var(--leise); width: 2em; }
           <div class="datum">Fr 26.02.27<span>Auswärts</span></div>
           <div>
             <div class="gegner">TSV Schmiden 3</div>
-            <div class="halle">Sporthalle beim Schulzentrum, Remstaler Straße 38, 70736 Fellbach-Schmiden</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Sporthalle%20beim%20Schulzentrum%2C%20Remstaler%20Stra%C3%9Fe%2038%2C%2070736%20Fellbach-Schmiden" target="_blank" rel="noopener">Sporthalle beim Schulzentrum, Remstaler Straße 38, 70736 Fellbach-Schmiden</a></div>
           </div>
           <div class="rechts"><div class="stand">20:30 Uhr</div></div>
         </div><p class="monat">März 2027</p>
@@ -348,7 +352,7 @@ td.platz { color: var(--leise); width: 2em; }
           <div class="datum">Sa 06.03.27<span>Heim</span></div>
           <div>
             <div class="gegner">TV Obertürkh.</div>
-            <div class="halle">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Flatow-Sporthalle%2C%20Gingener%20Stra%C3%9Fe%2021%2C%2070327%20Stuttgart-Wangen" target="_blank" rel="noopener">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</a></div>
           </div>
           <div class="rechts"><div class="stand">20:00 Uhr</div></div>
         </div>
@@ -356,7 +360,7 @@ td.platz { color: var(--leise); width: 2em; }
           <div class="datum">So 14.03.27<span>Auswärts</span></div>
           <div>
             <div class="gegner">TV Oeffingen 2</div>
-            <div class="halle">Sporthalle, Albert-Eise Weg 3, 70736 Fellbach-Oeffingen</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Sporthalle%2C%20Albert-Eise%20Weg%203%2C%2070736%20Fellbach-Oeffingen" target="_blank" rel="noopener">Sporthalle, Albert-Eise Weg 3, 70736 Fellbach-Oeffingen</a></div>
           </div>
           <div class="rechts"><div class="stand">15:00 Uhr</div></div>
         </div><p class="monat">April 2027</p>
@@ -364,7 +368,7 @@ td.platz { color: var(--leise); width: 2em; }
           <div class="datum">Sa 10.04.27<span>Auswärts</span></div>
           <div>
             <div class="gegner">SF Schwaikheim 2</div>
-            <div class="halle">Fritz-Ulrich-Halle, Badstraße 24, 71409 Schwaikheim</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Fritz-Ulrich-Halle%2C%20Badstra%C3%9Fe%2024%2C%2071409%20Schwaikheim" target="_blank" rel="noopener">Fritz-Ulrich-Halle, Badstraße 24, 71409 Schwaikheim</a></div>
           </div>
           <div class="rechts"><div class="stand">15:00 Uhr</div></div>
         </div>
@@ -372,7 +376,7 @@ td.platz { color: var(--leise); width: 2em; }
           <div class="datum">Sa 17.04.27<span>Heim</span></div>
           <div>
             <div class="gegner">SV Remshalden 2</div>
-            <div class="halle">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Flatow-Sporthalle%2C%20Gingener%20Stra%C3%9Fe%2021%2C%2070327%20Stuttgart-Wangen" target="_blank" rel="noopener">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</a></div>
           </div>
           <div class="rechts"><div class="stand">18:00 Uhr</div></div>
         </div>
@@ -380,7 +384,7 @@ td.platz { color: var(--leise); width: 2em; }
           <div class="datum">So 25.04.27<span>Auswärts</span></div>
           <div>
             <div class="gegner">TSB Schw.Gmünd 2</div>
-            <div class="halle">Große Sporthalle, Katharinenstraße 33, 73525 Schwäbisch Gmünd</div>
+            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Gro%C3%9Fe%20Sporthalle%2C%20Katharinenstra%C3%9Fe%2033%2C%2073525%20Schw%C3%A4bisch%20Gm%C3%BCnd" target="_blank" rel="noopener">Große Sporthalle, Katharinenstraße 33, 73525 Schwäbisch Gmünd</a></div>
           </div>
           <div class="rechts"><div class="stand">17:00 Uhr</div></div>
         </div>

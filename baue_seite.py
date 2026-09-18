@@ -11,6 +11,7 @@ import argparse
 import json
 from datetime import datetime
 from pathlib import Path
+from urllib.parse import quote
 
 EIGENER_NAME = "HSG Ob. Neckar"
 MONATE = ["", "Januar", "Februar", "März", "April", "Mai", "Juni", "Juli",
@@ -29,6 +30,12 @@ def gegner(spiel: dict) -> str:
 def kurzdatum(iso: str) -> str:
     d = datetime.fromisoformat(iso)
     return f"{TAGE[d.weekday()]} {d:%d.%m.%y}"
+
+
+def kartenlink(halle: str) -> str:
+    """Wie im MuRu-Projekt (baue_seite.py, kartenlink): Google-Maps-Suche aus
+    dem Hallennamen samt Adresse, kein eigener Geokodierungs-Aufwand noetig."""
+    return "https://www.google.com/maps/search/?api=1&query=" + quote(halle)
 
 
 def naechstes_spiel(spiele: list[dict]) -> dict | None:
@@ -56,7 +63,8 @@ def baue_naechstes_spiel(spiel: dict | None) -> str:
         zeilen.append('<dt>Anwurf</dt><dd>Noch nicht angesetzt</dd>')
     zeilen.append(f'<dt>Ort</dt><dd>{"Heimspiel" if heim else "Auswärtsspiel"}</dd>')
     if spiel["halle"]:
-        zeilen.append(f'<dt>Halle</dt><dd>{spiel["halle"]}</dd>')
+        zeilen.append(f'<dt>Halle</dt><dd><a href="{kartenlink(spiel["halle"])}" '
+                      f'target="_blank" rel="noopener">{spiel["halle"]}</a></dd>')
 
     paarung = (f'{eigener_anzeigename} <span class="gegen">–</span> {gegner(spiel)}' if heim
                else f'{gegner(spiel)} <span class="gegen">–</span> {eigener_anzeigename}')
@@ -161,7 +169,9 @@ def baue_spielplan(spiele: list[dict]) -> str:
                     if spiel["uhrzeit_bekannt"] else "offen")
             stand = f'<div class="stand">{zeit}</div>'
 
-        halle = f'<div class="halle">{spiel["halle"]}</div>' if spiel["halle"] else ""
+        halle = (f'<div class="halle"><a href="{kartenlink(spiel["halle"])}" '
+                 f'target="_blank" rel="noopener">{spiel["halle"]}</a></div>'
+                 if spiel["halle"] else "")
 
         zeilen.append(f"""
         <div class="{klassen}">
@@ -267,6 +277,8 @@ button {{ touch-action: manipulation; -webkit-tap-highlight-color: transparent; 
               clear: left; padding: 11px 0; border-top: 1px solid var(--linie-zart); }}
 .fakten dd {{ margin: 0 0 0 96px; font-size: .95rem; padding: 11px 0;
               border-top: 1px solid var(--linie-zart); }}
+.fakten a {{ color: inherit; text-decoration: none; box-shadow: inset 0 -1px 0 var(--gold); }}
+.fakten a:hover {{ box-shadow: inset 0 -2px 0 var(--gold); }}
 .hinweistext {{ color: var(--tinte-weich); font-size: .95rem; }}
 
 .knopf {{
@@ -325,6 +337,8 @@ td.platz {{ color: var(--leise); width: 2em; }}
 .spiel .datum span {{ display: block; font-weight: 400; color: var(--leise); }}
 .spiel .gegner {{ font-size: 1rem; font-weight: 500; line-height: 1.3; overflow-wrap: anywhere; }}
 .spiel .halle {{ font-size: .86rem; color: var(--leise); margin-top: 3px; }}
+.spiel .halle a {{ color: inherit; text-decoration: none; box-shadow: inset 0 -1px 0 var(--linie); }}
+.spiel .halle a:hover {{ box-shadow: inset 0 -1px 0 var(--gold); }}
 .spiel .stand {{ font-size: .92rem; font-weight: 700; white-space: nowrap; }}
 .spiel .stand.S {{ color: var(--sieg); }}
 .spiel .stand.N {{ color: var(--niederlage); }}
