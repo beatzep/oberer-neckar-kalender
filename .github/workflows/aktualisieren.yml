@@ -64,9 +64,9 @@ jobs:
               gh issue create --title "Saison $SAISON zu Ende - IDs fuer die naechste Saison pflegen" \
                 --body "Alle drei Mannschaften haben ihr letztes Saisonspiel dieser Saison gespielt.
 
-Neue og/cl/ct-IDs fuer teams.json auf handball4all nachsehen (README, Abschnitt \"Die Quelle ist eine andere\": ueber \"Kalender abonnieren\" auf der handball4all-Seite, Rechtsklick auf den iCal-Link, URL kopieren) und \`saison\` in teams.json auf den neuen Wert setzen.
+                Neue og/cl/ct-IDs fuer teams.json auf handball4all nachsehen (README, Abschnitt \"Die Quelle ist eine andere\": ueber \"Kalender abonnieren\" auf der handball4all-Seite, Rechtsklick auf den iCal-Link, URL kopieren) und \`saison\` in teams.json auf den neuen Wert setzen.
 
-hole_daten.py archiviert die alte Saison beim naechsten Lauf automatisch unter docs/archiv/ und schaltet sie im Saison-Dropdown auf der Seite frei. Dieses Issue schliesst sich von selbst, sobald wieder Spiele da sind."
+                hole_daten.py archiviert die alte Saison beim naechsten Lauf automatisch unter docs/archiv/ und schaltet sie im Saison-Dropdown auf der Seite frei. Dieses Issue schliesst sich von selbst, sobald wieder Spiele da sind."
             fi
           else
             if [ -n "$OFFEN" ]; then
