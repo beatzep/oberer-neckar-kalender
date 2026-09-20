@@ -2,7 +2,7 @@
   "verein": "HSG Oberer Neckar",
   "saison": "26/27",
   "saison_abgeschlossen": false,
-  "geholt_am": "2026-09-20T16:45:35",
+  "geholt_am": "2026-09-20T19:21:15",
   "teams": {
     "herren1": {
       "name": "Herren",
@@ -11,7 +11,7 @@
       "datei": "herren1.ics",
       "liga": "Männer Bezirksoberliga",
       "bereich": "Stuttgart-Rems-Murr",
-      "quelle_stand": "Letzte Änderung: Sa, 19.09.2026, 20:42h",
+      "quelle_stand": "Letzte Änderung: So, 20.09.2026, 19:27h",
       "spiele": [
         {
           "id": "9677971",
@@ -303,6 +303,18 @@
       "tabelle": [
         {
           "platz": 1,
+          "team": "TV Oeffingen 1897 2",
+          "spiele": 1,
+          "siege": 1,
+          "unentschieden": 0,
+          "niederlagen": 0,
+          "tore_geschossen": 36,
+          "tore_erhalten": 26,
+          "punkte_plus": 2,
+          "punkte_minus": 0
+        },
+        {
+          "platz": null,
           "team": "TV Obertürkheim",
           "spiele": 1,
           "siege": 1,
@@ -315,18 +327,18 @@
         },
         {
           "platz": null,
-          "team": "TV Oeffingen 1897 2",
+          "team": "SF Schwaikheim 2",
           "spiele": 1,
           "siege": 1,
           "unentschieden": 0,
           "niederlagen": 0,
-          "tore_geschossen": 36,
-          "tore_erhalten": 26,
+          "tore_geschossen": 27,
+          "tore_erhalten": 23,
           "punkte_plus": 2,
           "punkte_minus": 0
         },
         {
-          "platz": 3,
+          "platz": 4,
           "team": "TSV Schmiden 1902 3",
           "spiele": 1,
           "siege": 0,
@@ -374,7 +386,7 @@
           "punkte_minus": 1
         },
         {
-          "platz": 7,
+          "platz": 8,
           "team": "HSG Bargau/Bettringen 2",
           "spiele": 1,
           "siege": 0,
@@ -382,6 +394,18 @@
           "niederlagen": 1,
           "tore_geschossen": 26,
           "tore_erhalten": 36,
+          "punkte_plus": 0,
+          "punkte_minus": 2
+        },
+        {
+          "platz": null,
+          "team": "TSB Schwäbisch Gmünd 2",
+          "spiele": 1,
+          "siege": 0,
+          "unentschieden": 0,
+          "niederlagen": 1,
+          "tore_geschossen": 23,
+          "tore_erhalten": 27,
           "punkte_plus": 0,
           "punkte_minus": 2
         },
@@ -398,31 +422,7 @@
           "punkte_minus": 2
         },
         {
-          "platz": 9,
-          "team": "SF Schwaikheim 2",
-          "spiele": 0,
-          "siege": 0,
-          "unentschieden": 0,
-          "niederlagen": 0,
-          "tore_geschossen": 0,
-          "tore_erhalten": 0,
-          "punkte_plus": 0,
-          "punkte_minus": 0
-        },
-        {
-          "platz": null,
-          "team": "TSB Schwäbisch Gmünd 2",
-          "spiele": 0,
-          "siege": 0,
-          "unentschieden": 0,
-          "niederlagen": 0,
-          "tore_geschossen": 0,
-          "tore_erhalten": 0,
-          "punkte_plus": 0,
-          "punkte_minus": 0
-        },
-        {
-          "platz": null,
+          "platz": 11,
           "team": "HandballTeam Heckengäu",
           "spiele": 0,
           "siege": 0,
