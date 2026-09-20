@@ -53,7 +53,17 @@ python3 baue_admin.py --worker-url "$W" --out docs/admin.html
 Ein GitHub-Actions-Workflow (`.github/workflows/aktualisieren.yml`) baut
 einmal täglich neu, an Wochenenden zusätzlich stündlich von 12 bis 22 Uhr
 UTC (Spieltage), und pusht die Änderungen. Übernommen aus dem MuRu-Projekt
-(`handball-kalender/.github/workflows/spielplan.yml`).
+(`handball-kalender/.github/workflows/spielplan.yml`). Damit das
+zuverlässig läuft, zwei Repo-/Account-Einstellungen auf GitHub prüfen,
+falls Läufe ausbleiben oder sofort mit 0 Jobs fehlschlagen:
+
+- **Settings > Actions > General > Workflow permissions:** muss auf "Read
+  and write permissions" stehen, sonst schlägt der `git push`-Schritt fehl.
+- **Settings (Account) > Billing and licensing > Budgets and alerts >
+  Actions:** Budget darf nicht bei $0 mit "Stop usage" stehen, sonst
+  blockiert GitHub jeden Lauf sofort, sobald das kostenlose Kontingent
+  aufgebraucht ist - ohne Fehlermeldung im Workflow selbst, nur ein
+  "failure" ganz ohne Jobs.
 
 ## Änderungserkennung
 
