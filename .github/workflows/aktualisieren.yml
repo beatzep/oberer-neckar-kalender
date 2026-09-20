@@ -16,6 +16,10 @@ permissions:
   contents: write
   issues: write
 
+# Setzt zusaetzlich voraus, dass unter Settings > Actions > General >
+# Workflow permissions "Read and write permissions" aktiviert ist - sonst
+# schlaegt der Commit-Schritt fehl, bevor ueberhaupt ein Job startet.
+
 jobs:
   bauen:
     runs-on: ubuntu-latest
