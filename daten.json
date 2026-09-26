@@ -2,7 +2,7 @@
   "verein": "HSG Oberer Neckar",
   "saison": "26/27",
   "saison_abgeschlossen": false,
-  "geholt_am": "2026-09-25T08:49:52",
+  "geholt_am": "2026-09-26T08:36:22",
   "teams": {
     "herren1": {
       "name": "Herren",
@@ -49,7 +49,7 @@
           "tore_eigene": null,
           "tore_gegner": null,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
-          "schiedsrichter": "",
+          "schiedsrichter": "Cosalter",
           "sequence": 0
         },
         {
@@ -455,7 +455,7 @@
       "datei": "herren2.ics",
       "liga": "Männer 3. Bezirksklasse",
       "bereich": "Stuttgart-Rems-Murr",
-      "quelle_stand": "Letzte Änderung: Sa, 19.09.2026, 17:22h",
+      "quelle_stand": "Letzte Änderung: Fr, 25.09.2026, 12:17h",
       "spiele": [
         {
           "id": "9680596",
@@ -473,15 +473,15 @@
         {
           "id": "9680611",
           "nummer": "201005",
-          "termin": "2026-09-26T14:00:00",
-          "uhrzeit_bekannt": true,
+          "termin": "2026-09-26",
+          "uhrzeit_bekannt": false,
           "heim": false,
           "gegner": "HT Heckengäu 5",
           "tore_eigene": null,
           "tore_gegner": null,
           "halle": "Sporthalle Bühl, Robert-Bosch-Straße, 71277 Rutesheim",
           "schiedsrichter": "Hauser",
-          "sequence": 0
+          "sequence": 1
         },
         {
           "id": "9680641",
@@ -493,7 +493,7 @@
           "tore_eigene": null,
           "tore_gegner": null,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
-          "schiedsrichter": "",
+          "schiedsrichter": "Bubeck",
           "sequence": 0
         },
         {
@@ -738,7 +738,9 @@
           "punkte_minus": 0
         }
       ],
-      "aenderungen": []
+      "aenderungen": [
+        "Spiel gegen HT Heckengäu 5: Sa 26.09.26, 14:00 Uhr → Sa 26.09.26"
+      ]
     },
     "damen": {
       "name": "Damen",
