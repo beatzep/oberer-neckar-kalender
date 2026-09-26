@@ -2,7 +2,7 @@
   "verein": "HSG Oberer Neckar",
   "saison": "26/27",
   "saison_abgeschlossen": false,
-  "geholt_am": "2026-09-26T16:16:37",
+  "geholt_am": "2026-09-26T19:43:06",
   "teams": {
     "herren1": {
       "name": "Herren",
@@ -11,7 +11,7 @@
       "datei": "herren1.ics",
       "liga": "Männer Bezirksoberliga",
       "bereich": "Stuttgart-Rems-Murr",
-      "quelle_stand": "Letzte Änderung: So, 20.09.2026, 19:27h",
+      "quelle_stand": "Letzte Änderung: Sa, 26.09.2026, 20:57h",
       "spiele": [
         {
           "id": "9677971",
@@ -304,24 +304,36 @@
         {
           "platz": 1,
           "team": "TV Oeffingen 1897 2",
-          "spiele": 1,
-          "siege": 1,
+          "spiele": 2,
+          "siege": 2,
           "unentschieden": 0,
           "niederlagen": 0,
-          "tore_geschossen": 36,
-          "tore_erhalten": 26,
-          "punkte_plus": 2,
+          "tore_geschossen": 80,
+          "tore_erhalten": 57,
+          "punkte_plus": 4,
           "punkte_minus": 0
         },
         {
           "platz": null,
           "team": "TV Obertürkheim",
+          "spiele": 2,
+          "siege": 2,
+          "unentschieden": 0,
+          "niederlagen": 0,
+          "tore_geschossen": 70,
+          "tore_erhalten": 50,
+          "punkte_plus": 4,
+          "punkte_minus": 0
+        },
+        {
+          "platz": 3,
+          "team": "HandballTeam Heckengäu",
           "spiele": 1,
           "siege": 1,
           "unentschieden": 0,
           "niederlagen": 0,
-          "tore_geschossen": 36,
-          "tore_erhalten": 21,
+          "tore_geschossen": 33,
+          "tore_erhalten": 19,
           "punkte_plus": 2,
           "punkte_minus": 0
         },
@@ -338,31 +350,7 @@
           "punkte_minus": 0
         },
         {
-          "platz": 4,
-          "team": "TSV Schmiden 1902 3",
-          "spiele": 1,
-          "siege": 0,
-          "unentschieden": 1,
-          "niederlagen": 0,
-          "tore_geschossen": 29,
-          "tore_erhalten": 29,
-          "punkte_plus": 1,
-          "punkte_minus": 1
-        },
-        {
-          "platz": null,
-          "team": "1. Heubacher Handballverein",
-          "spiele": 1,
-          "siege": 0,
-          "unentschieden": 1,
-          "niederlagen": 0,
-          "tore_geschossen": 29,
-          "tore_erhalten": 29,
-          "punkte_plus": 1,
-          "punkte_minus": 1
-        },
-        {
-          "platz": null,
+          "platz": 5,
           "team": "HSG Oberer Neckar",
           "spiele": 1,
           "siege": 0,
@@ -386,7 +374,31 @@
           "punkte_minus": 1
         },
         {
+          "platz": 7,
+          "team": "1. Heubacher Handballverein",
+          "spiele": 1,
+          "siege": 0,
+          "unentschieden": 1,
+          "niederlagen": 0,
+          "tore_geschossen": 29,
+          "tore_erhalten": 29,
+          "punkte_plus": 1,
+          "punkte_minus": 1
+        },
+        {
           "platz": 8,
+          "team": "TSV Schmiden 1902 3",
+          "spiele": 2,
+          "siege": 0,
+          "unentschieden": 1,
+          "niederlagen": 1,
+          "tore_geschossen": 58,
+          "tore_erhalten": 63,
+          "punkte_plus": 1,
+          "punkte_minus": 3
+        },
+        {
+          "platz": 9,
           "team": "HSG Bargau/Bettringen 2",
           "spiele": 1,
           "siege": 0,
@@ -398,43 +410,31 @@
           "punkte_minus": 2
         },
         {
-          "platz": null,
+          "platz": 10,
           "team": "TSB Schwäbisch Gmünd 2",
-          "spiele": 1,
+          "spiele": 2,
           "siege": 0,
           "unentschieden": 0,
-          "niederlagen": 1,
-          "tore_geschossen": 23,
-          "tore_erhalten": 27,
+          "niederlagen": 2,
+          "tore_geschossen": 42,
+          "tore_erhalten": 60,
           "punkte_plus": 0,
-          "punkte_minus": 2
+          "punkte_minus": 4
         },
         {
           "platz": null,
           "team": "TSF Ditzingen 2",
-          "spiele": 1,
+          "spiele": 2,
           "siege": 0,
           "unentschieden": 0,
-          "niederlagen": 1,
-          "tore_geschossen": 21,
-          "tore_erhalten": 36,
+          "niederlagen": 2,
+          "tore_geschossen": 52,
+          "tore_erhalten": 80,
           "punkte_plus": 0,
-          "punkte_minus": 2
+          "punkte_minus": 4
         },
         {
-          "platz": 11,
-          "team": "HandballTeam Heckengäu",
-          "spiele": 0,
-          "siege": 0,
-          "unentschieden": 0,
-          "niederlagen": 0,
-          "tore_geschossen": 0,
-          "tore_erhalten": 0,
-          "punkte_plus": 0,
-          "punkte_minus": 0
-        },
-        {
-          "platz": null,
+          "platz": 12,
           "team": "SV Remshalden 2",
           "spiele": 0,
           "siege": 0,
@@ -747,7 +747,7 @@
       "datei": "damen.ics",
       "liga": "Frauen-Landesliga Staffel 2",
       "bereich": "Baden-Württembergischer Handball-Verband",
-      "quelle_stand": "Letzte Änderung: Sa, 19.09.2026, 19:40h",
+      "quelle_stand": "Letzte Änderung: Sa, 26.09.2026, 21:25h",
       "spiele": [
         {
           "id": "9419631",
@@ -962,17 +962,29 @@
         {
           "platz": 1,
           "team": "SG Weinstadt 2",
+          "spiele": 2,
+          "siege": 2,
+          "unentschieden": 0,
+          "niederlagen": 0,
+          "tore_geschossen": 59,
+          "tore_erhalten": 49,
+          "punkte_plus": 4,
+          "punkte_minus": 0
+        },
+        {
+          "platz": 2,
+          "team": "SF Schwaikheim 2",
           "spiele": 1,
           "siege": 1,
           "unentschieden": 0,
           "niederlagen": 0,
           "tore_geschossen": 26,
-          "tore_erhalten": 20,
+          "tore_erhalten": 23,
           "punkte_plus": 2,
           "punkte_minus": 0
         },
         {
-          "platz": 2,
+          "platz": 3,
           "team": "MTV Stuttgart",
           "spiele": 1,
           "siege": 0,
@@ -984,31 +996,31 @@
           "punkte_minus": 2
         },
         {
-          "platz": 3,
-          "team": "SF Schwaikheim 2",
-          "spiele": 0,
-          "siege": 0,
-          "unentschieden": 0,
-          "niederlagen": 0,
-          "tore_geschossen": 0,
-          "tore_erhalten": 0,
-          "punkte_plus": 0,
-          "punkte_minus": 0
-        },
-        {
           "platz": null,
           "team": "SV Leonberg/Eltingen 2",
-          "spiele": 0,
+          "spiele": 1,
           "siege": 0,
           "unentschieden": 0,
-          "niederlagen": 0,
-          "tore_geschossen": 0,
-          "tore_erhalten": 0,
+          "niederlagen": 1,
+          "tore_geschossen": 23,
+          "tore_erhalten": 26,
           "punkte_plus": 0,
-          "punkte_minus": 0
+          "punkte_minus": 2
         },
         {
           "platz": null,
+          "team": "TSV Alfdorf/Lorch/Waldhausen",
+          "spiele": 1,
+          "siege": 0,
+          "unentschieden": 0,
+          "niederlagen": 1,
+          "tore_geschossen": 29,
+          "tore_erhalten": 33,
+          "punkte_plus": 0,
+          "punkte_minus": 2
+        },
+        {
+          "platz": 6,
           "team": "HSG Oberer Neckar",
           "spiele": 0,
           "siege": 0,
@@ -1022,18 +1034,6 @@
         {
           "platz": null,
           "team": "HC Oppenweiler/Backnang",
-          "spiele": 0,
-          "siege": 0,
-          "unentschieden": 0,
-          "niederlagen": 0,
-          "tore_geschossen": 0,
-          "tore_erhalten": 0,
-          "punkte_plus": 0,
-          "punkte_minus": 0
-        },
-        {
-          "platz": null,
-          "team": "TSV Alfdorf/Lorch/Waldhausen",
           "spiele": 0,
           "siege": 0,
           "unentschieden": 0,
