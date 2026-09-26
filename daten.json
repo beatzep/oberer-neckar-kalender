@@ -2,7 +2,7 @@
   "verein": "HSG Oberer Neckar",
   "saison": "26/27",
   "saison_abgeschlossen": false,
-  "geholt_am": "2026-09-26T19:43:06",
+  "geholt_am": "2026-09-26T22:40:15",
   "teams": {
     "herren1": {
       "name": "Herren",
@@ -480,7 +480,7 @@
           "tore_eigene": 0,
           "tore_gegner": 0,
           "halle": "Sporthalle Bühl, Robert-Bosch-Straße, 71277 Rutesheim",
-          "schiedsrichter": "Hauser",
+          "schiedsrichter": "",
           "sequence": 1
         },
         {
