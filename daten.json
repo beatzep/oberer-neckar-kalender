@@ -2,7 +2,7 @@
   "verein": "HSG Oberer Neckar",
   "saison": "26/27",
   "saison_abgeschlossen": false,
-  "geholt_am": "2026-09-27T16:53:03",
+  "geholt_am": "2026-09-27T20:03:14",
   "teams": {
     "herren1": {
       "name": "Herren",
@@ -11,7 +11,7 @@
       "datei": "herren1.ics",
       "liga": "Männer Bezirksoberliga",
       "bereich": "Stuttgart-Rems-Murr",
-      "quelle_stand": "Letzte Änderung: Sa, 26.09.2026, 20:57h",
+      "quelle_stand": "Letzte Änderung: So, 27.09.2026, 19:41h",
       "spiele": [
         {
           "id": "9677971",
@@ -33,8 +33,8 @@
           "uhrzeit_bekannt": true,
           "heim": false,
           "gegner": "HSG Barg/Bettr 2",
-          "tore_eigene": 19,
-          "tore_gegner": 10,
+          "tore_eigene": 37,
+          "tore_gegner": 29,
           "halle": "Uhlandhalle, Wolf-Hirth-Straße 50, 73529 Schwäb.Gmünd-Bettringen",
           "schiedsrichter": "Doderer",
           "sequence": 0
@@ -327,6 +327,18 @@
         },
         {
           "platz": 3,
+          "team": "HSG Oberer Neckar",
+          "spiele": 2,
+          "siege": 1,
+          "unentschieden": 1,
+          "niederlagen": 0,
+          "tore_geschossen": 70,
+          "tore_erhalten": 62,
+          "punkte_plus": 3,
+          "punkte_minus": 1
+        },
+        {
+          "platz": 4,
           "team": "HandballTeam Heckengäu",
           "spiele": 1,
           "siege": 1,
@@ -350,14 +362,14 @@
           "punkte_minus": 0
         },
         {
-          "platz": 5,
-          "team": "HSG Oberer Neckar",
+          "platz": 6,
+          "team": "1. Heubacher Handballverein",
           "spiele": 1,
           "siege": 0,
           "unentschieden": 1,
           "niederlagen": 0,
-          "tore_geschossen": 33,
-          "tore_erhalten": 33,
+          "tore_geschossen": 29,
+          "tore_erhalten": 29,
           "punkte_plus": 1,
           "punkte_minus": 1
         },
@@ -370,18 +382,6 @@
           "niederlagen": 0,
           "tore_geschossen": 33,
           "tore_erhalten": 33,
-          "punkte_plus": 1,
-          "punkte_minus": 1
-        },
-        {
-          "platz": 7,
-          "team": "1. Heubacher Handballverein",
-          "spiele": 1,
-          "siege": 0,
-          "unentschieden": 1,
-          "niederlagen": 0,
-          "tore_geschossen": 29,
-          "tore_erhalten": 29,
           "punkte_plus": 1,
           "punkte_minus": 1
         },
@@ -400,17 +400,17 @@
         {
           "platz": 9,
           "team": "HSG Bargau/Bettringen 2",
-          "spiele": 1,
+          "spiele": 2,
           "siege": 0,
           "unentschieden": 0,
-          "niederlagen": 1,
-          "tore_geschossen": 26,
-          "tore_erhalten": 36,
+          "niederlagen": 2,
+          "tore_geschossen": 55,
+          "tore_erhalten": 73,
           "punkte_plus": 0,
-          "punkte_minus": 2
+          "punkte_minus": 4
         },
         {
-          "platz": 10,
+          "platz": null,
           "team": "TSB Schwäbisch Gmünd 2",
           "spiele": 2,
           "siege": 0,
