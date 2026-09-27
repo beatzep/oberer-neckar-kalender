@@ -2,7 +2,7 @@
   "verein": "HSG Oberer Neckar",
   "saison": "26/27",
   "saison_abgeschlossen": false,
-  "geholt_am": "2026-09-27T20:03:14",
+  "geholt_am": "2026-09-27T22:58:56",
   "teams": {
     "herren1": {
       "name": "Herren",
@@ -36,7 +36,7 @@
           "tore_eigene": 37,
           "tore_gegner": 29,
           "halle": "Uhlandhalle, Wolf-Hirth-Straße 50, 73529 Schwäb.Gmünd-Bettringen",
-          "schiedsrichter": "Doderer",
+          "schiedsrichter": "",
           "sequence": 0
         },
         {
