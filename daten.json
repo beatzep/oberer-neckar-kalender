@@ -2,7 +2,7 @@
   "verein": "HSG Oberer Neckar",
   "saison": "26/27",
   "saison_abgeschlossen": false,
-  "geholt_am": "2026-10-03T09:09:39",
+  "geholt_am": "2026-10-03T16:09:44",
   "teams": {
     "herren1": {
       "name": "Herren",
@@ -46,8 +46,8 @@
           "uhrzeit_bekannt": true,
           "heim": true,
           "gegner": "TSF Ditzingen 2",
-          "tore_eigene": null,
-          "tore_gegner": null,
+          "tore_eigene": 8,
+          "tore_gegner": 4,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
           "schiedsrichter": "Cosalter",
           "sequence": 0
@@ -455,7 +455,7 @@
       "datei": "herren2.ics",
       "liga": "Männer 3. Bezirksklasse",
       "bereich": "Stuttgart-Rems-Murr",
-      "quelle_stand": "Letzte Änderung: So, 27.09.2026, 16:31h",
+      "quelle_stand": "Letzte Änderung: Sa, 03.10.2026, 17:29h",
       "spiele": [
         {
           "id": "9680596",
@@ -490,10 +490,10 @@
           "uhrzeit_bekannt": true,
           "heim": true,
           "gegner": "TSF Welzheim 2",
-          "tore_eigene": null,
-          "tore_gegner": null,
+          "tore_eigene": 33,
+          "tore_gegner": 25,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
-          "schiedsrichter": "",
+          "schiedsrichter": "Cosalter",
           "sequence": 0
         },
         {
@@ -643,6 +643,18 @@
       "tabelle": [
         {
           "platz": 1,
+          "team": "HandballTeam Heckengäu 5",
+          "spiele": 2,
+          "siege": 2,
+          "unentschieden": 0,
+          "niederlagen": 0,
+          "tore_geschossen": 36,
+          "tore_erhalten": 16,
+          "punkte_plus": 4,
+          "punkte_minus": 0
+        },
+        {
+          "platz": 2,
           "team": "MTV Stuttgart 4",
           "spiele": 1,
           "siege": 1,
@@ -650,18 +662,6 @@
           "niederlagen": 0,
           "tore_geschossen": 39,
           "tore_erhalten": 32,
-          "punkte_plus": 2,
-          "punkte_minus": 0
-        },
-        {
-          "platz": null,
-          "team": "HandballTeam Heckengäu 5",
-          "spiele": 1,
-          "siege": 1,
-          "unentschieden": 0,
-          "niederlagen": 0,
-          "tore_geschossen": 0,
-          "tore_erhalten": 0,
           "punkte_plus": 2,
           "punkte_minus": 0
         },
@@ -680,17 +680,29 @@
         {
           "platz": 4,
           "team": "SV Hohenacker-Neustadt 3",
-          "spiele": 2,
+          "spiele": 3,
           "siege": 1,
           "unentschieden": 0,
-          "niederlagen": 1,
-          "tore_geschossen": 76,
-          "tore_erhalten": 65,
+          "niederlagen": 2,
+          "tore_geschossen": 92,
+          "tore_erhalten": 101,
           "punkte_plus": 2,
-          "punkte_minus": 2
+          "punkte_minus": 4
         },
         {
           "platz": 5,
+          "team": "HSG Oberer Neckar 2",
+          "spiele": 3,
+          "siege": 1,
+          "unentschieden": 0,
+          "niederlagen": 2,
+          "tore_geschossen": 59,
+          "tore_erhalten": 69,
+          "punkte_plus": 2,
+          "punkte_minus": 4
+        },
+        {
+          "platz": 6,
           "team": "KSG Gerlingen",
           "spiele": 1,
           "siege": 0,
@@ -702,31 +714,19 @@
           "punkte_minus": 2
         },
         {
-          "platz": 6,
-          "team": "HSG Oberer Neckar 2",
-          "spiele": 2,
-          "siege": 0,
-          "unentschieden": 0,
-          "niederlagen": 2,
-          "tore_geschossen": 26,
-          "tore_erhalten": 44,
-          "punkte_plus": 0,
-          "punkte_minus": 4
-        },
-        {
-          "platz": 7,
-          "team": "TSF Welzheim 2",
-          "spiele": 0,
-          "siege": 0,
-          "unentschieden": 0,
-          "niederlagen": 0,
-          "tore_geschossen": 0,
-          "tore_erhalten": 0,
-          "punkte_plus": 0,
-          "punkte_minus": 0
-        },
-        {
           "platz": null,
+          "team": "TSF Welzheim 2",
+          "spiele": 1,
+          "siege": 0,
+          "unentschieden": 0,
+          "niederlagen": 1,
+          "tore_geschossen": 25,
+          "tore_erhalten": 33,
+          "punkte_plus": 0,
+          "punkte_minus": 2
+        },
+        {
+          "platz": 8,
           "team": "SV Remshalden 4",
           "spiele": 0,
           "siege": 0,
