@@ -2,7 +2,7 @@
   "verein": "HSG Oberer Neckar",
   "saison": "26/27",
   "saison_abgeschlossen": false,
-  "geholt_am": "2026-10-02T09:46:43",
+  "geholt_am": "2026-10-03T09:09:39",
   "teams": {
     "herren1": {
       "name": "Herren",
@@ -506,7 +506,7 @@
           "tore_eigene": null,
           "tore_gegner": null,
           "halle": "Stegwiesenhalle, Stegwiesenweg 1, 73630 Remshalden-Geradstetten",
-          "schiedsrichter": "",
+          "schiedsrichter": "Franke",
           "sequence": 0
         },
         {
