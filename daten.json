@@ -2,7 +2,7 @@
   "verein": "HSG Oberer Neckar",
   "saison": "26/27",
   "saison_abgeschlossen": false,
-  "geholt_am": "2026-10-04T09:48:01",
+  "geholt_am": "2026-10-04T16:47:51",
   "teams": {
     "herren1": {
       "name": "Herren",
@@ -747,7 +747,7 @@
       "datei": "damen.ics",
       "liga": "Frauen-Landesliga Staffel 2",
       "bereich": "Baden-Württembergischer Handball-Verband",
-      "quelle_stand": "Letzte Änderung: Sa, 26.09.2026, 21:25h",
+      "quelle_stand": "Letzte Änderung: So, 04.10.2026, 16:35h",
       "spiele": [
         {
           "id": "9419631",
@@ -756,8 +756,8 @@
           "uhrzeit_bekannt": true,
           "heim": true,
           "gegner": "HCOB Opp/BK",
-          "tore_eigene": null,
-          "tore_gegner": null,
+          "tore_eigene": 25,
+          "tore_gegner": 31,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
           "schiedsrichter": "Hartmann",
           "sequence": 0
@@ -961,6 +961,18 @@
       "tabelle": [
         {
           "platz": 1,
+          "team": "SF Schwaikheim 2",
+          "spiele": 2,
+          "siege": 2,
+          "unentschieden": 0,
+          "niederlagen": 0,
+          "tore_geschossen": 54,
+          "tore_erhalten": 42,
+          "punkte_plus": 4,
+          "punkte_minus": 0
+        },
+        {
+          "platz": null,
           "team": "SG Weinstadt 2",
           "spiele": 2,
           "siege": 2,
@@ -972,31 +984,19 @@
           "punkte_minus": 0
         },
         {
-          "platz": 2,
-          "team": "SF Schwaikheim 2",
+          "platz": 3,
+          "team": "HC Oppenweiler/Backnang",
           "spiele": 1,
           "siege": 1,
           "unentschieden": 0,
           "niederlagen": 0,
-          "tore_geschossen": 26,
-          "tore_erhalten": 23,
+          "tore_geschossen": 31,
+          "tore_erhalten": 25,
           "punkte_plus": 2,
           "punkte_minus": 0
         },
         {
-          "platz": 3,
-          "team": "MTV Stuttgart",
-          "spiele": 1,
-          "siege": 0,
-          "unentschieden": 0,
-          "niederlagen": 1,
-          "tore_geschossen": 20,
-          "tore_erhalten": 26,
-          "punkte_plus": 0,
-          "punkte_minus": 2
-        },
-        {
-          "platz": null,
+          "platz": 4,
           "team": "SV Leonberg/Eltingen 2",
           "spiele": 1,
           "siege": 0,
@@ -1004,6 +1004,18 @@
           "niederlagen": 1,
           "tore_geschossen": 23,
           "tore_erhalten": 26,
+          "punkte_plus": 0,
+          "punkte_minus": 2
+        },
+        {
+          "platz": null,
+          "team": "HSG Oberer Neckar",
+          "spiele": 1,
+          "siege": 0,
+          "unentschieden": 0,
+          "niederlagen": 1,
+          "tore_geschossen": 25,
+          "tore_erhalten": 31,
           "punkte_plus": 0,
           "punkte_minus": 2
         },
@@ -1020,31 +1032,19 @@
           "punkte_minus": 2
         },
         {
-          "platz": 6,
-          "team": "HSG Oberer Neckar",
-          "spiele": 0,
+          "platz": 7,
+          "team": "MTV Stuttgart",
+          "spiele": 2,
           "siege": 0,
           "unentschieden": 0,
-          "niederlagen": 0,
-          "tore_geschossen": 0,
-          "tore_erhalten": 0,
+          "niederlagen": 2,
+          "tore_geschossen": 39,
+          "tore_erhalten": 54,
           "punkte_plus": 0,
-          "punkte_minus": 0
+          "punkte_minus": 4
         },
         {
-          "platz": null,
-          "team": "HC Oppenweiler/Backnang",
-          "spiele": 0,
-          "siege": 0,
-          "unentschieden": 0,
-          "niederlagen": 0,
-          "tore_geschossen": 0,
-          "tore_erhalten": 0,
-          "punkte_plus": 0,
-          "punkte_minus": 0
-        },
-        {
-          "platz": null,
+          "platz": 8,
           "team": "SV Fellbach",
           "spiele": 0,
           "siege": 0,
