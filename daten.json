@@ -2,7 +2,7 @@
   "verein": "HSG Oberer Neckar",
   "saison": "26/27",
   "saison_abgeschlossen": false,
-  "geholt_am": "2026-10-04T16:47:51",
+  "geholt_am": "2026-10-04T20:04:13",
   "teams": {
     "herren1": {
       "name": "Herren",
@@ -11,7 +11,7 @@
       "datei": "herren1.ics",
       "liga": "Männer Bezirksoberliga",
       "bereich": "Stuttgart-Rems-Murr",
-      "quelle_stand": "Letzte Änderung: Sa, 03.10.2026, 20:35h",
+      "quelle_stand": "Letzte Änderung: So, 04.10.2026, 19:28h",
       "spiele": [
         {
           "id": "9677971",
@@ -351,27 +351,27 @@
         },
         {
           "platz": 5,
-          "team": "SF Schwaikheim 2",
-          "spiele": 1,
+          "team": "SG Schorndorf 1846",
+          "spiele": 2,
           "siege": 1,
-          "unentschieden": 0,
+          "unentschieden": 1,
           "niederlagen": 0,
-          "tore_geschossen": 27,
-          "tore_erhalten": 23,
-          "punkte_plus": 2,
-          "punkte_minus": 0
+          "tore_geschossen": 71,
+          "tore_erhalten": 66,
+          "punkte_plus": 3,
+          "punkte_minus": 1
         },
         {
           "platz": 6,
-          "team": "SG Schorndorf 1846",
-          "spiele": 1,
-          "siege": 0,
-          "unentschieden": 1,
-          "niederlagen": 0,
-          "tore_geschossen": 33,
-          "tore_erhalten": 33,
-          "punkte_plus": 1,
-          "punkte_minus": 1
+          "team": "SF Schwaikheim 2",
+          "spiele": 2,
+          "siege": 1,
+          "unentschieden": 0,
+          "niederlagen": 1,
+          "tore_geschossen": 60,
+          "tore_erhalten": 61,
+          "punkte_plus": 2,
+          "punkte_minus": 2
         },
         {
           "platz": 7,
@@ -747,7 +747,7 @@
       "datei": "damen.ics",
       "liga": "Frauen-Landesliga Staffel 2",
       "bereich": "Baden-Württembergischer Handball-Verband",
-      "quelle_stand": "Letzte Änderung: So, 04.10.2026, 16:35h",
+      "quelle_stand": "Letzte Änderung: So, 04.10.2026, 18:59h",
       "spiele": [
         {
           "id": "9419631",
@@ -961,6 +961,18 @@
       "tabelle": [
         {
           "platz": 1,
+          "team": "SG Weinstadt 2",
+          "spiele": 3,
+          "siege": 3,
+          "unentschieden": 0,
+          "niederlagen": 0,
+          "tore_geschossen": 87,
+          "tore_erhalten": 76,
+          "punkte_plus": 6,
+          "punkte_minus": 0
+        },
+        {
+          "platz": 2,
           "team": "SF Schwaikheim 2",
           "spiele": 2,
           "siege": 2,
@@ -968,18 +980,6 @@
           "niederlagen": 0,
           "tore_geschossen": 54,
           "tore_erhalten": 42,
-          "punkte_plus": 4,
-          "punkte_minus": 0
-        },
-        {
-          "platz": null,
-          "team": "SG Weinstadt 2",
-          "spiele": 2,
-          "siege": 2,
-          "unentschieden": 0,
-          "niederlagen": 0,
-          "tore_geschossen": 59,
-          "tore_erhalten": 49,
           "punkte_plus": 4,
           "punkte_minus": 0
         },
@@ -1032,7 +1032,19 @@
           "punkte_minus": 2
         },
         {
-          "platz": 7,
+          "platz": null,
+          "team": "SV Fellbach",
+          "spiele": 1,
+          "siege": 0,
+          "unentschieden": 0,
+          "niederlagen": 1,
+          "tore_geschossen": 27,
+          "tore_erhalten": 28,
+          "punkte_plus": 0,
+          "punkte_minus": 2
+        },
+        {
+          "platz": 8,
           "team": "MTV Stuttgart",
           "spiele": 2,
           "siege": 0,
@@ -1044,19 +1056,7 @@
           "punkte_minus": 4
         },
         {
-          "platz": 8,
-          "team": "SV Fellbach",
-          "spiele": 0,
-          "siege": 0,
-          "unentschieden": 0,
-          "niederlagen": 0,
-          "tore_geschossen": 0,
-          "tore_erhalten": 0,
-          "punkte_plus": 0,
-          "punkte_minus": 0
-        },
-        {
-          "platz": null,
+          "platz": 9,
           "team": "SG Weissach im Tal",
           "spiele": 0,
           "siege": 0,
