@@ -2,7 +2,7 @@
   "verein": "HSG Oberer Neckar",
   "saison": "26/27",
   "saison_abgeschlossen": false,
-  "geholt_am": "2026-10-04T20:04:13",
+  "geholt_am": "2026-10-04T23:02:55",
   "teams": {
     "herren1": {
       "name": "Herren",
@@ -759,7 +759,7 @@
           "tore_eigene": 25,
           "tore_gegner": 31,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
-          "schiedsrichter": "Hartmann",
+          "schiedsrichter": "",
           "sequence": 0
         },
         {
