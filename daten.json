@@ -2,7 +2,7 @@
   "verein": "HSG Oberer Neckar",
   "saison": "26/27",
   "saison_abgeschlossen": false,
-  "geholt_am": "2026-10-10T17:17:47",
+  "geholt_am": "2026-10-10T21:32:46",
   "teams": {
     "herren1": {
       "name": "Herren",
@@ -11,7 +11,7 @@
       "datei": "herren1.ics",
       "liga": "Männer Bezirksoberliga",
       "bereich": "Stuttgart-Rems-Murr",
-      "quelle_stand": "Letzte Änderung: Sa, 10.10.2026, 18:30h",
+      "quelle_stand": "Letzte Änderung: Sa, 10.10.2026, 19:31h",
       "spiele": [
         {
           "id": "9677971",
@@ -327,6 +327,18 @@
         },
         {
           "platz": 3,
+          "team": "SG Schorndorf 1846",
+          "spiele": 3,
+          "siege": 2,
+          "unentschieden": 1,
+          "niederlagen": 0,
+          "tore_geschossen": 100,
+          "tore_erhalten": 94,
+          "punkte_plus": 5,
+          "punkte_minus": 1
+        },
+        {
+          "platz": 4,
           "team": "HSG Oberer Neckar",
           "spiele": 3,
           "siege": 2,
@@ -338,19 +350,19 @@
           "punkte_minus": 1
         },
         {
-          "platz": 4,
+          "platz": 5,
           "team": "HandballTeam Heckengäu",
-          "spiele": 2,
+          "spiele": 3,
           "siege": 2,
           "unentschieden": 0,
-          "niederlagen": 0,
-          "tore_geschossen": 70,
-          "tore_erhalten": 40,
+          "niederlagen": 1,
+          "tore_geschossen": 98,
+          "tore_erhalten": 69,
           "punkte_plus": 4,
-          "punkte_minus": 0
+          "punkte_minus": 2
         },
         {
-          "platz": 5,
+          "platz": null,
           "team": "SF Schwaikheim 2",
           "spiele": 3,
           "siege": 2,
@@ -360,18 +372,6 @@
           "tore_erhalten": 78,
           "punkte_plus": 4,
           "punkte_minus": 2
-        },
-        {
-          "platz": 6,
-          "team": "SG Schorndorf 1846",
-          "spiele": 2,
-          "siege": 1,
-          "unentschieden": 1,
-          "niederlagen": 0,
-          "tore_geschossen": 71,
-          "tore_erhalten": 66,
-          "punkte_plus": 3,
-          "punkte_minus": 1
         },
         {
           "platz": 7,
