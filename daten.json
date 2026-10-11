@@ -2,7 +2,7 @@
   "verein": "HSG Oberer Neckar",
   "saison": "26/27",
   "saison_abgeschlossen": false,
-  "geholt_am": "2026-10-11T10:00:40",
+  "geholt_am": "2026-10-11T17:39:13",
   "teams": {
     "herren1": {
       "name": "Herren",
@@ -747,7 +747,7 @@
       "datei": "damen.ics",
       "liga": "Frauen-Landesliga Staffel 2",
       "bereich": "Baden-Württembergischer Handball-Verband",
-      "quelle_stand": "Letzte Änderung: Sa, 10.10.2026, 15:59h",
+      "quelle_stand": "Letzte Änderung: So, 11.10.2026, 13:53h",
       "spiele": [
         {
           "id": "9419631",
@@ -961,6 +961,18 @@
       "tabelle": [
         {
           "platz": 1,
+          "team": "SF Schwaikheim 2",
+          "spiele": 3,
+          "siege": 3,
+          "unentschieden": 0,
+          "niederlagen": 0,
+          "tore_geschossen": 80,
+          "tore_erhalten": 64,
+          "punkte_plus": 6,
+          "punkte_minus": 0
+        },
+        {
+          "platz": null,
           "team": "SG Weinstadt 2",
           "spiele": 3,
           "siege": 3,
@@ -969,18 +981,6 @@
           "tore_geschossen": 87,
           "tore_erhalten": 76,
           "punkte_plus": 6,
-          "punkte_minus": 0
-        },
-        {
-          "platz": 2,
-          "team": "SF Schwaikheim 2",
-          "spiele": 2,
-          "siege": 2,
-          "unentschieden": 0,
-          "niederlagen": 0,
-          "tore_geschossen": 54,
-          "tore_erhalten": 42,
-          "punkte_plus": 4,
           "punkte_minus": 0
         },
         {
@@ -1009,13 +1009,13 @@
         },
         {
           "platz": 5,
-          "team": "TSV Alfdorf/Lorch/Waldhausen",
+          "team": "SV Fellbach",
           "spiele": 1,
           "siege": 0,
           "unentschieden": 0,
           "niederlagen": 1,
-          "tore_geschossen": 29,
-          "tore_erhalten": 33,
+          "tore_geschossen": 27,
+          "tore_erhalten": 28,
           "punkte_plus": 0,
           "punkte_minus": 2
         },
@@ -1032,19 +1032,19 @@
           "punkte_minus": 2
         },
         {
-          "platz": null,
-          "team": "SV Fellbach",
-          "spiele": 1,
+          "platz": 7,
+          "team": "TSV Alfdorf/Lorch/Waldhausen",
+          "spiele": 2,
           "siege": 0,
           "unentschieden": 0,
-          "niederlagen": 1,
-          "tore_geschossen": 27,
-          "tore_erhalten": 28,
+          "niederlagen": 2,
+          "tore_geschossen": 51,
+          "tore_erhalten": 59,
           "punkte_plus": 0,
-          "punkte_minus": 2
+          "punkte_minus": 4
         },
         {
-          "platz": 8,
+          "platz": null,
           "team": "MTV Stuttgart",
           "spiele": 2,
           "siege": 0,
