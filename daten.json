@@ -2,7 +2,7 @@
   "verein": "HSG Oberer Neckar",
   "saison": "26/27",
   "saison_abgeschlossen": false,
-  "geholt_am": "2026-10-11T17:39:13",
+  "geholt_am": "2026-10-11T21:48:18",
   "teams": {
     "herren1": {
       "name": "Herren",
@@ -455,7 +455,7 @@
       "datei": "herren2.ics",
       "liga": "Männer 3. Bezirksklasse",
       "bereich": "Stuttgart-Rems-Murr",
-      "quelle_stand": "Letzte Änderung: Sa, 10.10.2026, 16:24h",
+      "quelle_stand": "Letzte Änderung: So, 11.10.2026, 20:09h",
       "spiele": [
         {
           "id": "9680596",
@@ -655,6 +655,18 @@
         },
         {
           "platz": 2,
+          "team": "SV Hohenacker-Neustadt 3",
+          "spiele": 4,
+          "siege": 2,
+          "unentschieden": 0,
+          "niederlagen": 2,
+          "tore_geschossen": 126,
+          "tore_erhalten": 119,
+          "punkte_plus": 4,
+          "punkte_minus": 4
+        },
+        {
+          "platz": 3,
           "team": "SV Remshalden 4",
           "spiele": 2,
           "siege": 1,
@@ -666,7 +678,7 @@
           "punkte_minus": 1
         },
         {
-          "platz": 3,
+          "platz": 4,
           "team": "HSG Oberer Neckar 2",
           "spiele": 4,
           "siege": 1,
@@ -678,7 +690,7 @@
           "punkte_minus": 5
         },
         {
-          "platz": 4,
+          "platz": 5,
           "team": "MTV Stuttgart 4",
           "spiele": 1,
           "siege": 1,
@@ -690,28 +702,16 @@
           "punkte_minus": 0
         },
         {
-          "platz": null,
-          "team": "TSV Haubersbronn",
-          "spiele": 1,
-          "siege": 1,
-          "unentschieden": 0,
-          "niederlagen": 0,
-          "tore_geschossen": 0,
-          "tore_erhalten": 0,
-          "punkte_plus": 2,
-          "punkte_minus": 0
-        },
-        {
           "platz": 6,
-          "team": "SV Hohenacker-Neustadt 3",
-          "spiele": 3,
+          "team": "TSV Haubersbronn",
+          "spiele": 2,
           "siege": 1,
           "unentschieden": 0,
-          "niederlagen": 2,
-          "tore_geschossen": 92,
-          "tore_erhalten": 101,
+          "niederlagen": 1,
+          "tore_geschossen": 18,
+          "tore_erhalten": 34,
           "punkte_plus": 2,
-          "punkte_minus": 4
+          "punkte_minus": 2
         },
         {
           "platz": 7,
