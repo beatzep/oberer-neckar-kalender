@@ -12,8 +12,12 @@ Gold #ffda06) statt frei erfunden."""
 import argparse
 import json
 from datetime import datetime
+from html import escape
 from pathlib import Path
 from urllib.parse import quote
+
+import auswertung
+from spielberichte import PDF_URL
 
 MONATE = ["", "Januar", "Februar", "März", "April", "Mai", "Juni", "Juli",
           "August", "September", "Oktober", "November", "Dezember"]
@@ -126,7 +130,102 @@ def baue_tabelle(team: dict) -> str:
     </table>"""
 
 
-def baue_spielplan(team: dict) -> str:
+def spielfilm(punkte: list[tuple[int, int, int]], kennung: str, beschreibung: str) -> str:
+    """Der Spielverlauf als Kurve der Tordifferenz aus eigener Sicht, wie im
+    MuRu-Projekt (baue_seite.py, spielfilm): ueber der Nulllinie Fuehrung,
+    darunter Rueckstand. Liest sich auf dem Handy in einer Sekunde, zwei
+    nebeneinanderlaufende Kurven muesste man erst vergleichen. Gezeichnet als
+    Treppe, weil sich der Abstand nur mit einem Tor aendert."""
+    reihe = [(s, e - g) for s, e, g in punkte]
+    dauer = max(3600, reihe[-1][0])
+    # Nicht symmetrisch skalieren: wer nie zurueckliegt, verschenkt sonst die
+    # halbe Hoehe. Die Nulllinie bleibt trotzdem im Bild - sie traegt die Aussage.
+    hoch = max(2, max(d for _, d in reihe))
+    tief = min(-2, min(d for _, d in reihe))
+
+    breite, hoehe = 320, 112
+    links, rechts, oben, unten = 24, 6, 8, 18
+    flaeche_b, flaeche_h = breite - links - rechts, hoehe - oben - unten
+
+    def x(s: int) -> float:
+        return links + flaeche_b * min(s, dauer) / dauer
+
+    def y(d: int) -> float:
+        return oben + flaeche_h * (hoch - d) / (hoch - tief)
+
+    stufen = [(x(0), y(0))]
+    for (_, vorher), (s, d) in zip(reihe, reihe[1:]):
+        stufen += [(x(s), y(vorher)), (x(s), y(d))]
+    stufen.append((x(dauer), y(reihe[-1][1])))
+    linie = " ".join(f"{a:.1f},{b:.1f}" for a, b in stufen)
+    null = y(0)
+    flaeche = f"{x(0):.1f},{null:.1f} {linie} {x(dauer):.1f},{null:.1f}"
+    unten_y = hoehe - unten
+
+    return f"""<svg class="spielfilm" viewBox="0 0 {breite} {hoehe}" role="img" aria-label="{escape(beschreibung)}">
+  <defs>
+    <clipPath id="vorn-{kennung}"><rect x="0" y="0" width="{breite}" height="{null:.1f}"/></clipPath>
+    <clipPath id="hinten-{kennung}"><rect x="0" y="{null:.1f}" width="{breite}" height="{hoehe - null:.1f}"/></clipPath>
+  </defs>
+  <polygon class="vorn" points="{flaeche}" clip-path="url(#vorn-{kennung})"/>
+  <polygon class="hinten" points="{flaeche}" clip-path="url(#hinten-{kennung})"/>
+  <line class="gitter" x1="{x(1800):.1f}" y1="{oben}" x2="{x(1800):.1f}" y2="{unten_y}"/>
+  <line class="null" x1="{links}" y1="{null:.1f}" x2="{breite - rechts}" y2="{null:.1f}"/>
+  <polyline class="linie" points="{linie}"/>
+  <text x="{links - 4}" y="{y(hoch) + 7:.1f}" text-anchor="end">+{hoch}</text>
+  <text x="{links - 4}" y="{null + 3:.1f}" text-anchor="end">0</text>
+  <text x="{links - 4}" y="{y(tief):.1f}" text-anchor="end">{tief}</text>
+  <text x="{x(1800):.1f}" y="{hoehe - 4}" text-anchor="middle">Halbzeit</text>
+  <text x="{breite - rechts}" y="{hoehe - 4}" text-anchor="end">60'</text>
+</svg>"""
+
+
+def siebenmeter_text(tore: int, wuerfe: int) -> str:
+    return f" ({tore}/{wuerfe} 7m)" if wuerfe else ""
+
+
+def baue_spielbericht(spiel: dict, bericht: dict) -> str:
+    """Was unter einem gespielten Spiel aufklappt: Eckdaten, Verlaufskurve,
+    Laeufe, Torschuetzen, Strafen und der Weg zum Original."""
+    a = auswertung.spiel_auswertung(spiel, bericht)
+    eck = []
+    if spiel.get("halbzeit_eigene") is not None:
+        eck.append(f"Halbzeit {spiel['halbzeit_eigene']}:{spiel['halbzeit_gegner']}")
+    if a["zuschauer"]:
+        eck.append(f"{a['zuschauer']} Zuschauer")
+
+    l = a["laeufe"]
+    lauf = []
+    if l["eigene"] >= auswertung.LAUF_AB:
+        lauf.append(f"{l['eigene']} Tore in Folge ab der {l['eigene_ab']}. Minute.")
+    if l["fremde"] >= auswertung.LAUF_AB:
+        lauf.append(f"Der Gegner traf {l['fremde']}-mal in Folge ab der {l['fremde_ab']}. Minute.")
+    lauftext = f'<p class="lauf">{" ".join(lauf)}</p>' if lauf else ""
+
+    namen = ", ".join(f"{escape(s['name'])} {s['tore']}"
+                      + siebenmeter_text(s["siebenmeter_tore"], s["siebenmeter_wuerfe"])
+                      for s in a["schuetzen"])
+    strafen = f"Zeitstrafen {a['zeitstrafen'][0]}, beim Gegner {a['zeitstrafen'][1]}"
+    disq_eigen, disq_fremd = a["disqualifikationen"]
+    if disq_eigen or disq_fremd:
+        strafen += f". Rote Karten {disq_eigen}, beim Gegner {disq_fremd}"
+
+    wann = datetime.fromisoformat(spiel["termin"]).strftime("%d.%m.")
+    beschreibung = (f"Spielverlauf {wann} {'gegen' if spiel['heim'] else 'bei'} {spiel['gegner']}, "
+                    f"Endstand {spiel['tore_eigene']}:{spiel['tore_gegner']}")
+    return f"""<div class="bericht">
+            {f'<p class="eck">{" · ".join(eck)}</p>' if eck else ""}
+            {spielfilm(a["verlauf"], spiel["bericht_id"], beschreibung)}
+            {lauftext}
+            <p><span class="rubrikklein">Tore</span> {namen or "keine"}</p>
+            <p><span class="rubrikklein">Strafen</span> {strafen}.</p>
+            <p class="quelle"><a href="{PDF_URL.format(spiel['bericht_id'])}" target="_blank"
+               rel="noopener">Original-Spielbericht (PDF)</a></p>
+          </div>"""
+
+
+def baue_spielplan(team: dict, berichte: dict | None = None) -> str:
+    berichte = berichte or {}
     zeilen = []
     letzter_monat = None
     for spiel in team["spiele"]:
@@ -138,11 +237,16 @@ def baue_spielplan(team: dict) -> str:
 
         vorbei = spiel["tore_eigene"] is not None
         klassen = "spiel" + (" vorbei" if vorbei else "")
+        bericht = auswertung.bericht_zu(spiel, berichte) if vorbei else None
 
         if vorbei:
             eig, frd = spiel["tore_eigene"], spiel["tore_gegner"]
             ausgang = "S" if eig > frd else "N" if eig < frd else "U"
             stand = f'<div class="stand {ausgang}">{eig}:{frd}</div>'
+            if spiel.get("halbzeit_eigene") is not None:
+                stand += f'<div class="hzstand">HZ {spiel["halbzeit_eigene"]}:{spiel["halbzeit_gegner"]}</div>'
+            if bericht:
+                stand += '<div class="aufklapp">Bericht</div>'
         else:
             zeit = (datetime.fromisoformat(spiel["termin"]).strftime("%H:%M") + " Uhr"
                     if spiel["uhrzeit_bekannt"] else "offen")
@@ -152,29 +256,107 @@ def baue_spielplan(team: dict) -> str:
                  f'target="_blank" rel="noopener">{spiel["halle"]}</a></div>'
                  if spiel["halle"] else "")
 
-        zeilen.append(f"""
-        <div class="{klassen}">
+        inhalt = f"""
           <div class="datum">{kurzdatum(spiel['termin'])}<span>{'Heim' if spiel['heim'] else 'Auswärts'}</span></div>
           <div>
             <div class="gegner">{spiel['gegner']}</div>
             {halle}
           </div>
-          <div class="rechts">{stand}</div>
+          <div class="rechts">{stand}</div>"""
+        if bericht:
+            # Mit Bericht wird die Zeile aufklappbar. Die Klasse .spiel sitzt
+            # auf dem summary, nicht auf dem <details>: sonst schluege die
+            # Deckkraft von .vorbei auf den aufgeklappten Bericht durch (im
+            # MuRu-Projekt schon einmal zugeschnappt, siehe CLAUDE.md dort).
+            zeilen.append(f"""
+        <details class="mitbericht">
+          <summary class="{klassen}">{inhalt}
+          </summary>
+          {baue_spielbericht(spiel, bericht)}
+        </details>""")
+        else:
+            zeilen.append(f"""
+        <div class="{klassen}">{inhalt}
         </div>""")
     return "".join(zeilen)
 
 
-def baue_statistiken(team: dict) -> str:
+def kennzahl(titel: str, wert: str, zusatz: str = "") -> str:
+    return (f'<div><dt>{titel}</dt><dd><span class="wert">{wert}</span>'
+            + (f'<span class="zusatz">{zusatz}</span>' if zusatz else "") + '</dd></div>')
+
+
+def komma(wert: float) -> str:
+    return f"{wert:.1f}".replace(".", ",")
+
+
+def vorzeichen(n: int) -> str:
+    return f"+{n}" if n > 0 else ("±0" if n == 0 else f"−{-n}")
+
+
+def quellenhinweis(q: dict) -> str:
+    """Wie im MuRu-Projekt: fehlt etwas, liegt es an der Quelle, und das
+    gehoert auch so dagesagt - statt einer Luecke, die aussieht wie ein Fehler."""
+    if not q["ohne_bericht"]:
+        return (f'<p class="statfuss">Grundlage: die Spielberichte aller '
+                f'{q["gespielt"]} bisherigen Spiele.</p>')
+    fehlend = ", ".join(f'{kurzdatum(s["termin"])} {"gegen" if s["heim"] else "bei"} {escape(s["gegner"])}'
+                        for s in q["ohne_bericht"])
+    return (f'<p class="statfuss">Grundlage: {q["mit_bericht"]} von {q["gespielt"]} Spielen. '
+            f'Zu {fehlend} hat der Verband noch keinen Spielbericht veröffentlicht '
+            f'(oder er passt nicht zum gemeldeten Endstand und wurde deshalb nicht übernommen).</p>')
+
+
+def baue_statistiken(team: dict, berichte: dict | None = None) -> str:
+    s = auswertung.saison_auswertung(team, berichte or {})
+    q = s["quelle"]
+    if not q["gespielt"]:
+        return """
+      <p class="hinweistext">Noch kein Spiel gespielt. Sobald der Verband den ersten
+      Spielbericht veröffentlicht, stehen hier Torschützen, Siebenmeter und Zeitstrafen.</p>"""
+
+    zahlen = [kennzahl("Tore je Spiel", komma(s["tore"][0] / q["gespielt"]),
+                       f'{komma(s["tore"][1] / q["gespielt"])} kassiert')]
+    if s["halbzeiten"]:
+        h = s["halbzeiten"]
+        zahlen.append(kennzahl("Halbzeiten", f'{vorzeichen(h["erste"])} / {vorzeichen(h["zweite"])}',
+                               "Tordifferenz in 1. und 2. Halbzeit"))
+    if q["mit_bericht"]:
+        tore, wuerfe = s["siebenmeter"]
+        if wuerfe:
+            zahlen.append(kennzahl("Siebenmeter", f"{round(100 * tore / wuerfe)} %",
+                                   f"{tore} von {wuerfe} verwandelt"))
+        zahlen.append(kennzahl("Zeitstrafen", str(s["zeitstrafen"][0]),
+                               f'beim Gegner {s["zeitstrafen"][1]}'))
+    kennzahlen = f'<dl class="kennzahlen">{"".join(zahlen)}</dl>'
+
+    if not s["schuetzen"]:
+        return kennzahlen + quellenhinweis(q)
+
+    zeilen = []
+    for i, sp in enumerate(s["schuetzen"], 1):
+        # Siebenmeter und Strafen hinter dem Namen statt in eigenen Spalten:
+        # die fielen auf dem Handy weg, und dort schaut die Mehrheit.
+        beiwerk = [f'{sp["spiele"]} {"Spiel" if sp["spiele"] == 1 else "Spiele"}']
+        if sp["siebenmeter_wuerfe"]:
+            beiwerk.append(f'7m {sp["siebenmeter_tore"]}/{sp["siebenmeter_wuerfe"]}')
+        if sp["zeitstrafen"]:
+            beiwerk.append(f'{sp["zeitstrafen"]}× 2 Min')
+        zeilen.append(f"""
+        <tr>
+          <td class="platz">{i}</td>
+          <td>{escape(sp['name'])}<span class="klein"> · {' · '.join(beiwerk)}</span></td>
+          <td class="rechts">{komma(sp['tore_je_spiel'])}</td>
+          <td class="rechts stark">{sp['tore']}</td>
+        </tr>""")
     return f"""
-      <p>Der Verband führt in der {team['liga']} keine Spielberichte mit Torschützen,
-      Torverlauf oder Zeitstrafen &ndash; anders als in höheren Ligen (Landesliga, Oberliga,
-      Regionalliga), wo handball4all das anbietet.</p>
-      <div class="hinweis">
-        <p>Das ist keine Lücke auf dieser Seite, sondern eine Grenze der Quelle: handball4all
-        markiert das selbst (<code>scoreShowDataPerGame: false</code> für diese Liga). Sollte die
-        Mannschaft einmal in eine Liga mit Spielberichten aufsteigen, kommt dieser Reiter mit
-        echten Inhalten.</p>
-      </div>"""
+      {kennzahlen}
+      <p class="rubrik">Torschützen</p>
+      <table class="schuetzen">
+        <thead><tr><th></th><th>Spieler</th><th class="rechts">/Sp.</th><th class="rechts">Tore</th></tr></thead>
+        <tbody>{''.join(zeilen)}</tbody>
+      </table>
+      {quellenhinweis(q)}"""
 
 
 def baue_kalender_block(verein: str, team: dict, basis_url: str) -> str:
@@ -229,7 +411,8 @@ def baue_kalender_block(verein: str, team: dict, basis_url: str) -> str:
     </div>"""
 
 
-def baue_team_block(schluessel: str, verein: str, team: dict, basis_url: str, heute: datetime, erstes: bool) -> str:
+def baue_team_block(schluessel: str, verein: str, team: dict, basis_url: str, heute: datetime,
+                    erstes: bool, berichte: dict) -> str:
     versteckt = "" if erstes else " hidden"
     return f"""
   <div class="mannschaft" data-team="{schluessel}"{versteckt}>
@@ -240,7 +423,7 @@ def baue_team_block(schluessel: str, verein: str, team: dict, basis_url: str, he
 
     <div id="feld-spiele-{schluessel}" data-panel="spiele" role="tabpanel">
       <div class="teil">
-        {baue_spielplan(team)}
+        {baue_spielplan(team, berichte)}
       </div>
     </div>
 
@@ -252,7 +435,7 @@ def baue_team_block(schluessel: str, verein: str, team: dict, basis_url: str, he
 
     <div id="feld-statistiken-{schluessel}" data-panel="statistiken" role="tabpanel" hidden>
       <div class="teil statistiken">
-        {baue_statistiken(team)}
+        {baue_statistiken(team, berichte)}
       </div>
     </div>
 
@@ -288,15 +471,15 @@ def baue_saisonbanner(saison: str, saison_abgeschlossen: bool) -> str:
     </div>"""
 
 
-def baue_archiv_team(team: dict) -> str:
+def baue_archiv_team(team: dict, berichte: dict) -> str:
     return f"""<div class="archivteam">
       <h3>{team['name']}</h3>
       {baue_tabelle(team)}
-      <div style="margin-top: 24px">{baue_spielplan(team)}</div>
+      <div style="margin-top: 24px">{baue_spielplan(team, berichte)}</div>
     </div>"""
 
 
-def baue_archivbloecke(archiv_manifest: list[dict], archiv_verzeichnis: Path) -> str:
+def baue_archivbloecke(archiv_manifest: list[dict], archiv_verzeichnis: Path, berichte: dict) -> str:
     """Vollstaendig vorgerendert beim Bauen, kein Nachladen im Browser noetig
     - die paar Kilobyte je vergangener Saison fallen bei einem Vereinskalender
     nicht ins Gewicht, dafuer bleiben Spielplan/Tabelle-Funktionen unveraendert
@@ -307,7 +490,7 @@ def baue_archivbloecke(archiv_manifest: list[dict], archiv_verzeichnis: Path) ->
         if not pfad.exists():
             continue
         archiv_daten = json.loads(pfad.read_text(encoding="utf-8"))
-        teams_html = "".join(baue_archiv_team(t) for t in archiv_daten["teams"].values())
+        teams_html = "".join(baue_archiv_team(t, berichte) for t in archiv_daten["teams"].values())
         bloecke.append(f"""
   <div class="archiv" data-archivsaison="{eintrag['schluessel']}" hidden>
     <p class="rubrik">Saison {eintrag['label']} &ndash; archiviert, keine weitere Aktualisierung</p>
@@ -333,6 +516,7 @@ SEITE = """<!DOCTYPE html>
   --linie: #dedbd3; --linie-zart: #ebe9e3;
   --grund: #ffffff; --marine: #0a2c73; --auf-marine: #f3f5fa;
   --sieg: #2f7d4f; --niederlage: #a4443a;
+  --kurve: #0a2c73;
 }}
 /* Dunkle Farben an zwei Stellen: nach Systemeinstellung (solange niemand
    ausdruecklich hell gewaehlt hat) und bei ausdruecklicher Wahl. Wie im
@@ -344,6 +528,7 @@ SEITE = """<!DOCTYPE html>
     --linie: #2c3550; --linie-zart: #1c2440;
     --grund: #0b0e1c; --marine: #000000; --auf-marine: #f3f5fa;
     --sieg: #5cbf85; --niederlage: #e08076;
+    --kurve: #ffe14d;
   }}
 }}
 :root[data-ansicht="dunkel"] {{
@@ -352,6 +537,7 @@ SEITE = """<!DOCTYPE html>
   --linie: #2c3550; --linie-zart: #1c2440;
   --grund: #0b0e1c; --marine: #000000; --auf-marine: #f3f5fa;
   --sieg: #5cbf85; --niederlage: #e08076;
+  --kurve: #ffe14d;
 }}
 *, *::before, *::after {{ box-sizing: border-box; border-radius: 0; }}
 html {{ -webkit-text-size-adjust: 100%; }}
@@ -516,6 +702,49 @@ td.platz {{ color: var(--leise); width: 2em; }}
 .spiel .stand.U {{ color: var(--leise); }}
 .spiel.vorbei {{ opacity: .55; }}
 .spiel.vorbei .gegner {{ font-weight: 400; }}
+.spiel .hzstand {{ font-size: .78rem; color: var(--leise); white-space: nowrap; margin-top: 2px; }}
+
+/* ---------- Spielbericht zum Aufklappen ---------- */
+/* Die Deckkraft von .vorbei sitzt auf dem summary, damit sie nicht auf den
+   aufgeklappten Bericht durchschlaegt. */
+details.mitbericht > summary {{ list-style: none; cursor: pointer; }}
+details.mitbericht > summary::-webkit-details-marker {{ display: none; }}
+details.mitbericht > summary:hover {{ opacity: .8; }}
+details.mitbericht[open] > summary {{ opacity: 1; }}
+details.mitbericht > summary:focus-visible {{ outline: 2px solid var(--gold); outline-offset: 2px; }}
+.spiel .aufklapp {{ font-size: .74rem; font-weight: 600; letter-spacing: .04em;
+                    text-transform: uppercase; color: var(--gold-tief); margin-top: 4px;
+                    white-space: nowrap; }}
+.spiel .aufklapp::after {{ content: " ▾"; }}
+details[open] .spiel .aufklapp::after {{ content: " ▴"; }}
+.bericht {{ padding: 4px 0 18px 76px; font-size: .9rem; color: var(--tinte-weich); }}
+.bericht p {{ margin: 8px 0 0; }}
+.bericht .eck {{ margin: 0 0 6px; color: var(--leise); }}
+.bericht .lauf {{ color: var(--tinte); }}
+.bericht .quelle a {{ color: inherit; text-decoration: none; box-shadow: inset 0 -1px 0 var(--gold); }}
+.rubrikklein {{ font-size: .74rem; font-weight: 600; letter-spacing: .06em;
+                text-transform: uppercase; color: var(--leise); margin-right: 6px; }}
+@media (max-width: 520px) {{ .bericht {{ padding-left: 0; }} }}
+
+svg.spielfilm {{ display: block; width: 100%; max-width: 480px; height: auto; margin: 4px 0 2px; }}
+svg.spielfilm .linie {{ fill: none; stroke: var(--kurve); stroke-width: 1.6; stroke-linejoin: round; }}
+svg.spielfilm .vorn {{ fill: var(--sieg); opacity: .18; }}
+svg.spielfilm .hinten {{ fill: var(--niederlage); opacity: .18; }}
+svg.spielfilm .null {{ stroke: var(--leise); stroke-width: .8; }}
+svg.spielfilm .gitter {{ stroke: var(--linie); stroke-width: .8; stroke-dasharray: 2 3; }}
+svg.spielfilm text {{ fill: var(--leise); font-size: 9px; }}
+
+/* ---------- Statistiken ---------- */
+.kennzahlen {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+               gap: 0 22px; margin: 0 0 30px; }}
+.kennzahlen > div {{ border-top: 1px solid var(--linie); padding: 12px 0 14px; }}
+.kennzahlen dt {{ font-size: .78rem; font-weight: 600; letter-spacing: .04em;
+                  text-transform: uppercase; color: var(--leise); }}
+.kennzahlen dd {{ margin: 4px 0 0; }}
+.kennzahlen .wert {{ display: block; font-size: 1.6rem; font-weight: 300; line-height: 1.2; }}
+.kennzahlen .zusatz {{ display: block; font-size: .84rem; color: var(--leise); }}
+table.schuetzen .klein {{ color: var(--leise); font-size: .82rem; }}
+.statfuss {{ font-size: .86rem; color: var(--leise); margin: 18px 0 0; }}
 
 .fuss {{ padding: 30px 0 40px; border-top: 1px solid var(--linie); margin-top: 34px;
          font-size: .86rem; color: var(--leise); }}
@@ -821,9 +1050,15 @@ def main() -> None:
                     help="Ohne Angabe wird nichts gezaehlt - die Zaehlung schaltet sich "
                          "im Browser selbst ab (seite_zaehlung.py-Aequivalent unten).")
     p.add_argument("--archiv", default="docs/archiv")
+    p.add_argument("--berichte", default="berichte.json",
+                   help="Spielberichte aus spielberichte.py; fehlt die Datei, bleibt der "
+                        "Spielplan ohne aufklappbare Berichte")
     cfg = p.parse_args()
 
     daten = json.loads(Path(cfg.daten).read_text(encoding="utf-8"))
+    berichte_pfad = Path(cfg.berichte)
+    berichte = (json.loads(berichte_pfad.read_text(encoding="utf-8"))
+                if berichte_pfad.exists() else {})
     heute = datetime.now()
     verein = daten["verein"]
 
@@ -831,7 +1066,7 @@ def main() -> None:
     teamoptionen = "".join(
         f'<option value="{s}">{daten["teams"][s]["name"]}</option>' for s in schluessel_liste)
     mannschaften = "".join(
-        baue_team_block(s, verein, daten["teams"][s], cfg.basis_url, heute, i == 0)
+        baue_team_block(s, verein, daten["teams"][s], cfg.basis_url, heute, i == 0, berichte)
         for i, s in enumerate(schluessel_liste))
     ligen_json = json.dumps(
         {s: {"liga": t["liga"], "bereich": t["bereich"]} for s, t in daten["teams"].items()},
@@ -849,7 +1084,7 @@ def main() -> None:
         worker_url=cfg.worker_url,
         saisonwahl=baue_saisonwahl(daten.get("saison", ""), archiv_manifest),
         saisonbanner=baue_saisonbanner(daten.get("saison", ""), daten.get("saison_abgeschlossen", False)),
-        archivbloecke=baue_archivbloecke(archiv_manifest, archiv_verzeichnis),
+        archivbloecke=baue_archivbloecke(archiv_manifest, archiv_verzeichnis, berichte),
         geholt_am=datetime.fromisoformat(daten["geholt_am"]).strftime("%d.%m.%Y %H:%M"),
     )
     Path(cfg.out).write_text(seite, encoding="utf-8")
