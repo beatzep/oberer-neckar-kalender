@@ -40,6 +40,8 @@ from pathlib import Path
 from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
+import auswertung
+
 PDF_URL = "https://spo.handball4all.de/misc/sboPublicReports.php?sGID={}"
 
 PAUSE_SEKUNDEN = 1.0
@@ -200,6 +202,11 @@ def lies_bericht(zeilen: list[str], heim_tore: int, gast_tore: int, eigene_seite
     for e in roh:
         if e["art"] == "auszeit":
             seite = lange_namen.get(e["langname"])
+            if seite is None:
+                # Auszeiten zeigt die Seite nicht an - kein Grund, deshalb
+                # den ganzen Bericht zu verwerfen.
+                print(f"  Auszeit nicht zuzuordnen: {e['langname']}", file=sys.stderr)
+                continue
         else:
             seite = kuerzel_seite.get(e["kuerzel"])
         if seite is None:
@@ -234,7 +241,11 @@ def aktualisiere(daten: dict, berichte: dict, hoechstens: int) -> int:
                 continue
             vorhanden = berichte.get(bid) or {}
             if vorhanden.get("ereignisse"):
-                continue
+                if auswertung.passt(vorhanden, spiel):
+                    continue
+                # Der Verband hat den Endstand nach dem Abruf korrigiert -
+                # dann den Bericht neu holen, vielleicht wurde er mitkorrigiert.
+                vorhanden = {}
             if vorhanden.get("versuche", 0) >= VERSUCHE_HOECHSTENS:
                 continue
             if abgefragt >= hoechstens:

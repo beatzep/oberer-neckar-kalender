@@ -161,6 +161,13 @@ def spielfilm(punkte: list[tuple[int, int, int]], kennung: str, beschreibung: st
     null = y(0)
     flaeche = f"{x(0):.1f},{null:.1f} {linie} {x(dauer):.1f},{null:.1f}"
     unten_y = hoehe - unten
+    # Beschriftung links; was naeher als eine Zeilenhoehe an der Null liegt,
+    # entfaellt, sonst stehen bei einem klaren Spiel "0" und "-2" aufeinander.
+    achse = f'<text x="{links - 4}" y="{null + 3:.1f}" text-anchor="end">0</text>'
+    if null - y(hoch) >= 14:
+        achse += f'<text x="{links - 4}" y="{y(hoch) + 7:.1f}" text-anchor="end">+{hoch}</text>'
+    if y(tief) - null >= 14:
+        achse += f'<text x="{links - 4}" y="{y(tief):.1f}" text-anchor="end">{tief}</text>'
 
     return f"""<svg class="spielfilm" viewBox="0 0 {breite} {hoehe}" role="img" aria-label="{escape(beschreibung)}">
   <defs>
@@ -172,9 +179,7 @@ def spielfilm(punkte: list[tuple[int, int, int]], kennung: str, beschreibung: st
   <line class="gitter" x1="{x(1800):.1f}" y1="{oben}" x2="{x(1800):.1f}" y2="{unten_y}"/>
   <line class="null" x1="{links}" y1="{null:.1f}" x2="{breite - rechts}" y2="{null:.1f}"/>
   <polyline class="linie" points="{linie}"/>
-  <text x="{links - 4}" y="{y(hoch) + 7:.1f}" text-anchor="end">+{hoch}</text>
-  <text x="{links - 4}" y="{null + 3:.1f}" text-anchor="end">0</text>
-  <text x="{links - 4}" y="{y(tief):.1f}" text-anchor="end">{tief}</text>
+  {achse}
   <text x="{x(1800):.1f}" y="{hoehe - 4}" text-anchor="middle">Halbzeit</text>
   <text x="{breite - rechts}" y="{hoehe - 4}" text-anchor="end">60'</text>
 </svg>"""
@@ -252,9 +257,17 @@ def baue_spielplan(team: dict, berichte: dict | None = None) -> str:
                     if spiel["uhrzeit_bekannt"] else "offen")
             stand = f'<div class="stand">{zeit}</div>'
 
-        halle = (f'<div class="halle"><a href="{kartenlink(spiel["halle"])}" '
-                 f'target="_blank" rel="noopener">{spiel["halle"]}</a></div>'
-                 if spiel["halle"] else "")
+        if not spiel["halle"]:
+            halle = ""
+        elif bericht:
+            # In der aufklappbaren Zeile kein Kartenlink: auf schmalen Handys
+            # (320 px) liegt die umbrochene Adresse mitten in der Zeile, und
+            # wer den Bericht aufklappen will, landet sonst bei Google Maps.
+            # Zum gespielten Spiel braucht ohnehin niemand mehr den Weg.
+            halle = f'<div class="halle">{spiel["halle"]}</div>'
+        else:
+            halle = (f'<div class="halle"><a href="{kartenlink(spiel["halle"])}" '
+                     f'target="_blank" rel="noopener">{spiel["halle"]}</a></div>')
 
         inhalt = f"""
           <div class="datum">{kurzdatum(spiel['termin'])}<span>{'Heim' if spiel['heim'] else 'Auswärts'}</span></div>

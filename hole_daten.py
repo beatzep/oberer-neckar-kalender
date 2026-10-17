@@ -82,6 +82,7 @@ def normalisiere_spiele(games: list[dict], name_in_quelle: str, alt: dict) -> tu
         halle = ", ".join(t for t in halle_teile if t)
         nummer = g.get("gNo", "") or g["gID"]
         vorher = alt.get(nummer)
+        sgid = (g.get("sGID") or "").strip()
 
         spiel = {
             "id": g["gID"],
@@ -97,7 +98,7 @@ def normalisiere_spiele(games: list[dict], name_in_quelle: str, alt: dict) -> tu
             "sequence": (vorher or {}).get("sequence", 0),
             # Kennung des elektronischen Spielberichts (PDF, siehe
             # spielberichte.py). "0", solange keiner hochgeladen ist.
-            "bericht_id": (g.get("sGID") or "").strip().lstrip("0") or None,
+            "bericht_id": sgid if sgid.strip("0") else None,
             "halbzeit_eigene": None,
             "halbzeit_gegner": None,
         }

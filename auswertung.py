@@ -9,20 +9,37 @@ Seite es benennen kann, statt Zahlen aus halben Daten zu zeigen.
 
 from __future__ import annotations
 
-HALBZEIT_SEKUNDE = 30 * 60
 # Ab dieser Serie ohne Gegentor lohnt es, von einem Lauf zu sprechen.
 LAUF_AB = 4
 
 
-def bericht_zu(spiel: dict, berichte: dict) -> dict | None:
-    """Der gepruefte Bericht zu einem Spiel, sonst None."""
-    bid = spiel.get("bericht_id")
-    bericht = berichte.get(bid) if bid else None
-    return bericht if bericht and bericht.get("ereignisse") else None
-
-
 def ist_tor(e: dict) -> bool:
     return e["art"] in ("tor", "siebenmeter")
+
+
+def passt(bericht: dict, spiel: dict) -> bool:
+    """Endet der Bericht beim aktuellen Endstand? Beim Abruf ist das
+    geprueft - aber der Verband kann den Endstand danach noch korrigieren."""
+    staende = [e["stand"] for e in bericht.get("ereignisse") or [] if ist_tor(e)]
+    if not staende or spiel["tore_eigene"] is None:
+        return False
+    eigene, gegner = spiel["tore_eigene"], spiel["tore_gegner"]
+    return staende[-1] == ([eigene, gegner] if spiel["heim"] else [gegner, eigene])
+
+
+def bericht_zu(spiel: dict, berichte: dict) -> dict | None:
+    """Der gepruefte, zum Endstand passende Bericht zu einem Spiel, sonst None."""
+    bid = spiel.get("bericht_id")
+    bericht = berichte.get(bid) if bid else None
+    return bericht if bericht and passt(bericht, spiel) else None
+
+
+def gewertet(spiel: dict) -> bool:
+    """Gespielt und gewertet. Ein 0:0 gibt es im Handball praktisch nicht;
+    handball4all traegt es fuer Spiele ohne Wertung ein (abgesagt, noch
+    offen). Wie im MuRu-Projekt (spielplan2ics.py, ergebnis) zaehlt das
+    nicht mit, sonst druecken solche Spiele Tore je Spiel und Halbzeiten."""
+    return spiel["tore_eigene"] is not None and (spiel["tore_eigene"], spiel["tore_gegner"]) != (0, 0)
 
 
 def verlauf(bericht: dict, heim: bool) -> list[tuple[int, int, int]]:
@@ -112,7 +129,7 @@ def spiel_auswertung(spiel: dict, bericht: dict) -> dict:
 
 
 def saison_auswertung(team: dict, berichte: dict) -> dict:
-    gespielt = [s for s in team["spiele"] if s["tore_eigene"] is not None]
+    gespielt = [s for s in team["spiele"] if gewertet(s)]
     mit = [(s, b) for s in gespielt if (b := bericht_zu(s, berichte))]
     liste = [b for _, b in mit]
 
