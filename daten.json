@@ -2,7 +2,7 @@
   "verein": "HSG Oberer Neckar",
   "saison": "26/27",
   "saison_abgeschlossen": false,
-  "geholt_am": "2026-10-18T08:02:20",
+  "geholt_am": "2026-10-18T15:46:28",
   "teams": {
     "herren1": {
       "name": "Herren",
@@ -11,7 +11,7 @@
       "datei": "herren1.ics",
       "liga": "Männer Bezirksoberliga",
       "bereich": "Stuttgart-Rems-Murr",
-      "quelle_stand": "Letzte Änderung: Sa, 17.10.2026, 21:26h",
+      "quelle_stand": "Letzte Änderung: So, 18.10.2026, 17:28h",
       "spiele": [
         {
           "id": "9677971",
@@ -339,18 +339,6 @@
         },
         {
           "platz": 4,
-          "team": "HandballTeam Heckengäu",
-          "spiele": 4,
-          "siege": 3,
-          "unentschieden": 0,
-          "niederlagen": 1,
-          "tore_geschossen": 125,
-          "tore_erhalten": 90,
-          "punkte_plus": 6,
-          "punkte_minus": 2
-        },
-        {
-          "platz": null,
           "team": "TV Obertürkheim",
           "spiele": 4,
           "siege": 3,
@@ -362,15 +350,27 @@
           "punkte_minus": 2
         },
         {
-          "platz": 6,
+          "platz": null,
           "team": "SF Schwaikheim 2",
-          "spiele": 3,
-          "siege": 2,
+          "spiele": 4,
+          "siege": 3,
           "unentschieden": 0,
           "niederlagen": 1,
-          "tore_geschossen": 85,
-          "tore_erhalten": 78,
-          "punkte_plus": 4,
+          "tore_geschossen": 113,
+          "tore_erhalten": 99,
+          "punkte_plus": 6,
+          "punkte_minus": 2
+        },
+        {
+          "platz": null,
+          "team": "HandballTeam Heckengäu",
+          "spiele": 4,
+          "siege": 3,
+          "unentschieden": 0,
+          "niederlagen": 1,
+          "tore_geschossen": 125,
+          "tore_erhalten": 90,
+          "punkte_plus": 6,
           "punkte_minus": 2
         },
         {
@@ -423,18 +423,6 @@
         },
         {
           "platz": 11,
-          "team": "TSF Ditzingen 2",
-          "spiele": 3,
-          "siege": 0,
-          "unentschieden": 0,
-          "niederlagen": 3,
-          "tore_geschossen": 79,
-          "tore_erhalten": 119,
-          "punkte_plus": 0,
-          "punkte_minus": 6
-        },
-        {
-          "platz": 12,
           "team": "HSG Bargau/Bettringen 2",
           "spiele": 4,
           "siege": 0,
@@ -442,6 +430,18 @@
           "niederlagen": 4,
           "tore_geschossen": 93,
           "tore_erhalten": 125,
+          "punkte_plus": 0,
+          "punkte_minus": 8
+        },
+        {
+          "platz": null,
+          "team": "TSF Ditzingen 2",
+          "spiele": 4,
+          "siege": 0,
+          "unentschieden": 0,
+          "niederlagen": 4,
+          "tore_geschossen": 100,
+          "tore_erhalten": 147,
           "punkte_plus": 0,
           "punkte_minus": 8
         }
@@ -455,7 +455,7 @@
       "datei": "herren2.ics",
       "liga": "Männer 3. Bezirksklasse",
       "bereich": "Stuttgart-Rems-Murr",
-      "quelle_stand": "Letzte Änderung: So, 11.10.2026, 20:09h",
+      "quelle_stand": "Letzte Änderung: So, 18.10.2026, 15:00h",
       "spiele": [
         {
           "id": "9680596",
@@ -644,13 +644,13 @@
         {
           "platz": 1,
           "team": "HandballTeam Heckengäu 5",
-          "spiele": 2,
-          "siege": 2,
+          "spiele": 3,
+          "siege": 3,
           "unentschieden": 0,
           "niederlagen": 0,
-          "tore_geschossen": 36,
-          "tore_erhalten": 16,
-          "punkte_plus": 4,
+          "tore_geschossen": 72,
+          "tore_erhalten": 39,
+          "punkte_plus": 6,
           "punkte_minus": 0
         },
         {
@@ -716,17 +716,17 @@
         {
           "platz": 7,
           "team": "TSF Welzheim 2",
-          "spiele": 1,
+          "spiele": 2,
           "siege": 0,
           "unentschieden": 0,
-          "niederlagen": 1,
-          "tore_geschossen": 25,
-          "tore_erhalten": 33,
+          "niederlagen": 2,
+          "tore_geschossen": 48,
+          "tore_erhalten": 69,
           "punkte_plus": 0,
-          "punkte_minus": 2
+          "punkte_minus": 4
         },
         {
-          "platz": 8,
+          "platz": null,
           "team": "KSG Gerlingen",
           "spiele": 2,
           "siege": 0,
