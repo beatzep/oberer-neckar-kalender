@@ -2,7 +2,7 @@
   "verein": "HSG Oberer Neckar",
   "saison": "26/27",
   "saison_abgeschlossen": false,
-  "geholt_am": "2026-10-18T15:46:28",
+  "geholt_am": "2026-10-18T18:34:43",
   "teams": {
     "herren1": {
       "name": "Herren",
@@ -455,7 +455,7 @@
       "datei": "herren2.ics",
       "liga": "Männer 3. Bezirksklasse",
       "bereich": "Stuttgart-Rems-Murr",
-      "quelle_stand": "Letzte Änderung: So, 18.10.2026, 15:00h",
+      "quelle_stand": "Letzte Änderung: So, 18.10.2026, 18:21h",
       "spiele": [
         {
           "id": "9680596",
@@ -655,6 +655,18 @@
         },
         {
           "platz": 2,
+          "team": "SV Remshalden 4",
+          "spiele": 3,
+          "siege": 2,
+          "unentschieden": 1,
+          "niederlagen": 0,
+          "tore_geschossen": 109,
+          "tore_erhalten": 73,
+          "punkte_plus": 5,
+          "punkte_minus": 1
+        },
+        {
+          "platz": 3,
           "team": "SV Hohenacker-Neustadt 3",
           "spiele": 4,
           "siege": 2,
@@ -664,18 +676,6 @@
           "tore_erhalten": 119,
           "punkte_plus": 4,
           "punkte_minus": 4
-        },
-        {
-          "platz": 3,
-          "team": "SV Remshalden 4",
-          "spiele": 2,
-          "siege": 1,
-          "unentschieden": 1,
-          "niederlagen": 0,
-          "tore_geschossen": 74,
-          "tore_erhalten": 51,
-          "punkte_plus": 3,
-          "punkte_minus": 1
         },
         {
           "platz": 4,
@@ -692,17 +692,17 @@
         {
           "platz": 5,
           "team": "MTV Stuttgart 4",
-          "spiele": 1,
+          "spiele": 2,
           "siege": 1,
           "unentschieden": 0,
-          "niederlagen": 0,
-          "tore_geschossen": 39,
-          "tore_erhalten": 32,
+          "niederlagen": 1,
+          "tore_geschossen": 61,
+          "tore_erhalten": 67,
           "punkte_plus": 2,
-          "punkte_minus": 0
+          "punkte_minus": 2
         },
         {
-          "platz": 6,
+          "platz": null,
           "team": "TSV Haubersbronn",
           "spiele": 2,
           "siege": 1,
@@ -747,7 +747,7 @@
       "datei": "damen.ics",
       "liga": "Frauen-Landesliga Staffel 2",
       "bereich": "Baden-Württembergischer Handball-Verband",
-      "quelle_stand": "Letzte Änderung: Sa, 17.10.2026, 21:30h",
+      "quelle_stand": "Letzte Änderung: So, 18.10.2026, 19:36h",
       "spiele": [
         {
           "id": "9419631",
@@ -974,14 +974,14 @@
         {
           "platz": 2,
           "team": "SG Weinstadt 2",
-          "spiele": 3,
+          "spiele": 4,
           "siege": 3,
-          "unentschieden": 0,
+          "unentschieden": 1,
           "niederlagen": 0,
-          "tore_geschossen": 87,
-          "tore_erhalten": 76,
-          "punkte_plus": 6,
-          "punkte_minus": 0
+          "tore_geschossen": 116,
+          "tore_erhalten": 105,
+          "punkte_plus": 7,
+          "punkte_minus": 1
         },
         {
           "platz": 3,
@@ -1009,6 +1009,18 @@
         },
         {
           "platz": 5,
+          "team": "SG Weissach im Tal",
+          "spiele": 1,
+          "siege": 0,
+          "unentschieden": 1,
+          "niederlagen": 0,
+          "tore_geschossen": 29,
+          "tore_erhalten": 29,
+          "punkte_plus": 1,
+          "punkte_minus": 1
+        },
+        {
+          "platz": 6,
           "team": "MTV Stuttgart",
           "spiele": 3,
           "siege": 0,
@@ -1020,7 +1032,7 @@
           "punkte_minus": 5
         },
         {
-          "platz": 6,
+          "platz": 7,
           "team": "HSG Oberer Neckar",
           "spiele": 1,
           "siege": 0,
@@ -1032,7 +1044,7 @@
           "punkte_minus": 2
         },
         {
-          "platz": 7,
+          "platz": 8,
           "team": "TSV Alfdorf/Lorch/Waldhausen",
           "spiele": 2,
           "siege": 0,
@@ -1054,18 +1066,6 @@
           "tore_erhalten": 60,
           "punkte_plus": 0,
           "punkte_minus": 4
-        },
-        {
-          "platz": 9,
-          "team": "SG Weissach im Tal",
-          "spiele": 0,
-          "siege": 0,
-          "unentschieden": 0,
-          "niederlagen": 0,
-          "tore_geschossen": 0,
-          "tore_erhalten": 0,
-          "punkte_plus": 0,
-          "punkte_minus": 0
         }
       ],
       "aenderungen": []
