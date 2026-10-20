@@ -229,15 +229,55 @@ def baue_spielbericht(spiel: dict, bericht: dict) -> str:
           </div>"""
 
 
-def baue_spielplan(team: dict, berichte: dict | None = None) -> str:
+def baue_spielplan(team: dict, berichte: dict | None = None,
+                   heute: datetime | None = None) -> str:
+    """Wie im MuRu-Projekt (baue_seite.py, spielliste): oben steht das
+    letzte gespielte Spiel, nicht das erste der Saison. Alles Aeltere liegt
+    zugeklappt darueber - sonst steht, was gerade zaehlt (letztes Ergebnis,
+    naechstes Spiel), erst nach viel Scrollen.
+
+    Ohne `heute` (Archiv) bleibt die ganze Saison aufgeklappt; dort gibt es
+    kein "gerade"."""
     berichte = berichte or {}
+    if heute is None:
+        return spielzeilen(team["spiele"], berichte)
+
+    # Vergangen ist, was ein Ergebnis hat oder dessen Anwurf vorbei ist -
+    # ein laufendes Spiel ohne Ergebnis steht damit schon oben.
+    vergangen = [s for s in team["spiele"]
+                 if s["tore_eigene"] is not None or datetime.fromisoformat(s["termin"]) < heute]
+    rest = [s for s in team["spiele"] if s not in vergangen]
+    fruehere, rest = vergangen[:-1], vergangen[-1:] + rest
+    teile = []
+    if fruehere:
+        anzahl = f"{len(fruehere)} {'Spiel' if len(fruehere) == 1 else 'Spiele'}"
+        teile.append(f"""
+        <details class="frueher">
+          <summary><span class="titel">Frühere Spiele</span><span class="nebenbei">{anzahl}</span></summary>
+          {spielzeilen(fruehere, berichte)}
+        </details>""")
+    teile.append(spielzeilen(rest, berichte,
+                             monat_davor=monat_von(fruehere[-1]) if fruehere else None))
+    return "".join(teile)
+
+
+def monat_von(spiel: dict) -> tuple[int, int]:
+    beginn = datetime.fromisoformat(spiel["termin"])
+    return beginn.year, beginn.month
+
+
+def spielzeilen(spiele: list[dict], berichte: dict,
+                monat_davor: tuple[int, int] | None = None) -> str:
     zeilen = []
     letzter_monat = None
-    for spiel in team["spiele"]:
+    for spiel in spiele:
         beginn = datetime.fromisoformat(spiel["termin"])
-        monat = (beginn.year, beginn.month)
+        monat = monat_von(spiel)
         if monat != letzter_monat:
-            zeilen.append(f'<p class="monat">{MONATE[beginn.month]} {beginn.year}</p>')
+            # Endet die zugeklappte Liste im selben Monat, stuende er
+            # aufgeklappt zweimal da - zugeklappt wird er aber gebraucht.
+            folge = " folgemonat" if letzter_monat is None and monat == monat_davor else ""
+            zeilen.append(f'<p class="monat{folge}">{MONATE[beginn.month]} {beginn.year}</p>')
             letzter_monat = monat
 
         vorbei = spiel["tore_eigene"] is not None
@@ -436,7 +476,7 @@ def baue_team_block(schluessel: str, verein: str, team: dict, basis_url: str, he
 
     <div id="feld-spiele-{schluessel}" data-panel="spiele" role="tabpanel">
       <div class="teil">
-        {baue_spielplan(team, berichte)}
+        {baue_spielplan(team, berichte, heute)}
       </div>
     </div>
 
@@ -725,6 +765,24 @@ details.mitbericht > summary::-webkit-details-marker {{ display: none; }}
 details.mitbericht > summary:hover {{ opacity: .8; }}
 details.mitbericht[open] > summary {{ opacity: 1; }}
 details.mitbericht > summary:focus-visible {{ outline: 2px solid var(--gold); outline-offset: 2px; }}
+/* Fruehere Spiele zugeklappt, wie im MuRu-Projekt (seite_stil.py, .klapp):
+   Titel in Versalien, die Zahl daneben auch im zugeklappten Zustand,
+   rechts ein Winkel, der sich beim Oeffnen dreht. */
+details.frueher {{ border-top: 1px solid var(--linie); }}
+details.frueher > summary {{ display: flex; align-items: baseline; gap: 10px;
+  padding: 15px 0; cursor: pointer; list-style: none;
+  font-size: .88rem; font-weight: 600; letter-spacing: .04em;
+  text-transform: uppercase; color: var(--tinte); }}
+details.frueher > summary::-webkit-details-marker {{ display: none; }}
+details.frueher > summary::after {{ content: ""; margin-left: auto; width: 7px; height: 7px;
+  border-right: 1.5px solid var(--leise); border-bottom: 1.5px solid var(--leise);
+  transform: rotate(-45deg) translate(-2px, -1px); transition: transform .15s; }}
+details.frueher[open] > summary::after {{ transform: rotate(45deg) translate(-2px, -2px); }}
+details.frueher > summary:hover {{ color: var(--gold-tief); }}
+details.frueher > summary:focus-visible {{ outline: 2px solid var(--gold); outline-offset: 2px; }}
+details.frueher .nebenbei {{ font-size: .82rem; font-weight: 400; letter-spacing: 0;
+  text-transform: none; color: var(--leise); }}
+details.frueher[open] + .monat.folgemonat {{ display: none; }}
 .spiel .aufklapp {{ font-size: .74rem; font-weight: 600; letter-spacing: .04em;
                     text-transform: uppercase; color: var(--gold-tief); margin-top: 4px;
                     white-space: nowrap; }}
