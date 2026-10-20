@@ -211,6 +211,24 @@ details.mitbericht > summary::-webkit-details-marker { display: none; }
 details.mitbericht > summary:hover { opacity: .8; }
 details.mitbericht[open] > summary { opacity: 1; }
 details.mitbericht > summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+/* Fruehere Spiele zugeklappt, wie im MuRu-Projekt (seite_stil.py, .klapp):
+   Titel in Versalien, die Zahl daneben auch im zugeklappten Zustand,
+   rechts ein Winkel, der sich beim Oeffnen dreht. */
+details.frueher { border-top: 1px solid var(--linie); }
+details.frueher > summary { display: flex; align-items: baseline; gap: 10px;
+  padding: 15px 0; cursor: pointer; list-style: none;
+  font-size: .88rem; font-weight: 600; letter-spacing: .04em;
+  text-transform: uppercase; color: var(--tinte); }
+details.frueher > summary::-webkit-details-marker { display: none; }
+details.frueher > summary::after { content: ""; margin-left: auto; width: 7px; height: 7px;
+  border-right: 1.5px solid var(--leise); border-bottom: 1.5px solid var(--leise);
+  transform: rotate(-45deg) translate(-2px, -1px); transition: transform .15s; }
+details.frueher[open] > summary::after { transform: rotate(45deg) translate(-2px, -2px); }
+details.frueher > summary:hover { color: var(--gold-tief); }
+details.frueher > summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+details.frueher .nebenbei { font-size: .82rem; font-weight: 400; letter-spacing: 0;
+  text-transform: none; color: var(--leise); }
+details.frueher[open] + .monat.folgemonat { display: none; }
 .spiel .aufklapp { font-size: .74rem; font-weight: 600; letter-spacing: .04em;
                     text-transform: uppercase; color: var(--gold-tief); margin-top: 4px;
                     white-space: nowrap; }
@@ -308,7 +326,10 @@ table.schuetzen .klein { color: var(--leise); font-size: .82rem; }
 
     <div id="feld-spiele-herren1" data-panel="spiele" role="tabpanel">
       <div class="teil">
-        <p class="monat">September 2026</p>
+        
+        <details class="frueher">
+          <summary><span class="titel">Frühere Spiele</span><span class="nebenbei">3 Spiele</span></summary>
+          <p class="monat">September 2026</p>
         <details class="mitbericht">
           <summary class="spiel vorbei">
           <div class="datum">Sa 19.09.26<span>Heim</span></div>
@@ -405,6 +426,7 @@ table.schuetzen .klein { color: var(--leise); font-size: .82rem; }
                rel="noopener">Original-Spielbericht (PDF)</a></p>
           </div>
         </details>
+        </details><p class="monat folgemonat">Oktober 2026</p>
         <details class="mitbericht">
           <summary class="spiel vorbei">
           <div class="datum">Sa 17.10.26<span>Heim</span></div>
@@ -847,7 +869,10 @@ table.schuetzen .klein { color: var(--leise); font-size: .82rem; }
 
     <div id="feld-spiele-herren2" data-panel="spiele" role="tabpanel">
       <div class="teil">
-        <p class="monat">September 2026</p>
+        
+        <details class="frueher">
+          <summary><span class="titel">Frühere Spiele</span><span class="nebenbei">3 Spiele</span></summary>
+          <p class="monat">September 2026</p>
         <details class="mitbericht">
           <summary class="spiel vorbei">
           <div class="datum">Sa 19.09.26<span>Heim</span></div>
@@ -920,6 +945,7 @@ table.schuetzen .klein { color: var(--leise); font-size: .82rem; }
                rel="noopener">Original-Spielbericht (PDF)</a></p>
           </div>
         </details>
+        </details><p class="monat folgemonat">Oktober 2026</p>
         <details class="mitbericht">
           <summary class="spiel vorbei">
           <div class="datum">Sa 10.10.26<span>Auswärts</span></div>
