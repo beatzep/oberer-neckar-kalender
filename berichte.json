@@ -5651,5 +5651,958 @@
    }
   ],
   "zuschauer": 25
+ },
+ "3533431": {
+  "ereignisse": [
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Tim Burkhardt",
+    "nr": "46",
+    "s": 80,
+    "stand": [
+     1,
+     0
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Noel Reibstein",
+    "nr": "2",
+    "s": 107,
+    "stand": [
+     2,
+     0
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "20",
+    "s": 159,
+    "stand": [
+     2,
+     1
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "47",
+    "s": 235,
+    "stand": [
+     2,
+     2
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Jakob Hoffmann",
+    "nr": "25",
+    "s": 252,
+    "stand": [
+     3,
+     2
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Jan Billner",
+    "nr": "10",
+    "s": 273,
+    "stand": [
+     4,
+     2
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "47",
+    "s": 318,
+    "stand": [
+     4,
+     3
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Manuel Grauer",
+    "nr": "32",
+    "s": 330,
+    "stand": [
+     5,
+     3
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Tim Burkhardt",
+    "nr": "46",
+    "s": 365,
+    "stand": [
+     6,
+     3
+    ]
+   },
+   {
+    "art": "verwarnung",
+    "eigen": true,
+    "name": "Manuel Grauer",
+    "nr": "32",
+    "s": 398
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "47",
+    "s": 418,
+    "stand": [
+     6,
+     4
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Paul Kazmaier",
+    "nr": "15",
+    "s": 425,
+    "stand": [
+     7,
+     4
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "25",
+    "s": 453,
+    "stand": [
+     7,
+     5
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "25",
+    "s": 548,
+    "stand": [
+     7,
+     6
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "47",
+    "s": 597,
+    "stand": [
+     7,
+     7
+    ]
+   },
+   {
+    "art": "siebenmeter",
+    "eigen": true,
+    "name": "Jan Billner",
+    "nr": "10",
+    "s": 623,
+    "stand": [
+     8,
+     7
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "25",
+    "s": 655,
+    "stand": [
+     8,
+     8
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "42",
+    "s": 673,
+    "stand": [
+     8,
+     9
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Jakob Hoffmann",
+    "nr": "25",
+    "s": 710,
+    "stand": [
+     9,
+     9
+    ]
+   },
+   {
+    "art": "zeitstrafe",
+    "eigen": false,
+    "nr": "25",
+    "s": 736
+   },
+   {
+    "art": "siebenmeter",
+    "eigen": true,
+    "name": "Jan Billner",
+    "nr": "10",
+    "s": 739,
+    "stand": [
+     10,
+     9
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Noel Reibstein",
+    "nr": "2",
+    "s": 781,
+    "stand": [
+     11,
+     9
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "69",
+    "s": 826,
+    "stand": [
+     11,
+     10
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Paul Kazmaier",
+    "nr": "15",
+    "s": 847,
+    "stand": [
+     12,
+     10
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Jan Billner",
+    "nr": "10",
+    "s": 899,
+    "stand": [
+     13,
+     10
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "20",
+    "s": 911,
+    "stand": [
+     13,
+     11
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "19",
+    "s": 945,
+    "stand": [
+     13,
+     12
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Jan Billner",
+    "nr": "10",
+    "s": 973,
+    "stand": [
+     14,
+     12
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "47",
+    "s": 982,
+    "stand": [
+     14,
+     13
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "20",
+    "s": 1078,
+    "stand": [
+     14,
+     14
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Jan Billner",
+    "nr": "10",
+    "s": 1114,
+    "stand": [
+     15,
+     14
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "25",
+    "s": 1125,
+    "stand": [
+     15,
+     15
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "19",
+    "s": 1170,
+    "stand": [
+     15,
+     16
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "19",
+    "s": 1208,
+    "stand": [
+     15,
+     17
+    ]
+   },
+   {
+    "art": "siebenmeter_fehl",
+    "eigen": true,
+    "name": "Jan Billner",
+    "nr": "10",
+    "s": 1260
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "69",
+    "s": 1309,
+    "stand": [
+     15,
+     18
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Jan Billner",
+    "nr": "10",
+    "s": 1318,
+    "stand": [
+     16,
+     18
+    ]
+   },
+   {
+    "art": "zeitstrafe",
+    "eigen": false,
+    "nr": "20",
+    "s": 1419
+   },
+   {
+    "art": "siebenmeter",
+    "eigen": true,
+    "name": "Jan Billner",
+    "nr": "10",
+    "s": 1423,
+    "stand": [
+     17,
+     18
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "19",
+    "s": 1519,
+    "stand": [
+     17,
+     19
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Noel Reibstein",
+    "nr": "2",
+    "s": 1544,
+    "stand": [
+     18,
+     19
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Noel Reibstein",
+    "nr": "2",
+    "s": 1612,
+    "stand": [
+     19,
+     19
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Paul Kazmaier",
+    "nr": "15",
+    "s": 1658,
+    "stand": [
+     20,
+     19
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "21",
+    "s": 1689,
+    "stand": [
+     20,
+     20
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Jakob Hoffmann",
+    "nr": "25",
+    "s": 1716,
+    "stand": [
+     21,
+     20
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Tim Burkhardt",
+    "nr": "46",
+    "s": 1733,
+    "stand": [
+     22,
+     20
+    ]
+   },
+   {
+    "art": "siebenmeter_fehl",
+    "eigen": false,
+    "nr": "2",
+    "s": 1880
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Jan Billner",
+    "nr": "10",
+    "s": 2045,
+    "stand": [
+     23,
+     20
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "21",
+    "s": 2070,
+    "stand": [
+     23,
+     21
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Jan Billner",
+    "nr": "10",
+    "s": 2142,
+    "stand": [
+     24,
+     21
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "25",
+    "s": 2165,
+    "stand": [
+     24,
+     22
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Jan Billner",
+    "nr": "10",
+    "s": 2177,
+    "stand": [
+     25,
+     22
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Jan Billner",
+    "nr": "10",
+    "s": 2212,
+    "stand": [
+     26,
+     22
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "21",
+    "s": 2255,
+    "stand": [
+     26,
+     23
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Manuel Grauer",
+    "nr": "32",
+    "s": 2269,
+    "stand": [
+     27,
+     23
+    ]
+   },
+   {
+    "art": "siebenmeter",
+    "eigen": false,
+    "nr": "15",
+    "s": 2312,
+    "stand": [
+     27,
+     24
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Jan Billner",
+    "nr": "10",
+    "s": 2340,
+    "stand": [
+     28,
+     24
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Jan Billner",
+    "nr": "10",
+    "s": 2397,
+    "stand": [
+     29,
+     24
+    ]
+   },
+   {
+    "art": "auszeit",
+    "eigen": false,
+    "s": 2405
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "25",
+    "s": 2452,
+    "stand": [
+     29,
+     25
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Jakob Hoffmann",
+    "nr": "25",
+    "s": 2494,
+    "stand": [
+     30,
+     25
+    ]
+   },
+   {
+    "art": "siebenmeter",
+    "eigen": false,
+    "nr": "15",
+    "s": 2536,
+    "stand": [
+     30,
+     26
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Jakob Hoffmann",
+    "nr": "25",
+    "s": 2561,
+    "stand": [
+     31,
+     26
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "15",
+    "s": 2607,
+    "stand": [
+     31,
+     27
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Jan Billner",
+    "nr": "10",
+    "s": 2651,
+    "stand": [
+     32,
+     27
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Jan Billner",
+    "nr": "10",
+    "s": 2792,
+    "stand": [
+     33,
+     27
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "21",
+    "s": 2813,
+    "stand": [
+     33,
+     28
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "19",
+    "s": 2862,
+    "stand": [
+     33,
+     29
+    ]
+   },
+   {
+    "art": "auszeit",
+    "eigen": true,
+    "s": 2888
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Jakob Hoffmann",
+    "nr": "25",
+    "s": 2945,
+    "stand": [
+     34,
+     29
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "47",
+    "s": 2958,
+    "stand": [
+     34,
+     30
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "25",
+    "s": 3017,
+    "stand": [
+     34,
+     31
+    ]
+   },
+   {
+    "art": "siebenmeter",
+    "eigen": true,
+    "name": "Jan Billner",
+    "nr": "10",
+    "s": 3048,
+    "stand": [
+     35,
+     31
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "21",
+    "s": 3085,
+    "stand": [
+     35,
+     32
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Jan Billner",
+    "nr": "10",
+    "s": 3155,
+    "stand": [
+     36,
+     32
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Ole Krauter",
+    "nr": "5",
+    "s": 3234,
+    "stand": [
+     37,
+     32
+    ]
+   },
+   {
+    "art": "siebenmeter",
+    "eigen": false,
+    "nr": "15",
+    "s": 3266,
+    "stand": [
+     37,
+     33
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Jan Billner",
+    "nr": "10",
+    "s": 3329,
+    "stand": [
+     38,
+     33
+    ]
+   },
+   {
+    "art": "verwarnung",
+    "eigen": false,
+    "nr": "A",
+    "s": 3331
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "21",
+    "s": 3356,
+    "stand": [
+     38,
+     34
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Jan Billner",
+    "nr": "10",
+    "s": 3392,
+    "stand": [
+     39,
+     34
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "20",
+    "s": 3413,
+    "stand": [
+     39,
+     35
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Paul Kazmaier",
+    "nr": "15",
+    "s": 3449,
+    "stand": [
+     40,
+     35
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "47",
+    "s": 3465,
+    "stand": [
+     40,
+     36
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "47",
+    "s": 3530,
+    "stand": [
+     40,
+     37
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Paul Kazmaier",
+    "nr": "15",
+    "s": 3558,
+    "stand": [
+     41,
+     37
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Laurin Raab",
+    "nr": "11",
+    "s": 3591,
+    "stand": [
+     42,
+     37
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "20",
+    "s": 3600,
+    "stand": [
+     42,
+     38
+    ]
+   }
+  ],
+  "kader": [
+   {
+    "name": "Noel Reibstein",
+    "nr": "2"
+   },
+   {
+    "name": "Lukas Rueckle",
+    "nr": "4"
+   },
+   {
+    "name": "Ole Krauter",
+    "nr": "5"
+   },
+   {
+    "name": "Jan Billner",
+    "nr": "10"
+   },
+   {
+    "name": "Laurin Raab",
+    "nr": "11"
+   },
+   {
+    "name": "Marvin Frech",
+    "nr": "12"
+   },
+   {
+    "name": "Jakob Ringler",
+    "nr": "13"
+   },
+   {
+    "name": "Paul Kazmaier",
+    "nr": "15"
+   },
+   {
+    "name": "Simon Bächle",
+    "nr": "18"
+   },
+   {
+    "name": "Jakob Hoffmann",
+    "nr": "25"
+   },
+   {
+    "name": "Manuel Grauer",
+    "nr": "32"
+   },
+   {
+    "name": "Benedikt Ringler",
+    "nr": "36"
+   },
+   {
+    "name": "Tim Burkhardt",
+    "nr": "46"
+   },
+   {
+    "name": "Jona Bastian",
+    "nr": "69"
+   }
+  ],
+  "zuschauer": 50
  }
 }
