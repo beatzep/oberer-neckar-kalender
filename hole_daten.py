@@ -82,6 +82,7 @@ def normalisiere_spiele(games: list[dict], name_in_quelle: str, alt: dict) -> tu
         halle = ", ".join(t for t in halle_teile if t)
         nummer = g.get("gNo", "") or g["gID"]
         vorher = alt.get(nummer)
+        sgid = (g.get("sGID") or "").strip()
 
         spiel = {
             "id": g["gID"],
@@ -95,10 +96,18 @@ def normalisiere_spiele(games: list[dict], name_in_quelle: str, alt: dict) -> tu
             "halle": halle,
             "schiedsrichter": (g.get("gReferee") or "").strip(),
             "sequence": (vorher or {}).get("sequence", 0),
+            # Kennung des elektronischen Spielberichts (PDF, siehe
+            # spielberichte.py). "0", solange keiner hochgeladen ist.
+            "bericht_id": sgid if sgid.strip("0") else None,
+            "halbzeit_eigene": None,
+            "halbzeit_gegner": None,
         }
         th, tg = tor_wert(g.get("gHomeGoals")), tor_wert(g.get("gGuestGoals"))
         if th is not None and tg is not None:
             spiel["tore_eigene"], spiel["tore_gegner"] = (th, tg) if heim else (tg, th)
+        hh, hg = tor_wert(g.get("gHomeGoals_1")), tor_wert(g.get("gGuestGoals_1"))
+        if spiel["tore_eigene"] is not None and hh is not None and hg is not None:
+            spiel["halbzeit_eigene"], spiel["halbzeit_gegner"] = (hh, hg) if heim else (hg, hh)
 
         if vorher is None:
             if not erstlauf:

@@ -15,6 +15,7 @@
   --linie: #dedbd3; --linie-zart: #ebe9e3;
   --grund: #ffffff; --marine: #0a2c73; --auf-marine: #f3f5fa;
   --sieg: #2f7d4f; --niederlage: #a4443a;
+  --kurve: #0a2c73;
 }
 /* Dunkle Farben an zwei Stellen: nach Systemeinstellung (solange niemand
    ausdruecklich hell gewaehlt hat) und bei ausdruecklicher Wahl. Wie im
@@ -26,6 +27,7 @@
     --linie: #2c3550; --linie-zart: #1c2440;
     --grund: #0b0e1c; --marine: #000000; --auf-marine: #f3f5fa;
     --sieg: #5cbf85; --niederlage: #e08076;
+    --kurve: #ffe14d;
   }
 }
 :root[data-ansicht="dunkel"] {
@@ -34,6 +36,7 @@
   --linie: #2c3550; --linie-zart: #1c2440;
   --grund: #0b0e1c; --marine: #000000; --auf-marine: #f3f5fa;
   --sieg: #5cbf85; --niederlage: #e08076;
+  --kurve: #ffe14d;
 }
 *, *::before, *::after { box-sizing: border-box; border-radius: 0; }
 html { -webkit-text-size-adjust: 100%; }
@@ -198,6 +201,49 @@ td.platz { color: var(--leise); width: 2em; }
 .spiel .stand.U { color: var(--leise); }
 .spiel.vorbei { opacity: .55; }
 .spiel.vorbei .gegner { font-weight: 400; }
+.spiel .hzstand { font-size: .78rem; color: var(--leise); white-space: nowrap; margin-top: 2px; }
+
+/* ---------- Spielbericht zum Aufklappen ---------- */
+/* Die Deckkraft von .vorbei sitzt auf dem summary, damit sie nicht auf den
+   aufgeklappten Bericht durchschlaegt. */
+details.mitbericht > summary { list-style: none; cursor: pointer; }
+details.mitbericht > summary::-webkit-details-marker { display: none; }
+details.mitbericht > summary:hover { opacity: .8; }
+details.mitbericht[open] > summary { opacity: 1; }
+details.mitbericht > summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.spiel .aufklapp { font-size: .74rem; font-weight: 600; letter-spacing: .04em;
+                    text-transform: uppercase; color: var(--gold-tief); margin-top: 4px;
+                    white-space: nowrap; }
+.spiel .aufklapp::after { content: " ▾"; }
+details[open] .spiel .aufklapp::after { content: " ▴"; }
+.bericht { padding: 4px 0 18px 76px; font-size: .9rem; color: var(--tinte-weich); }
+.bericht p { margin: 8px 0 0; }
+.bericht .eck { margin: 0 0 6px; color: var(--leise); }
+.bericht .lauf { color: var(--tinte); }
+.bericht .quelle a { color: inherit; text-decoration: none; box-shadow: inset 0 -1px 0 var(--gold); }
+.rubrikklein { font-size: .74rem; font-weight: 600; letter-spacing: .06em;
+                text-transform: uppercase; color: var(--leise); margin-right: 6px; }
+@media (max-width: 520px) { .bericht { padding-left: 0; } }
+
+svg.spielfilm { display: block; width: 100%; max-width: 480px; height: auto; margin: 4px 0 2px; }
+svg.spielfilm .linie { fill: none; stroke: var(--kurve); stroke-width: 1.6; stroke-linejoin: round; }
+svg.spielfilm .vorn { fill: var(--sieg); opacity: .18; }
+svg.spielfilm .hinten { fill: var(--niederlage); opacity: .18; }
+svg.spielfilm .null { stroke: var(--leise); stroke-width: .8; }
+svg.spielfilm .gitter { stroke: var(--linie); stroke-width: .8; stroke-dasharray: 2 3; }
+svg.spielfilm text { fill: var(--leise); font-size: 9px; }
+
+/* ---------- Statistiken ---------- */
+.kennzahlen { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+               gap: 0 22px; margin: 0 0 30px; }
+.kennzahlen > div { border-top: 1px solid var(--linie); padding: 12px 0 14px; }
+.kennzahlen dt { font-size: .78rem; font-weight: 600; letter-spacing: .04em;
+                  text-transform: uppercase; color: var(--leise); }
+.kennzahlen dd { margin: 4px 0 0; }
+.kennzahlen .wert { display: block; font-size: 1.6rem; font-weight: 300; line-height: 1.2; }
+.kennzahlen .zusatz { display: block; font-size: .84rem; color: var(--leise); }
+table.schuetzen .klein { color: var(--leise); font-size: .82rem; }
+.statfuss { font-size: .86rem; color: var(--leise); margin: 18px 0 0; }
 
 .fuss { padding: 30px 0 40px; border-top: 1px solid var(--linie); margin-top: 34px;
          font-size: .86rem; color: var(--leise); }
@@ -263,38 +309,134 @@ td.platz { color: var(--leise); width: 2em; }
     <div id="feld-spiele-herren1" data-panel="spiele" role="tabpanel">
       <div class="teil">
         <p class="monat">September 2026</p>
-        <div class="spiel vorbei">
+        <details class="mitbericht">
+          <summary class="spiel vorbei">
           <div class="datum">Sa 19.09.26<span>Heim</span></div>
           <div>
             <div class="gegner">SG Schorndorf</div>
-            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Flatow-Sporthalle%2C%20Gingener%20Stra%C3%9Fe%2021%2C%2070327%20Stuttgart-Wangen" target="_blank" rel="noopener">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</a></div>
+            <div class="halle">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</div>
           </div>
-          <div class="rechts"><div class="stand U">33:33</div></div>
-        </div>
-        <div class="spiel vorbei">
+          <div class="rechts"><div class="stand U">33:33</div><div class="hzstand">HZ 16:18</div><div class="aufklapp">Bericht</div></div>
+          </summary>
+          <div class="bericht">
+            <p class="eck">Halbzeit 16:18 · 15 Zuschauer</p>
+            <svg class="spielfilm" viewBox="0 0 320 112" role="img" aria-label="Spielverlauf 19.09. gegen SG Schorndorf, Endstand 33:33">
+  <defs>
+    <clipPath id="vorn-3501301"><rect x="0" y="0" width="320" height="29.5"/></clipPath>
+    <clipPath id="hinten-3501301"><rect x="0" y="29.5" width="320" height="82.5"/></clipPath>
+  </defs>
+  <polygon class="vorn" points="24.0,29.5 24.0,29.5 32.1,29.5 32.1,18.8 45.8,18.8 45.8,8.0 54.1,8.0 54.1,18.8 60.8,18.8 60.8,8.0 62.6,8.0 62.6,18.8 67.2,18.8 67.2,8.0 71.8,8.0 71.8,18.8 75.6,18.8 75.6,8.0 76.4,8.0 76.4,18.8 77.7,18.8 77.7,8.0 79.7,8.0 79.7,18.8 83.0,18.8 83.0,29.5 85.3,29.5 85.3,40.2 87.5,40.2 87.5,29.5 92.8,29.5 92.8,40.2 94.2,40.2 94.2,51.0 96.8,51.0 96.8,40.2 100.0,40.2 100.0,51.0 103.3,51.0 103.3,40.2 105.3,40.2 105.3,29.5 111.6,29.5 111.6,40.2 116.6,40.2 116.6,51.0 124.0,51.0 124.0,40.2 134.9,40.2 134.9,51.0 139.8,51.0 139.8,40.2 140.4,40.2 140.4,51.0 144.3,51.0 144.3,40.2 147.9,40.2 147.9,51.0 150.3,51.0 150.3,40.2 151.1,40.2 151.1,51.0 156.8,51.0 156.8,61.8 159.2,61.8 159.2,51.0 164.4,51.0 164.4,40.2 168.4,40.2 168.4,51.0 172.0,51.0 172.0,61.8 178.9,61.8 178.9,51.0 189.9,51.0 189.9,61.8 194.9,61.8 194.9,72.5 200.5,72.5 200.5,61.8 206.5,61.8 206.5,72.5 209.0,72.5 209.0,61.8 215.3,61.8 215.3,72.5 228.5,72.5 228.5,83.2 229.3,83.2 229.3,72.5 236.2,72.5 236.2,61.8 244.2,61.8 244.2,72.5 247.1,72.5 247.1,83.2 247.5,83.2 247.5,72.5 250.4,72.5 250.4,83.2 254.6,83.2 254.6,94.0 255.2,94.0 255.2,83.2 257.4,83.2 257.4,72.5 264.5,72.5 264.5,61.8 271.5,61.8 271.5,72.5 273.9,72.5 273.9,61.8 276.6,61.8 276.6,51.0 279.4,51.0 279.4,61.8 283.9,61.8 283.9,51.0 286.6,51.0 286.6,40.2 291.6,40.2 291.6,29.5 297.6,29.5 297.6,18.8 299.5,18.8 299.5,29.5 300.2,29.5 300.2,18.8 302.2,18.8 302.2,29.5 311.8,29.5 311.8,18.8 314.0,18.8 314.0,29.5 314.0,29.5 314.0,29.5" clip-path="url(#vorn-3501301)"/>
+  <polygon class="hinten" points="24.0,29.5 24.0,29.5 32.1,29.5 32.1,18.8 45.8,18.8 45.8,8.0 54.1,8.0 54.1,18.8 60.8,18.8 60.8,8.0 62.6,8.0 62.6,18.8 67.2,18.8 67.2,8.0 71.8,8.0 71.8,18.8 75.6,18.8 75.6,8.0 76.4,8.0 76.4,18.8 77.7,18.8 77.7,8.0 79.7,8.0 79.7,18.8 83.0,18.8 83.0,29.5 85.3,29.5 85.3,40.2 87.5,40.2 87.5,29.5 92.8,29.5 92.8,40.2 94.2,40.2 94.2,51.0 96.8,51.0 96.8,40.2 100.0,40.2 100.0,51.0 103.3,51.0 103.3,40.2 105.3,40.2 105.3,29.5 111.6,29.5 111.6,40.2 116.6,40.2 116.6,51.0 124.0,51.0 124.0,40.2 134.9,40.2 134.9,51.0 139.8,51.0 139.8,40.2 140.4,40.2 140.4,51.0 144.3,51.0 144.3,40.2 147.9,40.2 147.9,51.0 150.3,51.0 150.3,40.2 151.1,40.2 151.1,51.0 156.8,51.0 156.8,61.8 159.2,61.8 159.2,51.0 164.4,51.0 164.4,40.2 168.4,40.2 168.4,51.0 172.0,51.0 172.0,61.8 178.9,61.8 178.9,51.0 189.9,51.0 189.9,61.8 194.9,61.8 194.9,72.5 200.5,72.5 200.5,61.8 206.5,61.8 206.5,72.5 209.0,72.5 209.0,61.8 215.3,61.8 215.3,72.5 228.5,72.5 228.5,83.2 229.3,83.2 229.3,72.5 236.2,72.5 236.2,61.8 244.2,61.8 244.2,72.5 247.1,72.5 247.1,83.2 247.5,83.2 247.5,72.5 250.4,72.5 250.4,83.2 254.6,83.2 254.6,94.0 255.2,94.0 255.2,83.2 257.4,83.2 257.4,72.5 264.5,72.5 264.5,61.8 271.5,61.8 271.5,72.5 273.9,72.5 273.9,61.8 276.6,61.8 276.6,51.0 279.4,51.0 279.4,61.8 283.9,61.8 283.9,51.0 286.6,51.0 286.6,40.2 291.6,40.2 291.6,29.5 297.6,29.5 297.6,18.8 299.5,18.8 299.5,29.5 300.2,29.5 300.2,18.8 302.2,18.8 302.2,29.5 311.8,29.5 311.8,18.8 314.0,18.8 314.0,29.5 314.0,29.5 314.0,29.5" clip-path="url(#hinten-3501301)"/>
+  <line class="gitter" x1="169.0" y1="8" x2="169.0" y2="94"/>
+  <line class="null" x1="24" y1="29.5" x2="314" y2="29.5"/>
+  <polyline class="linie" points="24.0,29.5 32.1,29.5 32.1,18.8 45.8,18.8 45.8,8.0 54.1,8.0 54.1,18.8 60.8,18.8 60.8,8.0 62.6,8.0 62.6,18.8 67.2,18.8 67.2,8.0 71.8,8.0 71.8,18.8 75.6,18.8 75.6,8.0 76.4,8.0 76.4,18.8 77.7,18.8 77.7,8.0 79.7,8.0 79.7,18.8 83.0,18.8 83.0,29.5 85.3,29.5 85.3,40.2 87.5,40.2 87.5,29.5 92.8,29.5 92.8,40.2 94.2,40.2 94.2,51.0 96.8,51.0 96.8,40.2 100.0,40.2 100.0,51.0 103.3,51.0 103.3,40.2 105.3,40.2 105.3,29.5 111.6,29.5 111.6,40.2 116.6,40.2 116.6,51.0 124.0,51.0 124.0,40.2 134.9,40.2 134.9,51.0 139.8,51.0 139.8,40.2 140.4,40.2 140.4,51.0 144.3,51.0 144.3,40.2 147.9,40.2 147.9,51.0 150.3,51.0 150.3,40.2 151.1,40.2 151.1,51.0 156.8,51.0 156.8,61.8 159.2,61.8 159.2,51.0 164.4,51.0 164.4,40.2 168.4,40.2 168.4,51.0 172.0,51.0 172.0,61.8 178.9,61.8 178.9,51.0 189.9,51.0 189.9,61.8 194.9,61.8 194.9,72.5 200.5,72.5 200.5,61.8 206.5,61.8 206.5,72.5 209.0,72.5 209.0,61.8 215.3,61.8 215.3,72.5 228.5,72.5 228.5,83.2 229.3,83.2 229.3,72.5 236.2,72.5 236.2,61.8 244.2,61.8 244.2,72.5 247.1,72.5 247.1,83.2 247.5,83.2 247.5,72.5 250.4,72.5 250.4,83.2 254.6,83.2 254.6,94.0 255.2,94.0 255.2,83.2 257.4,83.2 257.4,72.5 264.5,72.5 264.5,61.8 271.5,61.8 271.5,72.5 273.9,72.5 273.9,61.8 276.6,61.8 276.6,51.0 279.4,51.0 279.4,61.8 283.9,61.8 283.9,51.0 286.6,51.0 286.6,40.2 291.6,40.2 291.6,29.5 297.6,29.5 297.6,18.8 299.5,18.8 299.5,29.5 300.2,29.5 300.2,18.8 302.2,18.8 302.2,29.5 311.8,29.5 311.8,18.8 314.0,18.8 314.0,29.5 314.0,29.5"/>
+  <text x="20" y="32.5" text-anchor="end">0</text><text x="20" y="15.0" text-anchor="end">+2</text><text x="20" y="94.0" text-anchor="end">-6</text>
+  <text x="169.0" y="108" text-anchor="middle">Halbzeit</text>
+  <text x="314" y="108" text-anchor="end">60'</text>
+</svg>
+            <p class="lauf">4 Tore in Folge ab der 54. Minute.</p>
+            <p><span class="rubrikklein">Tore</span> Jan Billner 12 (5/6 7m), Tim Burkhardt 6, Lukas Rueckle 4, Jakob Hoffmann 3, Jona Bastian 2, Noel Reibstein 2, Paul Kazmaier 2, Tobias Rupp 2</p>
+            <p><span class="rubrikklein">Strafen</span> Zeitstrafen 1, beim Gegner 5.</p>
+            <p class="quelle"><a href="https://spo.handball4all.de/misc/sboPublicReports.php?sGID=3501301" target="_blank"
+               rel="noopener">Original-Spielbericht (PDF)</a></p>
+          </div>
+        </details>
+        <details class="mitbericht">
+          <summary class="spiel vorbei">
           <div class="datum">So 27.09.26<span>Auswärts</span></div>
           <div>
             <div class="gegner">HSG Barg/Bettr 2</div>
-            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Uhlandhalle%2C%20Wolf-Hirth-Stra%C3%9Fe%2050%2C%2073529%20Schw%C3%A4b.Gm%C3%BCnd-Bettringen" target="_blank" rel="noopener">Uhlandhalle, Wolf-Hirth-Straße 50, 73529 Schwäb.Gmünd-Bettringen</a></div>
+            <div class="halle">Uhlandhalle, Wolf-Hirth-Straße 50, 73529 Schwäb.Gmünd-Bettringen</div>
           </div>
-          <div class="rechts"><div class="stand S">37:29</div></div>
-        </div><p class="monat">Oktober 2026</p>
-        <div class="spiel vorbei">
+          <div class="rechts"><div class="stand S">37:29</div><div class="hzstand">HZ 19:10</div><div class="aufklapp">Bericht</div></div>
+          </summary>
+          <div class="bericht">
+            <p class="eck">Halbzeit 19:10 · 90 Zuschauer</p>
+            <svg class="spielfilm" viewBox="0 0 320 112" role="img" aria-label="Spielverlauf 27.09. bei HSG Barg/Bettr 2, Endstand 37:29">
+  <defs>
+    <clipPath id="vorn-3511746"><rect x="0" y="0" width="320" height="82.5"/></clipPath>
+    <clipPath id="hinten-3511746"><rect x="0" y="82.5" width="320" height="29.5"/></clipPath>
+  </defs>
+  <polygon class="vorn" points="24.0,82.5 24.0,82.5 27.0,82.5 27.0,76.8 36.6,76.8 36.6,71.1 40.3,71.1 40.3,65.3 45.2,65.3 45.2,59.6 46.2,59.6 46.2,53.9 48.3,53.9 48.3,59.6 49.9,59.6 49.9,53.9 51.1,53.9 51.1,48.1 52.4,48.1 52.4,53.9 56.0,53.9 56.0,48.1 58.4,48.1 58.4,53.9 59.1,53.9 59.1,48.1 65.9,48.1 65.9,53.9 73.5,53.9 73.5,48.1 89.3,48.1 89.3,42.4 102.0,42.4 102.0,36.7 105.4,36.7 105.4,30.9 107.7,30.9 107.7,25.2 111.5,25.2 111.5,30.9 118.7,30.9 118.7,25.2 126.6,25.2 126.6,30.9 126.9,30.9 126.9,25.2 134.1,25.2 134.1,30.9 150.3,30.9 150.3,25.2 154.3,25.2 154.3,19.5 158.4,19.5 158.4,25.2 162.1,25.2 162.1,30.9 165.8,30.9 165.8,25.2 166.3,25.2 166.3,30.9 172.1,30.9 172.1,25.2 173.3,25.2 173.3,19.5 179.6,19.5 179.6,13.7 189.1,13.7 189.1,8.0 190.4,8.0 190.4,13.7 191.4,13.7 191.4,19.5 192.2,19.5 192.2,13.7 195.4,13.7 195.4,19.5 201.0,19.5 201.0,25.2 203.2,25.2 203.2,30.9 208.6,30.9 208.6,36.7 212.0,36.7 212.0,42.4 216.8,42.4 216.8,48.1 221.1,48.1 221.1,53.9 225.9,53.9 225.9,59.6 228.4,59.6 228.4,53.9 232.1,53.9 232.1,59.6 236.7,59.6 236.7,53.9 241.1,53.9 241.1,48.1 243.0,48.1 243.0,42.4 251.3,42.4 251.3,48.1 253.9,48.1 253.9,42.4 271.4,42.4 271.4,48.1 274.9,48.1 274.9,42.4 277.3,42.4 277.3,36.7 280.1,36.7 280.1,30.9 282.7,30.9 282.7,36.7 289.3,36.7 289.3,42.4 293.2,42.4 293.2,48.1 294.9,48.1 294.9,42.4 296.2,42.4 296.2,48.1 297.5,48.1 297.5,42.4 298.6,42.4 298.6,48.1 300.1,48.1 300.1,42.4 303.9,42.4 303.9,36.7 306.3,36.7 306.3,30.9 311.7,30.9 311.7,36.7 314.0,36.7 314.0,82.5" clip-path="url(#vorn-3511746)"/>
+  <polygon class="hinten" points="24.0,82.5 24.0,82.5 27.0,82.5 27.0,76.8 36.6,76.8 36.6,71.1 40.3,71.1 40.3,65.3 45.2,65.3 45.2,59.6 46.2,59.6 46.2,53.9 48.3,53.9 48.3,59.6 49.9,59.6 49.9,53.9 51.1,53.9 51.1,48.1 52.4,48.1 52.4,53.9 56.0,53.9 56.0,48.1 58.4,48.1 58.4,53.9 59.1,53.9 59.1,48.1 65.9,48.1 65.9,53.9 73.5,53.9 73.5,48.1 89.3,48.1 89.3,42.4 102.0,42.4 102.0,36.7 105.4,36.7 105.4,30.9 107.7,30.9 107.7,25.2 111.5,25.2 111.5,30.9 118.7,30.9 118.7,25.2 126.6,25.2 126.6,30.9 126.9,30.9 126.9,25.2 134.1,25.2 134.1,30.9 150.3,30.9 150.3,25.2 154.3,25.2 154.3,19.5 158.4,19.5 158.4,25.2 162.1,25.2 162.1,30.9 165.8,30.9 165.8,25.2 166.3,25.2 166.3,30.9 172.1,30.9 172.1,25.2 173.3,25.2 173.3,19.5 179.6,19.5 179.6,13.7 189.1,13.7 189.1,8.0 190.4,8.0 190.4,13.7 191.4,13.7 191.4,19.5 192.2,19.5 192.2,13.7 195.4,13.7 195.4,19.5 201.0,19.5 201.0,25.2 203.2,25.2 203.2,30.9 208.6,30.9 208.6,36.7 212.0,36.7 212.0,42.4 216.8,42.4 216.8,48.1 221.1,48.1 221.1,53.9 225.9,53.9 225.9,59.6 228.4,59.6 228.4,53.9 232.1,53.9 232.1,59.6 236.7,59.6 236.7,53.9 241.1,53.9 241.1,48.1 243.0,48.1 243.0,42.4 251.3,42.4 251.3,48.1 253.9,48.1 253.9,42.4 271.4,42.4 271.4,48.1 274.9,48.1 274.9,42.4 277.3,42.4 277.3,36.7 280.1,36.7 280.1,30.9 282.7,30.9 282.7,36.7 289.3,36.7 289.3,42.4 293.2,42.4 293.2,48.1 294.9,48.1 294.9,42.4 296.2,42.4 296.2,48.1 297.5,48.1 297.5,42.4 298.6,42.4 298.6,48.1 300.1,48.1 300.1,42.4 303.9,42.4 303.9,36.7 306.3,36.7 306.3,30.9 311.7,30.9 311.7,36.7 314.0,36.7 314.0,82.5" clip-path="url(#hinten-3511746)"/>
+  <line class="gitter" x1="169.0" y1="8" x2="169.0" y2="94"/>
+  <line class="null" x1="24" y1="82.5" x2="314" y2="82.5"/>
+  <polyline class="linie" points="24.0,82.5 27.0,82.5 27.0,76.8 36.6,76.8 36.6,71.1 40.3,71.1 40.3,65.3 45.2,65.3 45.2,59.6 46.2,59.6 46.2,53.9 48.3,53.9 48.3,59.6 49.9,59.6 49.9,53.9 51.1,53.9 51.1,48.1 52.4,48.1 52.4,53.9 56.0,53.9 56.0,48.1 58.4,48.1 58.4,53.9 59.1,53.9 59.1,48.1 65.9,48.1 65.9,53.9 73.5,53.9 73.5,48.1 89.3,48.1 89.3,42.4 102.0,42.4 102.0,36.7 105.4,36.7 105.4,30.9 107.7,30.9 107.7,25.2 111.5,25.2 111.5,30.9 118.7,30.9 118.7,25.2 126.6,25.2 126.6,30.9 126.9,30.9 126.9,25.2 134.1,25.2 134.1,30.9 150.3,30.9 150.3,25.2 154.3,25.2 154.3,19.5 158.4,19.5 158.4,25.2 162.1,25.2 162.1,30.9 165.8,30.9 165.8,25.2 166.3,25.2 166.3,30.9 172.1,30.9 172.1,25.2 173.3,25.2 173.3,19.5 179.6,19.5 179.6,13.7 189.1,13.7 189.1,8.0 190.4,8.0 190.4,13.7 191.4,13.7 191.4,19.5 192.2,19.5 192.2,13.7 195.4,13.7 195.4,19.5 201.0,19.5 201.0,25.2 203.2,25.2 203.2,30.9 208.6,30.9 208.6,36.7 212.0,36.7 212.0,42.4 216.8,42.4 216.8,48.1 221.1,48.1 221.1,53.9 225.9,53.9 225.9,59.6 228.4,59.6 228.4,53.9 232.1,53.9 232.1,59.6 236.7,59.6 236.7,53.9 241.1,53.9 241.1,48.1 243.0,48.1 243.0,42.4 251.3,42.4 251.3,48.1 253.9,48.1 253.9,42.4 271.4,42.4 271.4,48.1 274.9,48.1 274.9,42.4 277.3,42.4 277.3,36.7 280.1,36.7 280.1,30.9 282.7,30.9 282.7,36.7 289.3,36.7 289.3,42.4 293.2,42.4 293.2,48.1 294.9,48.1 294.9,42.4 296.2,42.4 296.2,48.1 297.5,48.1 297.5,42.4 298.6,42.4 298.6,48.1 300.1,48.1 300.1,42.4 303.9,42.4 303.9,36.7 306.3,36.7 306.3,30.9 311.7,30.9 311.7,36.7 314.0,36.7"/>
+  <text x="20" y="85.5" text-anchor="end">0</text><text x="20" y="15.0" text-anchor="end">+13</text>
+  <text x="169.0" y="108" text-anchor="middle">Halbzeit</text>
+  <text x="314" y="108" text-anchor="end">60'</text>
+</svg>
+            <p class="lauf">5 Tore in Folge ab der 1. Minute. Der Gegner traf 8-mal in Folge ab der 36. Minute.</p>
+            <p><span class="rubrikklein">Tore</span> Jan Billner 11 (3/5 7m), Tim Burkhardt 6, Robin Wegfahrt 5, Noel Reibstein 4, Jona Bastian 3, Laurin Raab 2, Manuel Grauer 2, Marvin Frech 2, Jakob Hoffmann 1, Paul Kazmaier 1</p>
+            <p><span class="rubrikklein">Strafen</span> Zeitstrafen 4, beim Gegner 4.</p>
+            <p class="quelle"><a href="https://spo.handball4all.de/misc/sboPublicReports.php?sGID=3511746" target="_blank"
+               rel="noopener">Original-Spielbericht (PDF)</a></p>
+          </div>
+        </details><p class="monat">Oktober 2026</p>
+        <details class="mitbericht">
+          <summary class="spiel vorbei">
           <div class="datum">Sa 03.10.26<span>Heim</span></div>
           <div>
             <div class="gegner">TSF Ditzingen 2</div>
-            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Flatow-Sporthalle%2C%20Gingener%20Stra%C3%9Fe%2021%2C%2070327%20Stuttgart-Wangen" target="_blank" rel="noopener">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</a></div>
+            <div class="halle">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</div>
           </div>
-          <div class="rechts"><div class="stand S">39:27</div></div>
-        </div>
-        <div class="spiel vorbei">
+          <div class="rechts"><div class="stand S">39:27</div><div class="hzstand">HZ 21:10</div><div class="aufklapp">Bericht</div></div>
+          </summary>
+          <div class="bericht">
+            <p class="eck">Halbzeit 21:10 · 50 Zuschauer</p>
+            <svg class="spielfilm" viewBox="0 0 320 112" role="img" aria-label="Spielverlauf 03.10. gegen TSF Ditzingen 2, Endstand 39:27">
+  <defs>
+    <clipPath id="vorn-3515471"><rect x="0" y="0" width="320" height="83.9"/></clipPath>
+    <clipPath id="hinten-3515471"><rect x="0" y="83.9" width="320" height="28.1"/></clipPath>
+  </defs>
+  <polygon class="vorn" points="24.0,83.9 24.0,83.9 30.0,83.9 30.0,78.8 32.9,78.8 32.9,73.8 34.3,73.8 34.3,78.8 37.8,78.8 37.8,73.8 41.4,73.8 41.4,68.7 55.1,68.7 55.1,63.6 61.4,63.6 61.4,68.7 62.3,68.7 62.3,63.6 64.8,63.6 64.8,68.7 69.4,68.7 69.4,63.6 71.4,63.6 71.4,68.7 73.0,68.7 73.0,63.6 91.1,63.6 91.1,58.6 94.0,58.6 94.0,53.5 96.0,53.5 96.0,58.6 101.3,58.6 101.3,53.5 105.8,53.5 105.8,58.6 110.6,58.6 110.6,53.5 114.0,53.5 114.0,48.5 117.8,48.5 117.8,43.4 122.9,43.4 122.9,38.4 129.2,38.4 129.2,33.3 135.6,33.3 135.6,28.2 141.1,28.2 141.1,23.2 143.7,23.2 143.7,28.2 152.0,28.2 152.0,23.2 155.9,23.2 155.9,28.2 157.9,28.2 157.9,23.2 162.9,23.2 162.9,18.1 164.3,18.1 164.3,23.2 169.0,23.2 169.0,28.2 171.7,28.2 171.7,23.2 172.8,23.2 172.8,18.1 178.9,18.1 178.9,23.2 182.1,23.2 182.1,28.2 187.4,28.2 187.4,23.2 191.5,23.2 191.5,18.1 196.6,18.1 196.6,23.2 197.4,23.2 197.4,18.1 201.7,18.1 201.7,23.2 207.1,23.2 207.1,28.2 208.7,28.2 208.7,23.2 213.7,23.2 213.7,18.1 215.2,18.1 215.2,23.2 221.5,23.2 221.5,18.1 227.2,18.1 227.2,13.1 231.0,13.1 231.0,8.0 233.1,8.0 233.1,13.1 243.5,13.1 243.5,18.1 246.7,18.1 246.7,23.2 252.1,23.2 252.1,28.2 253.1,28.2 253.1,23.2 254.9,23.2 254.9,28.2 256.2,28.2 256.2,23.2 259.9,23.2 259.9,28.2 262.4,28.2 262.4,23.2 267.8,23.2 267.8,28.2 270.8,28.2 270.8,23.2 276.5,23.2 276.5,18.1 279.0,18.1 279.0,23.2 282.1,23.2 282.1,18.1 286.0,18.1 286.0,23.2 291.7,23.2 291.7,28.2 306.0,28.2 306.0,23.2 310.5,23.2 310.5,18.1 312.6,18.1 312.6,23.2 314.0,23.2 314.0,83.9" clip-path="url(#vorn-3515471)"/>
+  <polygon class="hinten" points="24.0,83.9 24.0,83.9 30.0,83.9 30.0,78.8 32.9,78.8 32.9,73.8 34.3,73.8 34.3,78.8 37.8,78.8 37.8,73.8 41.4,73.8 41.4,68.7 55.1,68.7 55.1,63.6 61.4,63.6 61.4,68.7 62.3,68.7 62.3,63.6 64.8,63.6 64.8,68.7 69.4,68.7 69.4,63.6 71.4,63.6 71.4,68.7 73.0,68.7 73.0,63.6 91.1,63.6 91.1,58.6 94.0,58.6 94.0,53.5 96.0,53.5 96.0,58.6 101.3,58.6 101.3,53.5 105.8,53.5 105.8,58.6 110.6,58.6 110.6,53.5 114.0,53.5 114.0,48.5 117.8,48.5 117.8,43.4 122.9,43.4 122.9,38.4 129.2,38.4 129.2,33.3 135.6,33.3 135.6,28.2 141.1,28.2 141.1,23.2 143.7,23.2 143.7,28.2 152.0,28.2 152.0,23.2 155.9,23.2 155.9,28.2 157.9,28.2 157.9,23.2 162.9,23.2 162.9,18.1 164.3,18.1 164.3,23.2 169.0,23.2 169.0,28.2 171.7,28.2 171.7,23.2 172.8,23.2 172.8,18.1 178.9,18.1 178.9,23.2 182.1,23.2 182.1,28.2 187.4,28.2 187.4,23.2 191.5,23.2 191.5,18.1 196.6,18.1 196.6,23.2 197.4,23.2 197.4,18.1 201.7,18.1 201.7,23.2 207.1,23.2 207.1,28.2 208.7,28.2 208.7,23.2 213.7,23.2 213.7,18.1 215.2,18.1 215.2,23.2 221.5,23.2 221.5,18.1 227.2,18.1 227.2,13.1 231.0,13.1 231.0,8.0 233.1,8.0 233.1,13.1 243.5,13.1 243.5,18.1 246.7,18.1 246.7,23.2 252.1,23.2 252.1,28.2 253.1,28.2 253.1,23.2 254.9,23.2 254.9,28.2 256.2,28.2 256.2,23.2 259.9,23.2 259.9,28.2 262.4,28.2 262.4,23.2 267.8,23.2 267.8,28.2 270.8,28.2 270.8,23.2 276.5,23.2 276.5,18.1 279.0,18.1 279.0,23.2 282.1,23.2 282.1,18.1 286.0,18.1 286.0,23.2 291.7,23.2 291.7,28.2 306.0,28.2 306.0,23.2 310.5,23.2 310.5,18.1 312.6,18.1 312.6,23.2 314.0,23.2 314.0,83.9" clip-path="url(#hinten-3515471)"/>
+  <line class="gitter" x1="169.0" y1="8" x2="169.0" y2="94"/>
+  <line class="null" x1="24" y1="83.9" x2="314" y2="83.9"/>
+  <polyline class="linie" points="24.0,83.9 30.0,83.9 30.0,78.8 32.9,78.8 32.9,73.8 34.3,73.8 34.3,78.8 37.8,78.8 37.8,73.8 41.4,73.8 41.4,68.7 55.1,68.7 55.1,63.6 61.4,63.6 61.4,68.7 62.3,68.7 62.3,63.6 64.8,63.6 64.8,68.7 69.4,68.7 69.4,63.6 71.4,63.6 71.4,68.7 73.0,68.7 73.0,63.6 91.1,63.6 91.1,58.6 94.0,58.6 94.0,53.5 96.0,53.5 96.0,58.6 101.3,58.6 101.3,53.5 105.8,53.5 105.8,58.6 110.6,58.6 110.6,53.5 114.0,53.5 114.0,48.5 117.8,48.5 117.8,43.4 122.9,43.4 122.9,38.4 129.2,38.4 129.2,33.3 135.6,33.3 135.6,28.2 141.1,28.2 141.1,23.2 143.7,23.2 143.7,28.2 152.0,28.2 152.0,23.2 155.9,23.2 155.9,28.2 157.9,28.2 157.9,23.2 162.9,23.2 162.9,18.1 164.3,18.1 164.3,23.2 169.0,23.2 169.0,28.2 171.7,28.2 171.7,23.2 172.8,23.2 172.8,18.1 178.9,18.1 178.9,23.2 182.1,23.2 182.1,28.2 187.4,28.2 187.4,23.2 191.5,23.2 191.5,18.1 196.6,18.1 196.6,23.2 197.4,23.2 197.4,18.1 201.7,18.1 201.7,23.2 207.1,23.2 207.1,28.2 208.7,28.2 208.7,23.2 213.7,23.2 213.7,18.1 215.2,18.1 215.2,23.2 221.5,23.2 221.5,18.1 227.2,18.1 227.2,13.1 231.0,13.1 231.0,8.0 233.1,8.0 233.1,13.1 243.5,13.1 243.5,18.1 246.7,18.1 246.7,23.2 252.1,23.2 252.1,28.2 253.1,28.2 253.1,23.2 254.9,23.2 254.9,28.2 256.2,28.2 256.2,23.2 259.9,23.2 259.9,28.2 262.4,28.2 262.4,23.2 267.8,23.2 267.8,28.2 270.8,28.2 270.8,23.2 276.5,23.2 276.5,18.1 279.0,18.1 279.0,23.2 282.1,23.2 282.1,18.1 286.0,18.1 286.0,23.2 291.7,23.2 291.7,28.2 306.0,28.2 306.0,23.2 310.5,23.2 310.5,18.1 312.6,18.1 312.6,23.2 314.0,23.2"/>
+  <text x="20" y="86.9" text-anchor="end">0</text><text x="20" y="15.0" text-anchor="end">+15</text>
+  <text x="169.0" y="108" text-anchor="middle">Halbzeit</text>
+  <text x="314" y="108" text-anchor="end">60'</text>
+</svg>
+            <p class="lauf">7 Tore in Folge ab der 18. Minute. Der Gegner traf 4-mal in Folge ab der 44. Minute.</p>
+            <p><span class="rubrikklein">Tore</span> Jan Billner 13 (2/3 7m), Noel Reibstein 6, Jakob Hoffmann 5, Tim Burkhardt 5, Lukas Rueckle 2, Manuel Grauer 2, Marc Bayer 2, Tobias Rupp 2, Laurin Raab 1, Robin Wegfahrt 1</p>
+            <p><span class="rubrikklein">Strafen</span> Zeitstrafen 2, beim Gegner 7. Rote Karten 0, beim Gegner 1.</p>
+            <p class="quelle"><a href="https://spo.handball4all.de/misc/sboPublicReports.php?sGID=3515471" target="_blank"
+               rel="noopener">Original-Spielbericht (PDF)</a></p>
+          </div>
+        </details>
+        <details class="mitbericht">
+          <summary class="spiel vorbei">
           <div class="datum">Sa 17.10.26<span>Heim</span></div>
           <div>
             <div class="gegner">TSV Schmiden 3</div>
-            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Flatow-Sporthalle%2C%20Gingener%20Stra%C3%9Fe%2021%2C%2070327%20Stuttgart-Wangen" target="_blank" rel="noopener">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</a></div>
+            <div class="halle">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</div>
           </div>
-          <div class="rechts"><div class="stand S">42:38</div></div>
-        </div>
+          <div class="rechts"><div class="stand S">42:38</div><div class="hzstand">HZ 22:20</div><div class="aufklapp">Bericht</div></div>
+          </summary>
+          <div class="bericht">
+            <p class="eck">Halbzeit 22:20 · 50 Zuschauer</p>
+            <svg class="spielfilm" viewBox="0 0 320 112" role="img" aria-label="Spielverlauf 17.10. gegen TSV Schmiden 3, Endstand 42:38">
+  <defs>
+    <clipPath id="vorn-3533431"><rect x="0" y="0" width="320" height="65.3"/></clipPath>
+    <clipPath id="hinten-3533431"><rect x="0" y="65.3" width="320" height="46.7"/></clipPath>
+  </defs>
+  <polygon class="vorn" points="24.0,65.3 24.0,65.3 30.4,65.3 30.4,55.8 32.6,55.8 32.6,46.2 36.8,46.2 36.8,55.8 42.9,55.8 42.9,65.3 44.3,65.3 44.3,55.8 46.0,55.8 46.0,46.2 49.6,46.2 49.6,55.8 50.6,55.8 50.6,46.2 53.4,46.2 53.4,36.7 57.7,36.7 57.7,46.2 58.2,46.2 58.2,36.7 60.5,36.7 60.5,46.2 68.1,46.2 68.1,55.8 72.1,55.8 72.1,65.3 74.2,65.3 74.2,55.8 76.8,55.8 76.8,65.3 78.2,65.3 78.2,74.9 81.2,74.9 81.2,65.3 83.5,65.3 83.5,55.8 86.9,55.8 86.9,46.2 90.5,46.2 90.5,55.8 92.2,55.8 92.2,46.2 96.4,46.2 96.4,36.7 97.4,36.7 97.4,46.2 100.1,46.2 100.1,55.8 102.4,55.8 102.4,46.2 103.1,46.2 103.1,55.8 110.8,55.8 110.8,65.3 113.7,65.3 113.7,55.8 114.6,55.8 114.6,65.3 118.2,65.3 118.2,74.9 121.3,74.9 121.3,84.4 129.4,84.4 129.4,94.0 130.2,94.0 130.2,84.4 138.6,84.4 138.6,74.9 146.4,74.9 146.4,84.4 148.4,84.4 148.4,74.9 153.9,74.9 153.9,65.3 157.6,65.3 157.6,55.8 160.1,55.8 160.1,65.3 162.2,65.3 162.2,55.8 163.6,55.8 163.6,46.2 188.7,46.2 188.7,36.7 190.8,36.7 190.8,46.2 196.6,46.2 196.6,36.7 198.4,36.7 198.4,46.2 199.4,46.2 199.4,36.7 202.2,36.7 202.2,27.1 205.7,27.1 205.7,36.7 206.8,36.7 206.8,27.1 210.2,27.1 210.2,36.7 212.5,36.7 212.5,27.1 217.1,27.1 217.1,17.6 221.5,17.6 221.5,27.1 224.9,27.1 224.9,17.6 228.3,17.6 228.3,27.1 230.3,27.1 230.3,17.6 234.0,17.6 234.0,27.1 237.6,27.1 237.6,17.6 248.9,17.6 248.9,8.0 250.6,8.0 250.6,17.6 254.6,17.6 254.6,27.1 261.2,27.1 261.2,17.6 262.3,17.6 262.3,27.1 267.0,27.1 267.0,36.7 269.5,36.7 269.5,27.1 272.5,27.1 272.5,36.7 278.2,36.7 278.2,27.1 284.5,27.1 284.5,17.6 287.1,17.6 287.1,27.1 292.2,27.1 292.2,17.6 294.3,17.6 294.3,27.1 297.2,27.1 297.2,17.6 298.9,17.6 298.9,27.1 301.8,27.1 301.8,17.6 303.1,17.6 303.1,27.1 308.4,27.1 308.4,36.7 310.6,36.7 310.6,27.1 313.3,27.1 313.3,17.6 314.0,17.6 314.0,27.1 314.0,27.1 314.0,65.3" clip-path="url(#vorn-3533431)"/>
+  <polygon class="hinten" points="24.0,65.3 24.0,65.3 30.4,65.3 30.4,55.8 32.6,55.8 32.6,46.2 36.8,46.2 36.8,55.8 42.9,55.8 42.9,65.3 44.3,65.3 44.3,55.8 46.0,55.8 46.0,46.2 49.6,46.2 49.6,55.8 50.6,55.8 50.6,46.2 53.4,46.2 53.4,36.7 57.7,36.7 57.7,46.2 58.2,46.2 58.2,36.7 60.5,36.7 60.5,46.2 68.1,46.2 68.1,55.8 72.1,55.8 72.1,65.3 74.2,65.3 74.2,55.8 76.8,55.8 76.8,65.3 78.2,65.3 78.2,74.9 81.2,74.9 81.2,65.3 83.5,65.3 83.5,55.8 86.9,55.8 86.9,46.2 90.5,46.2 90.5,55.8 92.2,55.8 92.2,46.2 96.4,46.2 96.4,36.7 97.4,36.7 97.4,46.2 100.1,46.2 100.1,55.8 102.4,55.8 102.4,46.2 103.1,46.2 103.1,55.8 110.8,55.8 110.8,65.3 113.7,65.3 113.7,55.8 114.6,55.8 114.6,65.3 118.2,65.3 118.2,74.9 121.3,74.9 121.3,84.4 129.4,84.4 129.4,94.0 130.2,94.0 130.2,84.4 138.6,84.4 138.6,74.9 146.4,74.9 146.4,84.4 148.4,84.4 148.4,74.9 153.9,74.9 153.9,65.3 157.6,65.3 157.6,55.8 160.1,55.8 160.1,65.3 162.2,65.3 162.2,55.8 163.6,55.8 163.6,46.2 188.7,46.2 188.7,36.7 190.8,36.7 190.8,46.2 196.6,46.2 196.6,36.7 198.4,36.7 198.4,46.2 199.4,46.2 199.4,36.7 202.2,36.7 202.2,27.1 205.7,27.1 205.7,36.7 206.8,36.7 206.8,27.1 210.2,27.1 210.2,36.7 212.5,36.7 212.5,27.1 217.1,27.1 217.1,17.6 221.5,17.6 221.5,27.1 224.9,27.1 224.9,17.6 228.3,17.6 228.3,27.1 230.3,27.1 230.3,17.6 234.0,17.6 234.0,27.1 237.6,27.1 237.6,17.6 248.9,17.6 248.9,8.0 250.6,8.0 250.6,17.6 254.6,17.6 254.6,27.1 261.2,27.1 261.2,17.6 262.3,17.6 262.3,27.1 267.0,27.1 267.0,36.7 269.5,36.7 269.5,27.1 272.5,27.1 272.5,36.7 278.2,36.7 278.2,27.1 284.5,27.1 284.5,17.6 287.1,17.6 287.1,27.1 292.2,27.1 292.2,17.6 294.3,17.6 294.3,27.1 297.2,27.1 297.2,17.6 298.9,17.6 298.9,27.1 301.8,27.1 301.8,17.6 303.1,17.6 303.1,27.1 308.4,27.1 308.4,36.7 310.6,36.7 310.6,27.1 313.3,27.1 313.3,17.6 314.0,17.6 314.0,27.1 314.0,27.1 314.0,65.3" clip-path="url(#hinten-3533431)"/>
+  <line class="gitter" x1="169.0" y1="8" x2="169.0" y2="94"/>
+  <line class="null" x1="24" y1="65.3" x2="314" y2="65.3"/>
+  <polyline class="linie" points="24.0,65.3 30.4,65.3 30.4,55.8 32.6,55.8 32.6,46.2 36.8,46.2 36.8,55.8 42.9,55.8 42.9,65.3 44.3,65.3 44.3,55.8 46.0,55.8 46.0,46.2 49.6,46.2 49.6,55.8 50.6,55.8 50.6,46.2 53.4,46.2 53.4,36.7 57.7,36.7 57.7,46.2 58.2,46.2 58.2,36.7 60.5,36.7 60.5,46.2 68.1,46.2 68.1,55.8 72.1,55.8 72.1,65.3 74.2,65.3 74.2,55.8 76.8,55.8 76.8,65.3 78.2,65.3 78.2,74.9 81.2,74.9 81.2,65.3 83.5,65.3 83.5,55.8 86.9,55.8 86.9,46.2 90.5,46.2 90.5,55.8 92.2,55.8 92.2,46.2 96.4,46.2 96.4,36.7 97.4,36.7 97.4,46.2 100.1,46.2 100.1,55.8 102.4,55.8 102.4,46.2 103.1,46.2 103.1,55.8 110.8,55.8 110.8,65.3 113.7,65.3 113.7,55.8 114.6,55.8 114.6,65.3 118.2,65.3 118.2,74.9 121.3,74.9 121.3,84.4 129.4,84.4 129.4,94.0 130.2,94.0 130.2,84.4 138.6,84.4 138.6,74.9 146.4,74.9 146.4,84.4 148.4,84.4 148.4,74.9 153.9,74.9 153.9,65.3 157.6,65.3 157.6,55.8 160.1,55.8 160.1,65.3 162.2,65.3 162.2,55.8 163.6,55.8 163.6,46.2 188.7,46.2 188.7,36.7 190.8,36.7 190.8,46.2 196.6,46.2 196.6,36.7 198.4,36.7 198.4,46.2 199.4,46.2 199.4,36.7 202.2,36.7 202.2,27.1 205.7,27.1 205.7,36.7 206.8,36.7 206.8,27.1 210.2,27.1 210.2,36.7 212.5,36.7 212.5,27.1 217.1,27.1 217.1,17.6 221.5,17.6 221.5,27.1 224.9,27.1 224.9,17.6 228.3,17.6 228.3,27.1 230.3,27.1 230.3,17.6 234.0,17.6 234.0,27.1 237.6,27.1 237.6,17.6 248.9,17.6 248.9,8.0 250.6,8.0 250.6,17.6 254.6,17.6 254.6,27.1 261.2,27.1 261.2,17.6 262.3,17.6 262.3,27.1 267.0,27.1 267.0,36.7 269.5,36.7 269.5,27.1 272.5,27.1 272.5,36.7 278.2,36.7 278.2,27.1 284.5,27.1 284.5,17.6 287.1,17.6 287.1,27.1 292.2,27.1 292.2,17.6 294.3,17.6 294.3,27.1 297.2,27.1 297.2,17.6 298.9,17.6 298.9,27.1 301.8,27.1 301.8,17.6 303.1,17.6 303.1,27.1 308.4,27.1 308.4,36.7 310.6,36.7 310.6,27.1 313.3,27.1 313.3,17.6 314.0,17.6 314.0,27.1 314.0,27.1"/>
+  <text x="20" y="68.3" text-anchor="end">0</text><text x="20" y="15.0" text-anchor="end">+6</text><text x="20" y="94.0" text-anchor="end">-3</text>
+  <text x="169.0" y="108" text-anchor="middle">Halbzeit</text>
+  <text x="314" y="108" text-anchor="end">60'</text>
+</svg>
+            <p class="lauf">Der Gegner traf 4-mal in Folge ab der 19. Minute.</p>
+            <p><span class="rubrikklein">Tore</span> Jan Billner 20 (4/5 7m), Jakob Hoffmann 6, Paul Kazmaier 5, Noel Reibstein 4, Tim Burkhardt 3, Manuel Grauer 2, Laurin Raab 1, Ole Krauter 1</p>
+            <p><span class="rubrikklein">Strafen</span> Zeitstrafen 0, beim Gegner 2.</p>
+            <p class="quelle"><a href="https://spo.handball4all.de/misc/sboPublicReports.php?sGID=3533431" target="_blank"
+               rel="noopener">Original-Spielbericht (PDF)</a></p>
+          </div>
+        </details>
         <div class="spiel">
           <div class="datum">Sa 24.10.26<span>Auswärts</span></div>
           <div>
@@ -552,15 +694,97 @@ td.platz { color: var(--leise); width: 2em; }
     <div id="feld-statistiken-herren1" data-panel="statistiken" role="tabpanel" hidden>
       <div class="teil statistiken">
         
-      <p>Der Verband führt in der Männer Bezirksoberliga keine Spielberichte mit Torschützen,
-      Torverlauf oder Zeitstrafen &ndash; anders als in höheren Ligen (Landesliga, Oberliga,
-      Regionalliga), wo handball4all das anbietet.</p>
-      <div class="hinweis">
-        <p>Das ist keine Lücke auf dieser Seite, sondern eine Grenze der Quelle: handball4all
-        markiert das selbst (<code>scoreShowDataPerGame: false</code> für diese Liga). Sollte die
-        Mannschaft einmal in eine Liga mit Spielberichten aufsteigen, kommt dieser Reiter mit
-        echten Inhalten.</p>
-      </div>
+      <dl class="kennzahlen"><div><dt>Tore je Spiel</dt><dd><span class="wert">37,8</span><span class="zusatz">31,8 kassiert</span></dd></div><div><dt>Halbzeiten</dt><dd><span class="wert">+20 / +4</span><span class="zusatz">Tordifferenz in 1. und 2. Halbzeit</span></dd></div><div><dt>Siebenmeter</dt><dd><span class="wert">74 %</span><span class="zusatz">14 von 19 verwandelt</span></dd></div><div><dt>Zeitstrafen</dt><dd><span class="wert">7</span><span class="zusatz">beim Gegner 18</span></dd></div></dl>
+      <p class="rubrik">Torschützen</p>
+      <table class="schuetzen">
+        <thead><tr><th></th><th>Spieler</th><th class="rechts">/Sp.</th><th class="rechts">Tore</th></tr></thead>
+        <tbody>
+        <tr>
+          <td class="platz">1</td>
+          <td>Jan Billner<span class="klein"> · 4 Spiele · 7m 14/19</span></td>
+          <td class="rechts">14,0</td>
+          <td class="rechts stark">56</td>
+        </tr>
+        <tr>
+          <td class="platz">2</td>
+          <td>Tim Burkhardt<span class="klein"> · 4 Spiele</span></td>
+          <td class="rechts">5,0</td>
+          <td class="rechts stark">20</td>
+        </tr>
+        <tr>
+          <td class="platz">3</td>
+          <td>Noel Reibstein<span class="klein"> · 4 Spiele</span></td>
+          <td class="rechts">4,0</td>
+          <td class="rechts stark">16</td>
+        </tr>
+        <tr>
+          <td class="platz">4</td>
+          <td>Jakob Hoffmann<span class="klein"> · 4 Spiele · 4× 2 Min</span></td>
+          <td class="rechts">3,8</td>
+          <td class="rechts stark">15</td>
+        </tr>
+        <tr>
+          <td class="platz">5</td>
+          <td>Paul Kazmaier<span class="klein"> · 3 Spiele · 1× 2 Min</span></td>
+          <td class="rechts">2,7</td>
+          <td class="rechts stark">8</td>
+        </tr>
+        <tr>
+          <td class="platz">6</td>
+          <td>Robin Wegfahrt<span class="klein"> · 2 Spiele</span></td>
+          <td class="rechts">3,0</td>
+          <td class="rechts stark">6</td>
+        </tr>
+        <tr>
+          <td class="platz">7</td>
+          <td>Manuel Grauer<span class="klein"> · 3 Spiele</span></td>
+          <td class="rechts">2,0</td>
+          <td class="rechts stark">6</td>
+        </tr>
+        <tr>
+          <td class="platz">8</td>
+          <td>Lukas Rueckle<span class="klein"> · 4 Spiele</span></td>
+          <td class="rechts">1,5</td>
+          <td class="rechts stark">6</td>
+        </tr>
+        <tr>
+          <td class="platz">9</td>
+          <td>Jona Bastian<span class="klein"> · 4 Spiele · 1× 2 Min</span></td>
+          <td class="rechts">1,2</td>
+          <td class="rechts stark">5</td>
+        </tr>
+        <tr>
+          <td class="platz">10</td>
+          <td>Tobias Rupp<span class="klein"> · 2 Spiele</span></td>
+          <td class="rechts">2,0</td>
+          <td class="rechts stark">4</td>
+        </tr>
+        <tr>
+          <td class="platz">11</td>
+          <td>Laurin Raab<span class="klein"> · 3 Spiele · 1× 2 Min</span></td>
+          <td class="rechts">1,3</td>
+          <td class="rechts stark">4</td>
+        </tr>
+        <tr>
+          <td class="platz">12</td>
+          <td>Marc Bayer<span class="klein"> · 3 Spiele</span></td>
+          <td class="rechts">0,7</td>
+          <td class="rechts stark">2</td>
+        </tr>
+        <tr>
+          <td class="platz">13</td>
+          <td>Marvin Frech<span class="klein"> · 4 Spiele</span></td>
+          <td class="rechts">0,5</td>
+          <td class="rechts stark">2</td>
+        </tr>
+        <tr>
+          <td class="platz">14</td>
+          <td>Ole Krauter<span class="klein"> · 2 Spiele</span></td>
+          <td class="rechts">0,5</td>
+          <td class="rechts stark">1</td>
+        </tr></tbody>
+      </table>
+      <p class="statfuss">Grundlage: die Spielberichte aller 4 bisherigen Spiele.</p>
       </div>
     </div>
 
@@ -624,38 +848,110 @@ td.platz { color: var(--leise); width: 2em; }
     <div id="feld-spiele-herren2" data-panel="spiele" role="tabpanel">
       <div class="teil">
         <p class="monat">September 2026</p>
-        <div class="spiel vorbei">
+        <details class="mitbericht">
+          <summary class="spiel vorbei">
           <div class="datum">Sa 19.09.26<span>Heim</span></div>
           <div>
             <div class="gegner">SV Hohen-Neu 3</div>
-            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Flatow-Sporthalle%2C%20Gingener%20Stra%C3%9Fe%2021%2C%2070327%20Stuttgart-Wangen" target="_blank" rel="noopener">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</a></div>
+            <div class="halle">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</div>
           </div>
-          <div class="rechts"><div class="stand N">26:44</div></div>
-        </div>
+          <div class="rechts"><div class="stand N">26:44</div><div class="hzstand">HZ 13:20</div><div class="aufklapp">Bericht</div></div>
+          </summary>
+          <div class="bericht">
+            <p class="eck">Halbzeit 13:20 · 10 Zuschauer</p>
+            <svg class="spielfilm" viewBox="0 0 320 112" role="img" aria-label="Spielverlauf 19.09. gegen SV Hohen-Neu 3, Endstand 26:44">
+  <defs>
+    <clipPath id="vorn-3500551"><rect x="0" y="0" width="320" height="15.5"/></clipPath>
+    <clipPath id="hinten-3500551"><rect x="0" y="15.5" width="320" height="96.5"/></clipPath>
+  </defs>
+  <polygon class="vorn" points="24.0,15.5 24.0,15.5 28.4,15.5 28.4,19.2 32.5,19.2 32.5,15.5 35.0,15.5 35.0,19.2 41.8,19.2 41.8,23.0 43.1,23.0 43.1,19.2 44.1,19.2 44.1,23.0 46.6,23.0 46.6,19.2 52.6,19.2 52.6,23.0 56.2,23.0 56.2,26.7 61.1,26.7 61.1,23.0 67.2,23.0 67.2,19.2 69.4,19.2 69.4,23.0 73.1,23.0 73.1,19.2 74.7,19.2 74.7,23.0 77.7,23.0 77.7,19.2 81.8,19.2 81.8,15.5 94.4,15.5 94.4,19.2 97.2,19.2 97.2,23.0 101.7,23.0 101.7,19.2 106.7,19.2 106.7,23.0 108.3,23.0 108.3,19.2 110.0,19.2 110.0,23.0 121.0,23.0 121.0,26.7 124.4,26.7 124.4,30.4 127.9,30.4 127.9,34.2 134.0,34.2 134.0,30.4 136.3,30.4 136.3,34.2 143.5,34.2 143.5,37.9 150.2,37.9 150.2,34.2 158.7,34.2 158.7,37.9 160.5,37.9 160.5,41.7 163.8,41.7 163.8,37.9 165.4,37.9 165.4,41.7 174.8,41.7 174.8,45.4 181.8,45.4 181.8,49.1 186.1,49.1 186.1,45.4 189.8,45.4 189.8,41.7 192.0,41.7 192.0,45.4 197.5,45.4 197.5,41.7 199.9,41.7 199.9,45.4 206.3,45.4 206.3,49.1 208.3,49.1 208.3,52.9 212.7,52.9 212.7,56.6 216.4,56.6 216.4,52.9 221.9,52.9 221.9,56.6 224.8,56.6 224.8,52.9 227.9,52.9 227.9,49.1 230.3,49.1 230.3,52.9 234.0,52.9 234.0,56.6 237.1,56.6 237.1,60.3 240.9,60.3 240.9,64.1 246.2,64.1 246.2,67.8 257.9,67.8 257.9,71.6 261.0,71.6 261.0,75.3 272.1,75.3 272.1,79.0 274.0,79.0 274.0,82.8 278.8,82.8 278.8,86.5 281.3,86.5 281.3,90.3 284.8,90.3 284.8,94.0 287.2,94.0 287.2,90.3 289.4,90.3 289.4,94.0 291.4,94.0 291.4,90.3 296.4,90.3 296.4,94.0 300.2,94.0 300.2,90.3 303.2,90.3 303.2,86.5 304.2,86.5 304.2,90.3 306.4,90.3 306.4,86.5 309.1,86.5 309.1,82.8 311.1,82.8 311.1,86.5 312.3,86.5 312.3,82.8 314.0,82.8 314.0,15.5" clip-path="url(#vorn-3500551)"/>
+  <polygon class="hinten" points="24.0,15.5 24.0,15.5 28.4,15.5 28.4,19.2 32.5,19.2 32.5,15.5 35.0,15.5 35.0,19.2 41.8,19.2 41.8,23.0 43.1,23.0 43.1,19.2 44.1,19.2 44.1,23.0 46.6,23.0 46.6,19.2 52.6,19.2 52.6,23.0 56.2,23.0 56.2,26.7 61.1,26.7 61.1,23.0 67.2,23.0 67.2,19.2 69.4,19.2 69.4,23.0 73.1,23.0 73.1,19.2 74.7,19.2 74.7,23.0 77.7,23.0 77.7,19.2 81.8,19.2 81.8,15.5 94.4,15.5 94.4,19.2 97.2,19.2 97.2,23.0 101.7,23.0 101.7,19.2 106.7,19.2 106.7,23.0 108.3,23.0 108.3,19.2 110.0,19.2 110.0,23.0 121.0,23.0 121.0,26.7 124.4,26.7 124.4,30.4 127.9,30.4 127.9,34.2 134.0,34.2 134.0,30.4 136.3,30.4 136.3,34.2 143.5,34.2 143.5,37.9 150.2,37.9 150.2,34.2 158.7,34.2 158.7,37.9 160.5,37.9 160.5,41.7 163.8,41.7 163.8,37.9 165.4,37.9 165.4,41.7 174.8,41.7 174.8,45.4 181.8,45.4 181.8,49.1 186.1,49.1 186.1,45.4 189.8,45.4 189.8,41.7 192.0,41.7 192.0,45.4 197.5,45.4 197.5,41.7 199.9,41.7 199.9,45.4 206.3,45.4 206.3,49.1 208.3,49.1 208.3,52.9 212.7,52.9 212.7,56.6 216.4,56.6 216.4,52.9 221.9,52.9 221.9,56.6 224.8,56.6 224.8,52.9 227.9,52.9 227.9,49.1 230.3,49.1 230.3,52.9 234.0,52.9 234.0,56.6 237.1,56.6 237.1,60.3 240.9,60.3 240.9,64.1 246.2,64.1 246.2,67.8 257.9,67.8 257.9,71.6 261.0,71.6 261.0,75.3 272.1,75.3 272.1,79.0 274.0,79.0 274.0,82.8 278.8,82.8 278.8,86.5 281.3,86.5 281.3,90.3 284.8,90.3 284.8,94.0 287.2,94.0 287.2,90.3 289.4,90.3 289.4,94.0 291.4,94.0 291.4,90.3 296.4,90.3 296.4,94.0 300.2,94.0 300.2,90.3 303.2,90.3 303.2,86.5 304.2,86.5 304.2,90.3 306.4,90.3 306.4,86.5 309.1,86.5 309.1,82.8 311.1,82.8 311.1,86.5 312.3,86.5 312.3,82.8 314.0,82.8 314.0,15.5" clip-path="url(#hinten-3500551)"/>
+  <line class="gitter" x1="169.0" y1="8" x2="169.0" y2="94"/>
+  <line class="null" x1="24" y1="15.5" x2="314" y2="15.5"/>
+  <polyline class="linie" points="24.0,15.5 28.4,15.5 28.4,19.2 32.5,19.2 32.5,15.5 35.0,15.5 35.0,19.2 41.8,19.2 41.8,23.0 43.1,23.0 43.1,19.2 44.1,19.2 44.1,23.0 46.6,23.0 46.6,19.2 52.6,19.2 52.6,23.0 56.2,23.0 56.2,26.7 61.1,26.7 61.1,23.0 67.2,23.0 67.2,19.2 69.4,19.2 69.4,23.0 73.1,23.0 73.1,19.2 74.7,19.2 74.7,23.0 77.7,23.0 77.7,19.2 81.8,19.2 81.8,15.5 94.4,15.5 94.4,19.2 97.2,19.2 97.2,23.0 101.7,23.0 101.7,19.2 106.7,19.2 106.7,23.0 108.3,23.0 108.3,19.2 110.0,19.2 110.0,23.0 121.0,23.0 121.0,26.7 124.4,26.7 124.4,30.4 127.9,30.4 127.9,34.2 134.0,34.2 134.0,30.4 136.3,30.4 136.3,34.2 143.5,34.2 143.5,37.9 150.2,37.9 150.2,34.2 158.7,34.2 158.7,37.9 160.5,37.9 160.5,41.7 163.8,41.7 163.8,37.9 165.4,37.9 165.4,41.7 174.8,41.7 174.8,45.4 181.8,45.4 181.8,49.1 186.1,49.1 186.1,45.4 189.8,45.4 189.8,41.7 192.0,41.7 192.0,45.4 197.5,45.4 197.5,41.7 199.9,41.7 199.9,45.4 206.3,45.4 206.3,49.1 208.3,49.1 208.3,52.9 212.7,52.9 212.7,56.6 216.4,56.6 216.4,52.9 221.9,52.9 221.9,56.6 224.8,56.6 224.8,52.9 227.9,52.9 227.9,49.1 230.3,49.1 230.3,52.9 234.0,52.9 234.0,56.6 237.1,56.6 237.1,60.3 240.9,60.3 240.9,64.1 246.2,64.1 246.2,67.8 257.9,67.8 257.9,71.6 261.0,71.6 261.0,75.3 272.1,75.3 272.1,79.0 274.0,79.0 274.0,82.8 278.8,82.8 278.8,86.5 281.3,86.5 281.3,90.3 284.8,90.3 284.8,94.0 287.2,94.0 287.2,90.3 289.4,90.3 289.4,94.0 291.4,94.0 291.4,90.3 296.4,90.3 296.4,94.0 300.2,94.0 300.2,90.3 303.2,90.3 303.2,86.5 304.2,86.5 304.2,90.3 306.4,90.3 306.4,86.5 309.1,86.5 309.1,82.8 311.1,82.8 311.1,86.5 312.3,86.5 312.3,82.8 314.0,82.8"/>
+  <text x="20" y="18.5" text-anchor="end">0</text><text x="20" y="94.0" text-anchor="end">-21</text>
+  <text x="169.0" y="108" text-anchor="middle">Halbzeit</text>
+  <text x="314" y="108" text-anchor="end">60'</text>
+</svg>
+            <p class="lauf">Der Gegner traf 12-mal in Folge ab der 43. Minute.</p>
+            <p><span class="rubrikklein">Tore</span> Julian Rattinger 10 (2/3 7m), Daniel Vidovic 7 (1/1 7m), Christian Krautberger 6, Benedikt Ringler 2, Silvester Hoen 1</p>
+            <p><span class="rubrikklein">Strafen</span> Zeitstrafen 4, beim Gegner 1.</p>
+            <p class="quelle"><a href="https://spo.handball4all.de/misc/sboPublicReports.php?sGID=3500551" target="_blank"
+               rel="noopener">Original-Spielbericht (PDF)</a></p>
+          </div>
+        </details>
         <div class="spiel vorbei">
           <div class="datum">Sa 26.09.26<span>Auswärts</span></div>
           <div>
             <div class="gegner">HT Heckengäu 5</div>
             <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Sporthalle%20B%C3%BChl%2C%20Robert-Bosch-Stra%C3%9Fe%2C%2071277%20Rutesheim" target="_blank" rel="noopener">Sporthalle Bühl, Robert-Bosch-Straße, 71277 Rutesheim</a></div>
           </div>
-          <div class="rechts"><div class="stand U">0:0</div></div>
+          <div class="rechts"><div class="stand U">0:0</div><div class="hzstand">HZ 0:0</div></div>
         </div><p class="monat">Oktober 2026</p>
-        <div class="spiel vorbei">
+        <details class="mitbericht">
+          <summary class="spiel vorbei">
           <div class="datum">Sa 03.10.26<span>Heim</span></div>
           <div>
             <div class="gegner">TSF Welzheim 2</div>
-            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Flatow-Sporthalle%2C%20Gingener%20Stra%C3%9Fe%2021%2C%2070327%20Stuttgart-Wangen" target="_blank" rel="noopener">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</a></div>
+            <div class="halle">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</div>
           </div>
-          <div class="rechts"><div class="stand S">33:25</div></div>
-        </div>
-        <div class="spiel vorbei">
+          <div class="rechts"><div class="stand S">33:25</div><div class="hzstand">HZ 15:9</div><div class="aufklapp">Bericht</div></div>
+          </summary>
+          <div class="bericht">
+            <p class="eck">Halbzeit 15:9 · 13 Zuschauer</p>
+            <svg class="spielfilm" viewBox="0 0 320 112" role="img" aria-label="Spielverlauf 03.10. gegen TSF Welzheim 2, Endstand 33:25">
+  <defs>
+    <clipPath id="vorn-3514676"><rect x="0" y="0" width="320" height="80.8"/></clipPath>
+    <clipPath id="hinten-3514676"><rect x="0" y="80.8" width="320" height="31.2"/></clipPath>
+  </defs>
+  <polygon class="vorn" points="24.0,80.8 24.0,80.8 29.2,80.8 29.2,87.4 33.9,87.4 33.9,80.8 40.0,80.8 40.0,74.2 45.3,74.2 45.3,67.5 49.4,67.5 49.4,74.2 52.3,74.2 52.3,67.5 56.8,67.5 56.8,60.9 60.7,60.9 60.7,54.3 72.7,54.3 72.7,60.9 83.9,60.9 83.9,54.3 93.6,54.3 93.6,47.7 97.7,47.7 97.7,54.3 100.8,54.3 100.8,47.7 102.0,47.7 102.0,54.3 105.2,54.3 105.2,47.7 112.4,47.7 112.4,41.1 117.1,41.1 117.1,34.5 119.6,34.5 119.6,41.1 129.3,41.1 129.3,47.7 132.2,47.7 132.2,41.1 138.9,41.1 138.9,34.5 149.3,34.5 149.3,41.1 163.0,41.1 163.0,34.5 165.5,34.5 165.5,41.1 173.4,41.1 173.4,34.5 174.6,34.5 174.6,41.1 180.0,41.1 180.0,34.5 181.2,34.5 181.2,41.1 185.8,41.1 185.8,34.5 191.6,34.5 191.6,27.8 193.2,27.8 193.2,34.5 196.3,34.5 196.3,27.8 198.5,27.8 198.5,21.2 201.4,21.2 201.4,27.8 204.0,27.8 204.0,21.2 204.8,21.2 204.8,27.8 208.2,27.8 208.2,21.2 212.2,21.2 212.2,14.6 218.7,14.6 218.7,21.2 221.3,21.2 221.3,14.6 229.7,14.6 229.7,21.2 232.4,21.2 232.4,27.8 237.7,27.8 237.7,21.2 243.9,21.2 243.9,14.6 249.3,14.6 249.3,8.0 251.4,8.0 251.4,14.6 256.4,14.6 256.4,21.2 258.7,21.2 258.7,14.6 259.4,14.6 259.4,21.2 269.3,21.2 269.3,27.8 273.7,27.8 273.7,21.2 278.4,21.2 278.4,14.6 290.4,14.6 290.4,21.2 294.5,21.2 294.5,14.6 305.2,14.6 305.2,21.2 306.1,21.2 306.1,14.6 307.0,14.6 307.0,21.2 313.3,21.2 313.3,27.8 314.0,27.8 314.0,80.8" clip-path="url(#vorn-3514676)"/>
+  <polygon class="hinten" points="24.0,80.8 24.0,80.8 29.2,80.8 29.2,87.4 33.9,87.4 33.9,80.8 40.0,80.8 40.0,74.2 45.3,74.2 45.3,67.5 49.4,67.5 49.4,74.2 52.3,74.2 52.3,67.5 56.8,67.5 56.8,60.9 60.7,60.9 60.7,54.3 72.7,54.3 72.7,60.9 83.9,60.9 83.9,54.3 93.6,54.3 93.6,47.7 97.7,47.7 97.7,54.3 100.8,54.3 100.8,47.7 102.0,47.7 102.0,54.3 105.2,54.3 105.2,47.7 112.4,47.7 112.4,41.1 117.1,41.1 117.1,34.5 119.6,34.5 119.6,41.1 129.3,41.1 129.3,47.7 132.2,47.7 132.2,41.1 138.9,41.1 138.9,34.5 149.3,34.5 149.3,41.1 163.0,41.1 163.0,34.5 165.5,34.5 165.5,41.1 173.4,41.1 173.4,34.5 174.6,34.5 174.6,41.1 180.0,41.1 180.0,34.5 181.2,34.5 181.2,41.1 185.8,41.1 185.8,34.5 191.6,34.5 191.6,27.8 193.2,27.8 193.2,34.5 196.3,34.5 196.3,27.8 198.5,27.8 198.5,21.2 201.4,21.2 201.4,27.8 204.0,27.8 204.0,21.2 204.8,21.2 204.8,27.8 208.2,27.8 208.2,21.2 212.2,21.2 212.2,14.6 218.7,14.6 218.7,21.2 221.3,21.2 221.3,14.6 229.7,14.6 229.7,21.2 232.4,21.2 232.4,27.8 237.7,27.8 237.7,21.2 243.9,21.2 243.9,14.6 249.3,14.6 249.3,8.0 251.4,8.0 251.4,14.6 256.4,14.6 256.4,21.2 258.7,21.2 258.7,14.6 259.4,14.6 259.4,21.2 269.3,21.2 269.3,27.8 273.7,27.8 273.7,21.2 278.4,21.2 278.4,14.6 290.4,14.6 290.4,21.2 294.5,21.2 294.5,14.6 305.2,14.6 305.2,21.2 306.1,21.2 306.1,14.6 307.0,14.6 307.0,21.2 313.3,21.2 313.3,27.8 314.0,27.8 314.0,80.8" clip-path="url(#hinten-3514676)"/>
+  <line class="gitter" x1="169.0" y1="8" x2="169.0" y2="94"/>
+  <line class="null" x1="24" y1="80.8" x2="314" y2="80.8"/>
+  <polyline class="linie" points="24.0,80.8 29.2,80.8 29.2,87.4 33.9,87.4 33.9,80.8 40.0,80.8 40.0,74.2 45.3,74.2 45.3,67.5 49.4,67.5 49.4,74.2 52.3,74.2 52.3,67.5 56.8,67.5 56.8,60.9 60.7,60.9 60.7,54.3 72.7,54.3 72.7,60.9 83.9,60.9 83.9,54.3 93.6,54.3 93.6,47.7 97.7,47.7 97.7,54.3 100.8,54.3 100.8,47.7 102.0,47.7 102.0,54.3 105.2,54.3 105.2,47.7 112.4,47.7 112.4,41.1 117.1,41.1 117.1,34.5 119.6,34.5 119.6,41.1 129.3,41.1 129.3,47.7 132.2,47.7 132.2,41.1 138.9,41.1 138.9,34.5 149.3,34.5 149.3,41.1 163.0,41.1 163.0,34.5 165.5,34.5 165.5,41.1 173.4,41.1 173.4,34.5 174.6,34.5 174.6,41.1 180.0,41.1 180.0,34.5 181.2,34.5 181.2,41.1 185.8,41.1 185.8,34.5 191.6,34.5 191.6,27.8 193.2,27.8 193.2,34.5 196.3,34.5 196.3,27.8 198.5,27.8 198.5,21.2 201.4,21.2 201.4,27.8 204.0,27.8 204.0,21.2 204.8,21.2 204.8,27.8 208.2,27.8 208.2,21.2 212.2,21.2 212.2,14.6 218.7,14.6 218.7,21.2 221.3,21.2 221.3,14.6 229.7,14.6 229.7,21.2 232.4,21.2 232.4,27.8 237.7,27.8 237.7,21.2 243.9,21.2 243.9,14.6 249.3,14.6 249.3,8.0 251.4,8.0 251.4,14.6 256.4,14.6 256.4,21.2 258.7,21.2 258.7,14.6 259.4,14.6 259.4,21.2 269.3,21.2 269.3,27.8 273.7,27.8 273.7,21.2 278.4,21.2 278.4,14.6 290.4,14.6 290.4,21.2 294.5,21.2 294.5,14.6 305.2,14.6 305.2,21.2 306.1,21.2 306.1,14.6 307.0,14.6 307.0,21.2 313.3,21.2 313.3,27.8 314.0,27.8"/>
+  <text x="20" y="83.8" text-anchor="end">0</text><text x="20" y="15.0" text-anchor="end">+11</text>
+  <text x="169.0" y="108" text-anchor="middle">Halbzeit</text>
+  <text x="314" y="108" text-anchor="end">60'</text>
+</svg>
+            
+            <p><span class="rubrikklein">Tore</span> Robin Wegfahrt 14, Julian Rattinger 6 (3/3 7m), Benjamin Innenmoser 5, Daniel Vidovic 4, Christian Krautberger 2, Silvester Hoen 2</p>
+            <p><span class="rubrikklein">Strafen</span> Zeitstrafen 4, beim Gegner 3.</p>
+            <p class="quelle"><a href="https://spo.handball4all.de/misc/sboPublicReports.php?sGID=3514676" target="_blank"
+               rel="noopener">Original-Spielbericht (PDF)</a></p>
+          </div>
+        </details>
+        <details class="mitbericht">
+          <summary class="spiel vorbei">
           <div class="datum">Sa 10.10.26<span>Auswärts</span></div>
           <div>
             <div class="gegner">SV Remshalden 4</div>
-            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Stegwiesenhalle%2C%20Stegwiesenweg%201%2C%2073630%20Remshalden-Geradstetten" target="_blank" rel="noopener">Stegwiesenhalle, Stegwiesenweg 1, 73630 Remshalden-Geradstetten</a></div>
+            <div class="halle">Stegwiesenhalle, Stegwiesenweg 1, 73630 Remshalden-Geradstetten</div>
           </div>
-          <div class="rechts"><div class="stand U">31:31</div></div>
-        </div><p class="monat">November 2026</p>
+          <div class="rechts"><div class="stand U">31:31</div><div class="hzstand">HZ 14:11</div><div class="aufklapp">Bericht</div></div>
+          </summary>
+          <div class="bericht">
+            <p class="eck">Halbzeit 14:11 · 25 Zuschauer</p>
+            <svg class="spielfilm" viewBox="0 0 320 112" role="img" aria-label="Spielverlauf 10.10. bei SV Remshalden 4, Endstand 31:31">
+  <defs>
+    <clipPath id="vorn-3522796"><rect x="0" y="0" width="320" height="65.3"/></clipPath>
+    <clipPath id="hinten-3522796"><rect x="0" y="65.3" width="320" height="46.7"/></clipPath>
+  </defs>
+  <polygon class="vorn" points="24.0,65.3 24.0,65.3 27.5,65.3 27.5,51.0 28.3,51.0 28.3,65.3 31.7,65.3 31.7,51.0 32.8,51.0 32.8,65.3 41.2,65.3 41.2,51.0 49.1,51.0 49.1,65.3 58.7,65.3 58.7,79.7 62.0,79.7 62.0,94.0 64.1,94.0 64.1,79.7 65.3,79.7 65.3,65.3 76.6,65.3 76.6,51.0 93.3,51.0 93.3,65.3 97.1,65.3 97.1,79.7 114.6,79.7 114.6,94.0 118.7,94.0 118.7,79.7 124.1,79.7 124.1,65.3 130.1,65.3 130.1,51.0 132.6,51.0 132.6,65.3 146.4,65.3 146.4,51.0 149.1,51.0 149.1,36.7 153.5,36.7 153.5,22.3 154.4,22.3 154.4,36.7 157.8,36.7 157.8,51.0 165.8,51.0 165.8,36.7 166.5,36.7 166.5,22.3 175.2,22.3 175.2,36.7 177.9,36.7 177.9,22.3 179.8,22.3 179.8,36.7 183.8,36.7 183.8,51.0 186.2,51.0 186.2,36.7 186.6,36.7 186.6,51.0 187.6,51.0 187.6,36.7 203.4,36.7 203.4,51.0 207.5,51.0 207.5,36.7 212.9,36.7 212.9,22.3 213.8,22.3 213.8,36.7 216.6,36.7 216.6,22.3 218.9,22.3 218.9,36.7 228.0,36.7 228.0,51.0 231.4,51.0 231.4,65.3 234.7,65.3 234.7,51.0 238.7,51.0 238.7,36.7 243.7,36.7 243.7,22.3 250.8,22.3 250.8,36.7 252.9,36.7 252.9,51.0 258.1,51.0 258.1,36.7 259.8,36.7 259.8,51.0 265.3,51.0 265.3,36.7 267.4,36.7 267.4,51.0 269.5,51.0 269.5,36.7 272.4,36.7 272.4,51.0 276.8,51.0 276.8,36.7 277.4,36.7 277.4,51.0 280.5,51.0 280.5,36.7 281.6,36.7 281.6,51.0 286.0,51.0 286.0,36.7 292.7,36.7 292.7,22.3 300.9,22.3 300.9,8.0 303.6,8.0 303.6,22.3 306.7,22.3 306.7,36.7 308.9,36.7 308.9,51.0 313.0,51.0 313.0,65.3 314.0,65.3 314.0,65.3" clip-path="url(#vorn-3522796)"/>
+  <polygon class="hinten" points="24.0,65.3 24.0,65.3 27.5,65.3 27.5,51.0 28.3,51.0 28.3,65.3 31.7,65.3 31.7,51.0 32.8,51.0 32.8,65.3 41.2,65.3 41.2,51.0 49.1,51.0 49.1,65.3 58.7,65.3 58.7,79.7 62.0,79.7 62.0,94.0 64.1,94.0 64.1,79.7 65.3,79.7 65.3,65.3 76.6,65.3 76.6,51.0 93.3,51.0 93.3,65.3 97.1,65.3 97.1,79.7 114.6,79.7 114.6,94.0 118.7,94.0 118.7,79.7 124.1,79.7 124.1,65.3 130.1,65.3 130.1,51.0 132.6,51.0 132.6,65.3 146.4,65.3 146.4,51.0 149.1,51.0 149.1,36.7 153.5,36.7 153.5,22.3 154.4,22.3 154.4,36.7 157.8,36.7 157.8,51.0 165.8,51.0 165.8,36.7 166.5,36.7 166.5,22.3 175.2,22.3 175.2,36.7 177.9,36.7 177.9,22.3 179.8,22.3 179.8,36.7 183.8,36.7 183.8,51.0 186.2,51.0 186.2,36.7 186.6,36.7 186.6,51.0 187.6,51.0 187.6,36.7 203.4,36.7 203.4,51.0 207.5,51.0 207.5,36.7 212.9,36.7 212.9,22.3 213.8,22.3 213.8,36.7 216.6,36.7 216.6,22.3 218.9,22.3 218.9,36.7 228.0,36.7 228.0,51.0 231.4,51.0 231.4,65.3 234.7,65.3 234.7,51.0 238.7,51.0 238.7,36.7 243.7,36.7 243.7,22.3 250.8,22.3 250.8,36.7 252.9,36.7 252.9,51.0 258.1,51.0 258.1,36.7 259.8,36.7 259.8,51.0 265.3,51.0 265.3,36.7 267.4,36.7 267.4,51.0 269.5,51.0 269.5,36.7 272.4,36.7 272.4,51.0 276.8,51.0 276.8,36.7 277.4,36.7 277.4,51.0 280.5,51.0 280.5,36.7 281.6,36.7 281.6,51.0 286.0,51.0 286.0,36.7 292.7,36.7 292.7,22.3 300.9,22.3 300.9,8.0 303.6,8.0 303.6,22.3 306.7,22.3 306.7,36.7 308.9,36.7 308.9,51.0 313.0,51.0 313.0,65.3 314.0,65.3 314.0,65.3" clip-path="url(#hinten-3522796)"/>
+  <line class="gitter" x1="169.0" y1="8" x2="169.0" y2="94"/>
+  <line class="null" x1="24" y1="65.3" x2="314" y2="65.3"/>
+  <polyline class="linie" points="24.0,65.3 27.5,65.3 27.5,51.0 28.3,51.0 28.3,65.3 31.7,65.3 31.7,51.0 32.8,51.0 32.8,65.3 41.2,65.3 41.2,51.0 49.1,51.0 49.1,65.3 58.7,65.3 58.7,79.7 62.0,79.7 62.0,94.0 64.1,94.0 64.1,79.7 65.3,79.7 65.3,65.3 76.6,65.3 76.6,51.0 93.3,51.0 93.3,65.3 97.1,65.3 97.1,79.7 114.6,79.7 114.6,94.0 118.7,94.0 118.7,79.7 124.1,79.7 124.1,65.3 130.1,65.3 130.1,51.0 132.6,51.0 132.6,65.3 146.4,65.3 146.4,51.0 149.1,51.0 149.1,36.7 153.5,36.7 153.5,22.3 154.4,22.3 154.4,36.7 157.8,36.7 157.8,51.0 165.8,51.0 165.8,36.7 166.5,36.7 166.5,22.3 175.2,22.3 175.2,36.7 177.9,36.7 177.9,22.3 179.8,22.3 179.8,36.7 183.8,36.7 183.8,51.0 186.2,51.0 186.2,36.7 186.6,36.7 186.6,51.0 187.6,51.0 187.6,36.7 203.4,36.7 203.4,51.0 207.5,51.0 207.5,36.7 212.9,36.7 212.9,22.3 213.8,22.3 213.8,36.7 216.6,36.7 216.6,22.3 218.9,22.3 218.9,36.7 228.0,36.7 228.0,51.0 231.4,51.0 231.4,65.3 234.7,65.3 234.7,51.0 238.7,51.0 238.7,36.7 243.7,36.7 243.7,22.3 250.8,22.3 250.8,36.7 252.9,36.7 252.9,51.0 258.1,51.0 258.1,36.7 259.8,36.7 259.8,51.0 265.3,51.0 265.3,36.7 267.4,36.7 267.4,51.0 269.5,51.0 269.5,36.7 272.4,36.7 272.4,51.0 276.8,51.0 276.8,36.7 277.4,36.7 277.4,51.0 280.5,51.0 280.5,36.7 281.6,36.7 281.6,51.0 286.0,51.0 286.0,36.7 292.7,36.7 292.7,22.3 300.9,22.3 300.9,8.0 303.6,8.0 303.6,22.3 306.7,22.3 306.7,36.7 308.9,36.7 308.9,51.0 313.0,51.0 313.0,65.3 314.0,65.3"/>
+  <text x="20" y="68.3" text-anchor="end">0</text><text x="20" y="15.0" text-anchor="end">+4</text><text x="20" y="94.0" text-anchor="end">-2</text>
+  <text x="169.0" y="108" text-anchor="middle">Halbzeit</text>
+  <text x="314" y="108" text-anchor="end">60'</text>
+</svg>
+            <p class="lauf">Der Gegner traf 4-mal in Folge ab der 58. Minute.</p>
+            <p><span class="rubrikklein">Tore</span> Robin Wegfahrt 8 (1/2 7m), Benjamin Innenmoser 7, Julian Rattinger 7 (2/2 7m), Benedikt Ringler 4, Daniel Vidovic 3, Patrick Bayer 2</p>
+            <p><span class="rubrikklein">Strafen</span> Zeitstrafen 0, beim Gegner 1.</p>
+            <p class="quelle"><a href="https://spo.handball4all.de/misc/sboPublicReports.php?sGID=3522796" target="_blank"
+               rel="noopener">Original-Spielbericht (PDF)</a></p>
+          </div>
+        </details><p class="monat">November 2026</p>
         <div class="spiel">
           <div class="datum">Sa 07.11.26<span>Heim</span></div>
           <div>
@@ -817,15 +1113,61 @@ td.platz { color: var(--leise); width: 2em; }
     <div id="feld-statistiken-herren2" data-panel="statistiken" role="tabpanel" hidden>
       <div class="teil statistiken">
         
-      <p>Der Verband führt in der Männer 3. Bezirksklasse keine Spielberichte mit Torschützen,
-      Torverlauf oder Zeitstrafen &ndash; anders als in höheren Ligen (Landesliga, Oberliga,
-      Regionalliga), wo handball4all das anbietet.</p>
-      <div class="hinweis">
-        <p>Das ist keine Lücke auf dieser Seite, sondern eine Grenze der Quelle: handball4all
-        markiert das selbst (<code>scoreShowDataPerGame: false</code> für diese Liga). Sollte die
-        Mannschaft einmal in eine Liga mit Spielberichten aufsteigen, kommt dieser Reiter mit
-        echten Inhalten.</p>
-      </div>
+      <dl class="kennzahlen"><div><dt>Tore je Spiel</dt><dd><span class="wert">30,0</span><span class="zusatz">33,3 kassiert</span></dd></div><div><dt>Halbzeiten</dt><dd><span class="wert">+2 / −12</span><span class="zusatz">Tordifferenz in 1. und 2. Halbzeit</span></dd></div><div><dt>Siebenmeter</dt><dd><span class="wert">82 %</span><span class="zusatz">9 von 11 verwandelt</span></dd></div><div><dt>Zeitstrafen</dt><dd><span class="wert">8</span><span class="zusatz">beim Gegner 5</span></dd></div></dl>
+      <p class="rubrik">Torschützen</p>
+      <table class="schuetzen">
+        <thead><tr><th></th><th>Spieler</th><th class="rechts">/Sp.</th><th class="rechts">Tore</th></tr></thead>
+        <tbody>
+        <tr>
+          <td class="platz">1</td>
+          <td>Julian Rattinger<span class="klein"> · 3 Spiele · 7m 7/8 · 2× 2 Min</span></td>
+          <td class="rechts">7,7</td>
+          <td class="rechts stark">23</td>
+        </tr>
+        <tr>
+          <td class="platz">2</td>
+          <td>Robin Wegfahrt<span class="klein"> · 2 Spiele · 7m 1/2</span></td>
+          <td class="rechts">11,0</td>
+          <td class="rechts stark">22</td>
+        </tr>
+        <tr>
+          <td class="platz">3</td>
+          <td>Daniel Vidovic<span class="klein"> · 3 Spiele · 7m 1/1 · 1× 2 Min</span></td>
+          <td class="rechts">4,7</td>
+          <td class="rechts stark">14</td>
+        </tr>
+        <tr>
+          <td class="platz">4</td>
+          <td>Benjamin Innenmoser<span class="klein"> · 2 Spiele</span></td>
+          <td class="rechts">6,0</td>
+          <td class="rechts stark">12</td>
+        </tr>
+        <tr>
+          <td class="platz">5</td>
+          <td>Christian Krautberger<span class="klein"> · 2 Spiele · 1× 2 Min</span></td>
+          <td class="rechts">4,0</td>
+          <td class="rechts stark">8</td>
+        </tr>
+        <tr>
+          <td class="platz">6</td>
+          <td>Benedikt Ringler<span class="klein"> · 3 Spiele · 2× 2 Min</span></td>
+          <td class="rechts">2,0</td>
+          <td class="rechts stark">6</td>
+        </tr>
+        <tr>
+          <td class="platz">7</td>
+          <td>Silvester Hoen<span class="klein"> · 2 Spiele · 1× 2 Min</span></td>
+          <td class="rechts">1,5</td>
+          <td class="rechts stark">3</td>
+        </tr>
+        <tr>
+          <td class="platz">8</td>
+          <td>Patrick Bayer<span class="klein"> · 1 Spiel</span></td>
+          <td class="rechts">2,0</td>
+          <td class="rechts stark">2</td>
+        </tr></tbody>
+      </table>
+      <p class="statfuss">Grundlage: die Spielberichte aller 3 bisherigen Spiele.</p>
       </div>
     </div>
 
@@ -889,14 +1231,38 @@ td.platz { color: var(--leise); width: 2em; }
     <div id="feld-spiele-damen" data-panel="spiele" role="tabpanel">
       <div class="teil">
         <p class="monat">Oktober 2026</p>
-        <div class="spiel vorbei">
+        <details class="mitbericht">
+          <summary class="spiel vorbei">
           <div class="datum">So 04.10.26<span>Heim</span></div>
           <div>
             <div class="gegner">HCOB Opp/BK</div>
-            <div class="halle"><a href="https://www.google.com/maps/search/?api=1&query=Flatow-Sporthalle%2C%20Gingener%20Stra%C3%9Fe%2021%2C%2070327%20Stuttgart-Wangen" target="_blank" rel="noopener">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</a></div>
+            <div class="halle">Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen</div>
           </div>
-          <div class="rechts"><div class="stand N">25:31</div></div>
-        </div>
+          <div class="rechts"><div class="stand N">25:31</div><div class="hzstand">HZ 15:16</div><div class="aufklapp">Bericht</div></div>
+          </summary>
+          <div class="bericht">
+            <p class="eck">Halbzeit 15:16 · 50 Zuschauer</p>
+            <svg class="spielfilm" viewBox="0 0 320 112" role="img" aria-label="Spielverlauf 04.10. gegen HCOB Opp/BK, Endstand 25:31">
+  <defs>
+    <clipPath id="vorn-3518756"><rect x="0" y="0" width="320" height="27.1"/></clipPath>
+    <clipPath id="hinten-3518756"><rect x="0" y="27.1" width="320" height="84.9"/></clipPath>
+  </defs>
+  <polygon class="vorn" points="24.0,27.1 24.0,27.1 26.3,27.1 26.3,36.7 28.0,36.7 28.0,27.1 30.5,27.1 30.5,36.7 33.3,36.7 33.3,27.1 37.2,27.1 37.2,36.7 43.8,36.7 43.8,46.2 44.9,46.2 44.9,36.7 50.5,36.7 50.5,27.1 51.1,27.1 51.1,36.7 52.8,36.7 52.8,46.2 58.1,46.2 58.1,55.8 65.1,55.8 65.1,65.3 76.7,65.3 76.7,74.9 82.1,74.9 82.1,65.3 82.9,65.3 82.9,74.9 85.9,74.9 85.9,65.3 87.8,65.3 87.8,74.9 95.5,74.9 95.5,84.4 96.7,84.4 96.7,94.0 99.1,94.0 99.1,84.4 103.8,84.4 103.8,74.9 106.2,74.9 106.2,84.4 118.8,84.4 118.8,74.9 124.9,74.9 124.9,84.4 126.2,84.4 126.2,74.9 132.8,74.9 132.8,65.3 136.2,65.3 136.2,55.8 143.2,55.8 143.2,46.2 145.8,46.2 145.8,55.8 152.5,55.8 152.5,46.2 160.6,46.2 160.6,36.7 182.5,36.7 182.5,27.1 187.5,27.1 187.5,17.6 197.4,17.6 197.4,27.1 206.9,27.1 206.9,36.7 213.1,36.7 213.1,46.2 216.8,46.2 216.8,36.7 218.8,36.7 218.8,46.2 221.0,46.2 221.0,36.7 227.9,36.7 227.9,27.1 232.8,27.1 232.8,36.7 236.8,36.7 236.8,46.2 242.2,46.2 242.2,36.7 246.4,36.7 246.4,46.2 251.1,46.2 251.1,55.8 255.9,55.8 255.9,46.2 257.1,46.2 257.1,55.8 265.2,55.8 265.2,65.3 266.6,65.3 266.6,74.9 270.2,74.9 270.2,84.4 276.7,84.4 276.7,94.0 290.1,94.0 290.1,84.4 297.2,84.4 297.2,74.9 299.6,74.9 299.6,84.4 303.3,84.4 303.3,94.0 307.2,94.0 307.2,84.4 314.0,84.4 314.0,27.1" clip-path="url(#vorn-3518756)"/>
+  <polygon class="hinten" points="24.0,27.1 24.0,27.1 26.3,27.1 26.3,36.7 28.0,36.7 28.0,27.1 30.5,27.1 30.5,36.7 33.3,36.7 33.3,27.1 37.2,27.1 37.2,36.7 43.8,36.7 43.8,46.2 44.9,46.2 44.9,36.7 50.5,36.7 50.5,27.1 51.1,27.1 51.1,36.7 52.8,36.7 52.8,46.2 58.1,46.2 58.1,55.8 65.1,55.8 65.1,65.3 76.7,65.3 76.7,74.9 82.1,74.9 82.1,65.3 82.9,65.3 82.9,74.9 85.9,74.9 85.9,65.3 87.8,65.3 87.8,74.9 95.5,74.9 95.5,84.4 96.7,84.4 96.7,94.0 99.1,94.0 99.1,84.4 103.8,84.4 103.8,74.9 106.2,74.9 106.2,84.4 118.8,84.4 118.8,74.9 124.9,74.9 124.9,84.4 126.2,84.4 126.2,74.9 132.8,74.9 132.8,65.3 136.2,65.3 136.2,55.8 143.2,55.8 143.2,46.2 145.8,46.2 145.8,55.8 152.5,55.8 152.5,46.2 160.6,46.2 160.6,36.7 182.5,36.7 182.5,27.1 187.5,27.1 187.5,17.6 197.4,17.6 197.4,27.1 206.9,27.1 206.9,36.7 213.1,36.7 213.1,46.2 216.8,46.2 216.8,36.7 218.8,36.7 218.8,46.2 221.0,46.2 221.0,36.7 227.9,36.7 227.9,27.1 232.8,27.1 232.8,36.7 236.8,36.7 236.8,46.2 242.2,46.2 242.2,36.7 246.4,36.7 246.4,46.2 251.1,46.2 251.1,55.8 255.9,55.8 255.9,46.2 257.1,46.2 257.1,55.8 265.2,55.8 265.2,65.3 266.6,65.3 266.6,74.9 270.2,74.9 270.2,84.4 276.7,84.4 276.7,94.0 290.1,94.0 290.1,84.4 297.2,84.4 297.2,74.9 299.6,74.9 299.6,84.4 303.3,84.4 303.3,94.0 307.2,94.0 307.2,84.4 314.0,84.4 314.0,27.1" clip-path="url(#hinten-3518756)"/>
+  <line class="gitter" x1="169.0" y1="8" x2="169.0" y2="94"/>
+  <line class="null" x1="24" y1="27.1" x2="314" y2="27.1"/>
+  <polyline class="linie" points="24.0,27.1 26.3,27.1 26.3,36.7 28.0,36.7 28.0,27.1 30.5,27.1 30.5,36.7 33.3,36.7 33.3,27.1 37.2,27.1 37.2,36.7 43.8,36.7 43.8,46.2 44.9,46.2 44.9,36.7 50.5,36.7 50.5,27.1 51.1,27.1 51.1,36.7 52.8,36.7 52.8,46.2 58.1,46.2 58.1,55.8 65.1,55.8 65.1,65.3 76.7,65.3 76.7,74.9 82.1,74.9 82.1,65.3 82.9,65.3 82.9,74.9 85.9,74.9 85.9,65.3 87.8,65.3 87.8,74.9 95.5,74.9 95.5,84.4 96.7,84.4 96.7,94.0 99.1,94.0 99.1,84.4 103.8,84.4 103.8,74.9 106.2,74.9 106.2,84.4 118.8,84.4 118.8,74.9 124.9,74.9 124.9,84.4 126.2,84.4 126.2,74.9 132.8,74.9 132.8,65.3 136.2,65.3 136.2,55.8 143.2,55.8 143.2,46.2 145.8,46.2 145.8,55.8 152.5,55.8 152.5,46.2 160.6,46.2 160.6,36.7 182.5,36.7 182.5,27.1 187.5,27.1 187.5,17.6 197.4,17.6 197.4,27.1 206.9,27.1 206.9,36.7 213.1,36.7 213.1,46.2 216.8,46.2 216.8,36.7 218.8,36.7 218.8,46.2 221.0,46.2 221.0,36.7 227.9,36.7 227.9,27.1 232.8,27.1 232.8,36.7 236.8,36.7 236.8,46.2 242.2,46.2 242.2,36.7 246.4,36.7 246.4,46.2 251.1,46.2 251.1,55.8 255.9,55.8 255.9,46.2 257.1,46.2 257.1,55.8 265.2,55.8 265.2,65.3 266.6,65.3 266.6,74.9 270.2,74.9 270.2,84.4 276.7,84.4 276.7,94.0 290.1,94.0 290.1,84.4 297.2,84.4 297.2,74.9 299.6,74.9 299.6,84.4 303.3,84.4 303.3,94.0 307.2,94.0 307.2,84.4 314.0,84.4"/>
+  <text x="20" y="30.1" text-anchor="end">0</text><text x="20" y="15.0" text-anchor="end">+2</text><text x="20" y="94.0" text-anchor="end">-7</text>
+  <text x="169.0" y="108" text-anchor="middle">Halbzeit</text>
+  <text x="314" y="108" text-anchor="end">60'</text>
+</svg>
+            <p class="lauf">4 Tore in Folge ab der 22. Minute. Der Gegner traf 5-mal in Folge ab der 6. Minute.</p>
+            <p><span class="rubrikklein">Tore</span> Nikoletta Dovridou 5, Anne Zimmermann 4 (1/2 7m), Amelie Mischke 3, Andrea Lindermayr 3 (1/2 7m), Laura Eitler 3, Ronja Schick 3, Pia Saschin 2, Carina Janning 1, Petra Wagner 1</p>
+            <p><span class="rubrikklein">Strafen</span> Zeitstrafen 2, beim Gegner 1.</p>
+            <p class="quelle"><a href="https://spo.handball4all.de/misc/sboPublicReports.php?sGID=3518756" target="_blank"
+               rel="noopener">Original-Spielbericht (PDF)</a></p>
+          </div>
+        </details>
         <div class="spiel">
           <div class="datum">Sa 31.10.26<span>Auswärts</span></div>
           <div>
@@ -1106,15 +1472,67 @@ td.platz { color: var(--leise); width: 2em; }
     <div id="feld-statistiken-damen" data-panel="statistiken" role="tabpanel" hidden>
       <div class="teil statistiken">
         
-      <p>Der Verband führt in der Frauen-Landesliga Staffel 2 keine Spielberichte mit Torschützen,
-      Torverlauf oder Zeitstrafen &ndash; anders als in höheren Ligen (Landesliga, Oberliga,
-      Regionalliga), wo handball4all das anbietet.</p>
-      <div class="hinweis">
-        <p>Das ist keine Lücke auf dieser Seite, sondern eine Grenze der Quelle: handball4all
-        markiert das selbst (<code>scoreShowDataPerGame: false</code> für diese Liga). Sollte die
-        Mannschaft einmal in eine Liga mit Spielberichten aufsteigen, kommt dieser Reiter mit
-        echten Inhalten.</p>
-      </div>
+      <dl class="kennzahlen"><div><dt>Tore je Spiel</dt><dd><span class="wert">25,0</span><span class="zusatz">31,0 kassiert</span></dd></div><div><dt>Halbzeiten</dt><dd><span class="wert">−1 / −5</span><span class="zusatz">Tordifferenz in 1. und 2. Halbzeit</span></dd></div><div><dt>Siebenmeter</dt><dd><span class="wert">50 %</span><span class="zusatz">2 von 4 verwandelt</span></dd></div><div><dt>Zeitstrafen</dt><dd><span class="wert">2</span><span class="zusatz">beim Gegner 1</span></dd></div></dl>
+      <p class="rubrik">Torschützen</p>
+      <table class="schuetzen">
+        <thead><tr><th></th><th>Spieler</th><th class="rechts">/Sp.</th><th class="rechts">Tore</th></tr></thead>
+        <tbody>
+        <tr>
+          <td class="platz">1</td>
+          <td>Nikoletta Dovridou<span class="klein"> · 1 Spiel</span></td>
+          <td class="rechts">5,0</td>
+          <td class="rechts stark">5</td>
+        </tr>
+        <tr>
+          <td class="platz">2</td>
+          <td>Anne Zimmermann<span class="klein"> · 1 Spiel · 7m 1/2</span></td>
+          <td class="rechts">4,0</td>
+          <td class="rechts stark">4</td>
+        </tr>
+        <tr>
+          <td class="platz">3</td>
+          <td>Amelie Mischke<span class="klein"> · 1 Spiel</span></td>
+          <td class="rechts">3,0</td>
+          <td class="rechts stark">3</td>
+        </tr>
+        <tr>
+          <td class="platz">4</td>
+          <td>Andrea Lindermayr<span class="klein"> · 1 Spiel · 7m 1/2 · 1× 2 Min</span></td>
+          <td class="rechts">3,0</td>
+          <td class="rechts stark">3</td>
+        </tr>
+        <tr>
+          <td class="platz">5</td>
+          <td>Laura Eitler<span class="klein"> · 1 Spiel · 1× 2 Min</span></td>
+          <td class="rechts">3,0</td>
+          <td class="rechts stark">3</td>
+        </tr>
+        <tr>
+          <td class="platz">6</td>
+          <td>Ronja Schick<span class="klein"> · 1 Spiel</span></td>
+          <td class="rechts">3,0</td>
+          <td class="rechts stark">3</td>
+        </tr>
+        <tr>
+          <td class="platz">7</td>
+          <td>Pia Saschin<span class="klein"> · 1 Spiel</span></td>
+          <td class="rechts">2,0</td>
+          <td class="rechts stark">2</td>
+        </tr>
+        <tr>
+          <td class="platz">8</td>
+          <td>Carina Janning<span class="klein"> · 1 Spiel</span></td>
+          <td class="rechts">1,0</td>
+          <td class="rechts stark">1</td>
+        </tr>
+        <tr>
+          <td class="platz">9</td>
+          <td>Petra Wagner<span class="klein"> · 1 Spiel</span></td>
+          <td class="rechts">1,0</td>
+          <td class="rechts stark">1</td>
+        </tr></tbody>
+      </table>
+      <p class="statfuss">Grundlage: die Spielberichte aller 1 bisherigen Spiele.</p>
       </div>
     </div>
 
@@ -1172,7 +1590,7 @@ td.platz { color: var(--leise); width: 2em; }
   <div class="fuss">
     <p>Inoffizielle Seite eines Vereinsmitglieds, kein offizielles Angebot der HSG Oberer Neckar.</p>
     <p>Daten von handball4all (Baden-W&uuml;rttembergischer Handball-Verband).</p>
-    <p>Zuletzt geholt: 20.10.2026 08:32.</p>
+    <p>Zuletzt geholt: 20.10.2026 16:18.</p>
   </div>
 
 </div>

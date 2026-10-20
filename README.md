@@ -34,15 +34,42 @@ führt deshalb zwei Felder: `name_in_quelle` für die Spielpaarungen,
 `name_tabelle` für die Tabellenzeile. Fehlt eins, wird entweder Heim/Gast
 falsch erkannt oder die eigene Zeile in der Tabelle nicht gefunden.
 
-Torverläufe oder Spielberichte liefert der Verband auf diesen Liga-Ebenen
-nicht - nur Termine, Hallen und Endstände. Das steht auch so auf der Seite,
-statt eine Lücke zu verstecken, die aussieht wie ein Fehler.
+## Spielberichte
+
+Das JSON liefert nur Termine, Hallen, End- und Halbzeitstände
+(`scoreShowDataPerGame: false`). Den Rest gibt es trotzdem: zu jedem Spiel
+mit hochgeladenem Bericht steht im JSON eine Kennung (`sGID`, in
+`daten.json` als `bericht_id`), und darunter liegt ein PDF
+(`https://spo.handball4all.de/misc/sboPublicReports.php?sGID=<id>`, auf
+der handball4all-Seite in der Spalte "Bemerkung"). Darin: Mannschaftslisten
+und der komplette Spielverlauf, jedes Tor mit Spielzeit, Schütze und
+Zwischenstand, dazu Siebenmeter, Verwarnungen, Zeitstrafen,
+Disqualifikationen und Auszeiten.
+
+`spielberichte.py` holt jedes PDF genau einmal (ein Bericht ändert sich nach
+dem Spiel nicht mehr), liest den Spielverlauf mit `pypdf` aus und legt ihn
+in `berichte.json` ab. `auswertung.py` rechnet daraus Verlaufskurve,
+Torschützen, Siebenmeter, Zeitstrafen und Läufe; `baue_seite.py` zeigt das
+aufklappbar unter jedem Spiel und im Reiter "Statistiken".
+
+- **Geprüft, nicht geglaubt:** Jedes Tor muss den Stand um genau eins
+  erhöhen, der letzte Stand muss der Endstand aus dem JSON sein. Sonst wird
+  der Bericht verworfen und bei späteren Läufen erneut versucht (höchstens
+  fünfmal). Die Seite nennt Spiele ohne Bericht beim Namen.
+- **Welche Mannschaft welche ist,** ergibt sich aus den Toren (steigt der
+  Heimstand, war's die Heimmannschaft) - nicht aus dem Namensvergleich, der
+  hier schon einmal danebenlag (siehe oben).
+- **Namen nur von den eigenen Leuten.** Vom Gegner wird nur die
+  Rückennummer gespeichert. Kommt einmal eine Jugendmannschaft dazu: wie im
+  MuRu-Projekt nur Vorname und Initial zeigen.
+- **Tests:** `python3 test_spielberichte.py` (läuft auch im Workflow).
 
 ## Bauen
 
 ```bash
 W="https://oberer-neckar-zaehler.edis-herrmann.workers.dev"
 python3 hole_daten.py --teams teams.json --out daten.json
+python3 spielberichte.py --daten daten.json --out berichte.json   # braucht pip install pypdf
 python3 baue_ics.py --daten daten.json --out-verzeichnis docs
 python3 baue_seite.py --daten daten.json --out docs/index.html --worker-url "$W"
 python3 baue_admin.py --worker-url "$W" --out docs/admin.html

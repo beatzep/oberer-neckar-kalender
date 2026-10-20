@@ -2,7 +2,7 @@
   "verein": "HSG Oberer Neckar",
   "saison": "26/27",
   "saison_abgeschlossen": false,
-  "geholt_am": "2026-10-20T08:32:53",
+  "geholt_am": "2026-10-20T16:18:05",
   "teams": {
     "herren1": {
       "name": "Herren",
@@ -24,7 +24,10 @@
           "tore_gegner": 33,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": "3501301",
+          "halbzeit_eigene": 16,
+          "halbzeit_gegner": 18
         },
         {
           "id": "9677991",
@@ -37,7 +40,10 @@
           "tore_gegner": 29,
           "halle": "Uhlandhalle, Wolf-Hirth-Straße 50, 73529 Schwäb.Gmünd-Bettringen",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": "3511746",
+          "halbzeit_eigene": 19,
+          "halbzeit_gegner": 10
         },
         {
           "id": "9678016",
@@ -50,7 +56,10 @@
           "tore_gegner": 27,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": "3515471",
+          "halbzeit_eigene": 21,
+          "halbzeit_gegner": 10
         },
         {
           "id": "9678066",
@@ -63,7 +72,10 @@
           "tore_gegner": 38,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": "3533431",
+          "halbzeit_eigene": 22,
+          "halbzeit_gegner": 20
         },
         {
           "id": "9678081",
@@ -76,7 +88,10 @@
           "tore_gegner": null,
           "halle": "Ballsporthalle, Augsburger Straße 581, 70329 Stuttgart",
           "schiedsrichter": "Bernhardt",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": null,
+          "halbzeit_eigene": null,
+          "halbzeit_gegner": null
         },
         {
           "id": "9678116",
@@ -89,7 +104,10 @@
           "tore_gegner": null,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": null,
+          "halbzeit_eigene": null,
+          "halbzeit_gegner": null
         },
         {
           "id": "9678196",
@@ -102,7 +120,10 @@
           "tore_gegner": null,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": null,
+          "halbzeit_eigene": null,
+          "halbzeit_gegner": null
         },
         {
           "id": "9678226",
@@ -115,7 +136,10 @@
           "tore_gegner": null,
           "halle": "Rankbachhalle, Rankbachstraße 49, 71272 Renningen",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": null,
+          "halbzeit_eigene": null,
+          "halbzeit_gegner": null
         },
         {
           "id": "9678246",
@@ -128,7 +152,10 @@
           "tore_gegner": null,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": null,
+          "halbzeit_eigene": null,
+          "halbzeit_gegner": null
         },
         {
           "id": "9678261",
@@ -141,7 +168,10 @@
           "tore_gegner": null,
           "halle": "Stegwiesenhalle, Stegwiesenweg 1, 73630 Remshalden-Geradstetten",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": null,
+          "halbzeit_eigene": null,
+          "halbzeit_gegner": null
         },
         {
           "id": "9678286",
@@ -154,7 +184,10 @@
           "tore_gegner": null,
           "halle": "Sporthalle Grauhalde, Rehhaldenweg 10, 73614 Schorndorf",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": null,
+          "halbzeit_eigene": null,
+          "halbzeit_gegner": null
         },
         {
           "id": "9678321",
@@ -167,7 +200,10 @@
           "tore_gegner": null,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": null,
+          "halbzeit_eigene": null,
+          "halbzeit_gegner": null
         },
         {
           "id": "9678341",
@@ -180,7 +216,10 @@
           "tore_gegner": null,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": null,
+          "halbzeit_eigene": null,
+          "halbzeit_gegner": null
         },
         {
           "id": "9678051",
@@ -193,7 +232,10 @@
           "tore_gegner": null,
           "halle": "Sporthalle, Adlerstraße 55, 73540 Heubach",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": null,
+          "halbzeit_eigene": null,
+          "halbzeit_gegner": null
         },
         {
           "id": "9678371",
@@ -206,7 +248,10 @@
           "tore_gegner": null,
           "halle": "Sporthalle Glemsaue, Gröningerstraße, 71254 Ditzingen",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": null,
+          "halbzeit_eigene": null,
+          "halbzeit_gegner": null
         },
         {
           "id": "9678391",
@@ -219,7 +264,10 @@
           "tore_gegner": null,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": null,
+          "halbzeit_eigene": null,
+          "halbzeit_gegner": null
         },
         {
           "id": "9678406",
@@ -232,7 +280,10 @@
           "tore_gegner": null,
           "halle": "Sporthalle beim Schulzentrum, Remstaler Straße 38, 70736 Fellbach-Schmiden",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": null,
+          "halbzeit_eigene": null,
+          "halbzeit_gegner": null
         },
         {
           "id": "9678441",
@@ -245,7 +296,10 @@
           "tore_gegner": null,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": null,
+          "halbzeit_eigene": null,
+          "halbzeit_gegner": null
         },
         {
           "id": "9678461",
@@ -258,7 +312,10 @@
           "tore_gegner": null,
           "halle": "Sporthalle, Albert-Eise Weg 3, 70736 Fellbach-Oeffingen",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": null,
+          "halbzeit_eigene": null,
+          "halbzeit_gegner": null
         },
         {
           "id": "9678551",
@@ -271,7 +328,10 @@
           "tore_gegner": null,
           "halle": "Fritz-Ulrich-Halle, Badstraße 24, 71409 Schwaikheim",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": null,
+          "halbzeit_eigene": null,
+          "halbzeit_gegner": null
         },
         {
           "id": "9678576",
@@ -284,7 +344,10 @@
           "tore_gegner": null,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": null,
+          "halbzeit_eigene": null,
+          "halbzeit_gegner": null
         },
         {
           "id": "9678581",
@@ -297,7 +360,10 @@
           "tore_gegner": null,
           "halle": "Große Sporthalle, Katharinenstraße 33, 73525 Schwäbisch Gmünd",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": null,
+          "halbzeit_eigene": null,
+          "halbzeit_gegner": null
         }
       ],
       "tabelle": [
@@ -468,7 +534,10 @@
           "tore_gegner": 44,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": "3500551",
+          "halbzeit_eigene": 13,
+          "halbzeit_gegner": 20
         },
         {
           "id": "9680611",
@@ -481,7 +550,10 @@
           "tore_gegner": 0,
           "halle": "Sporthalle Bühl, Robert-Bosch-Straße, 71277 Rutesheim",
           "schiedsrichter": "",
-          "sequence": 1
+          "sequence": 1,
+          "bericht_id": null,
+          "halbzeit_eigene": 0,
+          "halbzeit_gegner": 0
         },
         {
           "id": "9680641",
@@ -494,7 +566,10 @@
           "tore_gegner": 25,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": "3514676",
+          "halbzeit_eigene": 15,
+          "halbzeit_gegner": 9
         },
         {
           "id": "9680656",
@@ -507,7 +582,10 @@
           "tore_gegner": 31,
           "halle": "Stegwiesenhalle, Stegwiesenweg 1, 73630 Remshalden-Geradstetten",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": "3522796",
+          "halbzeit_eigene": 14,
+          "halbzeit_gegner": 11
         },
         {
           "id": "9680691",
@@ -520,7 +598,10 @@
           "tore_gegner": null,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": null,
+          "halbzeit_eigene": null,
+          "halbzeit_gegner": null
         },
         {
           "id": "9680711",
@@ -533,7 +614,10 @@
           "tore_gegner": null,
           "halle": "Sporthalle West (Hasenberg-Schule), Bebelstraße 28, 70193 Stuttgart-West",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": null,
+          "halbzeit_eigene": null,
+          "halbzeit_gegner": null
         },
         {
           "id": "9680746",
@@ -546,7 +630,10 @@
           "tore_gegner": null,
           "halle": "Sporthalle Neustadt, Ringstraße 26, 71336 Waiblingen-Neustadt",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": null,
+          "halbzeit_eigene": null,
+          "halbzeit_gegner": null
         },
         {
           "id": "9680756",
@@ -559,7 +646,10 @@
           "tore_gegner": null,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": null,
+          "halbzeit_eigene": null,
+          "halbzeit_gegner": null
         },
         {
           "id": "9680681",
@@ -572,7 +662,10 @@
           "tore_gegner": null,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": null,
+          "halbzeit_eigene": null,
+          "halbzeit_gegner": null
         },
         {
           "id": "9680801",
@@ -585,7 +678,10 @@
           "tore_gegner": null,
           "halle": "Justinus-Kerner-Halle, Rienharzer Straße 51, 73642 Welzheim",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": null,
+          "halbzeit_eigene": null,
+          "halbzeit_gegner": null
         },
         {
           "id": "9680771",
@@ -598,7 +694,10 @@
           "tore_gegner": null,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": null,
+          "halbzeit_eigene": null,
+          "halbzeit_gegner": null
         },
         {
           "id": "9680821",
@@ -611,7 +710,10 @@
           "tore_gegner": null,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": null,
+          "halbzeit_eigene": null,
+          "halbzeit_gegner": null
         },
         {
           "id": "9680841",
@@ -624,7 +726,10 @@
           "tore_gegner": null,
           "halle": "Lauswiesenhalle, Lauswiesen 6, 73614 Schorndorf",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": null,
+          "halbzeit_eigene": null,
+          "halbzeit_gegner": null
         },
         {
           "id": "9680861",
@@ -637,7 +742,10 @@
           "tore_gegner": null,
           "halle": "Sporthalle Brückentor, Beim Brückentor, 70839 Gerlingen",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": null,
+          "halbzeit_eigene": null,
+          "halbzeit_gegner": null
         }
       ],
       "tabelle": [
@@ -760,7 +868,10 @@
           "tore_gegner": 31,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": "3518756",
+          "halbzeit_eigene": 15,
+          "halbzeit_gegner": 16
         },
         {
           "id": "9419676",
@@ -773,7 +884,10 @@
           "tore_gegner": null,
           "halle": "Sporthalle beim Sportzentrum, Steinstraße 18, 71229 Leonberg",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": null,
+          "halbzeit_eigene": null,
+          "halbzeit_gegner": null
         },
         {
           "id": "9419691",
@@ -786,7 +900,10 @@
           "tore_gegner": null,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": null,
+          "halbzeit_eigene": null,
+          "halbzeit_gegner": null
         },
         {
           "id": "9419706",
@@ -799,7 +916,10 @@
           "tore_gegner": null,
           "halle": "Sporthalle, Obere Schloßstraße 72, 73553 Alfdorf",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": null,
+          "halbzeit_eigene": null,
+          "halbzeit_gegner": null
         },
         {
           "id": "9419726",
@@ -812,7 +932,10 @@
           "tore_gegner": null,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": null,
+          "halbzeit_eigene": null,
+          "halbzeit_gegner": null
         },
         {
           "id": "9419671",
@@ -825,7 +948,10 @@
           "tore_gegner": null,
           "halle": "Sporthalle beim Bildungszentrum, Aichholzhof, 71554 Weissach i.T-Unterweissach",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": null,
+          "halbzeit_eigene": null,
+          "halbzeit_gegner": null
         },
         {
           "id": "9419756",
@@ -838,7 +964,10 @@
           "tore_gegner": null,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": null,
+          "halbzeit_eigene": null,
+          "halbzeit_gegner": null
         },
         {
           "id": "9419606",
@@ -851,7 +980,10 @@
           "tore_gegner": null,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": null,
+          "halbzeit_eigene": null,
+          "halbzeit_gegner": null
         },
         {
           "id": "9419786",
@@ -864,7 +996,10 @@
           "tore_gegner": null,
           "halle": "Fritz-Ulrich-Halle, Badstraße 24, 71409 Schwaikheim",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": null,
+          "halbzeit_eigene": null,
+          "halbzeit_gegner": null
         },
         {
           "id": "9419811",
@@ -877,7 +1012,10 @@
           "tore_gegner": null,
           "halle": "Gemeindehalle, Jahnstraße, 71570 Oppenweiler",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": null,
+          "halbzeit_eigene": null,
+          "halbzeit_gegner": null
         },
         {
           "id": "9419906",
@@ -890,7 +1028,10 @@
           "tore_gegner": null,
           "halle": "Zeppelinhalle, Thomas-Mann-Straße 53, 70734 Fellbach",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": null,
+          "halbzeit_eigene": null,
+          "halbzeit_gegner": null
         },
         {
           "id": "9419851",
@@ -903,7 +1044,10 @@
           "tore_gegner": null,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": null,
+          "halbzeit_eigene": null,
+          "halbzeit_gegner": null
         },
         {
           "id": "9419856",
@@ -916,7 +1060,10 @@
           "tore_gegner": null,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": null,
+          "halbzeit_eigene": null,
+          "halbzeit_gegner": null
         },
         {
           "id": "9419871",
@@ -929,7 +1076,10 @@
           "tore_gegner": null,
           "halle": "Sporthalle West (Hasenberg-Schule), Bebelstraße 28, 70193 Stuttgart-West",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": null,
+          "halbzeit_eigene": null,
+          "halbzeit_gegner": null
         },
         {
           "id": "9419886",
@@ -942,7 +1092,10 @@
           "tore_gegner": null,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": null,
+          "halbzeit_eigene": null,
+          "halbzeit_gegner": null
         },
         {
           "id": "9419936",
@@ -955,7 +1108,10 @@
           "tore_gegner": null,
           "halle": "Sporthalle, Im Obenhinaus 5, 71384 Weinstadt-Beutelsbach",
           "schiedsrichter": "",
-          "sequence": 0
+          "sequence": 0,
+          "bericht_id": null,
+          "halbzeit_eigene": null,
+          "halbzeit_gegner": null
         }
       ],
       "tabelle": [
