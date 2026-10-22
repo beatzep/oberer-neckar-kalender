@@ -2,7 +2,7 @@
   "verein": "HSG Oberer Neckar",
   "saison": "26/27",
   "saison_abgeschlossen": false,
-  "geholt_am": "2026-10-21T08:34:47",
+  "geholt_am": "2026-10-22T08:37:22",
   "teams": {
     "herren1": {
       "name": "Herren",
@@ -87,7 +87,7 @@
           "tore_eigene": null,
           "tore_gegner": null,
           "halle": "Ballsporthalle, Augsburger Straße 581, 70329 Stuttgart",
-          "schiedsrichter": "Bernhardt",
+          "schiedsrichter": "Mack",
           "sequence": 0,
           "bericht_id": null,
           "halbzeit_eigene": null,
@@ -521,7 +521,7 @@
       "datei": "herren2.ics",
       "liga": "Männer 3. Bezirksklasse",
       "bereich": "Stuttgart-Rems-Murr",
-      "quelle_stand": "Letzte Änderung: So, 18.10.2026, 18:21h",
+      "quelle_stand": "Letzte Änderung: Mi, 21.10.2026, 18:52h",
       "spiele": [
         {
           "id": "9680596",
