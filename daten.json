@@ -2,7 +2,7 @@
   "verein": "HSG Oberer Neckar",
   "saison": "26/27",
   "saison_abgeschlossen": false,
-  "geholt_am": "2026-10-24T21:31:00",
+  "geholt_am": "2026-10-25T00:14:11",
   "teams": {
     "herren1": {
       "name": "Herren",
@@ -87,7 +87,7 @@
           "tore_eigene": 27,
           "tore_gegner": 33,
           "halle": "Ballsporthalle, Augsburger Straße 581, 70329 Stuttgart",
-          "schiedsrichter": "Mack",
+          "schiedsrichter": "",
           "sequence": 0,
           "bericht_id": "3539113",
           "halbzeit_eigene": 14,
