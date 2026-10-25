@@ -2,7 +2,7 @@
   "verein": "HSG Oberer Neckar",
   "saison": "26/27",
   "saison_abgeschlossen": false,
-  "geholt_am": "2026-10-25T16:01:00",
+  "geholt_am": "2026-10-25T18:55:36",
   "teams": {
     "herren1": {
       "name": "Herren",
@@ -11,7 +11,7 @@
       "datei": "herren1.ics",
       "liga": "Männer Bezirksoberliga",
       "bereich": "Stuttgart-Rems-Murr",
-      "quelle_stand": "Letzte Änderung: Sa, 24.10.2026, 20:36h",
+      "quelle_stand": "Letzte Änderung: So, 25.10.2026, 18:22h",
       "spiele": [
         {
           "id": "9677971",
@@ -430,17 +430,29 @@
         {
           "platz": 6,
           "team": "SF Schwaikheim 2",
-          "spiele": 4,
+          "spiele": 5,
           "siege": 3,
           "unentschieden": 0,
-          "niederlagen": 1,
-          "tore_geschossen": 113,
-          "tore_erhalten": 99,
+          "niederlagen": 2,
+          "tore_geschossen": 135,
+          "tore_erhalten": 127,
           "punkte_plus": 6,
-          "punkte_minus": 2
+          "punkte_minus": 4
         },
         {
           "platz": 7,
+          "team": "1. Heubacher Handballverein",
+          "spiele": 3,
+          "siege": 1,
+          "unentschieden": 1,
+          "niederlagen": 1,
+          "tore_geschossen": 79,
+          "tore_erhalten": 84,
+          "punkte_plus": 3,
+          "punkte_minus": 3
+        },
+        {
+          "platz": 8,
           "team": "HSG Bargau/Bettringen 2",
           "spiele": 5,
           "siege": 1,
@@ -452,7 +464,7 @@
           "punkte_minus": 8
         },
         {
-          "platz": 8,
+          "platz": 9,
           "team": "TSB Schwäbisch Gmünd 2",
           "spiele": 5,
           "siege": 1,
@@ -462,18 +474,6 @@
           "tore_erhalten": 127,
           "punkte_plus": 2,
           "punkte_minus": 8
-        },
-        {
-          "platz": 9,
-          "team": "1. Heubacher Handballverein",
-          "spiele": 2,
-          "siege": 0,
-          "unentschieden": 1,
-          "niederlagen": 1,
-          "tore_geschossen": 51,
-          "tore_erhalten": 62,
-          "punkte_plus": 1,
-          "punkte_minus": 3
         },
         {
           "platz": 10,
@@ -521,7 +521,7 @@
       "datei": "herren2.ics",
       "liga": "Männer 3. Bezirksklasse",
       "bereich": "Stuttgart-Rems-Murr",
-      "quelle_stand": "Letzte Änderung: Sa, 24.10.2026, 18:34h",
+      "quelle_stand": "Letzte Änderung: So, 25.10.2026, 18:25h",
       "spiele": [
         {
           "id": "9680596",
@@ -752,13 +752,13 @@
         {
           "platz": 1,
           "team": "HandballTeam Heckengäu 5",
-          "spiele": 3,
-          "siege": 3,
+          "spiele": 4,
+          "siege": 4,
           "unentschieden": 0,
           "niederlagen": 0,
-          "tore_geschossen": 72,
-          "tore_erhalten": 39,
-          "punkte_plus": 6,
+          "tore_geschossen": 106,
+          "tore_erhalten": 69,
+          "punkte_plus": 8,
           "punkte_minus": 0
         },
         {
@@ -836,14 +836,14 @@
         {
           "platz": 8,
           "team": "KSG Gerlingen",
-          "spiele": 2,
+          "spiele": 3,
           "siege": 0,
           "unentschieden": 0,
-          "niederlagen": 2,
-          "tore_geschossen": 20,
-          "tore_erhalten": 43,
+          "niederlagen": 3,
+          "tore_geschossen": 50,
+          "tore_erhalten": 77,
           "punkte_plus": 0,
-          "punkte_minus": 4
+          "punkte_minus": 6
         }
       ],
       "aenderungen": []
