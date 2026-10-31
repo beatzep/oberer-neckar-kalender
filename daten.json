@@ -2,7 +2,7 @@
   "verein": "HSG Oberer Neckar",
   "saison": "26/27",
   "saison_abgeschlossen": false,
-  "geholt_am": "2026-10-31T09:39:14",
+  "geholt_am": "2026-10-31T17:12:09",
   "teams": {
     "herren1": {
       "name": "Herren",
@@ -11,7 +11,7 @@
       "datei": "herren1.ics",
       "liga": "Männer Bezirksoberliga",
       "bereich": "Stuttgart-Rems-Murr",
-      "quelle_stand": "Letzte Änderung: So, 25.10.2026, 18:22h",
+      "quelle_stand": "Letzte Änderung: Sa, 31.10.2026, 17:25h",
       "spiele": [
         {
           "id": "9677971",
@@ -417,6 +417,18 @@
         },
         {
           "platz": 5,
+          "team": "SF Schwaikheim 2",
+          "spiele": 6,
+          "siege": 4,
+          "unentschieden": 0,
+          "niederlagen": 2,
+          "tore_geschossen": 170,
+          "tore_erhalten": 152,
+          "punkte_plus": 8,
+          "punkte_minus": 4
+        },
+        {
+          "platz": 6,
           "team": "HSG Oberer Neckar",
           "spiele": 5,
           "siege": 3,
@@ -426,18 +438,6 @@
           "tore_erhalten": 160,
           "punkte_plus": 7,
           "punkte_minus": 3
-        },
-        {
-          "platz": 6,
-          "team": "SF Schwaikheim 2",
-          "spiele": 5,
-          "siege": 3,
-          "unentschieden": 0,
-          "niederlagen": 2,
-          "tore_geschossen": 135,
-          "tore_erhalten": 127,
-          "punkte_plus": 6,
-          "punkte_minus": 4
         },
         {
           "platz": 7,
@@ -478,14 +478,14 @@
         {
           "platz": 10,
           "team": "TSV Schmiden 1902 3",
-          "spiele": 5,
+          "spiele": 6,
           "siege": 0,
           "unentschieden": 1,
-          "niederlagen": 4,
-          "tore_geschossen": 144,
-          "tore_erhalten": 170,
+          "niederlagen": 5,
+          "tore_geschossen": 169,
+          "tore_erhalten": 205,
           "punkte_plus": 1,
-          "punkte_minus": 9
+          "punkte_minus": 11
         },
         {
           "platz": 11,
@@ -855,7 +855,7 @@
       "datei": "damen.ics",
       "liga": "Frauen-Landesliga Staffel 2",
       "bereich": "Baden-Württembergischer Handball-Verband",
-      "quelle_stand": "Letzte Änderung: So, 18.10.2026, 19:36h",
+      "quelle_stand": "Letzte Änderung: Sa, 31.10.2026, 17:25h",
       "spiele": [
         {
           "id": "9419631",
@@ -880,8 +880,8 @@
           "uhrzeit_bekannt": true,
           "heim": false,
           "gegner": "SV Leonb/Elt 2",
-          "tore_eigene": null,
-          "tore_gegner": null,
+          "tore_eigene": 11,
+          "tore_gegner": 12,
           "halle": "Sporthalle beim Sportzentrum, Steinstraße 18, 71229 Leonberg",
           "schiedsrichter": "Kalpakidis,Zeeb",
           "sequence": 0,
@@ -1118,26 +1118,26 @@
         {
           "platz": 1,
           "team": "SF Schwaikheim 2",
-          "spiele": 4,
-          "siege": 4,
+          "spiele": 5,
+          "siege": 5,
           "unentschieden": 0,
           "niederlagen": 0,
-          "tore_geschossen": 112,
-          "tore_erhalten": 86,
-          "punkte_plus": 8,
+          "tore_geschossen": 138,
+          "tore_erhalten": 110,
+          "punkte_plus": 10,
           "punkte_minus": 0
         },
         {
           "platz": 2,
           "team": "SG Weinstadt 2",
-          "spiele": 4,
+          "spiele": 5,
           "siege": 3,
           "unentschieden": 1,
-          "niederlagen": 0,
-          "tore_geschossen": 116,
-          "tore_erhalten": 105,
+          "niederlagen": 1,
+          "tore_geschossen": 140,
+          "tore_erhalten": 131,
           "punkte_plus": 7,
-          "punkte_minus": 1
+          "punkte_minus": 3
         },
         {
           "platz": 3,
