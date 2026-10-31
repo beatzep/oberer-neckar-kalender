@@ -7390,5 +7390,613 @@
    }
   ],
   "zuschauer": null
+ },
+ "3541721": {
+  "ereignisse": [
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "2",
+    "s": 187,
+    "stand": [
+     1,
+     0
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Michelle Seybold",
+    "nr": "4",
+    "s": 306,
+    "stand": [
+     1,
+     1
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "2",
+    "s": 318,
+    "stand": [
+     2,
+     1
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Nikoletta Dovridou",
+    "nr": "8",
+    "s": 358,
+    "stand": [
+     2,
+     2
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "2",
+    "s": 441,
+    "stand": [
+     3,
+     2
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Laura Eitler",
+    "nr": "10",
+    "s": 482,
+    "stand": [
+     3,
+     3
+    ]
+   },
+   {
+    "art": "siebenmeter_fehl",
+    "eigen": false,
+    "nr": "2",
+    "s": 541
+   },
+   {
+    "art": "siebenmeter",
+    "eigen": true,
+    "name": "Anne Zimmermann",
+    "nr": "3",
+    "s": 584,
+    "stand": [
+     3,
+     4
+    ]
+   },
+   {
+    "art": "siebenmeter",
+    "eigen": false,
+    "nr": "11",
+    "s": 617,
+    "stand": [
+     4,
+     4
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Pia Saschin",
+    "nr": "7",
+    "s": 693,
+    "stand": [
+     4,
+     5
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "2",
+    "s": 819,
+    "stand": [
+     5,
+     5
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Ronja Schick",
+    "nr": "20",
+    "s": 851,
+    "stand": [
+     5,
+     6
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "15",
+    "s": 879,
+    "stand": [
+     6,
+     6
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Andrea Lindermayr",
+    "nr": "17",
+    "s": 907,
+    "stand": [
+     6,
+     7
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "2",
+    "s": 1038,
+    "stand": [
+     7,
+     7
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "39",
+    "s": 1071,
+    "stand": [
+     8,
+     7
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Laura Eitler",
+    "nr": "10",
+    "s": 1086,
+    "stand": [
+     8,
+     8
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Andrea Lindermayr",
+    "nr": "17",
+    "s": 1135,
+    "stand": [
+     8,
+     9
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Amelie Mischke",
+    "nr": "22",
+    "s": 1254,
+    "stand": [
+     8,
+     10
+    ]
+   },
+   {
+    "art": "auszeit",
+    "eigen": false,
+    "s": 1257
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Andrea Lindermayr",
+    "nr": "17",
+    "s": 1431,
+    "stand": [
+     8,
+     11
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "9",
+    "s": 1462,
+    "stand": [
+     9,
+     11
+    ]
+   },
+   {
+    "art": "siebenmeter",
+    "eigen": false,
+    "nr": "7",
+    "s": 1588,
+    "stand": [
+     10,
+     11
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "7",
+    "s": 1661,
+    "stand": [
+     11,
+     11
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "7",
+    "s": 1711,
+    "stand": [
+     12,
+     11
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Nikoletta Dovridou",
+    "nr": "8",
+    "s": 1839,
+    "stand": [
+     12,
+     12
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "39",
+    "s": 1992,
+    "stand": [
+     13,
+     12
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "26",
+    "s": 1999,
+    "stand": [
+     14,
+     12
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "7",
+    "s": 2066,
+    "stand": [
+     15,
+     12
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "19",
+    "s": 2126,
+    "stand": [
+     16,
+     12
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Michelle Seybold",
+    "nr": "4",
+    "s": 2249,
+    "stand": [
+     16,
+     13
+    ]
+   },
+   {
+    "art": "siebenmeter",
+    "eigen": false,
+    "nr": "11",
+    "s": 2448,
+    "stand": [
+     17,
+     13
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Michelle Seybold",
+    "nr": "4",
+    "s": 2590,
+    "stand": [
+     17,
+     14
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Michelle Seybold",
+    "nr": "4",
+    "s": 2626,
+    "stand": [
+     17,
+     15
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Laura Eitler",
+    "nr": "10",
+    "s": 2776,
+    "stand": [
+     17,
+     16
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Laura Eitler",
+    "nr": "10",
+    "s": 2794,
+    "stand": [
+     17,
+     17
+    ]
+   },
+   {
+    "art": "auszeit",
+    "eigen": false,
+    "s": 2798
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "6",
+    "s": 2904,
+    "stand": [
+     18,
+     17
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Carina Janning",
+    "nr": "28",
+    "s": 2917,
+    "stand": [
+     18,
+     18
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "2",
+    "s": 2938,
+    "stand": [
+     19,
+     18
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Pia Saschin",
+    "nr": "7",
+    "s": 2958,
+    "stand": [
+     19,
+     19
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Nikoletta Dovridou",
+    "nr": "8",
+    "s": 3007,
+    "stand": [
+     19,
+     20
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "37",
+    "s": 3035,
+    "stand": [
+     20,
+     20
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "2",
+    "s": 3184,
+    "stand": [
+     21,
+     20
+    ]
+   },
+   {
+    "art": "auszeit",
+    "eigen": true,
+    "s": 3197
+   },
+   {
+    "art": "siebenmeter_fehl",
+    "eigen": true,
+    "name": "Anne Zimmermann",
+    "nr": "3",
+    "s": 3258
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "37",
+    "s": 3298,
+    "stand": [
+     22,
+     20
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "7",
+    "s": 3339,
+    "stand": [
+     23,
+     20
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Pia Saschin",
+    "nr": "7",
+    "s": 3367,
+    "stand": [
+     23,
+     21
+    ]
+   },
+   {
+    "art": "siebenmeter",
+    "eigen": false,
+    "nr": "11",
+    "s": 3397,
+    "stand": [
+     24,
+     21
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Michelle Seybold",
+    "nr": "4",
+    "s": 3420,
+    "stand": [
+     24,
+     22
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "26",
+    "s": 3431,
+    "stand": [
+     25,
+     22
+    ]
+   },
+   {
+    "art": "auszeit",
+    "eigen": true,
+    "s": 3467
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Andrea Lindermayr",
+    "nr": "17",
+    "s": 3467,
+    "stand": [
+     25,
+     23
+    ]
+   },
+   {
+    "art": "auszeit",
+    "eigen": false,
+    "s": 3578
+   }
+  ],
+  "kader": [
+   {
+    "name": "Cheyenne Ruiz Lujan",
+    "nr": "1"
+   },
+   {
+    "name": "Anne Zimmermann",
+    "nr": "3"
+   },
+   {
+    "name": "Michelle Seybold",
+    "nr": "4"
+   },
+   {
+    "name": "Anja Bifulco",
+    "nr": "5"
+   },
+   {
+    "name": "Pia Saschin",
+    "nr": "7"
+   },
+   {
+    "name": "Nikoletta Dovridou",
+    "nr": "8"
+   },
+   {
+    "name": "Laura Eitler",
+    "nr": "10"
+   },
+   {
+    "name": "Petra Wagner",
+    "nr": "13"
+   },
+   {
+    "name": "Katrin Mischke",
+    "nr": "14"
+   },
+   {
+    "name": "Saskia Rittner",
+    "nr": "16"
+   },
+   {
+    "name": "Andrea Lindermayr",
+    "nr": "17"
+   },
+   {
+    "name": "Ronja Schick",
+    "nr": "20"
+   },
+   {
+    "name": "Amelie Mischke",
+    "nr": "22"
+   },
+   {
+    "name": "Carina Janning",
+    "nr": "28"
+   },
+   {
+    "name": "Dunja Bücheler",
+    "nr": "33"
+   }
+  ],
+  "zuschauer": 30
  }
 }

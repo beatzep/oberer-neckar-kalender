@@ -2,7 +2,7 @@
   "verein": "HSG Oberer Neckar",
   "saison": "26/27",
   "saison_abgeschlossen": false,
-  "geholt_am": "2026-10-31T17:12:09",
+  "geholt_am": "2026-10-31T21:24:41",
   "teams": {
     "herren1": {
       "name": "Herren",
@@ -11,7 +11,7 @@
       "datei": "herren1.ics",
       "liga": "Männer Bezirksoberliga",
       "bereich": "Stuttgart-Rems-Murr",
-      "quelle_stand": "Letzte Änderung: Sa, 31.10.2026, 17:25h",
+      "quelle_stand": "Letzte Änderung: Sa, 31.10.2026, 19:23h",
       "spiele": [
         {
           "id": "9677971",
@@ -381,6 +381,18 @@
         },
         {
           "platz": 2,
+          "team": "HandballTeam Heckengäu",
+          "spiele": 6,
+          "siege": 5,
+          "unentschieden": 0,
+          "niederlagen": 1,
+          "tore_geschossen": 188,
+          "tore_erhalten": 134,
+          "punkte_plus": 10,
+          "punkte_minus": 2
+        },
+        {
+          "platz": 3,
           "team": "SG Schorndorf 1846",
           "spiele": 5,
           "siege": 4,
@@ -392,19 +404,7 @@
           "punkte_minus": 1
         },
         {
-          "platz": 3,
-          "team": "HandballTeam Heckengäu",
-          "spiele": 5,
-          "siege": 4,
-          "unentschieden": 0,
-          "niederlagen": 1,
-          "tore_geschossen": 154,
-          "tore_erhalten": 110,
-          "punkte_plus": 8,
-          "punkte_minus": 2
-        },
-        {
-          "platz": null,
+          "platz": 4,
           "team": "TV Obertürkheim",
           "spiele": 5,
           "siege": 4,
@@ -441,18 +441,30 @@
         },
         {
           "platz": 7,
-          "team": "1. Heubacher Handballverein",
-          "spiele": 3,
-          "siege": 1,
-          "unentschieden": 1,
-          "niederlagen": 1,
-          "tore_geschossen": 79,
-          "tore_erhalten": 84,
-          "punkte_plus": 3,
-          "punkte_minus": 3
+          "team": "TSB Schwäbisch Gmünd 2",
+          "spiele": 6,
+          "siege": 2,
+          "unentschieden": 0,
+          "niederlagen": 4,
+          "tore_geschossen": 141,
+          "tore_erhalten": 160,
+          "punkte_plus": 4,
+          "punkte_minus": 8
         },
         {
           "platz": 8,
+          "team": "1. Heubacher Handballverein",
+          "spiele": 4,
+          "siege": 1,
+          "unentschieden": 1,
+          "niederlagen": 2,
+          "tore_geschossen": 103,
+          "tore_erhalten": 118,
+          "punkte_plus": 3,
+          "punkte_minus": 5
+        },
+        {
+          "platz": 9,
           "team": "HSG Bargau/Bettringen 2",
           "spiele": 5,
           "siege": 1,
@@ -460,18 +472,6 @@
           "niederlagen": 4,
           "tore_geschossen": 118,
           "tore_erhalten": 143,
-          "punkte_plus": 2,
-          "punkte_minus": 8
-        },
-        {
-          "platz": 9,
-          "team": "TSB Schwäbisch Gmünd 2",
-          "spiele": 5,
-          "siege": 1,
-          "unentschieden": 0,
-          "niederlagen": 4,
-          "tore_geschossen": 107,
-          "tore_erhalten": 127,
           "punkte_plus": 2,
           "punkte_minus": 8
         },
@@ -502,14 +502,14 @@
         {
           "platz": 12,
           "team": "TSF Ditzingen 2",
-          "spiele": 5,
+          "spiele": 6,
           "siege": 0,
           "unentschieden": 0,
-          "niederlagen": 5,
-          "tore_geschossen": 120,
-          "tore_erhalten": 176,
+          "niederlagen": 6,
+          "tore_geschossen": 153,
+          "tore_erhalten": 210,
           "punkte_plus": 0,
-          "punkte_minus": 10
+          "punkte_minus": 12
         }
       ],
       "aenderungen": []
@@ -521,7 +521,7 @@
       "datei": "herren2.ics",
       "liga": "Männer 3. Bezirksklasse",
       "bereich": "Stuttgart-Rems-Murr",
-      "quelle_stand": "Letzte Änderung: So, 25.10.2026, 18:25h",
+      "quelle_stand": "Letzte Änderung: Sa, 31.10.2026, 21:26h",
       "spiele": [
         {
           "id": "9680596",
@@ -752,13 +752,13 @@
         {
           "platz": 1,
           "team": "HandballTeam Heckengäu 5",
-          "spiele": 4,
-          "siege": 4,
+          "spiele": 5,
+          "siege": 5,
           "unentschieden": 0,
           "niederlagen": 0,
-          "tore_geschossen": 106,
-          "tore_erhalten": 69,
-          "punkte_plus": 8,
+          "tore_geschossen": 141,
+          "tore_erhalten": 100,
+          "punkte_plus": 10,
           "punkte_minus": 0
         },
         {
@@ -824,14 +824,14 @@
         {
           "platz": 7,
           "team": "MTV Stuttgart 4",
-          "spiele": 3,
+          "spiele": 4,
           "siege": 1,
           "unentschieden": 0,
-          "niederlagen": 2,
-          "tore_geschossen": 90,
-          "tore_erhalten": 100,
+          "niederlagen": 3,
+          "tore_geschossen": 121,
+          "tore_erhalten": 135,
           "punkte_plus": 2,
-          "punkte_minus": 4
+          "punkte_minus": 6
         },
         {
           "platz": 8,
@@ -855,7 +855,7 @@
       "datei": "damen.ics",
       "liga": "Frauen-Landesliga Staffel 2",
       "bereich": "Baden-Württembergischer Handball-Verband",
-      "quelle_stand": "Letzte Änderung: Sa, 31.10.2026, 17:25h",
+      "quelle_stand": "Letzte Änderung: Sa, 31.10.2026, 19:22h",
       "spiele": [
         {
           "id": "9419631",
@@ -880,14 +880,14 @@
           "uhrzeit_bekannt": true,
           "heim": false,
           "gegner": "SV Leonb/Elt 2",
-          "tore_eigene": 11,
-          "tore_gegner": 12,
+          "tore_eigene": 23,
+          "tore_gegner": 25,
           "halle": "Sporthalle beim Sportzentrum, Steinstraße 18, 71229 Leonberg",
           "schiedsrichter": "Kalpakidis,Zeeb",
           "sequence": 0,
-          "bericht_id": null,
-          "halbzeit_eigene": null,
-          "halbzeit_gegner": null
+          "bericht_id": "3541721",
+          "halbzeit_eigene": 11,
+          "halbzeit_gegner": 12
         },
         {
           "id": "9419691",
@@ -1142,25 +1142,25 @@
         {
           "platz": 3,
           "team": "HC Oppenweiler/Backnang",
-          "spiele": 3,
-          "siege": 1,
+          "spiele": 4,
+          "siege": 2,
           "unentschieden": 1,
           "niederlagen": 1,
-          "tore_geschossen": 75,
-          "tore_erhalten": 80,
-          "punkte_plus": 3,
+          "tore_geschossen": 106,
+          "tore_erhalten": 106,
+          "punkte_plus": 5,
           "punkte_minus": 3
         },
         {
           "platz": 4,
           "team": "SV Leonberg/Eltingen 2",
-          "spiele": 2,
-          "siege": 1,
+          "spiele": 3,
+          "siege": 2,
           "unentschieden": 0,
           "niederlagen": 1,
-          "tore_geschossen": 56,
-          "tore_erhalten": 48,
-          "punkte_plus": 2,
+          "tore_geschossen": 81,
+          "tore_erhalten": 71,
+          "punkte_plus": 4,
           "punkte_minus": 2
         },
         {
@@ -1189,18 +1189,6 @@
         },
         {
           "platz": 7,
-          "team": "HSG Oberer Neckar",
-          "spiele": 1,
-          "siege": 0,
-          "unentschieden": 0,
-          "niederlagen": 1,
-          "tore_geschossen": 25,
-          "tore_erhalten": 31,
-          "punkte_plus": 0,
-          "punkte_minus": 2
-        },
-        {
-          "platz": 8,
           "team": "TSV Alfdorf/Lorch/Waldhausen",
           "spiele": 2,
           "siege": 0,
@@ -1213,15 +1201,27 @@
         },
         {
           "platz": null,
-          "team": "SV Fellbach",
+          "team": "HSG Oberer Neckar",
           "spiele": 2,
           "siege": 0,
           "unentschieden": 0,
           "niederlagen": 2,
-          "tore_geschossen": 49,
-          "tore_erhalten": 60,
+          "tore_geschossen": 48,
+          "tore_erhalten": 56,
           "punkte_plus": 0,
           "punkte_minus": 4
+        },
+        {
+          "platz": 9,
+          "team": "SV Fellbach",
+          "spiele": 3,
+          "siege": 0,
+          "unentschieden": 0,
+          "niederlagen": 3,
+          "tore_geschossen": 75,
+          "tore_erhalten": 91,
+          "punkte_plus": 0,
+          "punkte_minus": 6
         }
       ],
       "aenderungen": []
