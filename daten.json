@@ -2,7 +2,7 @@
   "verein": "HSG Oberer Neckar",
   "saison": "26/27",
   "saison_abgeschlossen": false,
-  "geholt_am": "2026-10-31T21:24:41",
+  "geholt_am": "2026-11-01T00:58:51",
   "teams": {
     "herren1": {
       "name": "Herren",
@@ -883,7 +883,7 @@
           "tore_eigene": 23,
           "tore_gegner": 25,
           "halle": "Sporthalle beim Sportzentrum, Steinstraße 18, 71229 Leonberg",
-          "schiedsrichter": "Kalpakidis,Zeeb",
+          "schiedsrichter": "",
           "sequence": 0,
           "bericht_id": "3541721",
           "halbzeit_eigene": 11,
