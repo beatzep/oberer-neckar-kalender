@@ -2,7 +2,7 @@
   "verein": "HSG Oberer Neckar",
   "saison": "26/27",
   "saison_abgeschlossen": false,
-  "geholt_am": "2026-11-01T10:28:03",
+  "geholt_am": "2026-11-01T17:53:01",
   "teams": {
     "herren1": {
       "name": "Herren",
@@ -11,7 +11,7 @@
       "datei": "herren1.ics",
       "liga": "Männer Bezirksoberliga",
       "bereich": "Stuttgart-Rems-Murr",
-      "quelle_stand": "Letzte Änderung: Sa, 31.10.2026, 19:23h",
+      "quelle_stand": "Letzte Änderung: So, 01.11.2026, 16:27h",
       "spiele": [
         {
           "id": "9677971",
@@ -441,6 +441,18 @@
         },
         {
           "platz": 7,
+          "team": "HSG Bargau/Bettringen 2",
+          "spiele": 6,
+          "siege": 2,
+          "unentschieden": 0,
+          "niederlagen": 4,
+          "tore_geschossen": 150,
+          "tore_erhalten": 171,
+          "punkte_plus": 4,
+          "punkte_minus": 8
+        },
+        {
+          "platz": 8,
           "team": "TSB Schwäbisch Gmünd 2",
           "spiele": 6,
           "siege": 2,
@@ -452,7 +464,7 @@
           "punkte_minus": 8
         },
         {
-          "platz": 8,
+          "platz": 9,
           "team": "1. Heubacher Handballverein",
           "spiele": 4,
           "siege": 1,
@@ -462,18 +474,6 @@
           "tore_erhalten": 118,
           "punkte_plus": 3,
           "punkte_minus": 5
-        },
-        {
-          "platz": 9,
-          "team": "HSG Bargau/Bettringen 2",
-          "spiele": 5,
-          "siege": 1,
-          "unentschieden": 0,
-          "niederlagen": 4,
-          "tore_geschossen": 118,
-          "tore_erhalten": 143,
-          "punkte_plus": 2,
-          "punkte_minus": 8
         },
         {
           "platz": 10,
@@ -490,14 +490,14 @@
         {
           "platz": 11,
           "team": "SV Remshalden 2",
-          "spiele": 3,
+          "spiele": 4,
           "siege": 0,
           "unentschieden": 0,
-          "niederlagen": 3,
-          "tore_geschossen": 66,
-          "tore_erhalten": 94,
+          "niederlagen": 4,
+          "tore_geschossen": 94,
+          "tore_erhalten": 126,
           "punkte_plus": 0,
-          "punkte_minus": 6
+          "punkte_minus": 8
         },
         {
           "platz": 12,
