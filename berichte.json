@@ -8001,6 +8001,1313 @@
  },
  "3546093": {
   "fehler": "Spielstand springt von [14, 14] auf [14, 16]",
-  "versuche": 1
+  "versuche": 2
+ },
+ "3546649": {
+  "ereignisse": [
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Ronja Schick",
+    "nr": "20",
+    "s": 78,
+    "stand": [
+     1,
+     0
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "7",
+    "s": 121,
+    "stand": [
+     1,
+     1
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "33",
+    "s": 158,
+    "stand": [
+     1,
+     2
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Katrin Mischke",
+    "nr": "14",
+    "s": 180,
+    "stand": [
+     2,
+     2
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "33",
+    "s": 260,
+    "stand": [
+     2,
+     3
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Andrea Lindermayr",
+    "nr": "17",
+    "s": 285,
+    "stand": [
+     3,
+     3
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "11",
+    "s": 308,
+    "stand": [
+     3,
+     4
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "33",
+    "s": 421,
+    "stand": [
+     3,
+     5
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Ronja Schick",
+    "nr": "20",
+    "s": 455,
+    "stand": [
+     4,
+     5
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "13",
+    "s": 492,
+    "stand": [
+     4,
+     6
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Pia Saschin",
+    "nr": "7",
+    "s": 495,
+    "stand": [
+     5,
+     6
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Carina Janning",
+    "nr": "28",
+    "s": 531,
+    "stand": [
+     6,
+     6
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Laura Eitler",
+    "nr": "10",
+    "s": 587,
+    "stand": [
+     7,
+     6
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "14",
+    "s": 610,
+    "stand": [
+     7,
+     7
+    ]
+   },
+   {
+    "art": "siebenmeter",
+    "eigen": false,
+    "nr": "7",
+    "s": 713,
+    "stand": [
+     7,
+     8
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "11",
+    "s": 768,
+    "stand": [
+     7,
+     9
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "15",
+    "s": 855,
+    "stand": [
+     7,
+     10
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "10",
+    "s": 947,
+    "stand": [
+     7,
+     11
+    ]
+   },
+   {
+    "art": "auszeit",
+    "eigen": true,
+    "s": 948
+   },
+   {
+    "art": "zeitstrafe",
+    "eigen": false,
+    "nr": "29",
+    "s": 1034
+   },
+   {
+    "art": "siebenmeter",
+    "eigen": true,
+    "name": "Andrea Lindermayr",
+    "nr": "17",
+    "s": 1036,
+    "stand": [
+     8,
+     11
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "9",
+    "s": 1079,
+    "stand": [
+     8,
+     12
+    ]
+   },
+   {
+    "art": "siebenmeter",
+    "eigen": true,
+    "name": "Andrea Lindermayr",
+    "nr": "17",
+    "s": 1177,
+    "stand": [
+     9,
+     12
+    ]
+   },
+   {
+    "art": "siebenmeter_fehl",
+    "eigen": true,
+    "name": "Andrea Lindermayr",
+    "nr": "17",
+    "s": 1345
+   },
+   {
+    "art": "zeitstrafe",
+    "eigen": true,
+    "name": "Laura Eitler",
+    "nr": "10",
+    "s": 1386
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "11",
+    "s": 1399,
+    "stand": [
+     9,
+     13
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "11",
+    "s": 1433,
+    "stand": [
+     9,
+     14
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "2",
+    "s": 1530,
+    "stand": [
+     9,
+     15
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Anne Zimmermann",
+    "nr": "3",
+    "s": 1560,
+    "stand": [
+     10,
+     15
+    ]
+   },
+   {
+    "art": "zeitstrafe",
+    "eigen": true,
+    "name": "Laura Eitler",
+    "nr": "10",
+    "s": 1589
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Amelie Mischke",
+    "nr": "22",
+    "s": 1651,
+    "stand": [
+     11,
+     15
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "11",
+    "s": 1738,
+    "stand": [
+     11,
+     16
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "11",
+    "s": 1763,
+    "stand": [
+     11,
+     17
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "11",
+    "s": 1843,
+    "stand": [
+     11,
+     18
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Nikoletta Dovridou",
+    "nr": "8",
+    "s": 1858,
+    "stand": [
+     12,
+     18
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "11",
+    "s": 1997,
+    "stand": [
+     12,
+     19
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "4",
+    "s": 2100,
+    "stand": [
+     12,
+     20
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "4",
+    "s": 2299,
+    "stand": [
+     12,
+     21
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Katja Koch",
+    "nr": "15",
+    "s": 2314,
+    "stand": [
+     13,
+     21
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "2",
+    "s": 2346,
+    "stand": [
+     13,
+     22
+    ]
+   },
+   {
+    "art": "zeitstrafe",
+    "eigen": false,
+    "nr": "7",
+    "s": 2358
+   },
+   {
+    "art": "siebenmeter",
+    "eigen": true,
+    "name": "Anne Zimmermann",
+    "nr": "3",
+    "s": 2358,
+    "stand": [
+     14,
+     22
+    ]
+   },
+   {
+    "art": "auszeit",
+    "eigen": true,
+    "s": 2491
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Michelle Seybold",
+    "nr": "4",
+    "s": 2607,
+    "stand": [
+     15,
+     22
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "22",
+    "s": 2635,
+    "stand": [
+     15,
+     23
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "22",
+    "s": 2673,
+    "stand": [
+     15,
+     24
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Anne Zimmermann",
+    "nr": "3",
+    "s": 2797,
+    "stand": [
+     16,
+     24
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "22",
+    "s": 2842,
+    "stand": [
+     16,
+     25
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "9",
+    "s": 2980,
+    "stand": [
+     16,
+     26
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "14",
+    "s": 3054,
+    "stand": [
+     16,
+     27
+    ]
+   },
+   {
+    "art": "siebenmeter",
+    "eigen": true,
+    "name": "Anne Zimmermann",
+    "nr": "3",
+    "s": 3246,
+    "stand": [
+     17,
+     27
+    ]
+   },
+   {
+    "art": "siebenmeter",
+    "eigen": false,
+    "nr": "4",
+    "s": 3304,
+    "stand": [
+     17,
+     28
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "15",
+    "s": 3363,
+    "stand": [
+     17,
+     29
+    ]
+   },
+   {
+    "art": "auszeit",
+    "eigen": true,
+    "s": 3369
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "14",
+    "s": 3517,
+    "stand": [
+     17,
+     30
+    ]
+   },
+   {
+    "art": "zeitstrafe",
+    "eigen": true,
+    "name": "Katrin Mischke",
+    "nr": "14",
+    "s": 3520
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "9",
+    "s": 3595,
+    "stand": [
+     17,
+     31
+    ]
+   }
+  ],
+  "kader": [
+   {
+    "name": "Anne Zimmermann",
+    "nr": "3"
+   },
+   {
+    "name": "Michelle Seybold",
+    "nr": "4"
+   },
+   {
+    "name": "Anja Bifulco",
+    "nr": "5"
+   },
+   {
+    "name": "Pia Saschin",
+    "nr": "7"
+   },
+   {
+    "name": "Nikoletta Dovridou",
+    "nr": "8"
+   },
+   {
+    "name": "Laura Eitler",
+    "nr": "10"
+   },
+   {
+    "name": "Katrin Mischke",
+    "nr": "14"
+   },
+   {
+    "name": "Katja Koch",
+    "nr": "15"
+   },
+   {
+    "name": "Saskia Rittner",
+    "nr": "16"
+   },
+   {
+    "name": "Andrea Lindermayr",
+    "nr": "17"
+   },
+   {
+    "name": "Ronja Schick",
+    "nr": "20"
+   },
+   {
+    "name": "Amelie Mischke",
+    "nr": "22"
+   },
+   {
+    "name": "Carina Janning",
+    "nr": "28"
+   },
+   {
+    "name": "Dunja Bücheler",
+    "nr": "33"
+   }
+  ],
+  "zuschauer": 50
+ },
+ "3547269": {
+  "ereignisse": [
+   {
+    "art": "siebenmeter",
+    "eigen": true,
+    "name": "Jan Billner",
+    "nr": "10",
+    "s": 65,
+    "stand": [
+     1,
+     0
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "7",
+    "s": 114,
+    "stand": [
+     1,
+     1
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Jan Billner",
+    "nr": "10",
+    "s": 125,
+    "stand": [
+     2,
+     1
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Tim Burkhardt",
+    "nr": "46",
+    "s": 248,
+    "stand": [
+     3,
+     1
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "84",
+    "s": 288,
+    "stand": [
+     3,
+     2
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "84",
+    "s": 316,
+    "stand": [
+     3,
+     3
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Lukas Rueckle",
+    "nr": "4",
+    "s": 421,
+    "stand": [
+     4,
+     3
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "18",
+    "s": 487,
+    "stand": [
+     4,
+     4
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Lukas Rueckle",
+    "nr": "4",
+    "s": 592,
+    "stand": [
+     5,
+     4
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "7",
+    "s": 598,
+    "stand": [
+     5,
+     5
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Jona Bastian",
+    "nr": "69",
+    "s": 630,
+    "stand": [
+     6,
+     5
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "4",
+    "s": 720,
+    "stand": [
+     6,
+     6
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Noel Reibstein",
+    "nr": "2",
+    "s": 760,
+    "stand": [
+     7,
+     6
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "84",
+    "s": 786,
+    "stand": [
+     7,
+     7
+    ]
+   },
+   {
+    "art": "zeitstrafe",
+    "eigen": false,
+    "nr": "84",
+    "s": 797
+   },
+   {
+    "art": "siebenmeter",
+    "eigen": true,
+    "name": "Jan Billner",
+    "nr": "10",
+    "s": 801,
+    "stand": [
+     8,
+     7
+    ]
+   },
+   {
+    "art": "siebenmeter",
+    "eigen": false,
+    "nr": "6",
+    "s": 842,
+    "stand": [
+     8,
+     8
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Jan Billner",
+    "nr": "10",
+    "s": 921,
+    "stand": [
+     9,
+     8
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "25",
+    "s": 956,
+    "stand": [
+     9,
+     9
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Noel Reibstein",
+    "nr": "2",
+    "s": 967,
+    "stand": [
+     10,
+     9
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Jan Billner",
+    "nr": "10",
+    "s": 1012,
+    "stand": [
+     11,
+     9
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Jakob Hoffmann",
+    "nr": "25",
+    "s": 1068,
+    "stand": [
+     12,
+     9
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "25",
+    "s": 1082,
+    "stand": [
+     12,
+     10
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "25",
+    "s": 1184,
+    "stand": [
+     12,
+     11
+    ]
+   },
+   {
+    "art": "auszeit",
+    "eigen": true,
+    "s": 1201
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Jakob Hoffmann",
+    "nr": "25",
+    "s": 1219,
+    "stand": [
+     13,
+     11
+    ]
+   },
+   {
+    "art": "siebenmeter",
+    "eigen": false,
+    "nr": "6",
+    "s": 1270,
+    "stand": [
+     13,
+     12
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Marin Biljeskovic",
+    "nr": "58",
+    "s": 1324,
+    "stand": [
+     14,
+     12
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Marin Biljeskovic",
+    "nr": "58",
+    "s": 1361,
+    "stand": [
+     15,
+     12
+    ]
+   },
+   {
+    "art": "auszeit",
+    "eigen": false,
+    "s": 1381
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "26",
+    "s": 1405,
+    "stand": [
+     15,
+     13
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "4",
+    "s": 1464,
+    "stand": [
+     15,
+     14
+    ]
+   },
+   {
+    "art": "siebenmeter",
+    "eigen": true,
+    "name": "Jan Billner",
+    "nr": "10",
+    "s": 1501,
+    "stand": [
+     16,
+     14
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Jakob Hoffmann",
+    "nr": "25",
+    "s": 1562,
+    "stand": [
+     17,
+     14
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "26",
+    "s": 1600,
+    "stand": [
+     17,
+     15
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Jan Billner",
+    "nr": "10",
+    "s": 1636,
+    "stand": [
+     18,
+     15
+    ]
+   },
+   {
+    "art": "zeitstrafe",
+    "eigen": true,
+    "name": "Robin Wegfahrt",
+    "nr": "90",
+    "s": 1646
+   },
+   {
+    "art": "siebenmeter",
+    "eigen": false,
+    "nr": "6",
+    "s": 1650,
+    "stand": [
+     18,
+     16
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Paul Kazmaier",
+    "nr": "15",
+    "s": 1680,
+    "stand": [
+     19,
+     16
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "26",
+    "s": 1700,
+    "stand": [
+     19,
+     17
+    ]
+   },
+   {
+    "art": "siebenmeter",
+    "eigen": false,
+    "nr": "6",
+    "s": 1757,
+    "stand": [
+     19,
+     18
+    ]
+   },
+   {
+    "art": "zeitstrafe",
+    "eigen": false,
+    "nr": "26",
+    "s": 1794
+   },
+   {
+    "art": "siebenmeter_fehl",
+    "eigen": true,
+    "name": "Jan Billner",
+    "nr": "10",
+    "s": 1799
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Jan Billner",
+    "nr": "10",
+    "s": 2001,
+    "stand": [
+     20,
+     18
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "18",
+    "s": 2009,
+    "stand": [
+     20,
+     19
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "25",
+    "s": 2104,
+    "stand": [
+     20,
+     20
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Lukas Rueckle",
+    "nr": "4",
+    "s": 2181,
+    "stand": [
+     21,
+     20
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Jan Billner",
+    "nr": "10",
+    "s": 2245,
+    "stand": [
+     22,
+     20
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "7",
+    "s": 2337,
+    "stand": [
+     22,
+     21
+    ]
+   },
+   {
+    "art": "zeitstrafe",
+    "eigen": false,
+    "nr": "10",
+    "s": 2370
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "28",
+    "s": 2486,
+    "stand": [
+     22,
+     22
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "7",
+    "s": 2635,
+    "stand": [
+     22,
+     23
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Noel Reibstein",
+    "nr": "2",
+    "s": 2650,
+    "stand": [
+     23,
+     23
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "7",
+    "s": 2765,
+    "stand": [
+     23,
+     24
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Noel Reibstein",
+    "nr": "2",
+    "s": 2783,
+    "stand": [
+     24,
+     24
+    ]
+   },
+   {
+    "art": "auszeit",
+    "eigen": true,
+    "s": 2977
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Paul Kazmaier",
+    "nr": "15",
+    "s": 3218,
+    "stand": [
+     25,
+     24
+    ]
+   },
+   {
+    "art": "auszeit",
+    "eigen": false,
+    "s": 3240
+   },
+   {
+    "art": "siebenmeter",
+    "eigen": false,
+    "nr": "6",
+    "s": 3294,
+    "stand": [
+     25,
+     25
+    ]
+   },
+   {
+    "art": "siebenmeter",
+    "eigen": false,
+    "nr": "6",
+    "s": 3395,
+    "stand": [
+     25,
+     26
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Jan Billner",
+    "nr": "10",
+    "s": 3484,
+    "stand": [
+     26,
+     26
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "26",
+    "s": 3507,
+    "stand": [
+     26,
+     27
+    ]
+   },
+   {
+    "art": "auszeit",
+    "eigen": true,
+    "s": 3559
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Tim Burkhardt",
+    "nr": "46",
+    "s": 3577,
+    "stand": [
+     27,
+     27
+    ]
+   },
+   {
+    "art": "auszeit",
+    "eigen": false,
+    "s": 3577
+   }
+  ],
+  "kader": [
+   {
+    "name": "Noel Reibstein",
+    "nr": "2"
+   },
+   {
+    "name": "Lukas Rueckle",
+    "nr": "4"
+   },
+   {
+    "name": "Marc Bayer",
+    "nr": "8"
+   },
+   {
+    "name": "Jan Billner",
+    "nr": "10"
+   },
+   {
+    "name": "Laurin Raab",
+    "nr": "11"
+   },
+   {
+    "name": "Marvin Frech",
+    "nr": "12"
+   },
+   {
+    "name": "Jakob Ringler",
+    "nr": "13"
+   },
+   {
+    "name": "Paul Kazmaier",
+    "nr": "15"
+   },
+   {
+    "name": "Jakob Hoffmann",
+    "nr": "25"
+   },
+   {
+    "name": "Benedikt Ringler",
+    "nr": "36"
+   },
+   {
+    "name": "Tim Burkhardt",
+    "nr": "46"
+   },
+   {
+    "name": "Marin Biljeskovic",
+    "nr": "58"
+   },
+   {
+    "name": "Jona Bastian",
+    "nr": "69"
+   },
+   {
+    "name": "Robin Wegfahrt",
+    "nr": "90"
+   }
+  ],
+  "zuschauer": 85
  }
 }

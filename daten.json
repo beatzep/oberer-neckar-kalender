@@ -2,7 +2,7 @@
   "verein": "HSG Oberer Neckar",
   "saison": "26/27",
   "saison_abgeschlossen": false,
-  "geholt_am": "2026-11-07T17:42:58",
+  "geholt_am": "2026-11-07T21:42:58",
   "teams": {
     "herren1": {
       "name": "Herren",
@@ -11,7 +11,7 @@
       "datei": "herren1.ics",
       "liga": "Männer Bezirksoberliga",
       "bereich": "Stuttgart-Rems-Murr",
-      "quelle_stand": "Letzte Änderung: Sa, 07.11.2026, 17:27h",
+      "quelle_stand": "Letzte Änderung: Sa, 07.11.2026, 21:31h",
       "spiele": [
         {
           "id": "9677971",
@@ -100,14 +100,14 @@
           "uhrzeit_bekannt": true,
           "heim": true,
           "gegner": "TV Oeffingen 2",
-          "tore_eigene": null,
-          "tore_gegner": null,
+          "tore_eigene": 27,
+          "tore_gegner": 27,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
           "schiedsrichter": "Ryssel",
           "sequence": 0,
-          "bericht_id": null,
-          "halbzeit_eigene": null,
-          "halbzeit_gegner": null
+          "bericht_id": "3547269",
+          "halbzeit_eigene": 19,
+          "halbzeit_gegner": 18
         },
         {
           "id": "9678196",
@@ -382,77 +382,65 @@
         {
           "platz": 2,
           "team": "TV Oeffingen 1897 2",
-          "spiele": 5,
+          "spiele": 6,
           "siege": 5,
-          "unentschieden": 0,
-          "niederlagen": 0,
-          "tore_geschossen": 186,
-          "tore_erhalten": 132,
-          "punkte_plus": 10,
-          "punkte_minus": 0
-        },
-        {
-          "platz": 3,
-          "team": "SG Schorndorf 1846",
-          "spiele": 5,
-          "siege": 4,
           "unentschieden": 1,
           "niederlagen": 0,
-          "tore_geschossen": 158,
-          "tore_erhalten": 145,
-          "punkte_plus": 9,
+          "tore_geschossen": 213,
+          "tore_erhalten": 159,
+          "punkte_plus": 11,
+          "punkte_minus": 1
+        },
+        {
+          "platz": null,
+          "team": "SG Schorndorf 1846",
+          "spiele": 6,
+          "siege": 5,
+          "unentschieden": 1,
+          "niederlagen": 0,
+          "tore_geschossen": 193,
+          "tore_erhalten": 167,
+          "punkte_plus": 11,
           "punkte_minus": 1
         },
         {
           "platz": 4,
           "team": "TV Obertürkheim",
-          "spiele": 5,
+          "spiele": 6,
           "siege": 4,
-          "unentschieden": 0,
+          "unentschieden": 1,
           "niederlagen": 1,
-          "tore_geschossen": 160,
-          "tore_erhalten": 137,
-          "punkte_plus": 8,
-          "punkte_minus": 2
+          "tore_geschossen": 191,
+          "tore_erhalten": 168,
+          "punkte_plus": 9,
+          "punkte_minus": 3
         },
         {
           "platz": 5,
           "team": "SF Schwaikheim 2",
-          "spiele": 6,
+          "spiele": 7,
           "siege": 4,
-          "unentschieden": 0,
+          "unentschieden": 1,
           "niederlagen": 2,
-          "tore_geschossen": 170,
-          "tore_erhalten": 152,
-          "punkte_plus": 8,
-          "punkte_minus": 4
+          "tore_geschossen": 201,
+          "tore_erhalten": 183,
+          "punkte_plus": 9,
+          "punkte_minus": 5
         },
         {
           "platz": 6,
           "team": "HSG Oberer Neckar",
-          "spiele": 5,
+          "spiele": 6,
           "siege": 3,
-          "unentschieden": 1,
+          "unentschieden": 2,
           "niederlagen": 1,
-          "tore_geschossen": 178,
-          "tore_erhalten": 160,
-          "punkte_plus": 7,
-          "punkte_minus": 3
+          "tore_geschossen": 205,
+          "tore_erhalten": 187,
+          "punkte_plus": 8,
+          "punkte_minus": 4
         },
         {
           "platz": 7,
-          "team": "HSG Bargau/Bettringen 2",
-          "spiele": 6,
-          "siege": 2,
-          "unentschieden": 0,
-          "niederlagen": 4,
-          "tore_geschossen": 150,
-          "tore_erhalten": 171,
-          "punkte_plus": 4,
-          "punkte_minus": 8
-        },
-        {
-          "platz": 8,
           "team": "TSB Schwäbisch Gmünd 2",
           "spiele": 6,
           "siege": 2,
@@ -462,6 +450,18 @@
           "tore_erhalten": 160,
           "punkte_plus": 4,
           "punkte_minus": 8
+        },
+        {
+          "platz": 8,
+          "team": "HSG Bargau/Bettringen 2",
+          "spiele": 7,
+          "siege": 2,
+          "unentschieden": 0,
+          "niederlagen": 5,
+          "tore_geschossen": 172,
+          "tore_erhalten": 206,
+          "punkte_plus": 4,
+          "punkte_minus": 10
         },
         {
           "platz": 9,
@@ -477,6 +477,18 @@
         },
         {
           "platz": 10,
+          "team": "TSF Ditzingen 2",
+          "spiele": 7,
+          "siege": 1,
+          "unentschieden": 0,
+          "niederlagen": 6,
+          "tore_geschossen": 187,
+          "tore_erhalten": 242,
+          "punkte_plus": 2,
+          "punkte_minus": 12
+        },
+        {
+          "platz": 11,
           "team": "TSV Schmiden 1902 3",
           "spiele": 7,
           "siege": 0,
@@ -488,28 +500,16 @@
           "punkte_minus": 13
         },
         {
-          "platz": 11,
-          "team": "SV Remshalden 2",
-          "spiele": 4,
-          "siege": 0,
-          "unentschieden": 0,
-          "niederlagen": 4,
-          "tore_geschossen": 94,
-          "tore_erhalten": 126,
-          "punkte_plus": 0,
-          "punkte_minus": 8
-        },
-        {
           "platz": 12,
-          "team": "TSF Ditzingen 2",
-          "spiele": 6,
+          "team": "SV Remshalden 2",
+          "spiele": 5,
           "siege": 0,
           "unentschieden": 0,
-          "niederlagen": 6,
-          "tore_geschossen": 153,
-          "tore_erhalten": 210,
+          "niederlagen": 5,
+          "tore_geschossen": 126,
+          "tore_erhalten": 160,
           "punkte_plus": 0,
-          "punkte_minus": 12
+          "punkte_minus": 10
         }
       ],
       "aenderungen": []
@@ -521,7 +521,7 @@
       "datei": "herren2.ics",
       "liga": "Männer 3. Bezirksklasse",
       "bereich": "Stuttgart-Rems-Murr",
-      "quelle_stand": "Letzte Änderung: Sa, 07.11.2026, 17:32h",
+      "quelle_stand": "Letzte Änderung: Sa, 07.11.2026, 20:31h",
       "spiele": [
         {
           "id": "9680596",
@@ -763,6 +763,18 @@
         },
         {
           "platz": 2,
+          "team": "SV Hohenacker-Neustadt 3",
+          "spiele": 5,
+          "siege": 3,
+          "unentschieden": 0,
+          "niederlagen": 2,
+          "tore_geschossen": 153,
+          "tore_erhalten": 140,
+          "punkte_plus": 6,
+          "punkte_minus": 4
+        },
+        {
+          "platz": 3,
           "team": "SV Remshalden 4",
           "spiele": 3,
           "siege": 2,
@@ -774,19 +786,19 @@
           "punkte_minus": 1
         },
         {
-          "platz": 3,
-          "team": "SV Hohenacker-Neustadt 3",
-          "spiele": 4,
+          "platz": 4,
+          "team": "TSV Haubersbronn",
+          "spiele": 3,
           "siege": 2,
           "unentschieden": 0,
-          "niederlagen": 2,
-          "tore_geschossen": 126,
-          "tore_erhalten": 119,
+          "niederlagen": 1,
+          "tore_geschossen": 43,
+          "tore_erhalten": 57,
           "punkte_plus": 4,
-          "punkte_minus": 4
+          "punkte_minus": 2
         },
         {
-          "platz": 4,
+          "platz": 5,
           "team": "HSG Oberer Neckar 2",
           "spiele": 5,
           "siege": 1,
@@ -798,43 +810,7 @@
           "punkte_minus": 7
         },
         {
-          "platz": 5,
-          "team": "TSV Haubersbronn",
-          "spiele": 2,
-          "siege": 1,
-          "unentschieden": 0,
-          "niederlagen": 1,
-          "tore_geschossen": 18,
-          "tore_erhalten": 34,
-          "punkte_plus": 2,
-          "punkte_minus": 2
-        },
-        {
           "platz": 6,
-          "team": "TSF Welzheim 2",
-          "spiele": 3,
-          "siege": 1,
-          "unentschieden": 0,
-          "niederlagen": 2,
-          "tore_geschossen": 81,
-          "tore_erhalten": 98,
-          "punkte_plus": 2,
-          "punkte_minus": 4
-        },
-        {
-          "platz": 7,
-          "team": "MTV Stuttgart 4",
-          "spiele": 4,
-          "siege": 1,
-          "unentschieden": 0,
-          "niederlagen": 3,
-          "tore_geschossen": 121,
-          "tore_erhalten": 135,
-          "punkte_plus": 2,
-          "punkte_minus": 6
-        },
-        {
-          "platz": null,
           "team": "KSG Gerlingen",
           "spiele": 4,
           "siege": 1,
@@ -844,6 +820,30 @@
           "tore_erhalten": 112,
           "punkte_plus": 2,
           "punkte_minus": 6
+        },
+        {
+          "platz": null,
+          "team": "TSF Welzheim 2",
+          "spiele": 4,
+          "siege": 1,
+          "unentschieden": 0,
+          "niederlagen": 3,
+          "tore_geschossen": 102,
+          "tore_erhalten": 125,
+          "punkte_plus": 2,
+          "punkte_minus": 6
+        },
+        {
+          "platz": 8,
+          "team": "MTV Stuttgart 4",
+          "spiele": 5,
+          "siege": 1,
+          "unentschieden": 0,
+          "niederlagen": 4,
+          "tore_geschossen": 144,
+          "tore_erhalten": 160,
+          "punkte_plus": 2,
+          "punkte_minus": 8
         }
       ],
       "aenderungen": []
@@ -855,7 +855,7 @@
       "datei": "damen.ics",
       "liga": "Frauen-Landesliga Staffel 2",
       "bereich": "Baden-Württembergischer Handball-Verband",
-      "quelle_stand": "Letzte Änderung: Sa, 07.11.2026, 17:38h",
+      "quelle_stand": "Letzte Änderung: Sa, 07.11.2026, 19:23h",
       "spiele": [
         {
           "id": "9419631",
@@ -896,14 +896,14 @@
           "uhrzeit_bekannt": true,
           "heim": true,
           "gegner": "MTV Stuttgart",
-          "tore_eigene": 11,
-          "tore_gegner": 17,
+          "tore_eigene": 17,
+          "tore_gegner": 31,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
           "schiedsrichter": "Fuhrmann",
           "sequence": 0,
-          "bericht_id": null,
-          "halbzeit_eigene": null,
-          "halbzeit_gegner": null
+          "bericht_id": "3546649",
+          "halbzeit_eigene": 11,
+          "halbzeit_gegner": 17
         },
         {
           "id": "9419706",
@@ -1165,6 +1165,18 @@
         },
         {
           "platz": 5,
+          "team": "MTV Stuttgart",
+          "spiele": 4,
+          "siege": 1,
+          "unentschieden": 1,
+          "niederlagen": 2,
+          "tore_geschossen": 92,
+          "tore_erhalten": 93,
+          "punkte_plus": 3,
+          "punkte_minus": 5
+        },
+        {
+          "platz": 6,
           "team": "SG Weissach im Tal",
           "spiele": 2,
           "siege": 0,
@@ -1174,18 +1186,6 @@
           "tore_erhalten": 70,
           "punkte_plus": 1,
           "punkte_minus": 3
-        },
-        {
-          "platz": 6,
-          "team": "MTV Stuttgart",
-          "spiele": 3,
-          "siege": 0,
-          "unentschieden": 1,
-          "niederlagen": 2,
-          "tore_geschossen": 61,
-          "tore_erhalten": 76,
-          "punkte_plus": 1,
-          "punkte_minus": 5
         },
         {
           "platz": 7,
@@ -1200,19 +1200,7 @@
           "punkte_minus": 4
         },
         {
-          "platz": null,
-          "team": "HSG Oberer Neckar",
-          "spiele": 2,
-          "siege": 0,
-          "unentschieden": 0,
-          "niederlagen": 2,
-          "tore_geschossen": 48,
-          "tore_erhalten": 56,
-          "punkte_plus": 0,
-          "punkte_minus": 4
-        },
-        {
-          "platz": 9,
+          "platz": 8,
           "team": "SV Fellbach",
           "spiele": 3,
           "siege": 0,
@@ -1220,6 +1208,18 @@
           "niederlagen": 3,
           "tore_geschossen": 75,
           "tore_erhalten": 91,
+          "punkte_plus": 0,
+          "punkte_minus": 6
+        },
+        {
+          "platz": null,
+          "team": "HSG Oberer Neckar",
+          "spiele": 3,
+          "siege": 0,
+          "unentschieden": 0,
+          "niederlagen": 3,
+          "tore_geschossen": 65,
+          "tore_erhalten": 87,
           "punkte_plus": 0,
           "punkte_minus": 6
         }
