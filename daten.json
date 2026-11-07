@@ -2,7 +2,7 @@
   "verein": "HSG Oberer Neckar",
   "saison": "26/27",
   "saison_abgeschlossen": false,
-  "geholt_am": "2026-11-07T10:09:43",
+  "geholt_am": "2026-11-07T17:42:58",
   "teams": {
     "herren1": {
       "name": "Herren",
@@ -11,7 +11,7 @@
       "datei": "herren1.ics",
       "liga": "Männer Bezirksoberliga",
       "bereich": "Stuttgart-Rems-Murr",
-      "quelle_stand": "Letzte Änderung: So, 01.11.2026, 16:27h",
+      "quelle_stand": "Letzte Änderung: Sa, 07.11.2026, 17:27h",
       "spiele": [
         {
           "id": "9677971",
@@ -369,6 +369,18 @@
       "tabelle": [
         {
           "platz": 1,
+          "team": "HandballTeam Heckengäu",
+          "spiele": 7,
+          "siege": 6,
+          "unentschieden": 0,
+          "niederlagen": 1,
+          "tore_geschossen": 225,
+          "tore_erhalten": 165,
+          "punkte_plus": 12,
+          "punkte_minus": 2
+        },
+        {
+          "platz": 2,
           "team": "TV Oeffingen 1897 2",
           "spiele": 5,
           "siege": 5,
@@ -378,18 +390,6 @@
           "tore_erhalten": 132,
           "punkte_plus": 10,
           "punkte_minus": 0
-        },
-        {
-          "platz": 2,
-          "team": "HandballTeam Heckengäu",
-          "spiele": 6,
-          "siege": 5,
-          "unentschieden": 0,
-          "niederlagen": 1,
-          "tore_geschossen": 188,
-          "tore_erhalten": 134,
-          "punkte_plus": 10,
-          "punkte_minus": 2
         },
         {
           "platz": 3,
@@ -478,14 +478,14 @@
         {
           "platz": 10,
           "team": "TSV Schmiden 1902 3",
-          "spiele": 6,
+          "spiele": 7,
           "siege": 0,
           "unentschieden": 1,
-          "niederlagen": 5,
-          "tore_geschossen": 169,
-          "tore_erhalten": 205,
+          "niederlagen": 6,
+          "tore_geschossen": 200,
+          "tore_erhalten": 242,
           "punkte_plus": 1,
-          "punkte_minus": 11
+          "punkte_minus": 13
         },
         {
           "platz": 11,
@@ -521,7 +521,7 @@
       "datei": "herren2.ics",
       "liga": "Männer 3. Bezirksklasse",
       "bereich": "Stuttgart-Rems-Murr",
-      "quelle_stand": "Letzte Änderung: Sa, 31.10.2026, 21:26h",
+      "quelle_stand": "Letzte Änderung: Sa, 07.11.2026, 17:32h",
       "spiele": [
         {
           "id": "9680596",
@@ -594,14 +594,14 @@
           "uhrzeit_bekannt": true,
           "heim": true,
           "gegner": "KSG Gerlingen",
-          "tore_eigene": null,
-          "tore_gegner": null,
+          "tore_eigene": 35,
+          "tore_gegner": 40,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
           "schiedsrichter": "Shabanaj",
           "sequence": 0,
-          "bericht_id": null,
-          "halbzeit_eigene": null,
-          "halbzeit_gegner": null
+          "bericht_id": "3546093",
+          "halbzeit_eigene": 17,
+          "halbzeit_gegner": 17
         },
         {
           "id": "9680711",
@@ -788,14 +788,14 @@
         {
           "platz": 4,
           "team": "HSG Oberer Neckar 2",
-          "spiele": 4,
+          "spiele": 5,
           "siege": 1,
           "unentschieden": 1,
-          "niederlagen": 2,
-          "tore_geschossen": 90,
-          "tore_erhalten": 100,
+          "niederlagen": 3,
+          "tore_geschossen": 125,
+          "tore_erhalten": 140,
           "punkte_plus": 3,
-          "punkte_minus": 5
+          "punkte_minus": 7
         },
         {
           "platz": 5,
@@ -834,15 +834,15 @@
           "punkte_minus": 6
         },
         {
-          "platz": 8,
+          "platz": null,
           "team": "KSG Gerlingen",
-          "spiele": 3,
-          "siege": 0,
+          "spiele": 4,
+          "siege": 1,
           "unentschieden": 0,
           "niederlagen": 3,
-          "tore_geschossen": 50,
-          "tore_erhalten": 77,
-          "punkte_plus": 0,
+          "tore_geschossen": 90,
+          "tore_erhalten": 112,
+          "punkte_plus": 2,
           "punkte_minus": 6
         }
       ],
@@ -855,7 +855,7 @@
       "datei": "damen.ics",
       "liga": "Frauen-Landesliga Staffel 2",
       "bereich": "Baden-Württembergischer Handball-Verband",
-      "quelle_stand": "Letzte Änderung: Sa, 31.10.2026, 19:22h",
+      "quelle_stand": "Letzte Änderung: Sa, 07.11.2026, 17:38h",
       "spiele": [
         {
           "id": "9419631",
@@ -896,8 +896,8 @@
           "uhrzeit_bekannt": true,
           "heim": true,
           "gegner": "MTV Stuttgart",
-          "tore_eigene": null,
-          "tore_gegner": null,
+          "tore_eigene": 11,
+          "tore_gegner": 17,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
           "schiedsrichter": "Fuhrmann",
           "sequence": 0,
@@ -1141,6 +1141,18 @@
         },
         {
           "platz": 3,
+          "team": "SV Leonberg/Eltingen 2",
+          "spiele": 4,
+          "siege": 3,
+          "unentschieden": 0,
+          "niederlagen": 1,
+          "tore_geschossen": 122,
+          "tore_erhalten": 103,
+          "punkte_plus": 6,
+          "punkte_minus": 2
+        },
+        {
+          "platz": 4,
           "team": "HC Oppenweiler/Backnang",
           "spiele": 4,
           "siege": 2,
@@ -1152,28 +1164,16 @@
           "punkte_minus": 3
         },
         {
-          "platz": 4,
-          "team": "SV Leonberg/Eltingen 2",
-          "spiele": 3,
-          "siege": 2,
-          "unentschieden": 0,
-          "niederlagen": 1,
-          "tore_geschossen": 81,
-          "tore_erhalten": 71,
-          "punkte_plus": 4,
-          "punkte_minus": 2
-        },
-        {
           "platz": 5,
           "team": "SG Weissach im Tal",
-          "spiele": 1,
+          "spiele": 2,
           "siege": 0,
           "unentschieden": 1,
-          "niederlagen": 0,
-          "tore_geschossen": 29,
-          "tore_erhalten": 29,
+          "niederlagen": 1,
+          "tore_geschossen": 61,
+          "tore_erhalten": 70,
           "punkte_plus": 1,
-          "punkte_minus": 1
+          "punkte_minus": 3
         },
         {
           "platz": 6,
