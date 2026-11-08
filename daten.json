@@ -2,7 +2,7 @@
   "verein": "HSG Oberer Neckar",
   "saison": "26/27",
   "saison_abgeschlossen": false,
-  "geholt_am": "2026-11-08T17:52:38",
+  "geholt_am": "2026-11-08T21:56:45",
   "teams": {
     "herren1": {
       "name": "Herren",
@@ -521,7 +521,7 @@
       "datei": "herren2.ics",
       "liga": "Männer 3. Bezirksklasse",
       "bereich": "Stuttgart-Rems-Murr",
-      "quelle_stand": "Letzte Änderung: Sa, 07.11.2026, 20:31h",
+      "quelle_stand": "Letzte Änderung: So, 08.11.2026, 19:02h",
       "spiele": [
         {
           "id": "9680596",
@@ -752,13 +752,13 @@
         {
           "platz": 1,
           "team": "HandballTeam Heckengäu 5",
-          "spiele": 5,
-          "siege": 5,
+          "spiele": 6,
+          "siege": 6,
           "unentschieden": 0,
           "niederlagen": 0,
-          "tore_geschossen": 141,
-          "tore_erhalten": 100,
-          "punkte_plus": 10,
+          "tore_geschossen": 168,
+          "tore_erhalten": 124,
+          "punkte_plus": 12,
           "punkte_minus": 0
         },
         {
@@ -776,14 +776,14 @@
         {
           "platz": 3,
           "team": "SV Remshalden 4",
-          "spiele": 3,
+          "spiele": 4,
           "siege": 2,
           "unentschieden": 1,
-          "niederlagen": 0,
-          "tore_geschossen": 109,
-          "tore_erhalten": 73,
+          "niederlagen": 1,
+          "tore_geschossen": 133,
+          "tore_erhalten": 100,
           "punkte_plus": 5,
-          "punkte_minus": 1
+          "punkte_minus": 3
         },
         {
           "platz": 4,
