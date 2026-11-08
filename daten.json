@@ -2,7 +2,7 @@
   "verein": "HSG Oberer Neckar",
   "saison": "26/27",
   "saison_abgeschlossen": false,
-  "geholt_am": "2026-11-08T10:22:54",
+  "geholt_am": "2026-11-08T17:52:38",
   "teams": {
     "herren1": {
       "name": "Herren",
@@ -11,7 +11,7 @@
       "datei": "herren1.ics",
       "liga": "Männer Bezirksoberliga",
       "bereich": "Stuttgart-Rems-Murr",
-      "quelle_stand": "Letzte Änderung: Sa, 07.11.2026, 21:31h",
+      "quelle_stand": "Letzte Änderung: So, 08.11.2026, 18:26h",
       "spiele": [
         {
           "id": "9677971",
@@ -441,15 +441,15 @@
         },
         {
           "platz": 7,
-          "team": "TSB Schwäbisch Gmünd 2",
-          "spiele": 6,
+          "team": "1. Heubacher Handballverein",
+          "spiele": 5,
           "siege": 2,
-          "unentschieden": 0,
-          "niederlagen": 4,
+          "unentschieden": 1,
+          "niederlagen": 2,
           "tore_geschossen": 141,
-          "tore_erhalten": 160,
-          "punkte_plus": 4,
-          "punkte_minus": 8
+          "tore_erhalten": 149,
+          "punkte_plus": 5,
+          "punkte_minus": 5
         },
         {
           "platz": 8,
@@ -465,15 +465,15 @@
         },
         {
           "platz": 9,
-          "team": "1. Heubacher Handballverein",
-          "spiele": 4,
-          "siege": 1,
-          "unentschieden": 1,
-          "niederlagen": 2,
-          "tore_geschossen": 103,
-          "tore_erhalten": 118,
-          "punkte_plus": 3,
-          "punkte_minus": 5
+          "team": "TSB Schwäbisch Gmünd 2",
+          "spiele": 7,
+          "siege": 2,
+          "unentschieden": 0,
+          "niederlagen": 5,
+          "tore_geschossen": 172,
+          "tore_erhalten": 198,
+          "punkte_plus": 4,
+          "punkte_minus": 10
         },
         {
           "platz": 10,
