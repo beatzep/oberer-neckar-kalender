@@ -2,7 +2,7 @@
   "verein": "HSG Oberer Neckar",
   "saison": "26/27",
   "saison_abgeschlossen": false,
-  "geholt_am": "2026-11-11T10:57:51",
+  "geholt_am": "2026-11-12T11:10:22",
   "teams": {
     "herren1": {
       "name": "Herren",
@@ -915,7 +915,7 @@
           "tore_eigene": null,
           "tore_gegner": null,
           "halle": "Sporthalle, Obere Schloßstraße 72, 73553 Alfdorf",
-          "schiedsrichter": "",
+          "schiedsrichter": "Schneiker,Wohlang",
           "sequence": 0,
           "bericht_id": null,
           "halbzeit_eigene": null,
