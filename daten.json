@@ -2,7 +2,7 @@
   "verein": "HSG Oberer Neckar",
   "saison": "26/27",
   "saison_abgeschlossen": false,
-  "geholt_am": "2026-11-12T11:10:22",
+  "geholt_am": "2026-11-13T10:59:01",
   "teams": {
     "herren1": {
       "name": "Herren",
@@ -610,14 +610,14 @@
           "uhrzeit_bekannt": true,
           "heim": false,
           "gegner": "MTV Stuttgart 4",
-          "tore_eigene": null,
-          "tore_gegner": null,
+          "tore_eigene": 0,
+          "tore_gegner": 0,
           "halle": "Sporthalle West (Hasenberg-Schule), Bebelstraße 28, 70193 Stuttgart-West",
           "schiedsrichter": "Brenner",
           "sequence": 0,
           "bericht_id": null,
-          "halbzeit_eigene": null,
-          "halbzeit_gegner": null
+          "halbzeit_eigene": 0,
+          "halbzeit_gegner": 0
         },
         {
           "id": "9680746",
@@ -799,18 +799,30 @@
         },
         {
           "platz": 5,
-          "team": "HSG Oberer Neckar 2",
-          "spiele": 5,
-          "siege": 1,
-          "unentschieden": 1,
-          "niederlagen": 3,
-          "tore_geschossen": 125,
-          "tore_erhalten": 140,
-          "punkte_plus": 3,
-          "punkte_minus": 7
+          "team": "MTV Stuttgart 4",
+          "spiele": 6,
+          "siege": 2,
+          "unentschieden": 0,
+          "niederlagen": 4,
+          "tore_geschossen": 144,
+          "tore_erhalten": 160,
+          "punkte_plus": 4,
+          "punkte_minus": 8
         },
         {
           "platz": 6,
+          "team": "HSG Oberer Neckar 2",
+          "spiele": 6,
+          "siege": 1,
+          "unentschieden": 1,
+          "niederlagen": 4,
+          "tore_geschossen": 125,
+          "tore_erhalten": 140,
+          "punkte_plus": 3,
+          "punkte_minus": 9
+        },
+        {
+          "platz": 7,
           "team": "KSG Gerlingen",
           "spiele": 4,
           "siege": 1,
@@ -832,18 +844,6 @@
           "tore_erhalten": 125,
           "punkte_plus": 2,
           "punkte_minus": 6
-        },
-        {
-          "platz": 8,
-          "team": "MTV Stuttgart 4",
-          "spiele": 5,
-          "siege": 1,
-          "unentschieden": 0,
-          "niederlagen": 4,
-          "tore_geschossen": 144,
-          "tore_erhalten": 160,
-          "punkte_plus": 2,
-          "punkte_minus": 8
         }
       ],
       "aenderungen": []
