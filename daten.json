@@ -2,7 +2,7 @@
   "verein": "HSG Oberer Neckar",
   "saison": "26/27",
   "saison_abgeschlossen": false,
-  "geholt_am": "2026-11-13T10:59:01",
+  "geholt_am": "2026-11-14T10:26:31",
   "teams": {
     "herren1": {
       "name": "Herren",
@@ -119,7 +119,7 @@
           "tore_eigene": null,
           "tore_gegner": null,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
-          "schiedsrichter": "",
+          "schiedsrichter": "Bernhardt",
           "sequence": 0,
           "bericht_id": null,
           "halbzeit_eigene": null,
@@ -629,7 +629,7 @@
           "tore_eigene": null,
           "tore_gegner": null,
           "halle": "Sporthalle Neustadt, Ringstraße 26, 71336 Waiblingen-Neustadt",
-          "schiedsrichter": "",
+          "schiedsrichter": "Stathopoulos",
           "sequence": 0,
           "bericht_id": null,
           "halbzeit_eigene": null,
