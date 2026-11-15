@@ -9309,5 +9309,612 @@
    }
   ],
   "zuschauer": 85
+ },
+ "3556433": {
+  "ereignisse": [
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "4",
+    "s": 47,
+    "stand": [
+     1,
+     0
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Nikoletta Dovridou",
+    "nr": "8",
+    "s": 151,
+    "stand": [
+     1,
+     1
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Michelle Seybold",
+    "nr": "4",
+    "s": 241,
+    "stand": [
+     1,
+     2
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Nikoletta Dovridou",
+    "nr": "8",
+    "s": 297,
+    "stand": [
+     1,
+     3
+    ]
+   },
+   {
+    "art": "siebenmeter_fehl",
+    "eigen": false,
+    "nr": "2",
+    "s": 388
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Andrea Lindermayr",
+    "nr": "17",
+    "s": 502,
+    "stand": [
+     1,
+     4
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "5",
+    "s": 551,
+    "stand": [
+     2,
+     4
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Michelle Seybold",
+    "nr": "4",
+    "s": 564,
+    "stand": [
+     2,
+     5
+    ]
+   },
+   {
+    "art": "zeitstrafe",
+    "eigen": true,
+    "name": "Michelle Seybold",
+    "nr": "4",
+    "s": 581
+   },
+   {
+    "art": "siebenmeter",
+    "eigen": false,
+    "nr": "2",
+    "s": 583,
+    "stand": [
+     3,
+     5
+    ]
+   },
+   {
+    "art": "siebenmeter",
+    "eigen": false,
+    "nr": "2",
+    "s": 686,
+    "stand": [
+     4,
+     5
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Nikoletta Dovridou",
+    "nr": "8",
+    "s": 733,
+    "stand": [
+     4,
+     6
+    ]
+   },
+   {
+    "art": "siebenmeter",
+    "eigen": false,
+    "nr": "2",
+    "s": 765,
+    "stand": [
+     5,
+     6
+    ]
+   },
+   {
+    "art": "siebenmeter_fehl",
+    "eigen": true,
+    "name": "Andrea Lindermayr",
+    "nr": "17",
+    "s": 861
+   },
+   {
+    "art": "siebenmeter",
+    "eigen": false,
+    "nr": "2",
+    "s": 927,
+    "stand": [
+     6,
+     6
+    ]
+   },
+   {
+    "art": "siebenmeter_fehl",
+    "eigen": true,
+    "name": "Anne Zimmermann",
+    "nr": "3",
+    "s": 957
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Anne Zimmermann",
+    "nr": "3",
+    "s": 1012,
+    "stand": [
+     6,
+     7
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "2",
+    "s": 1065,
+    "stand": [
+     7,
+     7
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Nikoletta Dovridou",
+    "nr": "8",
+    "s": 1161,
+    "stand": [
+     7,
+     8
+    ]
+   },
+   {
+    "art": "auszeit",
+    "eigen": false,
+    "s": 1167
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "33",
+    "s": 1289,
+    "stand": [
+     8,
+     8
+    ]
+   },
+   {
+    "art": "siebenmeter",
+    "eigen": true,
+    "name": "Anne Zimmermann",
+    "nr": "3",
+    "s": 1340,
+    "stand": [
+     8,
+     9
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Michelle Seybold",
+    "nr": "4",
+    "s": 1432,
+    "stand": [
+     8,
+     10
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "26",
+    "s": 1542,
+    "stand": [
+     9,
+     10
+    ]
+   },
+   {
+    "art": "siebenmeter_fehl",
+    "eigen": true,
+    "name": "Anne Zimmermann",
+    "nr": "3",
+    "s": 1664
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Michelle Seybold",
+    "nr": "4",
+    "s": 1717,
+    "stand": [
+     9,
+     11
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "33",
+    "s": 1734,
+    "stand": [
+     10,
+     11
+    ]
+   },
+   {
+    "art": "auszeit",
+    "eigen": true,
+    "s": 1746
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "2",
+    "s": 1882,
+    "stand": [
+     11,
+     11
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "75",
+    "s": 1968,
+    "stand": [
+     12,
+     11
+    ]
+   },
+   {
+    "art": "zeitstrafe",
+    "eigen": false,
+    "nr": "33",
+    "s": 2029
+   },
+   {
+    "art": "siebenmeter",
+    "eigen": false,
+    "nr": "2",
+    "s": 2122,
+    "stand": [
+     13,
+     11
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "2",
+    "s": 2212,
+    "stand": [
+     14,
+     11
+    ]
+   },
+   {
+    "art": "zeitstrafe",
+    "eigen": false,
+    "nr": "18",
+    "s": 2224
+   },
+   {
+    "art": "siebenmeter_fehl",
+    "eigen": true,
+    "name": "Anne Zimmermann",
+    "nr": "3",
+    "s": 2226
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Petra Wagner",
+    "nr": "13",
+    "s": 2289,
+    "stand": [
+     14,
+     12
+    ]
+   },
+   {
+    "art": "siebenmeter_fehl",
+    "eigen": false,
+    "nr": "2",
+    "s": 2343
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Petra Wagner",
+    "nr": "13",
+    "s": 2370,
+    "stand": [
+     14,
+     13
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "2",
+    "s": 2402,
+    "stand": [
+     15,
+     13
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Katrin Mischke",
+    "nr": "14",
+    "s": 2453,
+    "stand": [
+     15,
+     14
+    ]
+   },
+   {
+    "art": "auszeit",
+    "eigen": false,
+    "s": 2588
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "2",
+    "s": 2725,
+    "stand": [
+     16,
+     14
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Nikoletta Dovridou",
+    "nr": "8",
+    "s": 2778,
+    "stand": [
+     16,
+     15
+    ]
+   },
+   {
+    "art": "zeitstrafe",
+    "eigen": false,
+    "nr": "33",
+    "s": 2842
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Ronja Schick",
+    "nr": "20",
+    "s": 2925,
+    "stand": [
+     16,
+     16
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Laura Eitler",
+    "nr": "10",
+    "s": 3028,
+    "stand": [
+     16,
+     17
+    ]
+   },
+   {
+    "art": "auszeit",
+    "eigen": false,
+    "s": 3033
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Pia Saschin",
+    "nr": "7",
+    "s": 3070,
+    "stand": [
+     16,
+     18
+    ]
+   },
+   {
+    "art": "zeitstrafe",
+    "eigen": false,
+    "nr": "18",
+    "s": 3196
+   },
+   {
+    "art": "siebenmeter",
+    "eigen": true,
+    "name": "Pia Saschin",
+    "nr": "7",
+    "s": 3198,
+    "stand": [
+     16,
+     19
+    ]
+   },
+   {
+    "art": "auszeit",
+    "eigen": true,
+    "s": 3261
+   },
+   {
+    "art": "zeitstrafe",
+    "eigen": true,
+    "name": "Petra Wagner",
+    "nr": "13",
+    "s": 3332
+   },
+   {
+    "art": "siebenmeter",
+    "eigen": false,
+    "nr": "2",
+    "s": 3332,
+    "stand": [
+     17,
+     19
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "5",
+    "s": 3424,
+    "stand": [
+     18,
+     19
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "25",
+    "s": 3462,
+    "stand": [
+     19,
+     19
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Pia Saschin",
+    "nr": "7",
+    "s": 3479,
+    "stand": [
+     19,
+     20
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "2",
+    "s": 3497,
+    "stand": [
+     20,
+     20
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": true,
+    "name": "Nikoletta Dovridou",
+    "nr": "8",
+    "s": 3507,
+    "stand": [
+     20,
+     21
+    ]
+   },
+   {
+    "art": "tor",
+    "eigen": false,
+    "nr": "25",
+    "s": 3600,
+    "stand": [
+     21,
+     21
+    ]
+   }
+  ],
+  "kader": [
+   {
+    "name": "Cheyenne Ruiz Lujan",
+    "nr": "1"
+   },
+   {
+    "name": "Anne Zimmermann",
+    "nr": "3"
+   },
+   {
+    "name": "Michelle Seybold",
+    "nr": "4"
+   },
+   {
+    "name": "Pia Saschin",
+    "nr": "7"
+   },
+   {
+    "name": "Nikoletta Dovridou",
+    "nr": "8"
+   },
+   {
+    "name": "Laura Eitler",
+    "nr": "10"
+   },
+   {
+    "name": "Petra Wagner",
+    "nr": "13"
+   },
+   {
+    "name": "Katrin Mischke",
+    "nr": "14"
+   },
+   {
+    "name": "Saskia Rittner",
+    "nr": "16"
+   },
+   {
+    "name": "Andrea Lindermayr",
+    "nr": "17"
+   },
+   {
+    "name": "Ronja Schick",
+    "nr": "20"
+   },
+   {
+    "name": "Amelie Mischke",
+    "nr": "22"
+   },
+   {
+    "name": "Carina Janning",
+    "nr": "28"
+   },
+   {
+    "name": "Dunja Bücheler",
+    "nr": "33"
+   }
+  ],
+  "zuschauer": 100
  }
 }
