@@ -2,7 +2,7 @@
   "verein": "HSG Oberer Neckar",
   "saison": "26/27",
   "saison_abgeschlossen": false,
-  "geholt_am": "2026-11-15T18:44:54",
+  "geholt_am": "2026-11-15T23:21:17",
   "teams": {
     "herren1": {
       "name": "Herren",
@@ -613,7 +613,7 @@
           "tore_eigene": 0,
           "tore_gegner": 0,
           "halle": "Sporthalle West (Hasenberg-Schule), Bebelstraße 28, 70193 Stuttgart-West",
-          "schiedsrichter": "Brenner",
+          "schiedsrichter": "",
           "sequence": 0,
           "bericht_id": null,
           "halbzeit_eigene": 0,
@@ -915,7 +915,7 @@
           "tore_eigene": 21,
           "tore_gegner": 21,
           "halle": "Sporthalle, Obere Schloßstraße 72, 73553 Alfdorf",
-          "schiedsrichter": "Schneiker,Wohlang",
+          "schiedsrichter": "",
           "sequence": 0,
           "bericht_id": "3556433",
           "halbzeit_eigene": 11,
