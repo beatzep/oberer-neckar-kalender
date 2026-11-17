@@ -2,7 +2,7 @@
   "verein": "HSG Oberer Neckar",
   "saison": "26/27",
   "saison_abgeschlossen": false,
-  "geholt_am": "2026-11-16T11:17:48",
+  "geholt_am": "2026-11-17T11:52:00",
   "teams": {
     "herren1": {
       "name": "Herren",
@@ -521,7 +521,7 @@
       "datei": "herren2.ics",
       "liga": "Männer 3. Bezirksklasse",
       "bereich": "Stuttgart-Rems-Murr",
-      "quelle_stand": "Letzte Änderung: So, 15.11.2026, 18:24h",
+      "quelle_stand": "Letzte Änderung: Di, 17.11.2026, 10:48h",
       "spiele": [
         {
           "id": "9680596",
@@ -628,9 +628,9 @@
           "gegner": "SV Hohen-Neu 3",
           "tore_eigene": null,
           "tore_gegner": null,
-          "halle": "Sporthalle Neustadt, Ringstraße 26, 71336 Waiblingen-Neustadt",
+          "halle": "Gemeindehalle, Rechbergstraße, 71336 Waiblingen-Hohenacker",
           "schiedsrichter": "Stathopoulos",
-          "sequence": 0,
+          "sequence": 1,
           "bericht_id": null,
           "halbzeit_eigene": null,
           "halbzeit_gegner": null
@@ -846,7 +846,9 @@
           "punkte_minus": 8
         }
       ],
-      "aenderungen": []
+      "aenderungen": [
+        "Spiel gegen SV Hohen-Neu 3: Sporthalle Neustadt, Ringstraße 26, 71336 Waiblingen-Neustadt → Gemeindehalle, Rechbergstraße, 71336 Waiblingen-Hohenacker"
+      ]
     },
     "damen": {
       "name": "Damen",
