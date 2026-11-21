@@ -2,7 +2,7 @@
   "verein": "HSG Oberer Neckar",
   "saison": "26/27",
   "saison_abgeschlossen": false,
-  "geholt_am": "2026-11-21T11:01:31",
+  "geholt_am": "2026-11-21T19:05:00",
   "teams": {
     "herren1": {
       "name": "Herren",
@@ -11,7 +11,7 @@
       "datei": "herren1.ics",
       "liga": "Männer Bezirksoberliga",
       "bereich": "Stuttgart-Rems-Murr",
-      "quelle_stand": "Letzte Änderung: So, 15.11.2026, 18:44h",
+      "quelle_stand": "Letzte Änderung: Sa, 21.11.2026, 19:29h",
       "spiele": [
         {
           "id": "9677971",
@@ -116,8 +116,8 @@
           "uhrzeit_bekannt": true,
           "heim": true,
           "gegner": "SF Schwaikheim 2",
-          "tore_eigene": null,
-          "tore_gegner": null,
+          "tore_eigene": 3,
+          "tore_gegner": 0,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
           "schiedsrichter": "Bernhardt",
           "sequence": 0,
@@ -370,13 +370,13 @@
         {
           "platz": 1,
           "team": "HandballTeam Heckengäu",
-          "spiele": 8,
-          "siege": 7,
+          "spiele": 9,
+          "siege": 8,
           "unentschieden": 0,
           "niederlagen": 1,
-          "tore_geschossen": 258,
-          "tore_erhalten": 188,
-          "punkte_plus": 14,
+          "tore_geschossen": 285,
+          "tore_erhalten": 211,
+          "punkte_plus": 16,
           "punkte_minus": 2
         },
         {
@@ -394,14 +394,14 @@
         {
           "platz": 3,
           "team": "TV Oeffingen 1897 2",
-          "spiele": 7,
+          "spiele": 8,
           "siege": 5,
           "unentschieden": 2,
-          "niederlagen": 0,
-          "tore_geschossen": 235,
-          "tore_erhalten": 181,
+          "niederlagen": 1,
+          "tore_geschossen": 258,
+          "tore_erhalten": 208,
           "punkte_plus": 12,
-          "punkte_minus": 2
+          "punkte_minus": 4
         },
         {
           "platz": 4,
@@ -453,6 +453,18 @@
         },
         {
           "platz": 8,
+          "team": "HSG Bargau/Bettringen 2",
+          "spiele": 8,
+          "siege": 3,
+          "unentschieden": 0,
+          "niederlagen": 5,
+          "tore_geschossen": 196,
+          "tore_erhalten": 229,
+          "punkte_plus": 6,
+          "punkte_minus": 10
+        },
+        {
+          "platz": 9,
           "team": "TSB Schwäbisch Gmünd 2",
           "spiele": 8,
           "siege": 3,
@@ -464,52 +476,40 @@
           "punkte_minus": 10
         },
         {
-          "platz": 9,
-          "team": "HSG Bargau/Bettringen 2",
-          "spiele": 7,
-          "siege": 2,
-          "unentschieden": 0,
-          "niederlagen": 5,
-          "tore_geschossen": 172,
-          "tore_erhalten": 206,
-          "punkte_plus": 4,
-          "punkte_minus": 10
-        },
-        {
           "platz": 10,
-          "team": "TSF Ditzingen 2",
-          "spiele": 8,
+          "team": "TSV Schmiden 1902 3",
+          "spiele": 9,
           "siege": 1,
-          "unentschieden": 0,
+          "unentschieden": 1,
           "niederlagen": 7,
-          "tore_geschossen": 203,
-          "tore_erhalten": 280,
-          "punkte_plus": 2,
-          "punkte_minus": 14
+          "tore_geschossen": 268,
+          "tore_erhalten": 312,
+          "punkte_plus": 3,
+          "punkte_minus": 15
         },
         {
           "platz": 11,
-          "team": "TSV Schmiden 1902 3",
-          "spiele": 8,
-          "siege": 0,
-          "unentschieden": 1,
-          "niederlagen": 7,
-          "tore_geschossen": 231,
-          "tore_erhalten": 276,
-          "punkte_plus": 1,
-          "punkte_minus": 15
+          "team": "TSF Ditzingen 2",
+          "spiele": 9,
+          "siege": 1,
+          "unentschieden": 0,
+          "niederlagen": 8,
+          "tore_geschossen": 226,
+          "tore_erhalten": 304,
+          "punkte_plus": 2,
+          "punkte_minus": 16
         },
         {
           "platz": 12,
           "team": "SV Remshalden 2",
-          "spiele": 6,
+          "spiele": 7,
           "siege": 0,
           "unentschieden": 0,
-          "niederlagen": 6,
-          "tore_geschossen": 155,
-          "tore_erhalten": 193,
+          "niederlagen": 7,
+          "tore_geschossen": 191,
+          "tore_erhalten": 230,
           "punkte_plus": 0,
-          "punkte_minus": 12
+          "punkte_minus": 14
         }
       ],
       "aenderungen": []
@@ -855,7 +855,7 @@
       "datei": "damen.ics",
       "liga": "Frauen-Landesliga Staffel 2",
       "bereich": "Baden-Württembergischer Handball-Verband",
-      "quelle_stand": "Letzte Änderung: So, 15.11.2026, 19:21h",
+      "quelle_stand": "Letzte Änderung: Sa, 21.11.2026, 19:32h",
       "spiele": [
         {
           "id": "9419631",
@@ -928,14 +928,14 @@
           "uhrzeit_bekannt": true,
           "heim": true,
           "gegner": "SV Fellbach",
-          "tore_eigene": null,
-          "tore_gegner": null,
+          "tore_eigene": 27,
+          "tore_gegner": 29,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
           "schiedsrichter": "Klimke",
           "sequence": 0,
-          "bericht_id": null,
-          "halbzeit_eigene": null,
-          "halbzeit_gegner": null
+          "bericht_id": "3560729",
+          "halbzeit_eigene": 11,
+          "halbzeit_gegner": 12
         },
         {
           "id": "9419671",
@@ -1130,14 +1130,14 @@
         {
           "platz": 2,
           "team": "SV Leonberg/Eltingen 2",
-          "spiele": 5,
+          "spiele": 6,
           "siege": 4,
           "unentschieden": 0,
-          "niederlagen": 1,
-          "tore_geschossen": 150,
-          "tore_erhalten": 130,
+          "niederlagen": 2,
+          "tore_geschossen": 178,
+          "tore_erhalten": 160,
           "punkte_plus": 8,
-          "punkte_minus": 2
+          "punkte_minus": 4
         },
         {
           "platz": 3,
@@ -1166,62 +1166,62 @@
         {
           "platz": 5,
           "team": "MTV Stuttgart",
-          "spiele": 5,
-          "siege": 1,
+          "spiele": 6,
+          "siege": 2,
           "unentschieden": 1,
           "niederlagen": 3,
-          "tore_geschossen": 119,
-          "tore_erhalten": 121,
-          "punkte_plus": 3,
+          "tore_geschossen": 144,
+          "tore_erhalten": 145,
+          "punkte_plus": 5,
           "punkte_minus": 7
         },
         {
           "platz": 6,
           "team": "TSV Alfdorf/Lorch/Waldhausen",
-          "spiele": 3,
-          "siege": 0,
+          "spiele": 4,
+          "siege": 1,
           "unentschieden": 1,
           "niederlagen": 2,
-          "tore_geschossen": 72,
-          "tore_erhalten": 80,
-          "punkte_plus": 1,
+          "tore_geschossen": 102,
+          "tore_erhalten": 108,
+          "punkte_plus": 3,
           "punkte_minus": 5
         },
         {
-          "platz": null,
-          "team": "SG Weissach im Tal",
-          "spiele": 3,
-          "siege": 0,
-          "unentschieden": 1,
-          "niederlagen": 2,
-          "tore_geschossen": 84,
-          "tore_erhalten": 96,
-          "punkte_plus": 1,
-          "punkte_minus": 5
+          "platz": 7,
+          "team": "SV Fellbach",
+          "spiele": 4,
+          "siege": 1,
+          "unentschieden": 0,
+          "niederlagen": 3,
+          "tore_geschossen": 104,
+          "tore_erhalten": 118,
+          "punkte_plus": 2,
+          "punkte_minus": 6
         },
         {
           "platz": 8,
-          "team": "HSG Oberer Neckar",
+          "team": "SG Weissach im Tal",
           "spiele": 4,
           "siege": 0,
           "unentschieden": 1,
           "niederlagen": 3,
-          "tore_geschossen": 86,
-          "tore_erhalten": 108,
+          "tore_geschossen": 108,
+          "tore_erhalten": 121,
           "punkte_plus": 1,
           "punkte_minus": 7
         },
         {
           "platz": 9,
-          "team": "SV Fellbach",
-          "spiele": 3,
+          "team": "HSG Oberer Neckar",
+          "spiele": 5,
           "siege": 0,
-          "unentschieden": 0,
-          "niederlagen": 3,
-          "tore_geschossen": 75,
-          "tore_erhalten": 91,
-          "punkte_plus": 0,
-          "punkte_minus": 6
+          "unentschieden": 1,
+          "niederlagen": 4,
+          "tore_geschossen": 113,
+          "tore_erhalten": 137,
+          "punkte_plus": 1,
+          "punkte_minus": 9
         }
       ],
       "aenderungen": []
