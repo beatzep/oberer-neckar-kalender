@@ -2,7 +2,7 @@
   "verein": "HSG Oberer Neckar",
   "saison": "26/27",
   "saison_abgeschlossen": false,
-  "geholt_am": "2026-11-21T19:05:00",
+  "geholt_am": "2026-11-21T23:46:14",
   "teams": {
     "herren1": {
       "name": "Herren",
@@ -11,7 +11,7 @@
       "datei": "herren1.ics",
       "liga": "Männer Bezirksoberliga",
       "bereich": "Stuttgart-Rems-Murr",
-      "quelle_stand": "Letzte Änderung: Sa, 21.11.2026, 19:29h",
+      "quelle_stand": "Letzte Änderung: Sa, 21.11.2026, 21:30h",
       "spiele": [
         {
           "id": "9677971",
@@ -116,14 +116,14 @@
           "uhrzeit_bekannt": true,
           "heim": true,
           "gegner": "SF Schwaikheim 2",
-          "tore_eigene": 3,
-          "tore_gegner": 0,
+          "tore_eigene": 37,
+          "tore_gegner": 29,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
-          "schiedsrichter": "Bernhardt",
+          "schiedsrichter": "",
           "sequence": 0,
-          "bericht_id": null,
-          "halbzeit_eigene": null,
-          "halbzeit_gegner": null
+          "bericht_id": "3561225",
+          "halbzeit_eigene": 19,
+          "halbzeit_gegner": 15
         },
         {
           "id": "9678226",
@@ -405,39 +405,39 @@
         },
         {
           "platz": 4,
-          "team": "SF Schwaikheim 2",
-          "spiele": 8,
-          "siege": 4,
-          "unentschieden": 2,
-          "niederlagen": 2,
-          "tore_geschossen": 223,
-          "tore_erhalten": 205,
-          "punkte_plus": 10,
-          "punkte_minus": 6
-        },
-        {
-          "platz": 5,
           "team": "TV Obertürkheim",
-          "spiele": 7,
-          "siege": 4,
+          "spiele": 8,
+          "siege": 5,
           "unentschieden": 1,
           "niederlagen": 2,
-          "tore_geschossen": 214,
-          "tore_erhalten": 201,
-          "punkte_plus": 9,
+          "tore_geschossen": 245,
+          "tore_erhalten": 219,
+          "punkte_plus": 11,
           "punkte_minus": 5
         },
         {
-          "platz": 6,
+          "platz": 5,
           "team": "HSG Oberer Neckar",
-          "spiele": 6,
-          "siege": 3,
+          "spiele": 7,
+          "siege": 4,
           "unentschieden": 2,
           "niederlagen": 1,
-          "tore_geschossen": 205,
-          "tore_erhalten": 187,
-          "punkte_plus": 8,
+          "tore_geschossen": 242,
+          "tore_erhalten": 216,
+          "punkte_plus": 10,
           "punkte_minus": 4
+        },
+        {
+          "platz": 6,
+          "team": "SF Schwaikheim 2",
+          "spiele": 9,
+          "siege": 4,
+          "unentschieden": 2,
+          "niederlagen": 3,
+          "tore_geschossen": 252,
+          "tore_erhalten": 242,
+          "punkte_plus": 10,
+          "punkte_minus": 8
         },
         {
           "platz": 7,
@@ -466,14 +466,14 @@
         {
           "platz": 9,
           "team": "TSB Schwäbisch Gmünd 2",
-          "spiele": 8,
+          "spiele": 9,
           "siege": 3,
           "unentschieden": 0,
-          "niederlagen": 5,
-          "tore_geschossen": 206,
-          "tore_erhalten": 229,
+          "niederlagen": 6,
+          "tore_geschossen": 224,
+          "tore_erhalten": 260,
           "punkte_plus": 6,
-          "punkte_minus": 10
+          "punkte_minus": 12
         },
         {
           "platz": 10,
@@ -521,7 +521,7 @@
       "datei": "herren2.ics",
       "liga": "Männer 3. Bezirksklasse",
       "bereich": "Stuttgart-Rems-Murr",
-      "quelle_stand": "Letzte Änderung: Di, 17.11.2026, 10:48h",
+      "quelle_stand": "Letzte Änderung: Sa, 21.11.2026, 20:33h",
       "spiele": [
         {
           "id": "9680596",
@@ -629,7 +629,7 @@
           "tore_eigene": 0,
           "tore_gegner": 0,
           "halle": "Gemeindehalle, Rechbergstraße, 71336 Waiblingen-Hohenacker",
-          "schiedsrichter": "Stathopoulos",
+          "schiedsrichter": "",
           "sequence": 1,
           "bericht_id": null,
           "halbzeit_eigene": 0,
@@ -788,14 +788,14 @@
         {
           "platz": 4,
           "team": "TSV Haubersbronn",
-          "spiele": 4,
+          "spiele": 5,
           "siege": 2,
           "unentschieden": 0,
-          "niederlagen": 2,
-          "tore_geschossen": 64,
-          "tore_erhalten": 99,
+          "niederlagen": 3,
+          "tore_geschossen": 82,
+          "tore_erhalten": 124,
           "punkte_plus": 4,
-          "punkte_minus": 4
+          "punkte_minus": 6
         },
         {
           "platz": 5,
@@ -811,6 +811,18 @@
         },
         {
           "platz": 6,
+          "team": "TSF Welzheim 2",
+          "spiele": 6,
+          "siege": 2,
+          "unentschieden": 0,
+          "niederlagen": 4,
+          "tore_geschossen": 157,
+          "tore_erhalten": 181,
+          "punkte_plus": 4,
+          "punkte_minus": 8
+        },
+        {
+          "platz": 7,
           "team": "MTV Stuttgart 4",
           "spiele": 6,
           "siege": 2,
@@ -822,7 +834,7 @@
           "punkte_minus": 8
         },
         {
-          "platz": 7,
+          "platz": 8,
           "team": "HSG Oberer Neckar 2",
           "spiele": 7,
           "siege": 1,
@@ -832,18 +844,6 @@
           "tore_erhalten": 140,
           "punkte_plus": 3,
           "punkte_minus": 11
-        },
-        {
-          "platz": 8,
-          "team": "TSF Welzheim 2",
-          "spiele": 5,
-          "siege": 1,
-          "unentschieden": 0,
-          "niederlagen": 4,
-          "tore_geschossen": 132,
-          "tore_erhalten": 163,
-          "punkte_plus": 2,
-          "punkte_minus": 8
         }
       ],
       "aenderungen": []
@@ -931,7 +931,7 @@
           "tore_eigene": 27,
           "tore_gegner": 29,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
-          "schiedsrichter": "Klimke",
+          "schiedsrichter": "",
           "sequence": 0,
           "bericht_id": "3560729",
           "halbzeit_eigene": 11,
