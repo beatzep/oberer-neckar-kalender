@@ -2,7 +2,7 @@
   "verein": "HSG Oberer Neckar",
   "saison": "26/27",
   "saison_abgeschlossen": false,
-  "geholt_am": "2026-11-20T11:40:09",
+  "geholt_am": "2026-11-21T11:01:31",
   "teams": {
     "herren1": {
       "name": "Herren",
@@ -135,7 +135,7 @@
           "tore_eigene": null,
           "tore_gegner": null,
           "halle": "Rankbachhalle, Rankbachstraße 49, 71272 Renningen",
-          "schiedsrichter": "",
+          "schiedsrichter": "Tontsch",
           "sequence": 0,
           "bericht_id": null,
           "halbzeit_eigene": null,
@@ -626,14 +626,14 @@
           "uhrzeit_bekannt": true,
           "heim": false,
           "gegner": "SV Hohen-Neu 3",
-          "tore_eigene": null,
-          "tore_gegner": null,
+          "tore_eigene": 0,
+          "tore_gegner": 0,
           "halle": "Gemeindehalle, Rechbergstraße, 71336 Waiblingen-Hohenacker",
           "schiedsrichter": "Stathopoulos",
           "sequence": 1,
           "bericht_id": null,
-          "halbzeit_eigene": null,
-          "halbzeit_gegner": null
+          "halbzeit_eigene": 0,
+          "halbzeit_gegner": 0
         },
         {
           "id": "9680756",
@@ -764,13 +764,13 @@
         {
           "platz": 2,
           "team": "SV Hohenacker-Neustadt 3",
-          "spiele": 6,
-          "siege": 4,
+          "spiele": 7,
+          "siege": 5,
           "unentschieden": 0,
           "niederlagen": 2,
           "tore_geschossen": 186,
           "tore_erhalten": 171,
-          "punkte_plus": 8,
+          "punkte_plus": 10,
           "punkte_minus": 4
         },
         {
@@ -824,14 +824,14 @@
         {
           "platz": 7,
           "team": "HSG Oberer Neckar 2",
-          "spiele": 6,
+          "spiele": 7,
           "siege": 1,
           "unentschieden": 1,
-          "niederlagen": 4,
+          "niederlagen": 5,
           "tore_geschossen": 125,
           "tore_erhalten": 140,
           "punkte_plus": 3,
-          "punkte_minus": 9
+          "punkte_minus": 11
         },
         {
           "platz": 8,
