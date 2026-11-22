@@ -2,7 +2,7 @@
   "verein": "HSG Oberer Neckar",
   "saison": "26/27",
   "saison_abgeschlossen": false,
-  "geholt_am": "2026-11-22T11:25:02",
+  "geholt_am": "2026-11-22T19:27:18",
   "teams": {
     "herren1": {
       "name": "Herren",
@@ -11,7 +11,7 @@
       "datei": "herren1.ics",
       "liga": "Männer Bezirksoberliga",
       "bereich": "Stuttgart-Rems-Murr",
-      "quelle_stand": "Letzte Änderung: Sa, 21.11.2026, 21:30h",
+      "quelle_stand": "Letzte Änderung: So, 22.11.2026, 18:29h",
       "spiele": [
         {
           "id": "9677971",
@@ -382,13 +382,13 @@
         {
           "platz": 2,
           "team": "SG Schorndorf 1846",
-          "spiele": 7,
-          "siege": 6,
+          "spiele": 8,
+          "siege": 7,
           "unentschieden": 1,
           "niederlagen": 0,
-          "tore_geschossen": 231,
-          "tore_erhalten": 183,
-          "punkte_plus": 13,
+          "tore_geschossen": 256,
+          "tore_erhalten": 202,
+          "punkte_plus": 15,
           "punkte_minus": 1
         },
         {
@@ -442,14 +442,14 @@
         {
           "platz": 7,
           "team": "1. Heubacher Handballverein",
-          "spiele": 6,
+          "spiele": 7,
           "siege": 3,
           "unentschieden": 1,
-          "niederlagen": 2,
-          "tore_geschossen": 174,
-          "tore_erhalten": 178,
+          "niederlagen": 3,
+          "tore_geschossen": 193,
+          "tore_erhalten": 203,
           "punkte_plus": 7,
-          "punkte_minus": 5
+          "punkte_minus": 7
         },
         {
           "platz": 8,
@@ -521,7 +521,7 @@
       "datei": "herren2.ics",
       "liga": "Männer 3. Bezirksklasse",
       "bereich": "Stuttgart-Rems-Murr",
-      "quelle_stand": "Letzte Änderung: Sa, 21.11.2026, 20:33h",
+      "quelle_stand": "Letzte Änderung: So, 22.11.2026, 16:25h",
       "spiele": [
         {
           "id": "9680596",
@@ -775,6 +775,18 @@
         },
         {
           "platz": 3,
+          "team": "MTV Stuttgart 4",
+          "spiele": 7,
+          "siege": 3,
+          "unentschieden": 0,
+          "niederlagen": 4,
+          "tore_geschossen": 181,
+          "tore_erhalten": 193,
+          "punkte_plus": 6,
+          "punkte_minus": 8
+        },
+        {
+          "platz": 4,
           "team": "SV Remshalden 4",
           "spiele": 5,
           "siege": 2,
@@ -786,7 +798,7 @@
           "punkte_minus": 5
         },
         {
-          "platz": 4,
+          "platz": 5,
           "team": "TSV Haubersbronn",
           "spiele": 5,
           "siege": 2,
@@ -798,19 +810,19 @@
           "punkte_minus": 6
         },
         {
-          "platz": 5,
+          "platz": 6,
           "team": "KSG Gerlingen",
-          "spiele": 5,
+          "spiele": 6,
           "siege": 2,
           "unentschieden": 0,
-          "niederlagen": 3,
-          "tore_geschossen": 128,
-          "tore_erhalten": 142,
+          "niederlagen": 4,
+          "tore_geschossen": 161,
+          "tore_erhalten": 179,
           "punkte_plus": 4,
-          "punkte_minus": 6
+          "punkte_minus": 8
         },
         {
-          "platz": 6,
+          "platz": 7,
           "team": "TSF Welzheim 2",
           "spiele": 6,
           "siege": 2,
@@ -818,18 +830,6 @@
           "niederlagen": 4,
           "tore_geschossen": 157,
           "tore_erhalten": 181,
-          "punkte_plus": 4,
-          "punkte_minus": 8
-        },
-        {
-          "platz": 7,
-          "team": "MTV Stuttgart 4",
-          "spiele": 6,
-          "siege": 2,
-          "unentschieden": 0,
-          "niederlagen": 4,
-          "tore_geschossen": 144,
-          "tore_erhalten": 160,
           "punkte_plus": 4,
           "punkte_minus": 8
         },
