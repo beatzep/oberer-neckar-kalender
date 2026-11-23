@@ -27,7 +27,7 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:9680596@oberer-neckar-kalender
-DTSTAMP:20261123T004522Z
+DTSTAMP:20261123T124109Z
 DTSTART;TZID=Europe/Berlin:20260919T160000
 DTEND;TZID=Europe/Berlin:20260919T180000
 SUMMARY:🏠 HSG Oberer Neckar Herren II 26:44 SV Hohen-Neu 3
@@ -53,7 +53,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:9680611@oberer-neckar-kalender
-DTSTAMP:20261123T004522Z
+DTSTAMP:20261123T124109Z
 DTSTART;VALUE=DATE:20260926
 DTEND;VALUE=DATE:20260927
 SUMMARY:🚗 HT Heckengäu 5 0:0 HSG Oberer Neckar Herren II
@@ -68,7 +68,7 @@ LOCATION:Sporthalle Bühl\, Robert-Bosch-Straße\, 71277 Rutesheim
 END:VEVENT
 BEGIN:VEVENT
 UID:9680641@oberer-neckar-kalender
-DTSTAMP:20261123T004522Z
+DTSTAMP:20261123T124109Z
 DTSTART;TZID=Europe/Berlin:20261003T160000
 DTEND;TZID=Europe/Berlin:20261003T180000
 SUMMARY:🏠 HSG Oberer Neckar Herren II 33:25 TSF Welzheim 2
@@ -94,7 +94,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:9680656@oberer-neckar-kalender
-DTSTAMP:20261123T004522Z
+DTSTAMP:20261123T124109Z
 DTSTART;TZID=Europe/Berlin:20261010T150000
 DTEND;TZID=Europe/Berlin:20261010T170000
 SUMMARY:🚗 SV Remshalden 4 31:31 HSG Oberer Neckar Herren II
@@ -121,7 +121,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:9680691@oberer-neckar-kalender
-DTSTAMP:20261123T004522Z
+DTSTAMP:20261123T124109Z
 DTSTART;TZID=Europe/Berlin:20261107T160000
 DTEND;TZID=Europe/Berlin:20261107T180000
 SUMMARY:🏠 HSG Oberer Neckar Herren II 35:40 KSG Gerlingen
@@ -147,7 +147,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:9680711@oberer-neckar-kalender
-DTSTAMP:20261123T004522Z
+DTSTAMP:20261123T124109Z
 DTSTART;TZID=Europe/Berlin:20261115T133000
 DTEND;TZID=Europe/Berlin:20261115T153000
 SUMMARY:🚗 MTV Stuttgart 4 0:0 HSG Oberer Neckar Herren II
@@ -175,7 +175,7 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:9680746@oberer-neckar-kalender
-DTSTAMP:20261123T004522Z
+DTSTAMP:20261123T124109Z
 DTSTART;TZID=Europe/Berlin:20261121T130000
 DTEND;TZID=Europe/Berlin:20261121T150000
 SUMMARY:🚗 SV Hohen-Neu 3 0:0 HSG Oberer Neckar Herren II
@@ -202,12 +202,12 @@ END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:9680756@oberer-neckar-kalender
-DTSTAMP:20261123T004522Z
+DTSTAMP:20261123T124109Z
 DTSTART;TZID=Europe/Berlin:20270123T180000
 DTEND;TZID=Europe/Berlin:20270123T200000
-SUMMARY:🏠 HSG Oberer Neckar Herren II - HT Heckengäu 5
-DESCRIPTION:Heimspiel gegen HT Heckengäu 5\nAnwurf: 18:00 Uhr\nLiga: Männ
- er 3. Bezirksklasse\nSpielnummer: 201034
+SUMMARY:🏠 HSG Oberer Neckar Herren II 0:0 HT Heckengäu 5
+DESCRIPTION:Endstand: 0:0 (Unentschieden)\nHeimspiel gegen HT Heckengäu 5\
+ nAnwurf: 18:00 Uhr\nLiga: Männer 3. Bezirksklasse\nSpielnummer: 201034
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 CATEGORIES:Handball,Heimspiel
@@ -216,24 +216,24 @@ LOCATION:Flatow-Sporthalle\, Gingener Straße 21\, 70327 Stuttgart-Wangen
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-P1D
-DESCRIPTION:Morgen Spiel: 🏠 HSG Oberer Neckar Herren II - HT Heckengäu 
- 5
+DESCRIPTION:Morgen Spiel: 🏠 HSG Oberer Neckar Herren II 0:0 HT Heckengä
+ u 5
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
-DESCRIPTION:Gleich Spiel: 🏠 HSG Oberer Neckar Herren II - HT Heckengäu 
- 5
+DESCRIPTION:Gleich Spiel: 🏠 HSG Oberer Neckar Herren II 0:0 HT Heckengä
+ u 5
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:9680681@oberer-neckar-kalender
-DTSTAMP:20261123T004522Z
+DTSTAMP:20261123T124109Z
 DTSTART;TZID=Europe/Berlin:20270130T200000
 DTEND;TZID=Europe/Berlin:20270130T220000
-SUMMARY:🏠 HSG Oberer Neckar Herren II - TSV Haubersb.
-DESCRIPTION:Heimspiel gegen TSV Haubersb.\nAnwurf: 20:00 Uhr\nLiga: Männer
-  3. Bezirksklasse\nSpielnummer: 201019
+SUMMARY:🏠 HSG Oberer Neckar Herren II 0:0 TSV Haubersb.
+DESCRIPTION:Endstand: 0:0 (Unentschieden)\nHeimspiel gegen TSV Haubersb.\nA
+ nwurf: 20:00 Uhr\nLiga: Männer 3. Bezirksklasse\nSpielnummer: 201019
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 CATEGORIES:Handball,Heimspiel
@@ -242,22 +242,25 @@ LOCATION:Flatow-Sporthalle\, Gingener Straße 21\, 70327 Stuttgart-Wangen
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-P1D
-DESCRIPTION:Morgen Spiel: 🏠 HSG Oberer Neckar Herren II - TSV Haubersb.
+DESCRIPTION:Morgen Spiel: 🏠 HSG Oberer Neckar Herren II 0:0 TSV Haubersb
+ .
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
-DESCRIPTION:Gleich Spiel: 🏠 HSG Oberer Neckar Herren II - TSV Haubersb.
+DESCRIPTION:Gleich Spiel: 🏠 HSG Oberer Neckar Herren II 0:0 TSV Haubersb
+ .
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:9680801@oberer-neckar-kalender
-DTSTAMP:20261123T004522Z
+DTSTAMP:20261123T124109Z
 DTSTART;TZID=Europe/Berlin:20270213T153000
 DTEND;TZID=Europe/Berlin:20270213T173000
-SUMMARY:🚗 TSF Welzheim 2 - HSG Oberer Neckar Herren II
-DESCRIPTION:Auswaertsspiel gegen TSF Welzheim 2\nAnwurf: 15:30 Uhr\nLiga: M
- änner 3. Bezirksklasse\nSpielnummer: 201043
+SUMMARY:🚗 TSF Welzheim 2 0:0 HSG Oberer Neckar Herren II
+DESCRIPTION:Endstand: 0:0 (Unentschieden)\nAuswaertsspiel gegen TSF Welzhei
+ m 2\nAnwurf: 15:30 Uhr\nLiga: Männer 3. Bezirksklasse\nSpielnummer: 20104
+ 3
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 CATEGORIES:Handball,Auswaertsspiel
@@ -266,22 +269,24 @@ LOCATION:Justinus-Kerner-Halle\, Rienharzer Straße 51\, 73642 Welzheim
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-P1D
-DESCRIPTION:Morgen Spiel: 🚗 TSF Welzheim 2 - HSG Oberer Neckar Herren II
+DESCRIPTION:Morgen Spiel: 🚗 TSF Welzheim 2 0:0 HSG Oberer Neckar Herren 
+ II
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
-DESCRIPTION:Gleich Spiel: 🚗 TSF Welzheim 2 - HSG Oberer Neckar Herren II
+DESCRIPTION:Gleich Spiel: 🚗 TSF Welzheim 2 0:0 HSG Oberer Neckar Herren 
+ II
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:9680771@oberer-neckar-kalender
-DTSTAMP:20261123T004522Z
+DTSTAMP:20261123T124109Z
 DTSTART;TZID=Europe/Berlin:20270220T180000
 DTEND;TZID=Europe/Berlin:20270220T200000
-SUMMARY:🏠 HSG Oberer Neckar Herren II - MTV Stuttgart 4
-DESCRIPTION:Heimspiel gegen MTV Stuttgart 4\nAnwurf: 18:00 Uhr\nLiga: Männ
- er 3. Bezirksklasse\nSpielnummer: 201037
+SUMMARY:🏠 HSG Oberer Neckar Herren II 0:0 MTV Stuttgart 4
+DESCRIPTION:Endstand: 0:0 (Unentschieden)\nHeimspiel gegen MTV Stuttgart 4\
+ nAnwurf: 18:00 Uhr\nLiga: Männer 3. Bezirksklasse\nSpielnummer: 201037
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 CATEGORIES:Handball,Heimspiel
@@ -290,24 +295,24 @@ LOCATION:Flatow-Sporthalle\, Gingener Straße 21\, 70327 Stuttgart-Wangen
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-P1D
-DESCRIPTION:Morgen Spiel: 🏠 HSG Oberer Neckar Herren II - MTV Stuttgart 
- 4
+DESCRIPTION:Morgen Spiel: 🏠 HSG Oberer Neckar Herren II 0:0 MTV Stuttgar
+ t 4
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
-DESCRIPTION:Gleich Spiel: 🏠 HSG Oberer Neckar Herren II - MTV Stuttgart 
- 4
+DESCRIPTION:Gleich Spiel: 🏠 HSG Oberer Neckar Herren II 0:0 MTV Stuttgar
+ t 4
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:9680821@oberer-neckar-kalender
-DTSTAMP:20261123T004522Z
+DTSTAMP:20261123T124109Z
 DTSTART;TZID=Europe/Berlin:20270306T160000
 DTEND;TZID=Europe/Berlin:20270306T180000
-SUMMARY:🏠 HSG Oberer Neckar Herren II - SV Remshalden 4
-DESCRIPTION:Heimspiel gegen SV Remshalden 4\nAnwurf: 16:00 Uhr\nLiga: Männ
- er 3. Bezirksklasse\nSpielnummer: 201047
+SUMMARY:🏠 HSG Oberer Neckar Herren II 0:0 SV Remshalden 4
+DESCRIPTION:Endstand: 0:0 (Unentschieden)\nHeimspiel gegen SV Remshalden 4\
+ nAnwurf: 16:00 Uhr\nLiga: Männer 3. Bezirksklasse\nSpielnummer: 201047
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 CATEGORIES:Handball,Heimspiel
@@ -316,24 +321,24 @@ LOCATION:Flatow-Sporthalle\, Gingener Straße 21\, 70327 Stuttgart-Wangen
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-P1D
-DESCRIPTION:Morgen Spiel: 🏠 HSG Oberer Neckar Herren II - SV Remshalden 
- 4
+DESCRIPTION:Morgen Spiel: 🏠 HSG Oberer Neckar Herren II 0:0 SV Remshalde
+ n 4
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
-DESCRIPTION:Gleich Spiel: 🏠 HSG Oberer Neckar Herren II - SV Remshalden 
- 4
+DESCRIPTION:Gleich Spiel: 🏠 HSG Oberer Neckar Herren II 0:0 SV Remshalde
+ n 4
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:9680841@oberer-neckar-kalender
-DTSTAMP:20261123T004522Z
+DTSTAMP:20261123T124109Z
 DTSTART;TZID=Europe/Berlin:20270313T190000
 DTEND;TZID=Europe/Berlin:20270313T210000
-SUMMARY:🚗 TSV Haubersb. - HSG Oberer Neckar Herren II
-DESCRIPTION:Auswaertsspiel gegen TSV Haubersb.\nAnwurf: 19:00 Uhr\nLiga: M
- änner 3. Bezirksklasse\nSpielnummer: 201051
+SUMMARY:🚗 TSV Haubersb. 0:0 HSG Oberer Neckar Herren II
+DESCRIPTION:Endstand: 0:0 (Unentschieden)\nAuswaertsspiel gegen TSV Haubers
+ b.\nAnwurf: 19:00 Uhr\nLiga: Männer 3. Bezirksklasse\nSpielnummer: 201051
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 CATEGORIES:Handball,Auswaertsspiel
@@ -342,22 +347,24 @@ LOCATION:Lauswiesenhalle\, Lauswiesen 6\, 73614 Schorndorf
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-P1D
-DESCRIPTION:Morgen Spiel: 🚗 TSV Haubersb. - HSG Oberer Neckar Herren II
+DESCRIPTION:Morgen Spiel: 🚗 TSV Haubersb. 0:0 HSG Oberer Neckar Herren I
+ I
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
-DESCRIPTION:Gleich Spiel: 🚗 TSV Haubersb. - HSG Oberer Neckar Herren II
+DESCRIPTION:Gleich Spiel: 🚗 TSV Haubersb. 0:0 HSG Oberer Neckar Herren I
+ I
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:9680861@oberer-neckar-kalender
-DTSTAMP:20261123T004522Z
+DTSTAMP:20261123T124109Z
 DTSTART;TZID=Europe/Berlin:20270321T170000
 DTEND;TZID=Europe/Berlin:20270321T190000
-SUMMARY:🚗 KSG Gerlingen - HSG Oberer Neckar Herren II
-DESCRIPTION:Auswaertsspiel gegen KSG Gerlingen\nAnwurf: 17:00 Uhr\nLiga: M
- änner 3. Bezirksklasse\nSpielnummer: 201055
+SUMMARY:🚗 KSG Gerlingen 0:0 HSG Oberer Neckar Herren II
+DESCRIPTION:Endstand: 0:0 (Unentschieden)\nAuswaertsspiel gegen KSG Gerling
+ en\nAnwurf: 17:00 Uhr\nLiga: Männer 3. Bezirksklasse\nSpielnummer: 201055
 STATUS:CONFIRMED
 TRANSP:OPAQUE
 CATEGORIES:Handball,Auswaertsspiel
@@ -366,12 +373,14 @@ LOCATION:Sporthalle Brückentor\, Beim Brückentor\, 70839 Gerlingen
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-P1D
-DESCRIPTION:Morgen Spiel: 🚗 KSG Gerlingen - HSG Oberer Neckar Herren II
+DESCRIPTION:Morgen Spiel: 🚗 KSG Gerlingen 0:0 HSG Oberer Neckar Herren I
+ I
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
 TRIGGER:-PT3H
-DESCRIPTION:Gleich Spiel: 🚗 KSG Gerlingen - HSG Oberer Neckar Herren II
+DESCRIPTION:Gleich Spiel: 🚗 KSG Gerlingen 0:0 HSG Oberer Neckar Herren I
+ I
 END:VALARM
 END:VEVENT
 END:VCALENDAR

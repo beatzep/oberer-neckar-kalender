@@ -2,7 +2,7 @@
   "verein": "HSG Oberer Neckar",
   "saison": "26/27",
   "saison_abgeschlossen": false,
-  "geholt_am": "2026-11-23T00:45:22",
+  "geholt_am": "2026-11-23T12:41:09",
   "teams": {
     "herren1": {
       "name": "Herren",
@@ -642,14 +642,14 @@
           "uhrzeit_bekannt": true,
           "heim": true,
           "gegner": "HT Heckengäu 5",
-          "tore_eigene": null,
-          "tore_gegner": null,
+          "tore_eigene": 0,
+          "tore_gegner": 0,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
           "schiedsrichter": "",
           "sequence": 0,
           "bericht_id": null,
-          "halbzeit_eigene": null,
-          "halbzeit_gegner": null
+          "halbzeit_eigene": 0,
+          "halbzeit_gegner": 0
         },
         {
           "id": "9680681",
@@ -658,14 +658,14 @@
           "uhrzeit_bekannt": true,
           "heim": true,
           "gegner": "TSV Haubersb.",
-          "tore_eigene": null,
-          "tore_gegner": null,
+          "tore_eigene": 0,
+          "tore_gegner": 0,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
           "schiedsrichter": "",
           "sequence": 0,
           "bericht_id": null,
-          "halbzeit_eigene": null,
-          "halbzeit_gegner": null
+          "halbzeit_eigene": 0,
+          "halbzeit_gegner": 0
         },
         {
           "id": "9680801",
@@ -674,14 +674,14 @@
           "uhrzeit_bekannt": true,
           "heim": false,
           "gegner": "TSF Welzheim 2",
-          "tore_eigene": null,
-          "tore_gegner": null,
+          "tore_eigene": 0,
+          "tore_gegner": 0,
           "halle": "Justinus-Kerner-Halle, Rienharzer Straße 51, 73642 Welzheim",
           "schiedsrichter": "",
           "sequence": 0,
           "bericht_id": null,
-          "halbzeit_eigene": null,
-          "halbzeit_gegner": null
+          "halbzeit_eigene": 0,
+          "halbzeit_gegner": 0
         },
         {
           "id": "9680771",
@@ -690,14 +690,14 @@
           "uhrzeit_bekannt": true,
           "heim": true,
           "gegner": "MTV Stuttgart 4",
-          "tore_eigene": null,
-          "tore_gegner": null,
+          "tore_eigene": 0,
+          "tore_gegner": 0,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
           "schiedsrichter": "",
           "sequence": 0,
           "bericht_id": null,
-          "halbzeit_eigene": null,
-          "halbzeit_gegner": null
+          "halbzeit_eigene": 0,
+          "halbzeit_gegner": 0
         },
         {
           "id": "9680821",
@@ -706,14 +706,14 @@
           "uhrzeit_bekannt": true,
           "heim": true,
           "gegner": "SV Remshalden 4",
-          "tore_eigene": null,
-          "tore_gegner": null,
+          "tore_eigene": 0,
+          "tore_gegner": 0,
           "halle": "Flatow-Sporthalle, Gingener Straße 21, 70327 Stuttgart-Wangen",
           "schiedsrichter": "",
           "sequence": 0,
           "bericht_id": null,
-          "halbzeit_eigene": null,
-          "halbzeit_gegner": null
+          "halbzeit_eigene": 0,
+          "halbzeit_gegner": 0
         },
         {
           "id": "9680841",
@@ -722,14 +722,14 @@
           "uhrzeit_bekannt": true,
           "heim": false,
           "gegner": "TSV Haubersb.",
-          "tore_eigene": null,
-          "tore_gegner": null,
+          "tore_eigene": 0,
+          "tore_gegner": 0,
           "halle": "Lauswiesenhalle, Lauswiesen 6, 73614 Schorndorf",
           "schiedsrichter": "",
           "sequence": 0,
           "bericht_id": null,
-          "halbzeit_eigene": null,
-          "halbzeit_gegner": null
+          "halbzeit_eigene": 0,
+          "halbzeit_gegner": 0
         },
         {
           "id": "9680861",
@@ -738,27 +738,27 @@
           "uhrzeit_bekannt": true,
           "heim": false,
           "gegner": "KSG Gerlingen",
-          "tore_eigene": null,
-          "tore_gegner": null,
+          "tore_eigene": 0,
+          "tore_gegner": 0,
           "halle": "Sporthalle Brückentor, Beim Brückentor, 70839 Gerlingen",
           "schiedsrichter": "",
           "sequence": 0,
           "bericht_id": null,
-          "halbzeit_eigene": null,
-          "halbzeit_gegner": null
+          "halbzeit_eigene": 0,
+          "halbzeit_gegner": 0
         }
       ],
       "tabelle": [
         {
           "platz": 1,
           "team": "HandballTeam Heckengäu 5",
-          "spiele": 7,
-          "siege": 7,
+          "spiele": 8,
+          "siege": 8,
           "unentschieden": 0,
           "niederlagen": 0,
           "tore_geschossen": 210,
           "tore_erhalten": 145,
-          "punkte_plus": 14,
+          "punkte_plus": 16,
           "punkte_minus": 0
         },
         {
@@ -775,75 +775,75 @@
         },
         {
           "platz": 3,
-          "team": "MTV Stuttgart 4",
-          "spiele": 7,
-          "siege": 3,
-          "unentschieden": 0,
-          "niederlagen": 4,
-          "tore_geschossen": 181,
-          "tore_erhalten": 193,
-          "punkte_plus": 6,
-          "punkte_minus": 8
-        },
-        {
-          "platz": 4,
-          "team": "SV Remshalden 4",
-          "spiele": 5,
-          "siege": 2,
-          "unentschieden": 1,
-          "niederlagen": 2,
-          "tore_geschossen": 164,
-          "tore_erhalten": 133,
-          "punkte_plus": 5,
-          "punkte_minus": 5
-        },
-        {
-          "platz": 5,
           "team": "TSV Haubersbronn",
-          "spiele": 5,
-          "siege": 2,
+          "spiele": 7,
+          "siege": 4,
           "unentschieden": 0,
           "niederlagen": 3,
           "tore_geschossen": 82,
           "tore_erhalten": 124,
-          "punkte_plus": 4,
+          "punkte_plus": 8,
           "punkte_minus": 6
+        },
+        {
+          "platz": 4,
+          "team": "MTV Stuttgart 4",
+          "spiele": 8,
+          "siege": 4,
+          "unentschieden": 0,
+          "niederlagen": 4,
+          "tore_geschossen": 181,
+          "tore_erhalten": 193,
+          "punkte_plus": 8,
+          "punkte_minus": 8
+        },
+        {
+          "platz": 5,
+          "team": "SV Remshalden 4",
+          "spiele": 6,
+          "siege": 3,
+          "unentschieden": 1,
+          "niederlagen": 2,
+          "tore_geschossen": 164,
+          "tore_erhalten": 133,
+          "punkte_plus": 7,
+          "punkte_minus": 5
         },
         {
           "platz": 6,
           "team": "KSG Gerlingen",
-          "spiele": 6,
-          "siege": 2,
+          "spiele": 7,
+          "siege": 3,
           "unentschieden": 0,
           "niederlagen": 4,
           "tore_geschossen": 161,
           "tore_erhalten": 179,
-          "punkte_plus": 4,
+          "punkte_plus": 6,
           "punkte_minus": 8
         },
         {
           "platz": 7,
           "team": "TSF Welzheim 2",
-          "spiele": 6,
-          "siege": 2,
+          "spiele": 7,
+          "siege": 3,
           "unentschieden": 0,
           "niederlagen": 4,
           "tore_geschossen": 157,
           "tore_erhalten": 181,
-          "punkte_plus": 4,
+          "punkte_plus": 6,
           "punkte_minus": 8
         },
         {
           "platz": 8,
           "team": "HSG Oberer Neckar 2",
-          "spiele": 7,
+          "spiele": 14,
           "siege": 1,
           "unentschieden": 1,
-          "niederlagen": 5,
+          "niederlagen": 12,
           "tore_geschossen": 125,
           "tore_erhalten": 140,
           "punkte_plus": 3,
-          "punkte_minus": 11
+          "punkte_minus": 25
         }
       ],
       "aenderungen": []
