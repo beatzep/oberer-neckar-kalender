@@ -2,7 +2,7 @@
   "verein": "HSG Oberer Neckar",
   "saison": "26/27",
   "saison_abgeschlossen": false,
-  "geholt_am": "2026-11-25T12:55:55",
+  "geholt_am": "2026-11-26T12:34:34",
   "teams": {
     "herren1": {
       "name": "Herren",
@@ -947,7 +947,7 @@
           "tore_eigene": null,
           "tore_gegner": null,
           "halle": "Sporthalle beim Bildungszentrum, Aichholzhof, 71554 Weissach i.T-Unterweissach",
-          "schiedsrichter": "",
+          "schiedsrichter": "Bühler,Zurek",
           "sequence": 0,
           "bericht_id": null,
           "halbzeit_eigene": null,
